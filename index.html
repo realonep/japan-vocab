@@ -30,6 +30,18 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #ffffff; }
         ::-webkit-scrollbar-thumb { background: #d1d1d1; border-radius: 4px; }
+
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            .mobile-compact td, .mobile-compact th { padding: 0.5rem 0.25rem; }
+            .mobile-compact .word-cell { font-size: 1.1rem; }
+            .mobile-compact .yomi-cell { font-size: 0.65rem; }
+            .mobile-compact .meaning-cell { font-size: 0.75rem; }
+            .mobile-compact .sentence-cell { font-size: 0.8rem; }
+            .mobile-compact .sentence-sub { font-size: 0.6rem; }
+            .mobile-compact .audio-btn { padding: 0.25rem; }
+            .mobile-compact .audio-btn svg { width: 14px; height: 14px; }
+        }
     </style>
 </head>
 <body class="p-4 md:p-10">
@@ -139,15 +151,15 @@
         </div>
 
         <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse">
+            <table class="w-full text-left border-collapse mobile-compact">
                 <thead>
                     <tr class="border-b-2 border-black">
-                        <th class="p-4 text-xs font-black uppercase tracking-widest">Word</th>
-                        <th class="p-4 text-xs font-black uppercase tracking-widest">Reading</th>
-                        <th class="p-4 text-xs font-black uppercase tracking-widest">Meaning</th>
-                        <th class="p-4 text-xs font-black uppercase tracking-widest">Example</th>
-                        <th class="p-4 text-xs font-black uppercase tracking-widest text-center">Count</th>
-                        <th class="p-4 text-xs font-black uppercase tracking-widest text-right">Listen</th>
+                        <th class="p-4 md:p-4 p-1 text-xs font-black uppercase">Word</th>
+                        <th class="p-4 md:p-4 p-1 text-xs font-black uppercase hidden md:table-cell">Reading</th>
+                        <th class="p-4 md:p-4 p-1 text-xs font-black uppercase">Meaning</th>
+                        <th class="p-4 md:p-4 p-1 text-xs font-black uppercase">Example</th>
+                        <th class="p-4 md:p-4 p-1 text-xs font-black uppercase text-center">Cnt</th>
+                        <th class="p-4 md:p-4 p-1 text-xs font-black uppercase text-right">🔊</th>
                     </tr>
                 </thead>
                 <tbody id="vocalTable">
@@ -783,22 +795,23 @@
                 tr.className = 'border-b border-gray-100 hover:bg-gray-50 transition-colors';
                 tr.setAttribute('data-yomi', item.yomi);
                 tr.innerHTML = `
-                    <td class="p-4">
-                        <div class="font-bold text-2xl tracking-tight">${item.word}</div>
-                        <div class="text-xs text-blue-500 mt-1">${item.word_pron || ''}</div>
+                    <td class="p-1 md:p-4">
+                        <div class="font-bold text-lg md:text-2xl tracking-tight word-cell">${item.word}</div>
+                        <div class="text-xs text-gray-400 md:hidden">${item.yomi}</div>
+                        <div class="text-xs text-blue-500">${item.word_pron || ''}</div>
                     </td>
-                    <td class="p-4 text-gray-400 font-mono text-sm uppercase">${item.yomi}</td>
-                    <td class="p-4 font-medium text-gray-600">${item.meaning}</td>
-                    <td class="p-4">
-                        <div class="font-bold text-black cursor-pointer hover:underline text-lg sentence-trigger">${item.sentence}</div>
-                        <div class="text-xs text-gray-400 mt-1">${item.s_meaning}</div>
-                        <div class="text-xs text-blue-500 mt-1">${item.s_pron || ''}</div>
+                    <td class="p-1 md:p-4 text-gray-400 font-mono text-sm uppercase yomi-cell hidden md:table-cell">${item.yomi}</td>
+                    <td class="p-1 md:p-4 font-medium text-gray-600 text-xs md:text-base meaning-cell">${item.meaning}</td>
+                    <td class="p-1 md:p-4">
+                        <div class="font-bold text-black cursor-pointer hover:underline text-sm md:text-lg sentence-trigger sentence-cell">${item.sentence}</div>
+                        <div class="text-xs text-gray-400 sentence-sub">${item.s_meaning}</div>
+                        <div class="text-xs text-blue-500 sentence-sub hidden md:block">${item.s_pron || ''}</div>
                     </td>
-                    <td class="p-4 text-center">
-                        <span class="count-badge px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(count)}">${count}</span>
+                    <td class="p-1 md:p-4 text-center">
+                        <span class="count-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(count)}">${count}</span>
                     </td>
-                    <td class="p-4 text-right">
-                        <button class="audio-btn p-2 rounded-full border border-black transition-all play-trigger">
+                    <td class="p-1 md:p-4 text-right">
+                        <button class="audio-btn p-1 md:p-2 rounded-full border border-black transition-all play-trigger">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
                         </button>
                     </td>
