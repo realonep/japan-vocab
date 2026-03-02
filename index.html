@@ -172,6 +172,7 @@
                     <!-- Data will be populated by JavaScript -->
                 </tbody>
             </table>
+            <div id="pagination" class="flex justify-center items-center gap-1 mt-4"></div>
         </div>
         </main>
     </div>
@@ -552,13 +553,24 @@
         // Load vocabulary data from JSON
         let vocabList = [];
         let currentWeek = 'week1';
-        
+        let currentPage = 1;
+        let totalPages = 1;
+        const PAGE_COUNT = 7;
+
         async function loadVocabData(week = 'week1') {
             try {
                 currentWeek = week;
                 const response = await fetch(`./${week}.json`);
                 if (!response.ok) throw new Error(`Failed to load ${week}.json`);
                 vocabList = await response.json();
+                // 페이지네이션 계산
+                if (week === 'week1') {
+                    totalPages = PAGE_COUNT;
+                    currentPage = 1;
+                } else {
+                    totalPages = 1;
+                    currentPage = 1;
+                }
                 console.log(`📚 Loaded ${vocabList.length} vocabulary items from ${week}`);
                 return vocabList;
             } catch (err) {
@@ -795,7 +807,15 @@
 
         function render(list) {
             tableBody.innerHTML = '';
-            list.forEach(item => {
+            let pagedList = list;
+            // 1주차만 7페이지 분할
+            if (currentWeek === 'week1' && totalPages > 1) {
+                const pageSize = Math.ceil(list.length / PAGE_COUNT);
+                const startIdx = (currentPage - 1) * pageSize;
+                const endIdx = startIdx + pageSize;
+                pagedList = list.slice(startIdx, endIdx);
+            }
+            pagedList.forEach(item => {
                 const count = getStudyCount(item.yomi);
                 const tr = document.createElement('tr');
                 tr.className = 'border-b border-gray-100 hover:bg-gray-50 transition-colors';
@@ -822,11 +842,8 @@
                         </button>
                     </td>
                 `;
-                
                 const playBtn = tr.querySelector('.play-trigger');
                 const sentenceBtn = tr.querySelector('.sentence-trigger');
-                
-                // Use yomi (히라가나) instead of word (한자) for correct Japanese pronunciation
                 playBtn.onclick = () => {
                     incrementStudyCount(item.yomi);
                     speak(item.yomi, playBtn);
@@ -835,10 +852,41 @@
                     incrementStudyCount(item.yomi);
                     speak(item.sentence, sentenceBtn);
                 };
-
                 tableBody.appendChild(tr);
             });
             updateStatsUI();
+            renderPagination(list.length);
+        }
+
+        // 페이지네이션 UI 렌더링
+        function renderPagination(totalItems) {
+            const pagination = document.getElementById('pagination');
+            if (currentWeek !== 'week1' || totalPages === 1) {
+                pagination.innerHTML = '';
+                return;
+            }
+            const pageSize = Math.ceil(totalItems / PAGE_COUNT);
+            let html = '';
+            html += `<button class="px-2 py-1 border rounded ${currentPage === 1 ? 'bg-gray-200 text-gray-400' : 'hover:bg-gray-100'}" ${currentPage === 1 ? 'disabled' : ''} data-page="prev">이전</button>`;
+            for (let i = 1; i <= totalPages; i++) {
+                html += `<button class="px-2 py-1 border rounded mx-0.5 ${currentPage === i ? 'bg-black text-white' : 'hover:bg-gray-100'}" data-page="${i}">${i}</button>`;
+            }
+            html += `<button class="px-2 py-1 border rounded ${currentPage === totalPages ? 'bg-gray-200 text-gray-400' : 'hover:bg-gray-100'}" ${currentPage === totalPages ? 'disabled' : ''} data-page="next">다음</button>`;
+            pagination.innerHTML = html;
+            // 이벤트 바인딩
+            Array.from(pagination.querySelectorAll('button[data-page]')).forEach(btn => {
+                btn.onclick = function() {
+                    const val = this.getAttribute('data-page');
+                    if (val === 'prev' && currentPage > 1) {
+                        currentPage--;
+                    } else if (val === 'next' && currentPage < totalPages) {
+                        currentPage++;
+                    } else if (!isNaN(Number(val))) {
+                        currentPage = Number(val);
+                    }
+                    renderFiltered();
+                };
+            });
         }
 
         // Filter functions
@@ -848,9 +896,7 @@
             const mode = filterMode.value;
             const today = new Date().toISOString().split('T')[0];
             const studyData = getStudyData();
-            
             let filtered = vocabList;
-            
             if (mode === 'unstudied') {
                 filtered = vocabList.filter(item => !studyData[item.yomi] || studyData[item.yomi].count === 0);
             } else if (mode === 'today') {
@@ -858,7 +904,6 @@
             } else if (mode === 'studied') {
                 filtered = vocabList.filter(item => studyData[item.yomi]?.count > 0);
             }
-            
             // Apply search filter too
             const term = normalizeText(searchInput.value);
             if (term) {
@@ -869,7 +914,16 @@
                     return haystack.includes(term);
                 });
             }
-            
+            // 페이지네이션: 검색/필터 시 1페이지로 이동
+            if (currentWeek === 'week1' && totalPages > 1 && filtered.length > 0) {
+                const pageSize = Math.ceil(vocabList.length / PAGE_COUNT);
+                const maxPage = Math.ceil(filtered.length / pageSize);
+                if (currentPage > maxPage) currentPage = 1;
+                totalPages = maxPage;
+            } else {
+                totalPages = 1;
+                currentPage = 1;
+            }
             render(filtered);
         }
 
