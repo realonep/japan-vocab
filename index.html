@@ -33,14 +33,14 @@
 
         /* 모바일 반응형 */
         @media (max-width: 768px) {
-            .mobile-compact td, .mobile-compact th { padding: 0.5rem 0.25rem; }
-            .mobile-compact .word-cell { font-size: 1.1rem; }
+            .mobile-compact td, .mobile-compact th { padding: 0.3rem 0.2rem; }
+            .mobile-compact .word-cell { font-size: 1rem; white-space: nowrap; }
             .mobile-compact .yomi-cell { font-size: 0.65rem; }
-            .mobile-compact .meaning-cell { font-size: 0.75rem; }
-            .mobile-compact .sentence-cell { font-size: 0.8rem; }
+            .mobile-compact .meaning-cell { font-size: 0.7rem; }
+            .mobile-compact .sentence-cell { font-size: 0.75rem; }
             .mobile-compact .sentence-sub { font-size: 0.6rem; }
-            .mobile-compact .audio-btn { padding: 0.25rem; }
-            .mobile-compact .audio-btn svg { width: 14px; height: 14px; }
+            .mobile-compact .audio-btn { padding: 0.2rem; }
+            .mobile-compact .audio-btn svg { width: 12px; height: 12px; }
         }
     </style>
 </head>
@@ -805,7 +805,7 @@
                     <td class="p-1 md:p-4">
                         <div class="font-bold text-black cursor-pointer hover:underline text-sm md:text-lg sentence-trigger sentence-cell">${item.sentence}</div>
                         <div class="text-xs text-gray-400 sentence-sub">${item.s_meaning}</div>
-                        <div class="text-xs text-blue-500 sentence-sub hidden md:block">${item.s_pron || ''}</div>
+                        <div class="text-xs text-blue-500 sentence-sub">${item.s_pron || ''}</div>
                     </td>
                     <td class="p-1 md:p-4 text-center">
                         <span class="count-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(count)}">${count}</span>
