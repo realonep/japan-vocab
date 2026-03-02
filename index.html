@@ -33,14 +33,20 @@
 
         /* 모바일 반응형 */
         @media (max-width: 768px) {
+            .mobile-compact { table-layout: fixed; }
             .mobile-compact td, .mobile-compact th { padding: 0.3rem 0.2rem; }
-            .mobile-compact .word-cell { font-size: 1rem; white-space: nowrap; }
+            .mobile-compact .word-cell { font-size: 1rem; }
             .mobile-compact .yomi-cell { font-size: 0.65rem; }
             .mobile-compact .meaning-cell { font-size: 0.7rem; }
             .mobile-compact .sentence-cell { font-size: 0.75rem; }
             .mobile-compact .sentence-sub { font-size: 0.6rem; }
             .mobile-compact .audio-btn { padding: 0.2rem; }
             .mobile-compact .audio-btn svg { width: 12px; height: 12px; }
+            .col-word { width: 18%; }
+            .col-meaning { width: 15%; }
+            .col-example { width: 50%; }
+            .col-count { width: 8%; }
+            .col-listen { width: 9%; }
         }
     </style>
 </head>
@@ -154,12 +160,12 @@
             <table class="w-full text-left border-collapse mobile-compact">
                 <thead>
                     <tr class="border-b-2 border-black">
-                        <th class="p-4 md:p-4 p-1 text-xs font-black uppercase">Word</th>
-                        <th class="p-4 md:p-4 p-1 text-xs font-black uppercase hidden md:table-cell">Reading</th>
-                        <th class="p-4 md:p-4 p-1 text-xs font-black uppercase">Meaning</th>
-                        <th class="p-4 md:p-4 p-1 text-xs font-black uppercase">Example</th>
-                        <th class="p-4 md:p-4 p-1 text-xs font-black uppercase text-center">Cnt</th>
-                        <th class="p-4 md:p-4 p-1 text-xs font-black uppercase text-right">🔊</th>
+                        <th class="p-1 md:p-4 text-xs font-black uppercase col-word">Word</th>
+                        <th class="p-1 md:p-4 text-xs font-black uppercase hidden md:table-cell">Reading</th>
+                        <th class="p-1 md:p-4 text-xs font-black uppercase col-meaning">Meaning</th>
+                        <th class="p-1 md:p-4 text-xs font-black uppercase col-example">Example</th>
+                        <th class="p-1 md:p-4 text-xs font-black uppercase text-center col-count">Cnt</th>
+                        <th class="p-1 md:p-4 text-xs font-black uppercase text-right col-listen">🔊</th>
                     </tr>
                 </thead>
                 <tbody id="vocalTable">
