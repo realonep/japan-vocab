@@ -1,0 +1,1262 @@
+[
+  {
+    "word": "買い物",
+    "yomi": "かいもの",
+    "meaning": "쇼핑",
+    "word_pron": "카이모노",
+    "sentence": "今日は買い物をします。",
+    "s_meaning": "오늘은 쇼핑을 합니다.",
+    "s_pron": "쿄우와 카이모노오 시마스。"
+  },
+  {
+    "word": "欲しい",
+    "yomi": "ほしい",
+    "meaning": "갖고 싶다",
+    "word_pron": "호시이",
+    "sentence": "このカバンが欲しいです。",
+    "s_meaning": "이 가방이 갖고 싶습니다.",
+    "s_pron": "코노 카반가 호시이데스。"
+  },
+  {
+    "word": "要る",
+    "yomi": "いる",
+    "meaning": "필요하다",
+    "word_pron": "이루",
+    "sentence": "袋は要りますか。",
+    "s_meaning": "봉투는 필요합니까?",
+    "s_pron": "후쿠로와 이리마스카。"
+  },
+  {
+    "word": "選ぶ",
+    "yomi": "えらぶ",
+    "meaning": "고르다",
+    "word_pron": "에라부",
+    "sentence": "どれを選びますか。",
+    "s_meaning": "어느 것을 고르나요?",
+    "s_pron": "도레오 에라비마스카。"
+  },
+  {
+    "word": "探す",
+    "yomi": "さがす",
+    "meaning": "찾다",
+    "word_pron": "사가스",
+    "sentence": "サイズを探しています。",
+    "s_meaning": "사이즈를 찾고 있습니다.",
+    "s_pron": "사이즈오 사가시테이마스。"
+  },
+  {
+    "word": "見せる",
+    "yomi": "みせる",
+    "meaning": "보여주다",
+    "word_pron": "미세루",
+    "sentence": "これを見せてください。",
+    "s_meaning": "이것을 보여주세요.",
+    "s_pron": "코레오 미세테쿠다사이。"
+  },
+  {
+    "word": "試着",
+    "yomi": "しちゃく",
+    "meaning": "시착",
+    "word_pron": "시챠쿠",
+    "sentence": "試着してもいいですか。",
+    "s_meaning": "입어봐도 되나요?",
+    "s_pron": "시챠쿠시테모 이이데스카。"
+  },
+  {
+    "word": "着る",
+    "yomi": "きる",
+    "meaning": "입다(상의)",
+    "word_pron": "키루",
+    "sentence": "この服を着ます。",
+    "s_meaning": "이 옷을 입습니다.",
+    "s_pron": "코노 후쿠오 키마스。"
+  },
+  {
+    "word": "履く",
+    "yomi": "はく",
+    "meaning": "신다/입다(하의)",
+    "word_pron": "하쿠",
+    "sentence": "この靴を履きます。",
+    "s_meaning": "이 신발을 신습니다.",
+    "s_pron": "코노 쿠츠오 하키마스。"
+  },
+  {
+    "word": "脱ぐ",
+    "yomi": "ぬぐ",
+    "meaning": "벗다",
+    "word_pron": "누구",
+    "sentence": "ここで靴を脱ぎます。",
+    "s_meaning": "여기서 신발을 벗습니다.",
+    "s_pron": "코코데 쿠츠오 누기마스。"
+  },
+  {
+    "word": "サイズ",
+    "yomi": "さいず",
+    "meaning": "사이즈",
+    "word_pron": "사이즈",
+    "sentence": "このサイズはありますか。",
+    "s_meaning": "이 사이즈는 있나요?",
+    "s_pron": "코노 사이즈와 아리마스카。"
+  },
+  {
+    "word": "色",
+    "yomi": "いろ",
+    "meaning": "색",
+    "word_pron": "이로",
+    "sentence": "他の色はありますか。",
+    "s_meaning": "다른 색은 있나요?",
+    "s_pron": "호카노 이로와 아리마스카。"
+  },
+  {
+    "word": "似合う",
+    "yomi": "にあう",
+    "meaning": "어울리다",
+    "word_pron": "니아우",
+    "sentence": "この帽子は似合いますか。",
+    "s_meaning": "이 모자는 어울리나요?",
+    "s_pron": "코노 보우시와 니아이마스카。"
+  },
+  {
+    "word": "人気",
+    "yomi": "にんき",
+    "meaning": "인기",
+    "word_pron": "닌키",
+    "sentence": "これは人気があります。",
+    "s_meaning": "이건 인기가 있습니다.",
+    "s_pron": "코레와 닌키가 아리마스。"
+  },
+  {
+    "word": "店員",
+    "yomi": "てんいん",
+    "meaning": "점원/직원",
+    "word_pron": "텐인",
+    "sentence": "店員さんを呼びます。",
+    "s_meaning": "점원을 부릅니다.",
+    "s_pron": "텐인산오 요비마스。"
+  },
+  {
+    "word": "こちら",
+    "yomi": "こちら",
+    "meaning": "이쪽/이것",
+    "word_pron": "코치라",
+    "sentence": "こちらはどうですか。",
+    "s_meaning": "이쪽은 어떻습니까?",
+    "s_pron": "코치라와 도우데스카。"
+  },
+  {
+    "word": "これ",
+    "yomi": "これ",
+    "meaning": "이것",
+    "word_pron": "코레",
+    "sentence": "これをください。",
+    "s_meaning": "이것 주세요.",
+    "s_pron": "코레오 쿠다사이。"
+  },
+  {
+    "word": "それ",
+    "yomi": "それ",
+    "meaning": "그것",
+    "word_pron": "소레",
+    "sentence": "それも見せてください。",
+    "s_meaning": "그것도 보여주세요.",
+    "s_pron": "소레모 미세테쿠다사이。"
+  },
+  {
+    "word": "あれ",
+    "yomi": "あれ",
+    "meaning": "저것",
+    "word_pron": "아레",
+    "sentence": "あれは何ですか。",
+    "s_meaning": "저것은 무엇입니까?",
+    "s_pron": "아레와 난데스카。"
+  },
+  {
+    "word": "取り置き",
+    "yomi": "とりおき",
+    "meaning": "(상품) 맡아두기",
+    "word_pron": "토리오키",
+    "sentence": "この商品を取り置きできますか。",
+    "s_meaning": "이 상품을 맡아둘 수 있나요?",
+    "s_pron": "코노 쇼우힌오 토리오키데키마스카。"
+  },
+  {
+    "word": "値段",
+    "yomi": "ねだん",
+    "meaning": "가격",
+    "word_pron": "네단",
+    "sentence": "値段はいくらですか。",
+    "s_meaning": "가격은 얼마인가요?",
+    "s_pron": "네단와 이쿠라데스카。"
+  },
+  {
+    "word": "料金",
+    "yomi": "りょうきん",
+    "meaning": "요금",
+    "word_pron": "료우킨",
+    "sentence": "入場料金を払います。",
+    "s_meaning": "입장 요금을 지불합니다.",
+    "s_pron": "뉴우죠우료우킨오 하라이마스。"
+  },
+  {
+    "word": "割引",
+    "yomi": "わりびき",
+    "meaning": "할인",
+    "word_pron": "와리비키",
+    "sentence": "割引はありますか。",
+    "s_meaning": "할인은 있나요?",
+    "s_pron": "와리비키와 아리마스카。"
+  },
+  {
+    "word": "セール",
+    "yomi": "せーる",
+    "meaning": "세일",
+    "word_pron": "세-루",
+    "sentence": "今日はセールです。",
+    "s_meaning": "오늘은 세일입니다.",
+    "s_pron": "쿄우와 세-루데스。"
+  },
+  {
+    "word": "半額",
+    "yomi": "はんがく",
+    "meaning": "반값",
+    "word_pron": "한가쿠",
+    "sentence": "半額になりました。",
+    "s_meaning": "반값이 되었습니다.",
+    "s_pron": "한가쿠니 나리마시타。"
+  },
+  {
+    "word": "合計",
+    "yomi": "ごうけい",
+    "meaning": "합계",
+    "word_pron": "고우케이",
+    "sentence": "合計はいくらですか。",
+    "s_meaning": "합계는 얼마인가요?",
+    "s_pron": "고우케이와 이쿠라데스카。"
+  },
+  {
+    "word": "税金",
+    "yomi": "ぜいきん",
+    "meaning": "세금",
+    "word_pron": "제이킨",
+    "sentence": "税金がかかります。",
+    "s_meaning": "세금이 붙습니다.",
+    "s_pron": "제이킨가 카카리마스。"
+  },
+  {
+    "word": "支払う",
+    "yomi": "しはらう",
+    "meaning": "지불하다",
+    "word_pron": "시하라우",
+    "sentence": "カードで支払います。",
+    "s_meaning": "카드로 결제합니다.",
+    "s_pron": "카-도데 시하라이마스。"
+  },
+  {
+    "word": "現金",
+    "yomi": "げんきん",
+    "meaning": "현금",
+    "word_pron": "겐킨",
+    "sentence": "現金でお願いします。",
+    "s_meaning": "현금으로 부탁합니다.",
+    "s_pron": "겐킨데 오네가이시마스。"
+  },
+  {
+    "word": "クレジットカード",
+    "yomi": "くれじっとかーど",
+    "meaning": "신용카드",
+    "word_pron": "쿠레짓토카-도",
+    "sentence": "クレジットカードは使えますか。",
+    "s_meaning": "신용카드 사용할 수 있나요?",
+    "s_pron": "쿠레짓토카-도와 츠카에마스카。"
+  },
+  {
+    "word": "レジ",
+    "yomi": "れじ",
+    "meaning": "계산대",
+    "word_pron": "레지",
+    "sentence": "レジはどこですか。",
+    "s_meaning": "계산대는 어디입니까?",
+    "s_pron": "레지와 도코데스카。"
+  },
+  {
+    "word": "釣り銭",
+    "yomi": "つりせん",
+    "meaning": "거스름돈",
+    "word_pron": "츠리센",
+    "sentence": "釣り銭をください。",
+    "s_meaning": "거스름돈 주세요.",
+    "s_pron": "츠리센오 쿠다사이。"
+  },
+  {
+    "word": "領収書",
+    "yomi": "りょうしゅうしょ",
+    "meaning": "영수증(증빙)",
+    "word_pron": "료우슈우쇼",
+    "sentence": "領収書をください。",
+    "s_meaning": "영수증 주세요.",
+    "s_pron": "료우슈우쇼오 쿠다사이。"
+  },
+  {
+    "word": "明細",
+    "yomi": "めいさい",
+    "meaning": "명세",
+    "word_pron": "메이사이",
+    "sentence": "明細を見せてください。",
+    "s_meaning": "명세를 보여주세요.",
+    "s_pron": "메이사이오 미세테쿠다사이。"
+  },
+  {
+    "word": "返品",
+    "yomi": "へんぴん",
+    "meaning": "반품",
+    "word_pron": "헨핀",
+    "sentence": "返品できますか。",
+    "s_meaning": "반품할 수 있나요?",
+    "s_pron": "헨핀데키마스카。"
+  },
+  {
+    "word": "交換",
+    "yomi": "こうかん",
+    "meaning": "교환",
+    "word_pron": "코우칸",
+    "sentence": "サイズを交換したいです。",
+    "s_meaning": "사이즈를 교환하고 싶습니다.",
+    "s_pron": "사이즈오 코우칸시타이데스。"
+  },
+  {
+    "word": "返金",
+    "yomi": "へんきん",
+    "meaning": "환불",
+    "word_pron": "헨킨",
+    "sentence": "返金してください。",
+    "s_meaning": "환불해 주세요.",
+    "s_pron": "헨킨시테 쿠다사이。"
+  },
+  {
+    "word": "在庫",
+    "yomi": "ざいこ",
+    "meaning": "재고",
+    "word_pron": "자이코",
+    "sentence": "在庫はありますか。",
+    "s_meaning": "재고가 있나요?",
+    "s_pron": "자이코와 아리마스카。"
+  },
+  {
+    "word": "品切れ",
+    "yomi": "しなぎれ",
+    "meaning": "품절",
+    "word_pron": "시나기레",
+    "sentence": "それは品切れです。",
+    "s_meaning": "그것은 품절입니다.",
+    "s_pron": "소레와 시나기레데스。"
+  },
+  {
+    "word": "追加料金",
+    "yomi": "ついかりょうきん",
+    "meaning": "추가요금",
+    "word_pron": "츠이카료우킨",
+    "sentence": "追加料金はかかりますか。",
+    "s_meaning": "추가요금이 붙나요?",
+    "s_pron": "츠이카료우킨와 카카리마스카。"
+  },
+  {
+    "word": "一つ",
+    "yomi": "ひとつ",
+    "meaning": "하나(개)",
+    "word_pron": "히토츠",
+    "sentence": "これを一つください。",
+    "s_meaning": "이것 하나 주세요.",
+    "s_pron": "코레오 히토츠 쿠다사이。"
+  },
+  {
+    "word": "二つ",
+    "yomi": "ふたつ",
+    "meaning": "둘(개)",
+    "word_pron": "후타츠",
+    "sentence": "二つお願いします。",
+    "s_meaning": "두 개 부탁합니다.",
+    "s_pron": "후타츠 오네가이시마스。"
+  },
+  {
+    "word": "三つ",
+    "yomi": "みっつ",
+    "meaning": "셋(개)",
+    "word_pron": "밋츠",
+    "sentence": "三つ買いました。",
+    "s_meaning": "세 개 샀습니다.",
+    "s_pron": "밋츠 카이마시타。"
+  },
+  {
+    "word": "四つ",
+    "yomi": "よっつ",
+    "meaning": "넷(개)",
+    "word_pron": "욧츠",
+    "sentence": "四つあります。",
+    "s_meaning": "네 개 있습니다.",
+    "s_pron": "욧츠 아리마스。"
+  },
+  {
+    "word": "五つ",
+    "yomi": "いつつ",
+    "meaning": "다섯(개)",
+    "word_pron": "이츠츠",
+    "sentence": "五つください。",
+    "s_meaning": "다섯 개 주세요.",
+    "s_pron": "이츠츠 쿠다사이。"
+  },
+  {
+    "word": "一人",
+    "yomi": "ひとり",
+    "meaning": "한 명",
+    "word_pron": "히토리",
+    "sentence": "一人です。",
+    "s_meaning": "한 명입니다.",
+    "s_pron": "히토리데스。"
+  },
+  {
+    "word": "二人",
+    "yomi": "ふたり",
+    "meaning": "두 명",
+    "word_pron": "후타리",
+    "sentence": "二人で行きます。",
+    "s_meaning": "두 명이서 갑니다.",
+    "s_pron": "후타리데 이키마스。"
+  },
+  {
+    "word": "一枚",
+    "yomi": "いちまい",
+    "meaning": "한 장",
+    "word_pron": "이치마이",
+    "sentence": "切符を一枚ください。",
+    "s_meaning": "표 한 장 주세요.",
+    "s_pron": "킵푸오 이치마이 쿠다사이。"
+  },
+  {
+    "word": "二枚",
+    "yomi": "にまい",
+    "meaning": "두 장",
+    "word_pron": "니마이",
+    "sentence": "二枚あります。",
+    "s_meaning": "두 장 있습니다.",
+    "s_pron": "니마이 아리마스。"
+  },
+  {
+    "word": "一杯",
+    "yomi": "いっぱい",
+    "meaning": "한 잔",
+    "word_pron": "입파이",
+    "sentence": "コーヒーを一杯ください。",
+    "s_meaning": "커피 한 잔 주세요.",
+    "s_pron": "코-히-오 입파이 쿠다사이。"
+  },
+  {
+    "word": "一本",
+    "yomi": "いっぽん",
+    "meaning": "한 병/한 개(긴 것)",
+    "word_pron": "입폰",
+    "sentence": "水を一本ください。",
+    "s_meaning": "물 한 병 주세요.",
+    "s_pron": "미즈오 입폰 쿠다사이。"
+  },
+  {
+    "word": "一個",
+    "yomi": "いっこ",
+    "meaning": "한 개",
+    "word_pron": "익코",
+    "sentence": "りんごを一個ください。",
+    "s_meaning": "사과 한 개 주세요.",
+    "s_pron": "린고오 익코 쿠다사이。"
+  },
+  {
+    "word": "何個",
+    "yomi": "なんこ",
+    "meaning": "몇 개",
+    "word_pron": "난코",
+    "sentence": "何個買いますか。",
+    "s_meaning": "몇 개 사나요?",
+    "s_pron": "난코 카이마스카。"
+  },
+  {
+    "word": "何枚",
+    "yomi": "なんまい",
+    "meaning": "몇 장",
+    "word_pron": "난마이",
+    "sentence": "何枚ありますか。",
+    "s_meaning": "몇 장 있나요?",
+    "s_pron": "난마이 아리마스카。"
+  },
+  {
+    "word": "多い",
+    "yomi": "おおい",
+    "meaning": "많다",
+    "word_pron": "오오이",
+    "sentence": "人が多いです。",
+    "s_meaning": "사람이 많습니다.",
+    "s_pron": "히토가 오오이데스。"
+  },
+  {
+    "word": "少ない",
+    "yomi": "すくない",
+    "meaning": "적다",
+    "word_pron": "스쿠나이",
+    "sentence": "在庫が少ないです。",
+    "s_meaning": "재고가 적습니다.",
+    "s_pron": "자이코가 스쿠나이데스。"
+  },
+  {
+    "word": "量",
+    "yomi": "りょう",
+    "meaning": "양",
+    "word_pron": "료우",
+    "sentence": "量を減らしてください。",
+    "s_meaning": "양을 줄여 주세요.",
+    "s_pron": "료우오 헤라시테 쿠다사이。"
+  },
+  {
+    "word": "半分",
+    "yomi": "はんぶん",
+    "meaning": "절반",
+    "word_pron": "한분",
+    "sentence": "半分にしてください。",
+    "s_meaning": "절반으로 해 주세요.",
+    "s_pron": "한분니 시테 쿠다사이。"
+  },
+  {
+    "word": "以上",
+    "yomi": "いじょう",
+    "meaning": "이상/최소",
+    "word_pron": "이죠우",
+    "sentence": "千円以上です。",
+    "s_meaning": "천 엔 이상입니다.",
+    "s_pron": "센엔이죠우데스。"
+  },
+  {
+    "word": "以下",
+    "yomi": "いか",
+    "meaning": "이하",
+    "word_pron": "이카",
+    "sentence": "五百円以下です。",
+    "s_meaning": "500엔 이하입니다.",
+    "s_pron": "고햐쿠엔이카데스。"
+  },
+  {
+    "word": "大きめ",
+    "yomi": "おおきめ",
+    "meaning": "조금 큰",
+    "word_pron": "오오키메",
+    "sentence": "大きめがいいです。",
+    "s_meaning": "조금 큰 게 좋아요.",
+    "s_pron": "오오키메가 이이데스。"
+  },
+  {
+    "word": "小さめ",
+    "yomi": "ちいさめ",
+    "meaning": "조금 작은",
+    "word_pron": "치이사메",
+    "sentence": "小さめをください。",
+    "s_meaning": "조금 작은 걸 주세요.",
+    "s_pron": "치이사메오 쿠다사이。"
+  },
+  {
+    "word": "長い",
+    "yomi": "ながい",
+    "meaning": "길다",
+    "word_pron": "나가이",
+    "sentence": "この紐は長いです。",
+    "s_meaning": "이 끈은 깁니다.",
+    "s_pron": "코노 히모와 나가이데스。"
+  },
+  {
+    "word": "短い",
+    "yomi": "みじかい",
+    "meaning": "짧다",
+    "word_pron": "미지카이",
+    "sentence": "もう少し短いのがいいです。",
+    "s_meaning": "좀 더 짧은 게 좋아요.",
+    "s_pron": "모우스코시 미지카이노가 이이데스。"
+  },
+  {
+    "word": "重い",
+    "yomi": "おもい",
+    "meaning": "무겁다",
+    "word_pron": "오모이",
+    "sentence": "これは少し重いです。",
+    "s_meaning": "이건 조금 무겁습니다.",
+    "s_pron": "코레와 스코시 오모이데스。"
+  },
+  {
+    "word": "軽い",
+    "yomi": "かるい",
+    "meaning": "가볍다",
+    "word_pron": "카루이",
+    "sentence": "軽いバッグが欲しいです。",
+    "s_meaning": "가벼운 가방이 갖고 싶습니다.",
+    "s_pron": "카루이 박구가 호시이데스。"
+  },
+  {
+    "word": "厚い",
+    "yomi": "あつい",
+    "meaning": "두껍다",
+    "word_pron": "아츠이",
+    "sentence": "厚いコートです。",
+    "s_meaning": "두꺼운 코트입니다.",
+    "s_pron": "아츠이 코-토데스。"
+  },
+  {
+    "word": "薄い",
+    "yomi": "うすい",
+    "meaning": "얇다",
+    "word_pron": "우스이",
+    "sentence": "薄いシャツです。",
+    "s_meaning": "얇은 셔츠입니다.",
+    "s_pron": "우스이 샤츠데스。"
+  },
+  {
+    "word": "丈夫",
+    "yomi": "じょうぶ",
+    "meaning": "튼튼하다",
+    "word_pron": "죠우부",
+    "sentence": "この靴は丈夫です。",
+    "s_meaning": "이 신발은 튼튼합니다.",
+    "s_pron": "코노 쿠츠와 죠우부데스。"
+  },
+  {
+    "word": "きつい",
+    "yomi": "きつい",
+    "meaning": "꽉 끼다",
+    "word_pron": "키츠이",
+    "sentence": "この靴はきついです。",
+    "s_meaning": "이 신발은 꽉 낍니다.",
+    "s_pron": "코노 쿠츠와 키츠이데스。"
+  },
+  {
+    "word": "ゆるい",
+    "yomi": "ゆるい",
+    "meaning": "헐렁하다",
+    "word_pron": "유루이",
+    "sentence": "ズボンがゆるいです。",
+    "s_meaning": "바지가 헐렁합니다.",
+    "s_pron": "즈본가 유루이데스。"
+  },
+  {
+    "word": "同じ",
+    "yomi": "おなじ",
+    "meaning": "같다",
+    "word_pron": "오나지",
+    "sentence": "同じ色がいいです。",
+    "s_meaning": "같은 색이 좋아요.",
+    "s_pron": "오나지 이로가 이이데스。"
+  },
+  {
+    "word": "違う",
+    "yomi": "ちがう",
+    "meaning": "다르다",
+    "word_pron": "치가우",
+    "sentence": "これは違います。",
+    "s_meaning": "이것은 다릅니다.",
+    "s_pron": "코레와 치가이마스。"
+  },
+  {
+    "word": "赤",
+    "yomi": "あか",
+    "meaning": "빨강",
+    "word_pron": "아카",
+    "sentence": "赤をください。",
+    "s_meaning": "빨간색 주세요.",
+    "s_pron": "아카오 쿠다사이。"
+  },
+  {
+    "word": "青",
+    "yomi": "あお",
+    "meaning": "파랑",
+    "word_pron": "아오",
+    "sentence": "青が好きです。",
+    "s_meaning": "파란색을 좋아합니다.",
+    "s_pron": "아오가 스키데스。"
+  },
+  {
+    "word": "黒",
+    "yomi": "くろ",
+    "meaning": "검정",
+    "word_pron": "쿠로",
+    "sentence": "黒はありますか。",
+    "s_meaning": "검정은 있나요?",
+    "s_pron": "쿠로와 아리마스카。"
+  },
+  {
+    "word": "白",
+    "yomi": "しろ",
+    "meaning": "흰색",
+    "word_pron": "시로",
+    "sentence": "白もあります。",
+    "s_meaning": "흰색도 있습니다.",
+    "s_pron": "시로모 아리마스。"
+  },
+  {
+    "word": "緑",
+    "yomi": "みどり",
+    "meaning": "초록",
+    "word_pron": "미도리",
+    "sentence": "緑がきれいです。",
+    "s_meaning": "초록색이 예쁩니다.",
+    "s_pron": "미도리가 키레이데스。"
+  },
+  {
+    "word": "柄",
+    "yomi": "がら",
+    "meaning": "무늬",
+    "word_pron": "가라",
+    "sentence": "この柄が好きです。",
+    "s_meaning": "이 무늬가 좋아요.",
+    "s_pron": "코노 가라가 스키데스。"
+  },
+  {
+    "word": "素材",
+    "yomi": "そざい",
+    "meaning": "소재/재질",
+    "word_pron": "소자이",
+    "sentence": "素材は何ですか。",
+    "s_meaning": "소재는 무엇입니까?",
+    "s_pron": "소자이와 난데스카。"
+  },
+  {
+    "word": "〜てください",
+    "yomi": "〜てください",
+    "meaning": "~해 주세요",
+    "word_pron": "테쿠다사이",
+    "sentence": "ゆっくり話してください。",
+    "s_meaning": "천천히 말해 주세요.",
+    "s_pron": "육쿠리 하나시테 쿠다사이。"
+  },
+  {
+    "word": "〜てもいいですか",
+    "yomi": "〜てもいいですか",
+    "meaning": "~해도 되나요?",
+    "word_pron": "테모이이데스카",
+    "sentence": "ここで写真を撮ってもいいですか。",
+    "s_meaning": "여기서 사진 찍어도 되나요?",
+    "s_pron": "코코데 샤신오 톳테모 이이데스카。"
+  },
+  {
+    "word": "〜てはいけない",
+    "yomi": "〜てはいけない",
+    "meaning": "~하면 안 된다",
+    "word_pron": "테하이케나이",
+    "sentence": "ここで食べてはいけません。",
+    "s_meaning": "여기서 먹으면 안 됩니다.",
+    "s_pron": "코코데 타베테와 이케마센。"
+  },
+  {
+    "word": "〜ませんか",
+    "yomi": "〜ませんか",
+    "meaning": "~하지 않겠습니까?",
+    "word_pron": "마센카",
+    "sentence": "一緒に行きませんか。",
+    "s_meaning": "같이 가지 않겠습니까?",
+    "s_pron": "잇쇼니 이키마센카。"
+  },
+  {
+    "word": "〜ましょう",
+    "yomi": "〜ましょう",
+    "meaning": "~합시다",
+    "word_pron": "마쇼우",
+    "sentence": "レジへ行きましょう。",
+    "s_meaning": "계산대로 갑시다.",
+    "s_pron": "레지에 이키마쇼우。"
+  },
+  {
+    "word": "〜てもらえますか",
+    "yomi": "〜てもらえますか",
+    "meaning": "~해 줄 수 있나요?",
+    "word_pron": "테모라에마스카",
+    "sentence": "これを説明してもらえますか。",
+    "s_meaning": "이것을 설명해 주실 수 있나요?",
+    "s_pron": "코레오 세츠메이시테 모라에마스카。"
+  },
+  {
+    "word": "ちょっといいですか",
+    "yomi": "ちょっといいですか",
+    "meaning": "잠깐 괜찮을까요?",
+    "word_pron": "춋토이이데스카",
+    "sentence": "ちょっといいですか。",
+    "s_meaning": "잠깐 괜찮을까요?",
+    "s_pron": "춋토 이이데스카。"
+  },
+  {
+    "word": "少々",
+    "yomi": "しょうしょう",
+    "meaning": "잠시/조금",
+    "word_pron": "쇼우쇼우",
+    "sentence": "少々お待ちください。",
+    "s_meaning": "잠시만 기다려 주세요.",
+    "s_pron": "쇼우쇼우 오마치 쿠다사이。"
+  },
+  {
+    "word": "もう少し",
+    "yomi": "もうすこし",
+    "meaning": "조금 더",
+    "word_pron": "모우스코시",
+    "sentence": "もう少し安くなりますか。",
+    "s_meaning": "조금 더 싸지나요?",
+    "s_pron": "모우스코시 야스쿠나리마스카。"
+  },
+  {
+    "word": "別々",
+    "yomi": "べつべつ",
+    "meaning": "따로따로",
+    "word_pron": "베츠베츠",
+    "sentence": "別々に払います。",
+    "s_meaning": "따로 계산합니다.",
+    "s_pron": "베츠베츠니 하라이마스。"
+  },
+  {
+    "word": "そのまま",
+    "yomi": "そのまま",
+    "meaning": "그대로",
+    "word_pron": "소노마마",
+    "sentence": "そのままでお願いします。",
+    "s_meaning": "그대로 부탁합니다.",
+    "s_pron": "소노마마데 오네가이시마스。"
+  },
+  {
+    "word": "後ほど",
+    "yomi": "のちほど",
+    "meaning": "나중에(정중)",
+    "word_pron": "노치호도",
+    "sentence": "後ほど連絡します。",
+    "s_meaning": "나중에 연락하겠습니다.",
+    "s_pron": "노치호도 렌라쿠시마스。"
+  },
+  {
+    "word": "かまいません",
+    "yomi": "かまいません",
+    "meaning": "상관없습니다/괜찮습니다",
+    "word_pron": "카마이마센",
+    "sentence": "それでもかまいません。",
+    "s_meaning": "그래도 괜찮습니다.",
+    "s_pron": "소레데모 카마이마센。"
+  },
+  {
+    "word": "申し訳ない",
+    "yomi": "もうしわけない",
+    "meaning": "죄송하다(정중)",
+    "word_pron": "모우시와케나이",
+    "sentence": "申し訳ないです。",
+    "s_meaning": "죄송합니다.",
+    "s_pron": "모우시와케나이데스。"
+  },
+  {
+    "word": "用意する",
+    "yomi": "よういする",
+    "meaning": "준비하다",
+    "word_pron": "요우이스루",
+    "sentence": "袋を用意します。",
+    "s_meaning": "봉투를 준비합니다.",
+    "s_pron": "후쿠로오 요우이시마스。"
+  },
+  {
+    "word": "確認する",
+    "yomi": "かくにんする",
+    "meaning": "확인하다",
+    "word_pron": "카쿠닌스루",
+    "sentence": "もう一度確認します。",
+    "s_meaning": "한 번 더 확인합니다.",
+    "s_pron": "모우이치도 카쿠닌시마스。"
+  },
+  {
+    "word": "伝える",
+    "yomi": "つたえる",
+    "meaning": "전달하다",
+    "word_pron": "츠타에루",
+    "sentence": "店員に伝えます。",
+    "s_meaning": "점원에게 전달합니다.",
+    "s_pron": "텐인니 츠타에마스。"
+  },
+  {
+    "word": "受け取る",
+    "yomi": "うけとる",
+    "meaning": "받다",
+    "word_pron": "우케토루",
+    "sentence": "レシートを受け取ります。",
+    "s_meaning": "영수증을 받습니다.",
+    "s_pron": "레시-토오 우케토리마스。"
+  },
+  {
+    "word": "断る",
+    "yomi": "ことわる",
+    "meaning": "거절하다",
+    "word_pron": "코토와루",
+    "sentence": "今日は断ります。",
+    "s_meaning": "오늘은 거절하겠습니다.",
+    "s_pron": "쿄우와 코토와리마스。"
+  },
+  {
+    "word": "急ぐ",
+    "yomi": "いそぐ",
+    "meaning": "서두르다",
+    "word_pron": "이소구",
+    "sentence": "急いでください。",
+    "s_meaning": "서둘러 주세요.",
+    "s_pron": "이소이데 쿠다사이。"
+  },
+  {
+    "word": "どちら",
+    "yomi": "どちら",
+    "meaning": "어느 쪽(둘 중)",
+    "word_pron": "도치라",
+    "sentence": "どちらがいいですか。",
+    "s_meaning": "어느 쪽이 좋나요?",
+    "s_pron": "도치라가 이이데스카。"
+  },
+  {
+    "word": "こっち",
+    "yomi": "こっち",
+    "meaning": "이쪽/이거",
+    "word_pron": "콧치",
+    "sentence": "こっちが好きです。",
+    "s_meaning": "이쪽이 좋아요.",
+    "s_pron": "콧치가 스키데스。"
+  },
+  {
+    "word": "そっち",
+    "yomi": "そっち",
+    "meaning": "저쪽/저거",
+    "word_pron": "솟치",
+    "sentence": "そっちにします。",
+    "s_meaning": "저쪽으로 할게요.",
+    "s_pron": "솟치니 시마스。"
+  },
+  {
+    "word": "あっち",
+    "yomi": "あっち",
+    "meaning": "저쪽(멀리)",
+    "word_pron": "앗치",
+    "sentence": "あっちはどうですか。",
+    "s_meaning": "저쪽은 어때요?",
+    "s_pron": "앗치와 도우데스카。"
+  },
+  {
+    "word": "〜より",
+    "yomi": "〜より",
+    "meaning": "~보다",
+    "word_pron": "요리",
+    "sentence": "こっちよりそっちが安いです。",
+    "s_meaning": "이쪽보다 저쪽이 쌉니다.",
+    "s_pron": "콧치요리 솟치가 야스이데스。"
+  },
+  {
+    "word": "〜のほうが",
+    "yomi": "〜のほうが",
+    "meaning": "~쪽이 더",
+    "word_pron": "노호우가",
+    "sentence": "こっちのほうがいいです。",
+    "s_meaning": "이쪽이 더 좋아요.",
+    "s_pron": "콧치노호우가 이이데스。"
+  },
+  {
+    "word": "違い",
+    "yomi": "ちがい",
+    "meaning": "차이",
+    "word_pron": "치가이",
+    "sentence": "違いは何ですか。",
+    "s_meaning": "차이는 무엇인가요?",
+    "s_pron": "치가이와 난데스카。"
+  },
+  {
+    "word": "評判",
+    "yomi": "ひょうばん",
+    "meaning": "평판",
+    "word_pron": "효우반",
+    "sentence": "この店は評判がいいです。",
+    "s_meaning": "이 가게는 평판이 좋습니다.",
+    "s_pron": "코노 미세와 효우반가 이이데스。"
+  },
+  {
+    "word": "おすすめする",
+    "yomi": "おすすめする",
+    "meaning": "추천하다",
+    "word_pron": "오스스메스루",
+    "sentence": "これをおすすめします。",
+    "s_meaning": "이것을 추천합니다.",
+    "s_pron": "코레오 오스스메시마스。"
+  },
+  {
+    "word": "使いやすい",
+    "yomi": "つかいやすい",
+    "meaning": "사용하기 쉽다",
+    "word_pron": "츠카이야스이",
+    "sentence": "このアプリは使いやすいです。",
+    "s_meaning": "이 앱은 사용하기 쉽습니다.",
+    "s_pron": "코노 아푸리와 츠카이야스이데스。"
+  },
+  {
+    "word": "分かりやすい",
+    "yomi": "わかりやすい",
+    "meaning": "이해하기 쉽다",
+    "word_pron": "와카리야스이",
+    "sentence": "説明が分かりやすいです。",
+    "s_meaning": "설명이 이해하기 쉽습니다.",
+    "s_pron": "세츠메이가 와카리야스이데스。"
+  },
+  {
+    "word": "強い",
+    "yomi": "つよい",
+    "meaning": "강하다",
+    "word_pron": "츠요이",
+    "sentence": "この香りは強いです。",
+    "s_meaning": "이 향은 강합니다.",
+    "s_pron": "코노 카오리와 츠요이데스。"
+  },
+  {
+    "word": "弱い",
+    "yomi": "よわい",
+    "meaning": "약하다",
+    "word_pron": "요와이",
+    "sentence": "もう少し弱いのがいいです。",
+    "s_meaning": "좀 더 약한 게 좋아요.",
+    "s_pron": "모우스코시 요와이노가 이이데스。"
+  },
+  {
+    "word": "必要ない",
+    "yomi": "ひつようない",
+    "meaning": "필요 없다",
+    "word_pron": "히츠요우나이",
+    "sentence": "それは必要ないです。",
+    "s_meaning": "그것은 필요 없어요.",
+    "s_pron": "소레와 히츠요우나이데스。"
+  },
+  {
+    "word": "十分",
+    "yomi": "じゅうぶん",
+    "meaning": "충분",
+    "word_pron": "쥬우분",
+    "sentence": "これで十分です。",
+    "s_meaning": "이걸로 충분합니다.",
+    "s_pron": "코레데 쥬우분데스。"
+  },
+  {
+    "word": "最高",
+    "yomi": "さいこう",
+    "meaning": "최고",
+    "word_pron": "사이코우",
+    "sentence": "このケーキは最高です。",
+    "s_meaning": "이 케이크는 최고입니다.",
+    "s_pron": "코노 케-키와 사이코우데스。"
+  },
+  {
+    "word": "改善",
+    "yomi": "かいぜん",
+    "meaning": "개선",
+    "word_pron": "카이젠",
+    "sentence": "サービスを改善します。",
+    "s_meaning": "서비스를 개선합니다.",
+    "s_pron": "사-비스오 카이젠시마스。"
+  },
+  {
+    "word": "変更",
+    "yomi": "へんこう",
+    "meaning": "변경",
+    "word_pron": "헨코우",
+    "sentence": "予定を変更します。",
+    "s_meaning": "일정을 변경합니다.",
+    "s_pron": "요테이오 헨코우시마스。"
+  },
+  {
+    "word": "理由",
+    "yomi": "りゆう",
+    "meaning": "이유",
+    "word_pron": "리유우",
+    "sentence": "理由を教えてください。",
+    "s_meaning": "이유를 알려 주세요.",
+    "s_pron": "리유우오 오시에테쿠다사이。"
+  },
+  {
+    "word": "結果",
+    "yomi": "けっか",
+    "meaning": "결과",
+    "word_pron": "켁카",
+    "sentence": "結果を見ます。",
+    "s_meaning": "결과를 봅니다.",
+    "s_pron": "켁카오 미마스。"
+  },
+  {
+    "word": "迷う",
+    "yomi": "まよう",
+    "meaning": "망설이다",
+    "word_pron": "마요우",
+    "sentence": "どれにするか迷っています。",
+    "s_meaning": "어느 것으로 할지 망설이고 있습니다.",
+    "s_pron": "도레니 스루카 마욧테이마스。"
+  },
+  {
+    "word": "決める",
+    "yomi": "きめる",
+    "meaning": "정하다",
+    "word_pron": "키메루",
+    "sentence": "これに決めます。",
+    "s_meaning": "이것으로 정하겠습니다.",
+    "s_pron": "코레니 키메마스。"
+  },
+  {
+    "word": "相談",
+    "yomi": "そうだん",
+    "meaning": "상담",
+    "word_pron": "소우단",
+    "sentence": "店員に相談します。",
+    "s_meaning": "점원에게 상담합니다.",
+    "s_pron": "텐인니 소우단시마스。"
+  },
+  {
+    "word": "予算",
+    "yomi": "よさん",
+    "meaning": "예산",
+    "word_pron": "요산",
+    "sentence": "予算は一万円です。",
+    "s_meaning": "예산은 1만 엔입니다.",
+    "s_pron": "요산와 이치만엔데스。"
+  },
+  {
+    "word": "ポイント",
+    "yomi": "ぽいんと",
+    "meaning": "포인트",
+    "word_pron": "포인토",
+    "sentence": "ポイントは付きますか。",
+    "s_meaning": "포인트가 적립되나요?",
+    "s_pron": "포인토와 츠키마스카。"
+  },
+  {
+    "word": "クーポン",
+    "yomi": "くーぽん",
+    "meaning": "쿠폰",
+    "word_pron": "쿠-폰",
+    "sentence": "クーポンは使えますか。",
+    "s_meaning": "쿠폰은 사용할 수 있나요?",
+    "s_pron": "쿠-폰와 츠카에마스카。"
+  },
+  {
+    "word": "レジ袋",
+    "yomi": "れじぶくろ",
+    "meaning": "비닐봉투",
+    "word_pron": "레지부쿠로",
+    "sentence": "レジ袋は要りますか。",
+    "s_meaning": "비닐봉투는 필요합니까?",
+    "s_pron": "레지부쿠로와 이리마스카。"
+  },
+  {
+    "word": "包む",
+    "yomi": "つつむ",
+    "meaning": "포장하다",
+    "word_pron": "츠츠무",
+    "sentence": "プレゼント用に包んでください。",
+    "s_meaning": "선물용으로 포장해 주세요.",
+    "s_pron": "푸레젠토요우니 츠츤데 쿠다사이。"
+  },
+  {
+    "word": "配送",
+    "yomi": "はいそう",
+    "meaning": "배송",
+    "word_pron": "하이소우",
+    "sentence": "配送できますか。",
+    "s_meaning": "배송할 수 있나요?",
+    "s_pron": "하이소우데키마스카。"
+  },
+  {
+    "word": "送料",
+    "yomi": "そうりょう",
+    "meaning": "배송비",
+    "word_pron": "소우료우",
+    "sentence": "送料はいくらですか。",
+    "s_meaning": "배송비는 얼마인가요?",
+    "s_pron": "소우료우와 이쿠라데스카。"
+  },
+  {
+    "word": "宛先",
+    "yomi": "あてさき",
+    "meaning": "수신처",
+    "word_pron": "아테사키",
+    "sentence": "宛先を書いてください。",
+    "s_meaning": "수신처를 적어 주세요.",
+    "s_pron": "아테사키오 카이테 쿠다사이。"
+  },
+  {
+    "word": "保証",
+    "yomi": "ほしょう",
+    "meaning": "보증",
+    "word_pron": "호쇼우",
+    "sentence": "保証はありますか。",
+    "s_meaning": "보증이 있나요?",
+    "s_pron": "호쇼우와 아리마스카。"
+  },
+  {
+    "word": "修理",
+    "yomi": "しゅうり",
+    "meaning": "수리",
+    "word_pron": "슈우리",
+    "sentence": "修理に出します。",
+    "s_meaning": "수리 맡깁니다.",
+    "s_pron": "슈우리니 다시마스。"
+  },
+  {
+    "word": "不良品",
+    "yomi": "ふりょうひん",
+    "meaning": "불량품",
+    "word_pron": "후료우힌",
+    "sentence": "これは不良品です。",
+    "s_meaning": "이것은 불량품입니다.",
+    "s_pron": "코레와 후료우힌데스。"
+  },
+  {
+    "word": "返品期限",
+    "yomi": "へんぴんきげん",
+    "meaning": "반품 기한",
+    "word_pron": "헨핀키겐",
+    "sentence": "返品期限はいつですか。",
+    "s_meaning": "반품 기한은 언제인가요?",
+    "s_pron": "헨핀키겐와 이츠데스카。"
+  },
+  {
+    "word": "説明書",
+    "yomi": "せつめいしょ",
+    "meaning": "설명서",
+    "word_pron": "세츠메이쇼",
+    "sentence": "説明書を読みます。",
+    "s_meaning": "설명서를 읽습니다.",
+    "s_pron": "세츠메이쇼오 요미마스。"
+  },
+  {
+    "word": "注意書き",
+    "yomi": "ちゅういがき",
+    "meaning": "주의사항",
+    "word_pron": "츄우이가키",
+    "sentence": "注意書きを確認してください。",
+    "s_meaning": "주의사항을 확인해 주세요.",
+    "s_pron": "츄우이가키오 카쿠닌시테 쿠다사이。"
+  },
+  {
+    "word": "口コミ",
+    "yomi": "くちこみ",
+    "meaning": "입소문/후기",
+    "word_pron": "쿠치코미",
+    "sentence": "口コミを見て買いました。",
+    "s_meaning": "후기를 보고 샀습니다.",
+    "s_pron": "쿠치코미오 미테 카이마시타。"
+  },
+  {
+    "word": "レビュー",
+    "yomi": "れびゅー",
+    "meaning": "리뷰",
+    "word_pron": "레뷰-",
+    "sentence": "レビューを書きます。",
+    "s_meaning": "리뷰를 씁니다.",
+    "s_pron": "레뷰-오 카키마스。"
+  },
+  {
+    "word": "返品手続き",
+    "yomi": "へんぴんてつづき",
+    "meaning": "반품 절차",
+    "word_pron": "헨핀테츠즈키",
+    "sentence": "返品手続きは簡単です。",
+    "s_meaning": "반품 절차는 간단합니다.",
+    "s_pron": "헨핀테츠즈키와 칸탄데스。"
+  }
+]

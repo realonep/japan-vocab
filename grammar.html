@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Grammar Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .accordion-content.open {
+            max-height: 5000px;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .particle-badge {
+            min-width: 60px;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #ffffff; }
+        ::-webkit-scrollbar-thumb { background: #d1d1d1; border-radius: 4px; }
+
+        /* TTS Button Styles - same as index.html */
+        .audio-btn {
+            padding: 0.5rem;
+            border-radius: 9999px;
+            border: 1px solid black;
+            transition: all 0.2s;
+            background: white;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .audio-btn:hover { background-color: #f3f3f3; transform: scale(1.05); }
+        .audio-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .audio-btn-small {
+            padding: 0.25rem;
+            border-radius: 9999px;
+            border: 1px solid #ccc;
+            transition: all 0.2s;
+            background: white;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+        .audio-btn-small:hover { background-color: #f3f3f3; transform: scale(1.1); }
+        .audio-btn-small:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-spinner { animation: spin 1s linear infinite; }
+
+        .example-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .example-text { flex: 1; }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <header class="max-w-4xl mx-auto mb-8 border-b-4 border-black pb-6">
+        <div class="flex justify-between items-center">
+            <div>
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tighter mb-2 uppercase">Japanese Grammar</h1>
+                <p class="text-gray-500 font-medium tracking-widest">일본어 문법 가이드</p>
+            </div>
+            <nav class="flex gap-2">
+                <a href="index.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">단어</a>
+                <span class="px-4 py-2 border-2 border-black bg-black text-white text-sm font-bold uppercase tracking-widest">문법</span>
+            </nav>
+        </div>
+        <!-- TTS Settings -->
+        <div class="mt-4 pt-4 border-t border-gray-200 flex flex-wrap items-center gap-4">
+            <div class="flex items-center gap-2">
+                <label class="text-sm font-bold">음성:</label>
+                <select id="voiceSelect" class="border-2 border-black px-2 py-1 text-sm font-bold">
+                    <option value="ja-JP-Neural2-B">👨 남성 (Neural2-B)</option>
+                    <option value="ja-JP-Neural2-C">👩 여성 (Neural2-C)</option>
+                    <option value="ja-JP-Wavenet-B">👨 남성 (Wavenet-B)</option>
+                    <option value="ja-JP-Wavenet-C">👩 여성 (Wavenet-C)</option>
+                </select>
+            </div>
+            <span id="ttsStatus" class="text-sm text-gray-500">🔊 TTS 로딩 중...</span>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto space-y-6">
+
+        <!-- 1. 핵심 조사 -->
+        <section class="border-2 border-black">
+            <button class="accordion-btn w-full p-4 flex justify-between items-center bg-black text-white font-bold text-lg uppercase tracking-widest" data-target="section1">
+                <span>📌 1. 핵심 조사 (문장의 뼈대)</span>
+                <span class="transform transition-transform">▼</span>
+            </button>
+            <div id="section1" class="accordion-content open p-4 space-y-4">
+                
+                <!-- は -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-blue-500 text-white font-bold text-xl rounded">は</span>
+                        <span class="text-gray-500 font-mono">(wa)</span>
+                        <span class="font-bold">~은/는</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">문장의 주제 제시, 구정보를 나타냄</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">東京は 交通が 便利です。</p>
+                        <p class="text-sm text-blue-600">토쿄와 코츠가 벤리데스</p>
+                        <p class="text-sm text-gray-500">도쿄는 교통이 편리합니다.</p>
+                    </div>
+                </div>
+
+                <!-- が -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-blue-500 text-white font-bold text-xl rounded">が</span>
+                        <span class="text-gray-500 font-mono">(ga)</span>
+                        <span class="font-bold">~이/가</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">주어 강조, 신정보 또는 눈앞의 상태를 묘사함</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">私が 行きます。</p>
+                        <p class="text-sm text-blue-600">와타시가 이키마스</p>
+                        <p class="text-sm text-gray-500">내가 가겠습니다.</p>
+                    </div>
+                </div>
+
+                <!-- の -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-blue-500 text-white font-bold text-xl rounded">の</span>
+                        <span class="text-gray-500 font-mono">(no)</span>
+                        <span class="font-bold">~의</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">명사와 명사를 연결함</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">私の 鞄</p>
+                        <p class="text-sm text-blue-600">와타시노 카반</p>
+                        <p class="text-sm text-gray-500">나의 가방</p>
+                    </div>
+                </div>
+
+                <!-- を -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-blue-500 text-white font-bold text-xl rounded">を</span>
+                        <span class="text-gray-500 font-mono">(o)</span>
+                        <span class="font-bold">~을/를</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">목적어 또는 통과점을 나타냄</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">呪術廻戦を 見ます。</p>
+                        <p class="text-sm text-blue-600">쥬쥬츠카이센오 미마스</p>
+                        <p class="text-sm text-gray-500">주술회전을 봅니다.</p>
+                    </div>
+                </div>
+
+                <!-- に -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-blue-500 text-white font-bold text-xl rounded">に</span>
+                        <span class="text-gray-500 font-mono">(ni)</span>
+                        <span class="font-bold">~에/에게</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">사람이나 사물의 존재, 방향, 도달점을 나타냄</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">ホテルに います。</p>
+                        <p class="text-sm text-blue-600">호테루니 이마스</p>
+                        <p class="text-sm text-gray-500">호텔에 있습니다.</p>
+                    </div>
+                </div>
+
+                <!-- で -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-blue-500 text-white font-bold text-xl rounded">で</span>
+                        <span class="text-gray-500 font-mono">(de)</span>
+                        <span class="font-bold">~에서/으로</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">구체적인 행동 장소나 수단을 나타냄</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">食堂で 豚カツを 食べます。</p>
+                        <p class="text-sm text-blue-600">쇼쿠도-데 톤카츠오 타베마스</p>
+                        <p class="text-sm text-gray-500">식당에서 돈카츠를 먹습니다.</p>
+                    </div>
+                </div>
+
+                <!-- へ -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-blue-500 text-white font-bold text-xl rounded">へ</span>
+                        <span class="text-gray-500 font-mono">(e)</span>
+                        <span class="font-bold">~으로</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">이동의 방향성을 강조함</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">日本へ 行きます。</p>
+                        <p class="text-sm text-blue-600">니혼에 이키마스</p>
+                        <p class="text-sm text-gray-500">일본으로 갑니다.</p>
+                    </div>
+                </div>
+
+                <!-- と -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-blue-500 text-white font-bold text-xl rounded">と</span>
+                        <span class="text-gray-500 font-mono">(to)</span>
+                        <span class="font-bold">~와/과</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">대상을 빠짐없이 전부 나열할 때 사용함</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">鉛筆と 消しゴム</p>
+                        <p class="text-sm text-blue-600">엔피츠토 케시고무</p>
+                        <p class="text-sm text-gray-500">연필과 지우개</p>
+                    </div>
+                </div>
+
+                <!-- や -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-blue-500 text-white font-bold text-xl rounded">や</span>
+                        <span class="text-gray-500 font-mono">(ya)</span>
+                        <span class="font-bold">~이나/랑</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">여러 개 중 대표적인 일부만 나열할 때 사용함</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">時計や 財布</p>
+                        <p class="text-sm text-blue-600">토케이야 사이후</p>
+                        <p class="text-sm text-gray-500">시계나 지갑</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 2. 종조사 -->
+        <section class="border-2 border-black">
+            <button class="accordion-btn w-full p-4 flex justify-between items-center bg-gray-100 font-bold text-lg uppercase tracking-widest hover:bg-gray-200 transition-colors" data-target="section2">
+                <span>📌 2. 종조사 (문장 끝 어미)</span>
+                <span class="transform transition-transform">▼</span>
+            </button>
+            <div id="section2" class="accordion-content p-4 space-y-4">
+                
+                <!-- ね -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-green-500 text-white font-bold text-xl rounded">ね</span>
+                        <span class="text-gray-500 font-mono">(ne)</span>
+                        <span class="font-bold">~하네요, ~죠?</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">상대의 동의 및 확인을 부드럽게 유도함</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">今日は 寒いですね。</p>
+                        <p class="text-sm text-blue-600">쿄-와 사무이데스네</p>
+                        <p class="text-sm text-gray-500">오늘은 춥네요.</p>
+                    </div>
+                </div>
+
+                <!-- よ -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-green-500 text-white font-bold text-xl rounded">よ</span>
+                        <span class="text-gray-500 font-mono">(yo)</span>
+                        <span class="font-bold">~해요, ~라니까요</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">새로운 정보 전달 및 강한 주장을 나타냄</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">本当に おいしいですよ。</p>
+                        <p class="text-sm text-blue-600">혼토-니 오이시-데스요</p>
+                        <p class="text-sm text-gray-500">정말 맛있다니까요.</p>
+                    </div>
+                </div>
+
+                <!-- よね -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-green-500 text-white font-bold text-xl rounded">よね</span>
+                        <span class="text-gray-500 font-mono">(yone)</span>
+                        <span class="font-bold">~하죠?, ~맞죠?</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">상대도 알 것이라 전제하고 강한 공감을 유도함</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">あの映画、 面白かったですよね。</p>
+                        <p class="text-sm text-blue-600">아노에이가, 오모시로캇타데스요네</p>
+                        <p class="text-sm text-gray-500">그 영화, 재밌었죠?</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. 품사별 활용 -->
+        <section class="border-2 border-black">
+            <button class="accordion-btn w-full p-4 flex justify-between items-center bg-gray-100 font-bold text-lg uppercase tracking-widest hover:bg-gray-200 transition-colors" data-target="section3">
+                <span>📌 3. 품사별 시제 활용</span>
+                <span class="transform transition-transform">▼</span>
+            </button>
+            <div id="section3" class="accordion-content p-4 space-y-6">
+                
+                <!-- 명사 -->
+                <div class="border-2 border-purple-300 p-4 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-purple-700">① 명사 (Noun) - 学生 (학생)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="bg-purple-100">
+                                    <th class="p-2 text-left">시제</th>
+                                    <th class="p-2 text-left">정중체 (존댓말)</th>
+                                    <th class="p-2 text-left">보통체 (반말)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="p-2 font-bold">현재 긍정</td>
+                                    <td class="p-2">学生です<br><span class="text-blue-600 text-xs">가쿠세이데스 / 학생입니다</span></td>
+                                    <td class="p-2">学生だ<br><span class="text-blue-600 text-xs">가쿠세이다 / 학생이다</span></td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="p-2 font-bold">현재 부정</td>
+                                    <td class="p-2">学生じゃありません<br><span class="text-blue-600 text-xs">가쿠세이 쟈아리마센 / 학생이 아닙니다</span></td>
+                                    <td class="p-2">学生じゃない<br><span class="text-blue-600 text-xs">가쿠세이 쟈나이 / 학생이 아니다</span></td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-2 font-bold">과거 긍정</td>
+                                    <td class="p-2">学生でした<br><span class="text-blue-600 text-xs">가쿠세이데시타 / 학생이었습니다</span></td>
+                                    <td class="p-2">学生だった<br><span class="text-blue-600 text-xs">가쿠세이닷타 / 학생이었다</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold">과거 부정</td>
+                                    <td class="p-2">学生じゃありませんでした<br><span class="text-blue-600 text-xs">가쿠세이 쟈아리마센데시타 / 학생이 아니었습니다</span></td>
+                                    <td class="p-2">学生じゃなかった<br><span class="text-blue-600 text-xs">가쿠세이 쟈나캇타 / 학생이 아니었다</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 형용사 -->
+                <div class="border-2 border-orange-300 p-4 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-orange-700">② 형용사 (Adjective) - 高い (비싸다/높다)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="bg-orange-100">
+                                    <th class="p-2 text-left">시제</th>
+                                    <th class="p-2 text-left">정중체 (존댓말)</th>
+                                    <th class="p-2 text-left">보통체 (반말)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="p-2 font-bold">현재 긍정</td>
+                                    <td class="p-2">高いです<br><span class="text-blue-600 text-xs">타카이데스 / 비쌉니다</span></td>
+                                    <td class="p-2">高い<br><span class="text-blue-600 text-xs">타카이 / 비싸다</span></td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="p-2 font-bold">현재 부정</td>
+                                    <td class="p-2">高くないです<br><span class="text-blue-600 text-xs">타카쿠 나이데스 / 비싸지 않습니다</span></td>
+                                    <td class="p-2">高くない<br><span class="text-blue-600 text-xs">타카쿠 나이 / 비싸지 않다</span></td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-2 font-bold">과거 긍정</td>
+                                    <td class="p-2">高かったです<br><span class="text-blue-600 text-xs">타카캇타데스 / 비쌌습니다</span></td>
+                                    <td class="p-2">高かった<br><span class="text-blue-600 text-xs">타카캇타 / 비쌌다</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold">과거 부정</td>
+                                    <td class="p-2">高くなかったです<br><span class="text-blue-600 text-xs">타카쿠 나캇타데스 / 비싸지 않았습니다</span></td>
+                                    <td class="p-2">高くなかった<br><span class="text-blue-600 text-xs">타카쿠 나캇타 / 비싸지 않았다</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 동사 -->
+                <div class="border-2 border-teal-300 p-4 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-teal-700">③ 동사 (Verb) - 食べる (먹다), 行く (가다)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="bg-teal-100">
+                                    <th class="p-2 text-left">시제</th>
+                                    <th class="p-2 text-left">정중체 (존댓말)</th>
+                                    <th class="p-2 text-left">보통체 (반말)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="p-2 font-bold">현재 긍정</td>
+                                    <td class="p-2">食べます / 行きます<br><span class="text-blue-600 text-xs">타베마스, 이키마스 / 먹습니다, 갑니다</span></td>
+                                    <td class="p-2">食べる / 行く<br><span class="text-blue-600 text-xs">타베루, 이쿠 / 먹다, 가다</span></td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="p-2 font-bold">현재 부정</td>
+                                    <td class="p-2">食べません / 行きません<br><span class="text-blue-600 text-xs">타베마센, 이키마센 / 먹지 않습니다, 가지 않습니다</span></td>
+                                    <td class="p-2">食べない / 行かない<br><span class="text-blue-600 text-xs">타베나이, 이카나이 / 먹지 않다, 가지 않다</span></td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-2 font-bold">과거 긍정</td>
+                                    <td class="p-2">食べました / 行きました<br><span class="text-blue-600 text-xs">타베마시타, 이키마시타 / 먹었습니다, 갔습니다</span></td>
+                                    <td class="p-2">食べた / 行った<br><span class="text-blue-600 text-xs">타베타, 잇타 / 먹었다, 갔다</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold">과거 부정</td>
+                                    <td class="p-2">食べませんでした / 行きませんでした<br><span class="text-blue-600 text-xs">타베마센데시타, 이키마센데시타</span></td>
+                                    <td class="p-2">食べなかった / 行かなかった<br><span class="text-blue-600 text-xs">타베나캇타, 이카나캇타</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. 동사 심화 활용 -->
+        <section class="border-2 border-black">
+            <button class="accordion-btn w-full p-4 flex justify-between items-center bg-gray-100 font-bold text-lg uppercase tracking-widest hover:bg-gray-200 transition-colors" data-target="section4">
+                <span>📌 4. 동사 심화 활용</span>
+                <span class="transform transition-transform">▼</span>
+            </button>
+            <div id="section4" class="accordion-content p-4 space-y-4">
+                <p class="text-gray-600 mb-4">동사의 형태를 변형하여 다양한 의미를 더합니다. (예시: 食べる - 먹다)</p>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    <!-- 진행/상태 -->
+                    <div class="border border-gray-200 p-4 rounded">
+                        <div class="font-bold text-lg mb-2">~ている <span class="text-gray-500 font-normal text-sm">~하고 있다</span></div>
+                        <div class="example-box p-3 rounded">
+                            <p class="font-bold">食べている</p>
+                            <p class="text-sm text-blue-600">타베테 이루</p>
+                            <p class="text-sm text-gray-500">먹고 있다</p>
+                        </div>
+                    </div>
+
+                    <!-- 희망 -->
+                    <div class="border border-gray-200 p-4 rounded">
+                        <div class="font-bold text-lg mb-2">~たい <span class="text-gray-500 font-normal text-sm">~하고 싶다</span></div>
+                        <div class="example-box p-3 rounded">
+                            <p class="font-bold">食べたい</p>
+                            <p class="text-sm text-blue-600">타베타이</p>
+                            <p class="text-sm text-gray-500">먹고 싶다</p>
+                        </div>
+                    </div>
+
+                    <!-- 경험 -->
+                    <div class="border border-gray-200 p-4 rounded">
+                        <div class="font-bold text-lg mb-2">~たことがある <span class="text-gray-500 font-normal text-sm">~한 적이 있다</span></div>
+                        <div class="example-box p-3 rounded">
+                            <p class="font-bold">食べたことがある</p>
+                            <p class="text-sm text-blue-600">타베타 코토가 아루</p>
+                            <p class="text-sm text-gray-500">먹은 적이 있다</p>
+                        </div>
+                    </div>
+
+                    <!-- 가능형 -->
+                    <div class="border border-gray-200 p-4 rounded">
+                        <div class="font-bold text-lg mb-2">가능형 <span class="text-gray-500 font-normal text-sm">~할 수 있다</span></div>
+                        <div class="example-box p-3 rounded">
+                            <p class="font-bold">食べられる</p>
+                            <p class="text-sm text-blue-600">타베라레루</p>
+                            <p class="text-sm text-gray-500">먹을 수 있다</p>
+                        </div>
+                    </div>
+
+                    <!-- 의지/권유형 -->
+                    <div class="border border-gray-200 p-4 rounded">
+                        <div class="font-bold text-lg mb-2">의지/권유형 <span class="text-gray-500 font-normal text-sm">~하자</span></div>
+                        <div class="example-box p-3 rounded">
+                            <p class="font-bold">食べよう</p>
+                            <p class="text-sm text-blue-600">타베요-</p>
+                            <p class="text-sm text-gray-500">먹자</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 조건/가정 표현 -->
+        <section class="border-2 border-black">
+            <button class="accordion-btn w-full p-4 flex justify-between items-center bg-gray-100 font-bold text-lg uppercase tracking-widest hover:bg-gray-200 transition-colors" data-target="section5">
+                <span>📌 5. 조건/가정 표현 (~하면)</span>
+                <span class="transform transition-transform">▼</span>
+            </button>
+            <div id="section5" class="accordion-content p-4 space-y-4">
+                
+                <!-- と -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-red-500 text-white font-bold text-xl rounded">と</span>
+                        <span class="text-gray-500 font-mono">(to)</span>
+                        <span class="font-bold">필연적 결과</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">A하면 자연스럽게 B하게 된다</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">春になると 花が咲く。</p>
+                        <p class="text-sm text-blue-600">하루니 나루토 하나가 사쿠</p>
+                        <p class="text-sm text-gray-500">봄이 되면 꽃이 핀다.</p>
+                    </div>
+                </div>
+
+                <!-- ば -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-red-500 text-white font-bold text-xl rounded">ば</span>
+                        <span class="text-gray-500 font-mono">(ba)</span>
+                        <span class="font-bold">일반적 조건</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">A라는 조건이 충족되면 B한다</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">雨が降れば 行かない。</p>
+                        <p class="text-sm text-blue-600">아메가 후레바 이카나이</p>
+                        <p class="text-sm text-gray-500">비가 내리면 가지 않는다.</p>
+                    </div>
+                </div>
+
+                <!-- たら -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-red-500 text-white font-bold text-xl rounded">たら</span>
+                        <span class="text-gray-500 font-mono">(tara)</span>
+                        <span class="font-bold">완료 후의 가정 / 우연한 발견</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">A한 뒤에 B한다</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">日本に行ったら 連絡して。</p>
+                        <p class="text-sm text-blue-600">니혼니 잇타라 렌라쿠시테</p>
+                        <p class="text-sm text-gray-500">일본에 가면 연락해.</p>
+                    </div>
+                </div>
+
+                <!-- なら -->
+                <div class="border border-gray-200 p-4 rounded">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="particle-badge px-3 py-1 bg-red-500 text-white font-bold text-xl rounded">なら</span>
+                        <span class="text-gray-500 font-mono">(nara)</span>
+                        <span class="font-bold">화제 및 조언</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">상대방의 말에 호응하여 'A라면~' 하고 말할 때 사용</p>
+                    <div class="example-box p-3 rounded">
+                        <p class="text-lg font-bold">車を買うなら トヨタがいい。</p>
+                        <p class="text-sm text-blue-600">쿠루마오 카우나라 토요타가 이-</p>
+                        <p class="text-sm text-gray-500">차를 산다면 도요타가 좋다.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-4xl mx-auto mt-12 pt-6 border-t-2 border-gray-200 text-center text-gray-400 text-sm">
+        Japanese AI Grammar Guide © 2026
+    </footer>
+
+    <script src="tts.js"></script>
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.accordion-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.dataset.target;
+                const content = document.getElementById(targetId);
+                const arrow = btn.querySelector('span:last-child');
+                
+                content.classList.toggle('open');
+                arrow.style.transform = content.classList.contains('open') ? 'rotate(0deg)' : 'rotate(-90deg)';
+            });
+        });
+
+        // TTS Setup
+        const statusEl = document.getElementById('ttsStatus');
+        const voiceSelect = document.getElementById('voiceSelect');
+
+        // Initialize TTS
+        TTS.init((msg) => {
+            statusEl.textContent = msg;
+        }).then(() => {
+            statusEl.textContent = '🔊 TTS 준비됨';
+            addTTSButtons();
+        });
+
+        // Voice selector
+        voiceSelect.addEventListener('change', () => {
+            TTS.setVoice(voiceSelect.value);
+        });
+
+        // Create TTS button (same style as index.html)
+        function createTTSButton(text, small = false) {
+            const btn = document.createElement('button');
+            btn.className = small ? 'audio-btn-small' : 'audio-btn';
+            const size = small ? 14 : 18;
+            btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>`;
+            btn.title = '음성 재생';
+            btn.onclick = (e) => {
+                e.stopPropagation();
+                TTS.speak(text, btn, 'ai');
+            };
+            return btn;
+        }
+
+        // Add TTS buttons to all example boxes
+        function addTTSButtons() {
+            // 1. Example boxes (example-box)
+            document.querySelectorAll('.example-box').forEach(box => {
+                const japaneseP = box.querySelector('p.font-bold');
+                if (!japaneseP || box.querySelector('.audio-btn')) return;
+
+                const japaneseText = japaneseP.textContent.trim();
+
+                // Create wrapper with text first, button after
+                const wrapper = document.createElement('div');
+                wrapper.className = 'example-row';
+
+                const textDiv = document.createElement('div');
+                textDiv.className = 'example-text';
+                
+                while (box.firstChild) {
+                    textDiv.appendChild(box.firstChild);
+                }
+
+                const btn = createTTSButton(japaneseText);
+
+                // Text first, then button
+                wrapper.appendChild(textDiv);
+                wrapper.appendChild(btn);
+                box.appendChild(wrapper);
+            });
+
+            // 2. Table cells in section 3 (품사별 시제 활용)
+            document.querySelectorAll('#section3 tbody td').forEach(td => {
+                // Skip header column (시제)
+                if (td.querySelector('.font-bold') || td.classList.contains('font-bold')) return;
+                if (td.textContent.includes('현재') || td.textContent.includes('과거')) return;
+                
+                // Get the first text node (Japanese text)
+                const html = td.innerHTML;
+                const brIndex = html.indexOf('<br>');
+                if (brIndex === -1) return;
+                
+                const japaneseText = html.substring(0, brIndex).trim();
+                const restHtml = html.substring(brIndex);
+                
+                if (japaneseText && !td.querySelector('.audio-btn-small')) {
+                    // Create a wrapper span for the Japanese text and button
+                    const wrapper = document.createElement('span');
+                    wrapper.style.display = 'inline-flex';
+                    wrapper.style.alignItems = 'center';
+                    wrapper.style.gap = '4px';
+                    wrapper.style.flexWrap = 'wrap';
+                    
+                    const textSpan = document.createElement('span');
+                    textSpan.textContent = japaneseText;
+                    
+                    const btn = createTTSButton(japaneseText, true);
+                    
+                    wrapper.appendChild(textSpan);
+                    wrapper.appendChild(btn);
+                    
+                    td.innerHTML = '';
+                    td.appendChild(wrapper);
+                    
+                    const restDiv = document.createElement('div');
+                    restDiv.innerHTML = restHtml.replace('<br>', '');
+                    td.appendChild(restDiv);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

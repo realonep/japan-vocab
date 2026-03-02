@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese AI Study Sheet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .monotone-border { border: 1px solid #e5e5e5; }
+        .audio-btn:hover { background-color: #f3f3f3; transform: scale(1.05); }
+        .audio-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .loading-spinner {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #ffffff; }
+        ::-webkit-scrollbar-thumb { background: #d1d1d1; border-radius: 4px; }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <!-- Login Screen -->
+    <div id="loginScreen" class="min-h-screen flex items-center justify-center">
+        <div class="max-w-md w-full p-8 border-4 border-black">
+            <h1 class="text-4xl font-extrabold tracking-tighter mb-2 uppercase text-center">Japanese AI</h1>
+            <p class="text-gray-500 font-medium tracking-widest text-center mb-8">로그인</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-black uppercase tracking-widest mb-2">사용자</label>
+                    <select id="loginUser" class="w-full p-3 border-2 border-black text-lg font-medium bg-white cursor-pointer">
+                        <option value="">로딩 중...</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-black uppercase tracking-widest mb-2">비밀번호</label>
+                    <input type="password" id="loginPassword" placeholder="비밀번호 입력" 
+                        class="w-full p-3 border-2 border-black text-lg font-medium">
+                </div>
+                <button id="loginBtn" class="w-full p-3 bg-black text-white font-bold uppercase tracking-widest hover:bg-gray-800 transition-colors">
+                    로그인
+                </button>
+                <p id="loginError" class="text-red-500 text-sm font-bold text-center hidden">사용자 또는 비밀번호가 올바르지 않습니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App (hidden by default) -->
+    <div id="mainApp" class="hidden">
+        <header class="max-w-6xl mx-auto mb-12 border-b-4 border-black pb-6">
+            <div class="flex justify-between items-center flex-wrap gap-4">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tighter mb-2 uppercase">Japanese AI Vocabulary</h1>
+                    <p class="text-gray-500 font-medium tracking-widest">MINIMALIST MONOTONE LEARNING INTERFACE</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <nav class="flex gap-2">
+                        <span class="px-4 py-2 border-2 border-black bg-black text-white text-sm font-bold uppercase tracking-widest">단어</span>
+                        <a href="grammar.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">문법</a>
+                    </nav>
+                    <div class="text-right">
+                        <p class="text-sm font-bold text-gray-600 mb-1">안녕하세요, <span id="currentUser"></span>님</p>
+                        <button id="logoutBtn" class="text-xs font-bold uppercase tracking-widest text-red-500 hover:underline">로그아웃</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="max-w-6xl mx-auto">
+            <!-- Stats Bar -->
+            <div id="statsBar" class="mb-4 p-4 bg-gray-50 border-2 border-gray-200 flex flex-wrap gap-4 items-center justify-between">
+                <div class="flex gap-6">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold" id="statStudied">0</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-widest">학습 완료</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold" id="statTotal">0</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-widest">전체</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold" id="statToday">0</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-widest">오늘 학습</div>
+                    </div>
+                </div>
+                <div class="flex gap-2 flex-wrap">
+                    <select id="weekSelect" class="p-2 border-2 border-black text-xs font-bold uppercase tracking-widest bg-white cursor-pointer">
+                        <option value="week1">1주차</option>
+                        <option value="week2">2주차</option>
+                        <option value="week3">3주차</option>
+                    </select>
+                    <select id="filterMode" class="p-2 border-2 border-black text-xs font-bold uppercase tracking-widest bg-white cursor-pointer">
+                        <option value="all">전체 보기</option>
+                        <option value="unstudied">학습 안 한 것</option>
+                        <option value="today">오늘 학습한 것</option>
+                        <option value="studied">학습한 것</option>
+                    </select>
+                    <button id="resetStatsBtn" class="p-2 border-2 border-black text-xs font-bold uppercase tracking-widest bg-white hover:bg-yellow-50 hover:border-yellow-500 hover:text-yellow-600 transition-colors cursor-pointer">🔄 리셋</button>
+                </div>
+            </div>
+
+            <div class="mb-8 flex flex-col md:flex-row gap-4 items-center justify-between">
+                <input type="text" id="searchInput" placeholder="검색어를 입력하세요 (단어, 뜻, 예문...)" 
+                    class="w-full md:w-96 p-3 border-2 border-black focus:outline-none text-lg font-medium">
+            <div class="flex items-center gap-2 flex-wrap justify-end">
+                <select id="ttsMode" class="p-2 border-2 border-black text-xs font-bold uppercase tracking-widest bg-white cursor-pointer">
+                    <option value="browser">🔊 Browser TTS</option>
+                    <option value="ai" selected>🤖 Google TTS</option>
+                </select>
+                <select id="voiceSelect" class="p-2 border-2 border-black text-xs font-bold uppercase tracking-widest bg-white cursor-pointer">
+                    <option value="ja-JP-Neural2-B" selected>Neural2-B (여)</option>
+                    <option value="ja-JP-Neural2-C">Neural2-C (남)</option>
+                    <option value="ja-JP-Neural2-D">Neural2-D (남)</option>
+                    <option value="ja-JP-Wavenet-A">Wavenet-A (여)</option>
+                    <option value="ja-JP-Wavenet-B">Wavenet-B (여)</option>
+                    <option value="ja-JP-Wavenet-C">Wavenet-C (남)</option>
+                    <option value="ja-JP-Wavenet-D">Wavenet-D (남)</option>
+                    <option value="ja-JP-Standard-A">Standard-A (여)</option>
+                    <option value="ja-JP-Standard-B">Standard-B (여)</option>
+                </select>
+                <button id="clearCacheBtn" class="p-2 border-2 border-black text-xs font-bold uppercase tracking-widest bg-white hover:bg-red-50 hover:border-red-500 hover:text-red-500 transition-colors cursor-pointer">🗑️ Clear Cache</button>
+                <div id="statusMessage" class="text-xs font-bold text-gray-400 uppercase tracking-widest">TTS Ready</div>
+            </div>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b-2 border-black">
+                        <th class="p-4 text-xs font-black uppercase tracking-widest">Word</th>
+                        <th class="p-4 text-xs font-black uppercase tracking-widest">Reading</th>
+                        <th class="p-4 text-xs font-black uppercase tracking-widest">Meaning</th>
+                        <th class="p-4 text-xs font-black uppercase tracking-widest">Example</th>
+                        <th class="p-4 text-xs font-black uppercase tracking-widest text-center">Count</th>
+                        <th class="p-4 text-xs font-black uppercase tracking-widest text-right">Listen</th>
+                    </tr>
+                </thead>
+                <tbody id="vocalTable">
+                    <!-- Data will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        </main>
+    </div>
+
+    <script>
+        // --- API CONFIGURATION ---
+        const API_URL = 'https://japan-api.garagehousekr.workers.dev';
+
+        // --- USER AUTHENTICATION ---
+
+        // SHA-256 hash function
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // Login state management
+        function isLoggedIn() {
+            return localStorage.getItem('loggedInUser') !== null;
+        }
+
+        function getLoggedInUser() {
+            return localStorage.getItem('loggedInUser');
+        }
+
+        function setLoggedInUser(name) {
+            localStorage.setItem('loggedInUser', name);
+        }
+
+        function logout() {
+            localStorage.removeItem('loggedInUser');
+            showLoginScreen();
+        }
+
+        function showLoginScreen() {
+            document.getElementById('loginScreen').classList.remove('hidden');
+            document.getElementById('mainApp').classList.add('hidden');
+        }
+
+        function showMainApp() {
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('mainApp').classList.remove('hidden');
+            document.getElementById('currentUser').textContent = getLoggedInUser();
+        }
+
+        // Load users from API
+        async function loadUsers() {
+            try {
+                const response = await fetch(`${API_URL}/users`);
+                const users = await response.json();
+                const select = document.getElementById('loginUser');
+                select.innerHTML = '<option value="">선택하세요</option>';
+                users.forEach(name => {
+                    const option = document.createElement('option');
+                    option.value = name;
+                    option.textContent = name;
+                    select.appendChild(option);
+                });
+            } catch (err) {
+                console.error('Failed to load users:', err);
+            }
+        }
+        loadUsers();
+
+        // Initialize login UI
+        document.getElementById('loginBtn').addEventListener('click', async () => {
+            const selectedUser = document.getElementById('loginUser').value;
+            const password = document.getElementById('loginPassword').value;
+            const errorEl = document.getElementById('loginError');
+
+            if (!selectedUser || !password) {
+                errorEl.classList.remove('hidden');
+                return;
+            }
+
+            const hashedPassword = await sha256(password);
+            
+            try {
+                const response = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: selectedUser, password_hash: hashedPassword })
+                });
+                const result = await response.json();
+                
+                if (result.success) {
+                    errorEl.classList.add('hidden');
+                    setLoggedInUser(result.username);
+                    showMainApp();
+                    loadStudyDataFromServer();
+                } else {
+                    errorEl.classList.remove('hidden');
+                }
+            } catch (err) {
+                console.error('Login error:', err);
+                errorEl.classList.remove('hidden');
+            }
+        });
+
+        // Enter key to login
+        document.getElementById('loginPassword').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                document.getElementById('loginBtn').click();
+            }
+        });
+
+        // Logout button
+        document.getElementById('logoutBtn').addEventListener('click', logout);
+
+        // Check login state on page load
+        if (isLoggedIn()) {
+            showMainApp();
+            loadStudyDataFromServer();
+        } else {
+            showLoginScreen();
+        }
+
+        // --- STUDY COUNT MANAGEMENT ---
+        let studyDataCache = {};
+
+        function getStudyDataKey() {
+            return `study_count_${getLoggedInUser()}`;
+        }
+
+        function getStudyData() {
+            return studyDataCache;
+        }
+
+        async function loadStudyDataFromServer() {
+            try {
+                const username = getLoggedInUser();
+                if (!username) return;
+                const response = await fetch(`${API_URL}/study/${encodeURIComponent(username)}`);
+                studyDataCache = await response.json();
+                renderFiltered();
+                updateStatsUI();
+            } catch (err) {
+                console.error('Failed to load study data:', err);
+                // Fallback to localStorage
+                const data = localStorage.getItem(getStudyDataKey());
+                studyDataCache = data ? JSON.parse(data) : {};
+            }
+        }
+
+        async function saveStudyData(data) {
+            studyDataCache = data;
+            // Also save to localStorage as backup
+            localStorage.setItem(getStudyDataKey(), JSON.stringify(data));
+        }
+
+        async function saveStudyItem(yomi, itemData) {
+            try {
+                const username = getLoggedInUser();
+                await fetch(`${API_URL}/study`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        username,
+                        word_yomi: yomi,
+                        count: itemData.count,
+                        clicks: itemData.clicks,
+                        last_studied: itemData.lastStudied
+                    })
+                });
+            } catch (err) {
+                console.error('Failed to save study item:', err);
+            }
+        }
+
+        function incrementStudyCount(yomi) {
+            const data = getStudyData();
+            const today = new Date().toISOString().split('T')[0];
+            if (!data[yomi]) {
+                data[yomi] = { count: 0, clicks: 0, lastStudied: null };
+            }
+            // 2클릭당 1카운트
+            data[yomi].clicks = (data[yomi].clicks || 0) + 1;
+            if (data[yomi].clicks >= 2) {
+                data[yomi].count++;
+                data[yomi].clicks = 0;
+            }
+            data[yomi].lastStudied = today;
+            saveStudyData(data);
+            saveStudyItem(yomi, data[yomi]);
+            updateStatsUI();
+            updateCountBadge(yomi, data[yomi].count);
+        }
+
+        function getStudyCount(yomi) {
+            const data = getStudyData();
+            return data[yomi]?.count || 0;
+        }
+
+        function getLastStudied(yomi) {
+            const data = getStudyData();
+            return data[yomi]?.lastStudied || null;
+        }
+
+        function updateCountBadge(yomi, count) {
+            const badge = document.querySelector(`[data-yomi="${yomi}"] .count-badge`);
+            if (badge) {
+                badge.textContent = count;
+                badge.className = `count-badge px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(count)}`;
+            }
+        }
+
+        function getCountBadgeClass(count) {
+            if (count === 0) return 'bg-gray-200 text-gray-500';
+            if (count <= 5) return 'bg-blue-100 text-blue-600';
+            return 'bg-green-100 text-green-600';
+        }
+
+        function updateStatsUI() {
+            const data = getStudyData();
+            const today = new Date().toISOString().split('T')[0];
+            
+            let studied = 0;
+            let todayCount = 0;
+            
+            Object.values(data).forEach(item => {
+                if (item.count > 0) studied++;
+                if (item.lastStudied === today) todayCount++;
+            });
+
+            document.getElementById('statStudied').textContent = studied;
+            document.getElementById('statTotal').textContent = vocabList.length;
+            document.getElementById('statToday').textContent = todayCount;
+        }
+
+        async function resetStudyData() {
+            if (confirm('정말 학습 기록을 초기화하시겠습니까?')) {
+                try {
+                    await fetch(`${API_URL}/study/reset`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ username: getLoggedInUser() })
+                    });
+                    studyDataCache = {};
+                    localStorage.removeItem(getStudyDataKey());
+                    renderFiltered();
+                    updateStatsUI();
+                } catch (err) {
+                    console.error('Failed to reset:', err);
+                    alert('리셋 실패');
+                }
+            }
+        }
+
+        // --- CONFIGURATION ---
+        // API Key is now stored in Cloudflare Workers
+
+        // --- INDEXEDDB CACHE SETUP ---
+        const CACHE_NAME = 'japanese-tts-cache';
+        const CACHE_VERSION = 1;
+        const CACHE_EXPIRY_DAYS = 7;
+        const MAX_CACHE_SIZE_MB = 50;
+        let db;
+
+        // Initialize IndexedDB
+        async function initDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(CACHE_NAME, CACHE_VERSION);
+                request.onerror = () => reject(request.error);
+                request.onsuccess = () => {
+                    db = request.result;
+                    resolve(db);
+                };
+                request.onupgradeneeded = (event) => {
+                    const db = event.target.result;
+                    if (!db.objectStoreNames.contains('audio')) {
+                        const objectStore = db.createObjectStore('audio', { keyPath: 'text' });
+                        objectStore.createIndex('timestamp', 'timestamp', { unique: false });
+                    }
+                };
+            });
+        }
+
+        // Get cached audio
+        async function getCachedAudio(text) {
+            if (!db) return null;
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction(['audio'], 'readonly');
+                const objectStore = transaction.objectStore('audio');
+                const request = objectStore.get(text);
+                request.onsuccess = () => {
+                    const result = request.result;
+                    if (result) {
+                        const now = Date.now();
+                        const age = now - result.timestamp;
+                        const maxAge = CACHE_EXPIRY_DAYS * 24 * 60 * 60 * 1000;
+                        if (age < maxAge) {
+                            resolve(result.audioBlob);
+                        } else {
+                            deleteCachedAudio(text);
+                            resolve(null);
+                        }
+                    } else {
+                        resolve(null);
+                    }
+                };
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        // Save audio to cache
+        async function saveCachedAudio(text, audioBlob) {
+            if (!db) return;
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction(['audio'], 'readwrite');
+                const objectStore = transaction.objectStore('audio');
+                const data = { text, audioBlob, timestamp: Date.now() };
+                const request = objectStore.put(data);
+                request.onsuccess = () => resolve();
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        // Delete cached audio
+        async function deleteCachedAudio(text) {
+            if (!db) return;
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction(['audio'], 'readwrite');
+                const objectStore = transaction.objectStore('audio');
+                const request = objectStore.delete(text);
+                request.onsuccess = () => resolve();
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        // Clean old cache entries
+        async function cleanOldCache() {
+            if (!db) return;
+            const transaction = db.transaction(['audio'], 'readwrite');
+            const objectStore = transaction.objectStore('audio');
+            const index = objectStore.index('timestamp');
+            const now = Date.now();
+            const maxAge = CACHE_EXPIRY_DAYS * 24 * 60 * 60 * 1000;
+            index.openCursor().onsuccess = (event) => {
+                const cursor = event.target.result;
+                if (cursor) {
+                    const age = now - cursor.value.timestamp;
+                    if (age > maxAge) cursor.delete();
+                    cursor.continue();
+                }
+            };
+        }
+
+        // Clear all cached audio
+        async function clearAllCache() {
+            if (!db) {
+                statusMsg.innerText = "❌ Cache not initialized";
+                return;
+            }
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction(['audio'], 'readwrite');
+                const objectStore = transaction.objectStore('audio');
+                const request = objectStore.clear();
+                request.onsuccess = () => {
+                    statusMsg.innerText = "✓ Cache cleared!";
+                    setTimeout(() => { statusMsg.innerText = "TTS Ready"; }, 2000);
+                    resolve();
+                };
+                request.onerror = () => {
+                    statusMsg.innerText = "❌ Failed to clear cache";
+                    reject(request.error);
+                };
+            });
+        }
+
+        // Initialize cache on load
+        initDB().then(() => {
+            cleanOldCache();
+            console.log('🎵 Cache system initialized');
+        }).catch(err => console.error('Cache init failed:', err));
+
+        // Load vocabulary data from JSON
+        let vocabList = [];
+        let currentWeek = 'week1';
+        
+        async function loadVocabData(week = 'week1') {
+            try {
+                currentWeek = week;
+                const response = await fetch(`./${week}.json`);
+                if (!response.ok) throw new Error(`Failed to load ${week}.json`);
+                vocabList = await response.json();
+                console.log(`📚 Loaded ${vocabList.length} vocabulary items from ${week}`);
+                return vocabList;
+            } catch (err) {
+                console.error('Data load failed:', err);
+                statusMsg.innerText = "❌ Failed to load vocabulary data";
+                statusMsg.classList.add("text-red-500");
+                return [];
+            }
+        }
+
+        const tableBody = document.getElementById('vocalTable');
+        const searchInput = document.getElementById('searchInput');
+        const statusMsg = document.getElementById('statusMessage');
+        const clearCacheBtn = document.getElementById('clearCacheBtn');
+
+        // Clear cache button event
+        clearCacheBtn.addEventListener('click', async () => {
+            if (confirm('캐시된 모든 음성을 삭제하시겠습니까?')) {
+                await clearAllCache();
+            }
+        });
+
+
+
+        const normalizeText = (value) => (value || "")
+            .toString()
+            .toLowerCase()
+            .replace(/\s+/g, '')
+            .replace(/[\u200B-\u200D\uFEFF]/g, '')
+            .replace(/[\p{P}\p{S}]/gu, '');
+
+        // PCM (L16) to WAV converter for Browser Playback
+        function pcmToWav(pcmData, sampleRate) {
+            const buffer = new ArrayBuffer(44 + pcmData.length * 2);
+            const view = new DataView(buffer);
+            const writeString = (offset, string) => {
+                for (let i = 0; i < string.length; i++) view.setUint8(offset + i, string.charCodeAt(i));
+            };
+            writeString(0, 'RIFF');
+            view.setUint32(4, 32 + pcmData.length * 2, true);
+            writeString(8, 'WAVE');
+            writeString(12, 'fmt ');
+            view.setUint32(16, 16, true);
+            view.setUint16(20, 1, true); // PCM
+            view.setUint16(22, 1, true); // Mono
+            view.setUint32(24, sampleRate, true);
+            view.setUint32(28, sampleRate * 2, true);
+            view.setUint16(32, 2, true);
+            view.setUint16(34, 16, true);
+            writeString(36, 'data');
+            view.setUint32(40, pcmData.length * 2, true);
+            for (let i = 0; i < pcmData.length; i++) view.setInt16(44 + i * 2, pcmData[i], true);
+            return new Blob([buffer], { type: 'audio/wav' });
+        }
+
+        // TTS Mode selector
+        const ttsMode = document.getElementById('ttsMode');
+        const voiceSelect = document.getElementById('voiceSelect');
+
+        // Show/hide voice selector based on TTS mode
+        ttsMode.addEventListener('change', () => {
+            if (ttsMode.value === 'ai') {
+                voiceSelect.classList.remove('hidden');
+            } else {
+                voiceSelect.classList.add('hidden');
+            }
+        });
+
+        // Browser TTS (Web Speech API)
+        function speakBrowser(text, btnElement) {
+            if (!('speechSynthesis' in window)) {
+                statusMsg.innerText = "❌ Browser TTS not supported";
+                statusMsg.classList.add("text-red-500");
+                return;
+            }
+
+            // Cancel any ongoing speech
+            window.speechSynthesis.cancel();
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'ja-JP';
+            utterance.rate = 0.9;
+            utterance.pitch = 1;
+
+            // Try to find Japanese voice
+            const voices = window.speechSynthesis.getVoices();
+            const japaneseVoice = voices.find(v => v.lang.startsWith('ja'));
+            if (japaneseVoice) {
+                utterance.voice = japaneseVoice;
+            }
+
+            const originalContent = btnElement.innerHTML;
+            btnElement.disabled = true;
+            btnElement.innerHTML = `<svg class="loading-spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>`;
+            statusMsg.innerText = "🔊 Speaking...";
+
+            utterance.onend = () => {
+                btnElement.disabled = false;
+                btnElement.innerHTML = originalContent;
+                statusMsg.innerText = "TTS Ready";
+            };
+
+            utterance.onerror = (e) => {
+                btnElement.disabled = false;
+                btnElement.innerHTML = originalContent;
+                statusMsg.innerText = `❌ Speech Error`;
+                console.error('Speech error:', e);
+            };
+
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Load voices (some browsers need this)
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = () => {
+                window.speechSynthesis.getVoices();
+            };
+        }
+
+        // Main speak function - routes to selected TTS mode
+        function speak(text, btnElement) {
+            if (ttsMode.value === 'browser') {
+                speakBrowser(text, btnElement);
+            } else {
+                speakAI(text, btnElement);
+            }
+        }
+
+        // Google Cloud TTS API Call with Cache (via Cloudflare Worker)
+        async function speakAI(text, btnElement) {
+            statusMsg.classList.remove("text-red-500");
+
+            const originalContent = btnElement.innerHTML;
+            btnElement.disabled = true;
+            btnElement.innerHTML = `<svg class="loading-spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>`;
+            
+            // Check cache first
+            try {
+                const cachedBlob = await getCachedAudio(text);
+                if (cachedBlob) {
+                    statusMsg.innerText = "Playing from Cache 🚀";
+                    const audio = new Audio(URL.createObjectURL(cachedBlob));
+                    audio.play();
+                    btnElement.disabled = false;
+                    btnElement.innerHTML = originalContent;
+                    setTimeout(() => {
+                        statusMsg.innerText = "TTS Ready";
+                    }, 1500);
+                    return;
+                }
+            } catch (err) {
+                console.warn('Cache read failed:', err);
+            }
+
+            statusMsg.innerText = "🤖 AI Generating Audio...";
+
+            const callTTS = async (retryCount = 0) => {
+                try {
+                    const selectedVoice = voiceSelect.value;
+                    const response = await fetch(`${API_URL}/tts`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            input: { text: text },
+                            voice: {
+                                languageCode: 'ja-JP',
+                                name: selectedVoice
+                            },
+                            audioConfig: {
+                                audioEncoding: 'MP3'
+                            }
+                        })
+                    });
+                    
+                    if (!response.ok) {
+                        const errorData = await response.json().catch(() => ({}));
+                        console.error('Google TTS API Error:', response.status, errorData);
+                        throw new Error(`API ${response.status}: ${errorData.error?.message || 'Unknown error'}`);
+                    }
+                    
+                    const data = await response.json();
+                    
+                    if (!data.audioContent) {
+                        throw new Error('No audio data in response');
+                    }
+                    
+                    // Convert base64 to blob
+                    const binaryString = atob(data.audioContent);
+                    const bytes = new Uint8Array(binaryString.length);
+                    for (let i = 0; i < binaryString.length; i++) {
+                        bytes[i] = binaryString.charCodeAt(i);
+                    }
+                    const audioBlob = new Blob([bytes], { type: 'audio/mp3' });
+                    
+                    // Save to cache
+                    try {
+                        await saveCachedAudio(text, audioBlob);
+                        statusMsg.innerText = "Cached & Playing ✓";
+                    } catch (err) {
+                        console.warn('Cache save failed:', err);
+                        statusMsg.innerText = "Playing (Cache Failed)";
+                    }
+                    
+                    const audio = new Audio(URL.createObjectURL(audioBlob));
+                    audio.play();
+                    
+                    setTimeout(() => {
+                        statusMsg.innerText = "TTS Ready";
+                    }, 2000);
+                } catch (error) {
+                    if (retryCount < 3) {
+                        const delay = Math.pow(2, retryCount) * 1000;
+                        statusMsg.innerText = `Retrying... (${retryCount + 1}/3)`;
+                        await new Promise(r => setTimeout(r, delay));
+                        return callTTS(retryCount + 1);
+                    }
+                    console.error('Google TTS Error:', error);
+                    statusMsg.innerText = `❌ ${error.message}`;
+                    statusMsg.classList.add("text-red-500");
+                    setTimeout(() => {
+                        statusMsg.innerText = "TTS Ready";
+                        statusMsg.classList.remove("text-red-500");
+                    }, 3000);
+                } finally {
+                    btnElement.disabled = false;
+                    btnElement.innerHTML = originalContent;
+                }
+            };
+
+            await callTTS();
+        }
+
+        function render(list) {
+            tableBody.innerHTML = '';
+            list.forEach(item => {
+                const count = getStudyCount(item.yomi);
+                const tr = document.createElement('tr');
+                tr.className = 'border-b border-gray-100 hover:bg-gray-50 transition-colors';
+                tr.setAttribute('data-yomi', item.yomi);
+                tr.innerHTML = `
+                    <td class="p-4">
+                        <div class="font-bold text-2xl tracking-tight">${item.word}</div>
+                        <div class="text-xs text-blue-500 mt-1">${item.word_pron || ''}</div>
+                    </td>
+                    <td class="p-4 text-gray-400 font-mono text-sm uppercase">${item.yomi}</td>
+                    <td class="p-4 font-medium text-gray-600">${item.meaning}</td>
+                    <td class="p-4">
+                        <div class="font-bold text-black cursor-pointer hover:underline text-lg sentence-trigger">${item.sentence}</div>
+                        <div class="text-xs text-gray-400 mt-1">${item.s_meaning}</div>
+                        <div class="text-xs text-blue-500 mt-1">${item.s_pron || ''}</div>
+                    </td>
+                    <td class="p-4 text-center">
+                        <span class="count-badge px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(count)}">${count}</span>
+                    </td>
+                    <td class="p-4 text-right">
+                        <button class="audio-btn p-2 rounded-full border border-black transition-all play-trigger">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                        </button>
+                    </td>
+                `;
+                
+                const playBtn = tr.querySelector('.play-trigger');
+                const sentenceBtn = tr.querySelector('.sentence-trigger');
+                
+                // Use yomi (히라가나) instead of word (한자) for correct Japanese pronunciation
+                playBtn.onclick = () => {
+                    incrementStudyCount(item.yomi);
+                    speak(item.yomi, playBtn);
+                };
+                sentenceBtn.onclick = () => {
+                    incrementStudyCount(item.yomi);
+                    speak(item.sentence, sentenceBtn);
+                };
+
+                tableBody.appendChild(tr);
+            });
+            updateStatsUI();
+        }
+
+        // Filter functions
+        const filterMode = document.getElementById('filterMode');
+        
+        function renderFiltered() {
+            const mode = filterMode.value;
+            const today = new Date().toISOString().split('T')[0];
+            const studyData = getStudyData();
+            
+            let filtered = vocabList;
+            
+            if (mode === 'unstudied') {
+                filtered = vocabList.filter(item => !studyData[item.yomi] || studyData[item.yomi].count === 0);
+            } else if (mode === 'today') {
+                filtered = vocabList.filter(item => studyData[item.yomi]?.lastStudied === today);
+            } else if (mode === 'studied') {
+                filtered = vocabList.filter(item => studyData[item.yomi]?.count > 0);
+            }
+            
+            // Apply search filter too
+            const term = normalizeText(searchInput.value);
+            if (term) {
+                filtered = filtered.filter(item => {
+                    const haystack = normalizeText(
+                        `${item.word} ${item.yomi} ${item.meaning} ${item.word_pron || ''} ${item.sentence} ${item.s_meaning} ${item.s_pron || ''}`
+                    );
+                    return haystack.includes(term);
+                });
+            }
+            
+            render(filtered);
+        }
+
+        filterMode.addEventListener('change', renderFiltered);
+
+        // Week selector
+        const weekSelect = document.getElementById('weekSelect');
+        weekSelect.addEventListener('change', async () => {
+            await loadVocabData(weekSelect.value);
+            renderFiltered();
+        });
+
+        // Stats buttons
+        document.getElementById('resetStatsBtn').addEventListener('click', resetStudyData);
+
+        searchInput.addEventListener('input', renderFiltered);
+
+        // Initial Load
+        loadVocabData('week1').then(() => {
+            renderFiltered();
+        });
+    </script>
+</body>
+</html>
