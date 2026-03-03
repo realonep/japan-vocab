@@ -386,6 +386,16 @@
             return studyDataCache;
         }
 
+        function makeStudyKey(yomi) {
+            return `${currentWeek}::${yomi}`;
+        }
+
+        function getStudyItem(yomi) {
+            const data = getStudyData();
+            const scopedKey = makeStudyKey(yomi);
+            return data[scopedKey] || null;
+        }
+
         async function loadStudyDataFromServer() {
             try {
                 const username = getLoggedInUser();
@@ -408,7 +418,7 @@
             localStorage.setItem(getStudyDataKey(), JSON.stringify(data));
         }
 
-        async function saveStudyItem(yomi, itemData) {
+        async function saveStudyItem(studyKey, itemData) {
             try {
                 const username = getLoggedInUser();
                 await fetch(`${API_URL}/study`, {
@@ -416,7 +426,7 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         username,
-                        word_yomi: yomi,
+                        word_yomi: studyKey,
                         count: itemData.count,
                         clicks: itemData.clicks,
                         last_studied: itemData.lastStudied
@@ -430,30 +440,32 @@
         function incrementStudyCount(yomi) {
             const data = getStudyData();
             const today = new Date().toISOString().split('T')[0];
-            if (!data[yomi]) {
-                data[yomi] = { count: 0, clicks: 0, lastStudied: null };
+            const studyKey = makeStudyKey(yomi);
+            if (!data[studyKey]) {
+                data[studyKey] = { count: 0, clicks: 0, lastStudied: null };
             }
             // 2클릭당 1카운트
-            data[yomi].clicks = (data[yomi].clicks || 0) + 1;
-            if (data[yomi].clicks >= 2) {
-                data[yomi].count++;
-                data[yomi].clicks = 0;
+            data[studyKey].clicks = (data[studyKey].clicks || 0) + 1;
+            if (data[studyKey].clicks >= 2) {
+                data[studyKey].count++;
+                data[studyKey].clicks = 0;
+                // "오늘 학습"은 학습 완료(2회) 기준과 동일하게 집계
+                data[studyKey].lastStudied = today;
             }
-            data[yomi].lastStudied = today;
             saveStudyData(data);
-            saveStudyItem(yomi, data[yomi]);
+            saveStudyItem(studyKey, data[studyKey]);
             updateStatsUI();
-            updateCountBadge(yomi, data[yomi].count);
+            updateCountBadge(yomi, data[studyKey].count);
         }
 
         function getStudyCount(yomi) {
-            const data = getStudyData();
-            return data[yomi]?.count || 0;
+            const item = getStudyItem(yomi);
+            return item?.count || 0;
         }
 
         function getLastStudied(yomi) {
-            const data = getStudyData();
-            return data[yomi]?.lastStudied || null;
+            const item = getStudyItem(yomi);
+            return item?.lastStudied || null;
         }
 
         function updateCountBadge(yomi, count) {
@@ -471,15 +483,16 @@
         }
 
         function updateStatsUI() {
-            const data = getStudyData();
             const today = new Date().toISOString().split('T')[0];
             
             let studied = 0;
             let todayCount = 0;
-            
-            Object.values(data).forEach(item => {
-                if (item.count > 0) studied++;
-                if (item.lastStudied === today) todayCount++;
+
+            vocabList.forEach(item => {
+                const stat = getStudyItem(item.yomi);
+                if (!stat) return;
+                if (stat.count > 0) studied++;
+                if (stat.lastStudied === today) todayCount++;
             });
 
             document.getElementById('statStudied').textContent = studied;
@@ -490,13 +503,17 @@
         async function resetStudyData() {
             if (confirm('정말 학습 기록을 초기화하시겠습니까?')) {
                 try {
-                    await fetch(`${API_URL}/study/reset`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ username: getLoggedInUser() })
+                    const data = getStudyData();
+                    const updates = [];
+                    vocabList.forEach(item => {
+                        const key = makeStudyKey(item.yomi);
+                        if (data[key]) {
+                            data[key] = { count: 0, clicks: 0, lastStudied: null };
+                            updates.push(saveStudyItem(key, data[key]));
+                        }
                     });
-                    studyDataCache = {};
-                    localStorage.removeItem(getStudyDataKey());
+                    await Promise.all(updates);
+                    saveStudyData(data);
                     renderFiltered();
                     updateStatsUI();
                 } catch (err) {
@@ -1006,11 +1023,14 @@
             const studyData = getStudyData();
             let filtered = vocabList;
             if (mode === 'unstudied') {
-                filtered = vocabList.filter(item => !studyData[item.yomi] || studyData[item.yomi].count === 0);
+                filtered = vocabList.filter(item => {
+                    const stat = studyData[makeStudyKey(item.yomi)];
+                    return !stat || stat.count === 0;
+                });
             } else if (mode === 'today') {
-                filtered = vocabList.filter(item => studyData[item.yomi]?.lastStudied === today);
+                filtered = vocabList.filter(item => studyData[makeStudyKey(item.yomi)]?.lastStudied === today);
             } else if (mode === 'studied') {
-                filtered = vocabList.filter(item => studyData[item.yomi]?.count > 0);
+                filtered = vocabList.filter(item => studyData[makeStudyKey(item.yomi)]?.count > 0);
             }
             // Apply search filter too
             const term = normalizeText(searchInput.value);
