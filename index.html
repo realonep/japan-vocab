@@ -265,6 +265,23 @@
             localStorage.setItem('loggedInUser', name);
         }
 
+        function getNextPageFromQuery() {
+            const next = new URLSearchParams(window.location.search).get('next');
+            if (!next) return null;
+            // Only allow local relative html targets
+            if (next.startsWith('http://') || next.startsWith('https://') || next.startsWith('//')) return null;
+            if (next.includes('..')) return null;
+            return next;
+        }
+
+        function tryRedirectToNextPage() {
+            const next = getNextPageFromQuery();
+            if (!next) return false;
+            if (next.startsWith('index.html') || next === 'index.html') return false;
+            window.location.href = next;
+            return true;
+        }
+
         function logout() {
             localStorage.removeItem('loggedInUser');
             showLoginScreen();
@@ -324,6 +341,7 @@
                 if (result.success) {
                     errorEl.classList.add('hidden');
                     setLoggedInUser(result.username);
+                    if (tryRedirectToNextPage()) return;
                     showMainApp();
                     loadStudyDataFromServer();
                 } else {
@@ -347,8 +365,12 @@
 
         // Check login state on page load
         if (isLoggedIn()) {
+            if (tryRedirectToNextPage()) {
+                // redirected to target page
+            } else {
             showMainApp();
             loadStudyDataFromServer();
+            }
         } else {
             showLoginScreen();
         }
