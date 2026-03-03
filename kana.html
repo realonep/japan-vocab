@@ -280,11 +280,11 @@
                 var btn = document.createElement('button');
                 btn.type = 'button';
                 btn.className = 'section-toggle';
-                btn.setAttribute('aria-expanded', sectionId === 'section0' ? 'true' : 'false');
+                btn.setAttribute('aria-expanded', 'true');
                 btn.innerHTML = '<span>' + sectionData.title + '</span><span class="chevron transition-transform">▼</span>';
                 var content = document.createElement('div');
                 content.id = sectionId;
-                content.className = 'section-content' + (sectionId === 'section0' ? ' open' : '');
+                content.className = 'section-content open';
                 var scrollWrap = document.createElement('div');
                 scrollWrap.className = 'scroll-wrap p-2 md:p-4';
                 var table = document.createElement('table');
