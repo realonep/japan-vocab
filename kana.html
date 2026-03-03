@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>히라가나·가타카나 | Japanese AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .kana-cell {
+            padding: 0.5rem 0.25rem;
+            min-height: 3.5rem;
+            border: 1px solid #e5e5e5;
+            background: #fff;
+            text-align: center;
+            vertical-align: middle;
+            transition: background 0.15s;
+        }
+        .kana-cell-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.15rem;
+        }
+        .kana-cell:hover { background: #f8f8f8; }
+        .kana-cell:active { background: #f0f0f0; }
+
+        .kana-char { font-family: 'Noto Sans JP', sans-serif; font-weight: 700; }
+        .kana-romaji { font-size: 0.7em; color: #666; }
+        .kana-kr { font-size: 0.75em; color: #333; font-weight: 600; }
+
+        .audio-btn-kana {
+            padding: 0.2rem 0.35rem;
+            border-radius: 9999px;
+            border: 1px solid #333;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .audio-btn-kana:hover { background: #f3f3f3; transform: scale(1.08); }
+        .audio-btn-kana:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .section-toggle {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border: 2px solid #000;
+            background: #000;
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .section-toggle:hover { background: #333; }
+        .section-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+        .section-content { overflow: hidden; }
+        .section-content:not(.open) { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .section-content.open { max-height: 5000px; transition: max-height 0.35s ease-in; }
+
+        .kana-table { border-collapse: collapse; width: 100%; table-layout: fixed; }
+        .kana-table th { border: 2px solid #000; background: #f5f5f5; padding: 0.4rem 0.25rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .kana-table td { border: 1px solid #e5e5e5; }
+
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        .scroll-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .special-sound { border: 1px solid #e5e5e5; background: #fff; padding: 0.75rem; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+
+        @media (max-width: 640px) {
+            body { padding: 0.75rem; }
+            .kana-cell { min-height: 3.2rem; padding: 0.4rem 0.2rem; }
+            .kana-cell-inner { gap: 0.15rem; }
+            .kana-char { font-size: 1rem; }
+            .kana-romaji { font-size: 0.55rem; }
+            .kana-kr { font-size: 0.62rem; }
+            .audio-btn-kana { padding: 0.12rem 0.22rem; }
+            .audio-btn-kana svg { width: 11px; height: 11px; }
+            .kana-table th { padding: 0.28rem 0.12rem; font-size: 0.56rem; }
+            .section-toggle { padding: 0.6rem 0.75rem; font-size: 0.85rem; }
+            .intro-box { padding: 0.75rem 1rem !important; font-size: 0.9rem; }
+            .header-title { font-size: 1.5rem !important; }
+            .header-sub { font-size: 0.7rem !important; }
+            nav a, nav span { padding: 0.4rem 0.6rem !important; font-size: 0.7rem !important; }
+            .special-sound { padding: 0.6rem; }
+        }
+
+        @media (max-width: 480px) {
+            .kana-char { font-size: 0.95rem; }
+            .kana-kr { font-size: 0.58rem; }
+            .kana-romaji { display: none; }
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-spinner { animation: spin 1s linear infinite; }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <header class="max-w-4xl mx-auto mb-6 md:mb-8 border-b-4 border-black pb-4 md:pb-6">
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+            <div>
+                <h1 class="header-title text-3xl md:text-4xl font-extrabold tracking-tighter mb-1 md:mb-2 uppercase">히라가나·가타카나</h1>
+                <p class="header-sub text-gray-500 font-medium tracking-widest text-sm md:text-base">50음도 · 청음 · 탁음 · 반탁음</p>
+            </div>
+            <nav class="flex gap-2 flex-wrap">
+                <a href="index.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">단어</a>
+                <a href="grammar.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">문법</a>
+                <span class="px-4 py-2 border-2 border-black bg-black text-white text-sm font-bold uppercase tracking-widest">가나</span>
+            </nav>
+        </div>
+        <div class="mt-4 pt-4 border-t border-gray-200 flex flex-wrap items-center gap-3 md:gap-4">
+            <div class="flex items-center gap-2">
+                <label class="text-xs md:text-sm font-bold">음성:</label>
+                <select id="voiceSelect" class="border-2 border-black px-2 py-1 text-xs md:text-sm font-bold bg-white cursor-pointer">
+                    <option value="ja-JP-Neural2-B">N2-B 여</option>
+                    <option value="ja-JP-Neural2-C">N2-C 남</option>
+                    <option value="ja-JP-Neural2-D">N2-D 남</option>
+                    <option value="ja-JP-Wavenet-A">WN-A 여</option>
+                    <option value="ja-JP-Wavenet-B">WN-B 여</option>
+                    <option value="ja-JP-Wavenet-C">WN-C 남</option>
+                </select>
+            </div>
+            <span id="ttsStatus" class="text-xs md:text-sm text-gray-500">🔊 TTS 로딩 중...</span>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto space-y-4 md:space-y-6">
+        <section class="intro-box border-2 border-black p-4 md:p-5 bg-gray-50">
+            <h2 class="text-sm font-black uppercase tracking-widest text-gray-600 mb-2">히라가나 vs 가타카나</h2>
+            <p class="text-gray-800 leading-relaxed">
+                <strong>히라가나(ひらがな)</strong>는 일본어 고유어·문법 요소에 쓰이고, 곡선적인 글자입니다.
+                <strong>가타카나(カタカナ)</strong>는 외래어·의성어 등에 쓰이고, 각진 글자입니다.
+                둘 다 같은 50음도 체계를 공유하며, 청음(清音) → 탁음(濁音) → 반탁음(半濁音) 순으로 익히면 좋습니다.
+            </p>
+        </section>
+
+        <div id="kanaSections"></div>
+
+        <section class="border-2 border-black p-3 md:p-4">
+            <h3 class="text-xs md:text-sm font-black uppercase tracking-widest text-gray-600 mb-2">특수음</h3>
+            <div class="special-sound">
+                <div class="flex items-center gap-2">
+                    <span class="kana-char text-xl">ん</span>
+                    <span class="kana-char text-lg text-gray-700">ン</span>
+                    <span class="kana-romaji font-mono">n</span>
+                    <span class="kana-kr">응/ㄴ</span>
+                </div>
+                <button id="specialNBtn" type="button" class="audio-btn-kana" title="발음 듣기">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="tts.js"></script>
+    <script>
+        (function() {
+            const KANA_DATA = [
+                {
+                    title: '청음 (清音)',
+                    rows: [
+                        { rowLabel: 'あ', cells: [
+                            { h: 'あ', k: 'ア', r: 'a', kr: '아' }, { h: 'い', k: 'イ', r: 'i', kr: '이' }, { h: 'う', k: 'ウ', r: 'u', kr: '우' }, { h: 'え', k: 'エ', r: 'e', kr: '에' }, { h: 'お', k: 'オ', r: 'o', kr: '오' }
+                        ]},
+                        { rowLabel: 'か', cells: [
+                            { h: 'か', k: 'カ', r: 'ka', kr: '카' }, { h: 'き', k: 'キ', r: 'ki', kr: '키' }, { h: 'く', k: 'ク', r: 'ku', kr: '쿠' }, { h: 'け', k: 'ケ', r: 'ke', kr: '케' }, { h: 'こ', k: 'コ', r: 'ko', kr: '코' }
+                        ]},
+                        { rowLabel: 'さ', cells: [
+                            { h: 'さ', k: 'サ', r: 'sa', kr: '사' }, { h: 'し', k: 'シ', r: 'shi', kr: '시' }, { h: 'す', k: 'ス', r: 'su', kr: '스' }, { h: 'せ', k: 'セ', r: 'se', kr: '세' }, { h: 'そ', k: 'ソ', r: 'so', kr: '소' }
+                        ]},
+                        { rowLabel: 'た', cells: [
+                            { h: 'た', k: 'タ', r: 'ta', kr: '타' }, { h: 'ち', k: 'チ', r: 'chi', kr: '치' }, { h: 'つ', k: 'ツ', r: 'tsu', kr: '츠' }, { h: 'て', k: 'テ', r: 'te', kr: '테' }, { h: 'と', k: 'ト', r: 'to', kr: '토' }
+                        ]},
+                        { rowLabel: 'な', cells: [
+                            { h: 'な', k: 'ナ', r: 'na', kr: '나' }, { h: 'に', k: 'ニ', r: 'ni', kr: '니' }, { h: 'ぬ', k: 'ヌ', r: 'nu', kr: '누' }, { h: 'ね', k: 'ネ', r: 'ne', kr: '네' }, { h: 'の', k: 'ノ', r: 'no', kr: '노' }
+                        ]},
+                        { rowLabel: 'は', cells: [
+                            { h: 'は', k: 'ハ', r: 'ha', kr: '하' }, { h: 'ひ', k: 'ヒ', r: 'hi', kr: '히' }, { h: 'ふ', k: 'フ', r: 'fu', kr: '후' }, { h: 'へ', k: 'ヘ', r: 'he', kr: '헤' }, { h: 'ほ', k: 'ホ', r: 'ho', kr: '호' }
+                        ]},
+                        { rowLabel: 'ま', cells: [
+                            { h: 'ま', k: 'マ', r: 'ma', kr: '마' }, { h: 'み', k: 'ミ', r: 'mi', kr: '미' }, { h: 'む', k: 'ム', r: 'mu', kr: '무' }, { h: 'め', k: 'メ', r: 'me', kr: '메' }, { h: 'も', k: 'モ', r: 'mo', kr: '모' }
+                        ]},
+                        { rowLabel: 'や', cells: [
+                            { h: 'や', k: 'ヤ', r: 'ya', kr: '야' }, null, { h: 'ゆ', k: 'ユ', r: 'yu', kr: '유' }, null, { h: 'よ', k: 'ヨ', r: 'yo', kr: '요' }
+                        ]},
+                        { rowLabel: 'ら', cells: [
+                            { h: 'ら', k: 'ラ', r: 'ra', kr: '라' }, { h: 'り', k: 'リ', r: 'ri', kr: '리' }, { h: 'る', k: 'ル', r: 'ru', kr: '루' }, { h: 'れ', k: 'レ', r: 're', kr: '레' }, { h: 'ろ', k: 'ロ', r: 'ro', kr: '로' }
+                        ]},
+                        { rowLabel: 'わ', cells: [
+                            { h: 'わ', k: 'ワ', r: 'wa', kr: '와' }, null, null, null, { h: 'を', k: 'ヲ', r: 'wo', kr: '오' }
+                        ]}
+                    ]
+                },
+                {
+                    title: '탁음 (濁音)',
+                    rows: [
+                        { rowLabel: 'が', cells: [
+                            { h: 'が', k: 'ガ', r: 'ga', kr: '가' }, { h: 'ぎ', k: 'ギ', r: 'gi', kr: '기' }, { h: 'ぐ', k: 'グ', r: 'gu', kr: '구' }, { h: 'げ', k: 'ゲ', r: 'ge', kr: '게' }, { h: 'ご', k: 'ゴ', r: 'go', kr: '고' }
+                        ]},
+                        { rowLabel: 'ざ', cells: [
+                            { h: 'ざ', k: 'ザ', r: 'za', kr: '자' }, { h: 'じ', k: 'ジ', r: 'ji', kr: '지' }, { h: 'ず', k: 'ズ', r: 'zu', kr: '즈' }, { h: 'ぜ', k: 'ゼ', r: 'ze', kr: '제' }, { h: 'ぞ', k: 'ゾ', r: 'zo', kr: '조' }
+                        ]},
+                        { rowLabel: 'だ', cells: [
+                            { h: 'だ', k: 'ダ', r: 'da', kr: '다' }, { h: 'ぢ', k: 'ヂ', r: 'ji', kr: '지' }, { h: 'づ', k: 'ヅ', r: 'zu', kr: '즈' }, { h: 'で', k: 'デ', r: 'de', kr: '데' }, { h: 'ど', k: 'ド', r: 'do', kr: '도' }
+                        ]},
+                        { rowLabel: 'ば', cells: [
+                            { h: 'ば', k: 'バ', r: 'ba', kr: '바' }, { h: 'び', k: 'ビ', r: 'bi', kr: '비' }, { h: 'ぶ', k: 'ブ', r: 'bu', kr: '부' }, { h: 'べ', k: 'ベ', r: 'be', kr: '베' }, { h: 'ぼ', k: 'ボ', r: 'bo', kr: '보' }
+                        ]}
+                    ]
+                },
+                {
+                    title: '반탁음 (半濁音)',
+                    rows: [
+                        { rowLabel: 'ぱ', cells: [
+                            { h: 'ぱ', k: 'パ', r: 'pa', kr: '파' }, { h: 'ぴ', k: 'ピ', r: 'pi', kr: '피' }, { h: 'ぷ', k: 'プ', r: 'pu', kr: '푸' }, { h: 'ぺ', k: 'ペ', r: 'pe', kr: '페' }, { h: 'ぽ', k: 'ポ', r: 'po', kr: '포' }
+                        ]}
+                    ]
+                }
+            ];
+
+            function createTTSButton(text) {
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'audio-btn-kana';
+                btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>';
+                btn.title = '발음 듣기';
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (typeof TTS !== 'undefined' && TTS.speak) TTS.speak(text, btn, 'ai');
+                });
+                return btn;
+            }
+
+            function renderCell(cell) {
+                var td = document.createElement('td');
+                td.className = 'kana-cell';
+                if (!cell) {
+                    td.style.background = '#fafafa';
+                    return td;
+                }
+                var wrap = document.createElement('div');
+                wrap.className = 'kana-cell-inner w-full';
+                var top = document.createElement('div');
+                top.className = 'flex items-center justify-center gap-1 flex-wrap';
+                var hi = document.createElement('span');
+                hi.className = 'kana-char text-lg md:text-xl';
+                hi.textContent = cell.h;
+                var ka = document.createElement('span');
+                ka.className = 'kana-char text-base md:text-lg text-gray-700';
+                ka.textContent = cell.k;
+                top.append(hi, ka);
+                var romaji = document.createElement('span');
+                romaji.className = 'kana-romaji font-mono';
+                romaji.textContent = cell.r;
+                var kr = document.createElement('span');
+                kr.className = 'kana-kr';
+                kr.textContent = cell.kr;
+                var btnWrap = document.createElement('div');
+                btnWrap.appendChild(createTTSButton(cell.h));
+                wrap.append(top, romaji, kr, btnWrap);
+                td.appendChild(wrap);
+                return td;
+            }
+
+            function renderSection(sectionData, sectionId) {
+                var section = document.createElement('section');
+                section.className = 'border-2 border-black';
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'section-toggle';
+                btn.setAttribute('aria-expanded', sectionId === 'section0' ? 'true' : 'false');
+                btn.innerHTML = '<span>' + sectionData.title + '</span><span class="chevron transition-transform">▼</span>';
+                var content = document.createElement('div');
+                content.id = sectionId;
+                content.className = 'section-content' + (sectionId === 'section0' ? ' open' : '');
+                var scrollWrap = document.createElement('div');
+                scrollWrap.className = 'scroll-wrap p-2 md:p-4';
+                var table = document.createElement('table');
+                table.className = 'kana-table';
+                var thead = document.createElement('thead');
+                thead.innerHTML = '<tr><th class="w-14 md:w-16">행\단</th><th>아단(a)</th><th>이단(i)</th><th>우단(u)</th><th>에단(e)</th><th>오단(o)</th></tr>';
+                table.appendChild(thead);
+                var tbody = document.createElement('tbody');
+                sectionData.rows.forEach(function(row) {
+                    var tr = document.createElement('tr');
+                    var th = document.createElement('th');
+                    th.className = 'kana-char text-base md:text-lg';
+                    th.textContent = row.rowLabel + '행';
+                    tr.appendChild(th);
+                    (row.cells || []).forEach(function(c) { tr.appendChild(renderCell(c)); });
+                    tbody.appendChild(tr);
+                });
+                table.appendChild(tbody);
+                scrollWrap.appendChild(table);
+                content.appendChild(scrollWrap);
+                section.appendChild(btn);
+                section.appendChild(content);
+                btn.addEventListener('click', function() {
+                    var open = content.classList.toggle('open');
+                    btn.setAttribute('aria-expanded', open);
+                });
+                return section;
+            }
+
+            var container = document.getElementById('kanaSections');
+            KANA_DATA.forEach(function(section, i) {
+                container.appendChild(renderSection(section, 'section' + i));
+            });
+
+            var specialNBtn = document.getElementById('specialNBtn');
+            if (specialNBtn) {
+                specialNBtn.addEventListener('click', function() {
+                    if (typeof TTS !== 'undefined' && TTS.speak) TTS.speak('ん', specialNBtn, 'ai');
+                });
+            }
+
+            if (typeof TTS !== 'undefined') {
+                TTS.init(function(msg) {
+                    var el = document.getElementById('ttsStatus');
+                    if (el) el.textContent = msg;
+                });
+                var voiceSelect = document.getElementById('voiceSelect');
+                if (voiceSelect) {
+                    voiceSelect.addEventListener('change', function() { TTS.setVoice(voiceSelect.value); });
+                    TTS.setVoice(voiceSelect.value);
+                }
+            }
+        })();
+    </script>
+</body>
+</html>
