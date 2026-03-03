@@ -643,9 +643,20 @@
         async function loadVocabData(week = 'week1') {
             try {
                 currentWeek = week;
-                const response = await fetch(`./${week}.json`);
-                if (!response.ok) throw new Error(`Failed to load ${week}.json`);
-                vocabList = await response.json();
+                const candidates = [`./data/${week}.json`, `./${week}.json`];
+                let loaded = false;
+                for (const path of candidates) {
+                    try {
+                        const response = await fetch(path);
+                        if (!response.ok) continue;
+                        vocabList = await response.json();
+                        loaded = true;
+                        break;
+                    } catch (_) {
+                        // try next candidate
+                    }
+                }
+                if (!loaded) throw new Error(`Failed to load ${week}.json`);
                 // 모든 주차에 동일한 페이지네이션 적용
                 totalPages = PAGE_COUNT;
                 currentPage = 1;
