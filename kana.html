@@ -14,6 +14,21 @@
             color: #000000;
         }
 
+        .page-title {
+            font-size: 1.9rem;
+            line-height: 1.05;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.35rem;
+            text-transform: uppercase;
+        }
+        .page-subtitle {
+            font-size: 0.78rem;
+            color: #6b7280;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+        }
+
         .kana-cell {
             padding: 0.5rem 0.25rem;
             min-height: 3.5rem;
@@ -90,9 +105,10 @@
             .kana-table th { padding: 0.28rem 0.12rem; font-size: 0.56rem; }
             .section-toggle { padding: 0.6rem 0.75rem; font-size: 0.85rem; }
             .intro-box { padding: 0.75rem 1rem !important; font-size: 0.9rem; }
-            .header-title { font-size: 1.5rem !important; }
-            .header-sub { font-size: 0.7rem !important; }
-            nav a, nav span { padding: 0.4rem 0.6rem !important; font-size: 0.7rem !important; }
+            .page-title { font-size: 1.55rem !important; }
+            .page-subtitle { font-size: 0.68rem !important; letter-spacing: 0.1em; }
+            .top-nav { width: 100%; justify-content: flex-start; gap: 0.35rem; }
+            .top-nav a, .top-nav span { padding: 0.5rem 0.72rem !important; font-size: 0.78rem !important; letter-spacing: 0.03em; line-height: 1.1; }
             .special-sound { padding: 0.6rem; }
         }
 
@@ -102,19 +118,24 @@
             .kana-romaji { display: none; }
         }
 
+        @media (min-width: 768px) {
+            .page-title { font-size: 3rem; }
+            .page-subtitle { font-size: 0.9rem; }
+        }
+
         @keyframes spin { to { transform: rotate(360deg); } }
         .loading-spinner { animation: spin 1s linear infinite; }
     </style>
 </head>
 <body class="p-4 md:p-10">
 
-    <header class="max-w-4xl mx-auto mb-6 md:mb-8 border-b-4 border-black pb-4 md:pb-6">
+    <header class="max-w-6xl mx-auto mb-8 border-b-4 border-black pb-6">
         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
             <div>
-                <h1 class="header-title text-3xl md:text-4xl font-extrabold tracking-tighter mb-1 md:mb-2 uppercase">히라가나·가타카나</h1>
-                <p class="header-sub text-gray-500 font-medium tracking-widest text-sm md:text-base">50음도 · 청음 · 탁음 · 반탁음</p>
+                <h1 class="page-title">히라가나·가타카나</h1>
+                <p class="page-subtitle">50음도 · 청음 · 탁음 · 반탁음</p>
             </div>
-            <nav class="flex gap-2 flex-wrap">
+            <nav class="top-nav flex gap-2 flex-wrap">
                 <a href="index.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">단어</a>
                 <a href="grammar.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">문법</a>
                 <span class="px-4 py-2 border-2 border-black bg-black text-white text-sm font-bold uppercase tracking-widest">가나</span>
@@ -125,7 +146,7 @@
             <div class="flex items-center gap-2">
                 <label class="text-xs md:text-sm font-bold">음성:</label>
                 <select id="voiceSelect" class="border-2 border-black px-2 py-1 text-xs md:text-sm font-bold bg-white cursor-pointer">
-                    <option value="ja-JP-Neural2-B">N2-B 여</option>
+                    <option value="ja-JP-Neural2-B" selected>N2-B 여</option>
                     <option value="ja-JP-Neural2-C">N2-C 남</option>
                     <option value="ja-JP-Neural2-D">N2-D 남</option>
                     <option value="ja-JP-Wavenet-A">WN-A 여</option>

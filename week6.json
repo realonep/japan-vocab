@@ -1,0 +1,1262 @@
+[
+  {
+    "word": "比べる",
+    "yomi": "くらべる",
+    "meaning": "비교하다",
+    "word_pron": "쿠라베루",
+    "sentence": "この二つを比べます。",
+    "s_meaning": "이 두 개를 비교합니다.",
+    "s_pron": "코노후타츠오 쿠라베마스。"
+  },
+  {
+    "word": "比較",
+    "yomi": "ひかく",
+    "meaning": "비교",
+    "word_pron": "히카쿠",
+    "sentence": "比較すると、こっちが安いです。",
+    "s_meaning": "비교해 보면, 이쪽이 쌉니다.",
+    "s_pron": "히카쿠스루토、 콧치가 야스이데스。"
+  },
+  {
+    "word": "差",
+    "yomi": "さ",
+    "meaning": "차이",
+    "word_pron": "사",
+    "sentence": "値段の差が大きいです。",
+    "s_meaning": "가격 차이가 큽니다.",
+    "s_pron": "네단노 사가 오오키이데스。"
+  },
+  {
+    "word": "程度",
+    "yomi": "ていど",
+    "meaning": "정도",
+    "word_pron": "테이도",
+    "sentence": "この程度で大丈夫です。",
+    "s_meaning": "이 정도면 괜찮습니다.",
+    "s_pron": "코노테이도데 다이죠우부데스。"
+  },
+  {
+    "word": "普通",
+    "yomi": "ふつう",
+    "meaning": "보통",
+    "word_pron": "후츠우",
+    "sentence": "普通はこれを使います。",
+    "s_meaning": "보통은 이걸 사용합니다.",
+    "s_pron": "후츠우와 코레오 츠카이마스。"
+  },
+  {
+    "word": "特別",
+    "yomi": "とくべつ",
+    "meaning": "특별",
+    "word_pron": "토쿠베츠",
+    "sentence": "今日は特別に安いです。",
+    "s_meaning": "오늘은 특별히 쌉니다.",
+    "s_pron": "쿄우와 토쿠베츠니 야스이데스。"
+  },
+  {
+    "word": "一般",
+    "yomi": "いっぱん",
+    "meaning": "일반",
+    "word_pron": "입판",
+    "sentence": "一般の人でもできます。",
+    "s_meaning": "일반 사람도 할 수 있습니다.",
+    "s_pron": "입판노 히토데모 데키마스。"
+  },
+  {
+    "word": "流行",
+    "yomi": "りゅうこう",
+    "meaning": "유행",
+    "word_pron": "류우코우",
+    "sentence": "この色が流行しています。",
+    "s_meaning": "이 색이 유행하고 있습니다.",
+    "s_pron": "코노이로가 류우코우시테이마스。"
+  },
+  {
+    "word": "好評",
+    "yomi": "こうひょう",
+    "meaning": "호평",
+    "word_pron": "코우효우",
+    "sentence": "この店は好評です。",
+    "s_meaning": "이 가게는 호평입니다.",
+    "s_pron": "코노미세와 코우효우데스。"
+  },
+  {
+    "word": "評価",
+    "yomi": "ひょうか",
+    "meaning": "평가",
+    "word_pron": "효우카",
+    "sentence": "評価は高いです。",
+    "s_meaning": "평가는 높습니다.",
+    "s_pron": "효우카와 타카이데스。"
+  },
+  {
+    "word": "お気に入り",
+    "yomi": "おきにいり",
+    "meaning": "최애/마음에 드는 것",
+    "word_pron": "오키니이리",
+    "sentence": "これがお気に入りです。",
+    "s_meaning": "이게 제 최애입니다.",
+    "s_pron": "코레가 오키니이리데스。"
+  },
+  {
+    "word": "最適",
+    "yomi": "さいてき",
+    "meaning": "최적",
+    "word_pron": "사이테키",
+    "sentence": "これが最適だと思います。",
+    "s_meaning": "이게 최적이라고 생각합니다.",
+    "s_pron": "코레가 사이테키다토 오모이마스。"
+  },
+  {
+    "word": "優先",
+    "yomi": "ゆうせん",
+    "meaning": "우선",
+    "word_pron": "유우센",
+    "sentence": "時間を優先します。",
+    "s_meaning": "시간을 우선합니다.",
+    "s_pron": "지칸오 유우센시마스。"
+  },
+  {
+    "word": "優先順位",
+    "yomi": "ゆうせんじゅんい",
+    "meaning": "우선순위",
+    "word_pron": "유우센쥰이",
+    "sentence": "優先順位を決めます。",
+    "s_meaning": "우선순위를 정합니다.",
+    "s_pron": "유우센쥰이오 키메마스。"
+  },
+  {
+    "word": "選定",
+    "yomi": "せんてい",
+    "meaning": "선정",
+    "word_pron": "센테이",
+    "sentence": "候補を選定します。",
+    "s_meaning": "후보를 선정합니다.",
+    "s_pron": "코우호오 센테이시마스。"
+  },
+  {
+    "word": "選択肢",
+    "yomi": "せんたくし",
+    "meaning": "선택지",
+    "word_pron": "센타쿠시",
+    "sentence": "選択肢が多いです。",
+    "s_meaning": "선택지가 많습니다.",
+    "s_pron": "센타쿠시가 오오이데스。"
+  },
+  {
+    "word": "似ている",
+    "yomi": "にている",
+    "meaning": "비슷하다",
+    "word_pron": "니테이루",
+    "sentence": "二つはよく似ています。",
+    "s_meaning": "두 개는 많이 비슷합니다.",
+    "s_pron": "후타츠와 요쿠 니테이마스。"
+  },
+  {
+    "word": "対立",
+    "yomi": "たいりつ",
+    "meaning": "대립",
+    "word_pron": "타이리츠",
+    "sentence": "意見が対立しています。",
+    "s_meaning": "의견이 대립하고 있습니다.",
+    "s_pron": "이켄가 타이리츠시테이마스。"
+  },
+  {
+    "word": "ぴったり",
+    "yomi": "ぴったり",
+    "meaning": "딱 맞다/잘 어울리다",
+    "word_pron": "핏타리",
+    "sentence": "このサイズがぴったりです。",
+    "s_meaning": "이 사이즈가 딱 맞습니다.",
+    "s_pron": "코노사이즈가 핏타리데스。"
+  },
+  {
+    "word": "お得",
+    "yomi": "おとく",
+    "meaning": "가성비 좋음/이득",
+    "word_pron": "오토쿠",
+    "sentence": "このセットはお得です。",
+    "s_meaning": "이 세트는 이득입니다.",
+    "s_pron": "코노셋토와 오토쿠데스。"
+  },
+  {
+    "word": "訳",
+    "yomi": "わけ",
+    "meaning": "이유/사정",
+    "word_pron": "와케",
+    "sentence": "訳を話してください。",
+    "s_meaning": "이유를 말해 주세요.",
+    "s_pron": "와케오 하나시테쿠다사이。"
+  },
+  {
+    "word": "原因",
+    "yomi": "げんいん",
+    "meaning": "원인",
+    "word_pron": "겐인",
+    "sentence": "原因が分かりました。",
+    "s_meaning": "원인을 알았습니다.",
+    "s_pron": "겐인가 와카리마시타。"
+  },
+  {
+    "word": "目標",
+    "yomi": "もくひょう",
+    "meaning": "목표",
+    "word_pron": "모쿠효우",
+    "sentence": "目標を決めます。",
+    "s_meaning": "목표를 정합니다.",
+    "s_pron": "모쿠효우오 키메마스。"
+  },
+  {
+    "word": "影響",
+    "yomi": "えいきょう",
+    "meaning": "영향",
+    "word_pron": "에이쿄우",
+    "sentence": "天気の影響です。",
+    "s_meaning": "날씨의 영향입니다.",
+    "s_pron": "텐키노 에이쿄우데스。"
+  },
+  {
+    "word": "成果",
+    "yomi": "せいか",
+    "meaning": "성과",
+    "word_pron": "세이카",
+    "sentence": "成果が出ました。",
+    "s_meaning": "성과가 나왔습니다.",
+    "s_pron": "세이카가 데마시타。"
+  },
+  {
+    "word": "せい",
+    "yomi": "せい",
+    "meaning": "~탓",
+    "word_pron": "세이",
+    "sentence": "私のせいです。",
+    "s_meaning": "제 탓입니다.",
+    "s_pron": "와타시노 세이데스。"
+  },
+  {
+    "word": "おかげ",
+    "yomi": "おかげ",
+    "meaning": "덕분",
+    "word_pron": "오카게",
+    "sentence": "あなたのおかげです。",
+    "s_meaning": "당신 덕분입니다.",
+    "s_pron": "아나타노 오카게데스。"
+  },
+  {
+    "word": "ため",
+    "yomi": "ため",
+    "meaning": "~때문/목적",
+    "word_pron": "타메",
+    "sentence": "健康のために歩きます。",
+    "s_meaning": "건강을 위해 걷습니다.",
+    "s_pron": "켄코우노 타메니 아루키마스。"
+  },
+  {
+    "word": "要件",
+    "yomi": "ようけん",
+    "meaning": "요건",
+    "word_pron": "요우켄",
+    "sentence": "要件を確認します。",
+    "s_meaning": "요건을 확인합니다.",
+    "s_pron": "요우켄오 카쿠닌시마스。"
+  },
+  {
+    "word": "条件",
+    "yomi": "じょうけん",
+    "meaning": "조건",
+    "word_pron": "죠우켄",
+    "sentence": "条件が合いません。",
+    "s_meaning": "조건이 맞지 않습니다.",
+    "s_pron": "죠우켄가 아이마센。"
+  },
+  {
+    "word": "事情",
+    "yomi": "じじょう",
+    "meaning": "사정",
+    "word_pron": "지죠우",
+    "sentence": "事情があります。",
+    "s_meaning": "사정이 있습니다.",
+    "s_pron": "지죠우가 아리마스。"
+  },
+  {
+    "word": "納得",
+    "yomi": "なっとく",
+    "meaning": "납득",
+    "word_pron": "낫토쿠",
+    "sentence": "納得できました。",
+    "s_meaning": "납득했습니다.",
+    "s_pron": "낫토쿠 데키마시타。"
+  },
+  {
+    "word": "説得",
+    "yomi": "せっとく",
+    "meaning": "설득",
+    "word_pron": "셋토쿠",
+    "sentence": "彼を説得します。",
+    "s_meaning": "그를 설득합니다.",
+    "s_pron": "카레오 셋토쿠시마스。"
+  },
+  {
+    "word": "具体的",
+    "yomi": "ぐたいてき",
+    "meaning": "구체적",
+    "word_pron": "구타이테키",
+    "sentence": "もっと具体的に言ってください。",
+    "s_meaning": "좀 더 구체적으로 말해 주세요.",
+    "s_pron": "못토 구타이테키니 잇테쿠다사이。"
+  },
+  {
+    "word": "詳細",
+    "yomi": "しょうさい",
+    "meaning": "상세",
+    "word_pron": "쇼우사이",
+    "sentence": "詳細を送ります。",
+    "s_meaning": "상세를 보냅니다.",
+    "s_pron": "쇼우사이오 오쿠리마스。"
+  },
+  {
+    "word": "補足",
+    "yomi": "ほそく",
+    "meaning": "보충",
+    "word_pron": "호소쿠",
+    "sentence": "少し補足します。",
+    "s_meaning": "조금 보충하겠습니다.",
+    "s_pron": "스코시 호소쿠시마스。"
+  },
+  {
+    "word": "ちなみに",
+    "yomi": "ちなみに",
+    "meaning": "참고로",
+    "word_pron": "치나미니",
+    "sentence": "ちなみに、明日は休みです。",
+    "s_meaning": "참고로, 내일은 쉽니다.",
+    "s_pron": "치나미니、 아시타와 야스미데스。"
+  },
+  {
+    "word": "せっかく",
+    "yomi": "せっかく",
+    "meaning": "모처럼/일부러",
+    "word_pron": "섹카쿠",
+    "sentence": "せっかく来たので、食べます。",
+    "s_meaning": "모처럼 왔으니, 먹겠습니다.",
+    "s_pron": "섹카쿠 키타노데、 타베마스。"
+  },
+  {
+    "word": "予定外",
+    "yomi": "よていがい",
+    "meaning": "예정 밖",
+    "word_pron": "요테이가이",
+    "sentence": "予定外の出費です。",
+    "s_meaning": "예정 밖의 지출입니다.",
+    "s_pron": "요테이가이노 슙피데스。"
+  },
+  {
+    "word": "出費",
+    "yomi": "しゅっぴ",
+    "meaning": "지출",
+    "word_pron": "슙피",
+    "sentence": "出費を減らします。",
+    "s_meaning": "지출을 줄입니다.",
+    "s_pron": "슙피오 헤라시마스。"
+  },
+  {
+    "word": "ルール",
+    "yomi": "るーる",
+    "meaning": "규칙",
+    "word_pron": "루-루",
+    "sentence": "ルールを守ってください。",
+    "s_meaning": "규칙을 지켜 주세요.",
+    "s_pron": "루-루오 마못테쿠다사이。"
+  },
+  {
+    "word": "規則",
+    "yomi": "きそく",
+    "meaning": "규칙",
+    "word_pron": "키소쿠",
+    "sentence": "規則があります。",
+    "s_meaning": "규칙이 있습니다.",
+    "s_pron": "키소쿠가 아리마스。"
+  },
+  {
+    "word": "禁止",
+    "yomi": "きんし",
+    "meaning": "금지",
+    "word_pron": "킨시",
+    "sentence": "ここは立ち入り禁止です。",
+    "s_meaning": "여기는 출입 금지입니다.",
+    "s_pron": "코코와 타치이리킨시데스。"
+  },
+  {
+    "word": "許可",
+    "yomi": "きょか",
+    "meaning": "허가",
+    "word_pron": "쿄카",
+    "sentence": "許可が必要です。",
+    "s_meaning": "허가가 필요합니다.",
+    "s_pron": "쿄카가 히츠요우데스。"
+  },
+  {
+    "word": "申請",
+    "yomi": "しんせい",
+    "meaning": "신청",
+    "word_pron": "신세이",
+    "sentence": "申請を出します。",
+    "s_meaning": "신청서를 냅니다.",
+    "s_pron": "신세이오 다시마스。"
+  },
+  {
+    "word": "登録",
+    "yomi": "とうろく",
+    "meaning": "등록",
+    "word_pron": "토우로쿠",
+    "sentence": "メールを登録します。",
+    "s_meaning": "이메일을 등록합니다.",
+    "s_pron": "메-루오 토우로쿠시마스。"
+  },
+  {
+    "word": "利用",
+    "yomi": "りよう",
+    "meaning": "이용",
+    "word_pron": "리요우",
+    "sentence": "このサービスを利用します。",
+    "s_meaning": "이 서비스를 이용합니다.",
+    "s_pron": "코노사-비스오 리요우시마스。"
+  },
+  {
+    "word": "使用",
+    "yomi": "しよう",
+    "meaning": "사용",
+    "word_pron": "시요우",
+    "sentence": "ここで使用できます。",
+    "s_meaning": "여기서 사용할 수 있습니다.",
+    "s_pron": "코코데 시요우데키마스。"
+  },
+  {
+    "word": "入場料",
+    "yomi": "にゅうじょうりょう",
+    "meaning": "입장료",
+    "word_pron": "뉴우죠우료우",
+    "sentence": "入場料はいくらですか。",
+    "s_meaning": "입장료는 얼마인가요?",
+    "s_pron": "뉴우죠우료우와 이쿠라데스카。"
+  },
+  {
+    "word": "無料",
+    "yomi": "むりょう",
+    "meaning": "무료",
+    "word_pron": "무료우",
+    "sentence": "今日は無料です。",
+    "s_meaning": "오늘은 무료입니다.",
+    "s_pron": "쿄우와 무료우데스。"
+  },
+  {
+    "word": "有料",
+    "yomi": "ゆうりょう",
+    "meaning": "유료",
+    "word_pron": "유우료우",
+    "sentence": "有料の席です。",
+    "s_meaning": "유료 좌석입니다.",
+    "s_pron": "유우료우노 세키데스。"
+  },
+  {
+    "word": "撮影",
+    "yomi": "さつえい",
+    "meaning": "촬영",
+    "word_pron": "사츠에이",
+    "sentence": "撮影してもいいですか。",
+    "s_meaning": "촬영해도 되나요?",
+    "s_pron": "사츠에이시테모 이이데스카。"
+  },
+  {
+    "word": "録音",
+    "yomi": "ろくおん",
+    "meaning": "녹음",
+    "word_pron": "로쿠온",
+    "sentence": "録音はだめです。",
+    "s_meaning": "녹음은 안 됩니다.",
+    "s_pron": "로쿠온와 다메데스。"
+  },
+  {
+    "word": "持ち込み",
+    "yomi": "もちこみ",
+    "meaning": "반입",
+    "word_pron": "모치코미",
+    "sentence": "飲み物の持ち込みはできますか。",
+    "s_meaning": "음료 반입이 되나요?",
+    "s_pron": "노미모노노 모치코미와 데키마스카。"
+  },
+  {
+    "word": "例外",
+    "yomi": "れいがい",
+    "meaning": "예외",
+    "word_pron": "레이가이",
+    "sentence": "例外もあります。",
+    "s_meaning": "예외도 있습니다.",
+    "s_pron": "레이가이모 아리마스。"
+  },
+  {
+    "word": "身分証",
+    "yomi": "みぶんしょう",
+    "meaning": "신분증",
+    "word_pron": "미분쇼우",
+    "sentence": "身分証を見せてください。",
+    "s_meaning": "신분증을 보여 주세요.",
+    "s_pron": "미분쇼우오 미세테쿠다사이。"
+  },
+  {
+    "word": "予約制",
+    "yomi": "よやくせい",
+    "meaning": "예약제",
+    "word_pron": "요야쿠세이",
+    "sentence": "この店は予約制です。",
+    "s_meaning": "이 가게는 예약제입니다.",
+    "s_pron": "코노미세와 요야쿠세이데스。"
+  },
+  {
+    "word": "営業時間",
+    "yomi": "えいぎょうじかん",
+    "meaning": "영업시간",
+    "word_pron": "에이교우지칸",
+    "sentence": "営業時間は何時までですか。",
+    "s_meaning": "영업시간은 몇 시까지입니까?",
+    "s_pron": "에이교우지칸와 난지마데데스카。"
+  },
+  {
+    "word": "注意事項",
+    "yomi": "ちゅういじこう",
+    "meaning": "주의사항",
+    "word_pron": "츄우이지코우",
+    "sentence": "注意事項を読んでください。",
+    "s_meaning": "주의사항을 읽어 주세요.",
+    "s_pron": "츄우이지코우오 욘데쿠다사이。"
+  },
+  {
+    "word": "会費",
+    "yomi": "かいひ",
+    "meaning": "회비",
+    "word_pron": "카이히",
+    "sentence": "会費は月千円です。",
+    "s_meaning": "회비는 한 달에 1000엔입니다.",
+    "s_pron": "카이히와 츠키 센엔데스。"
+  },
+  {
+    "word": "可能性",
+    "yomi": "かのうせい",
+    "meaning": "가능성",
+    "word_pron": "카노우세이",
+    "sentence": "可能性はあります。",
+    "s_meaning": "가능성은 있습니다.",
+    "s_pron": "카노우세이와 아리마스。"
+  },
+  {
+    "word": "不可能",
+    "yomi": "ふかのう",
+    "meaning": "불가능",
+    "word_pron": "후카노우",
+    "sentence": "今日は不可能です。",
+    "s_meaning": "오늘은 불가능합니다.",
+    "s_pron": "쿄우와 후카노우데스。"
+  },
+  {
+    "word": "確率",
+    "yomi": "かくりつ",
+    "meaning": "확률",
+    "word_pron": "카쿠리츠",
+    "sentence": "成功の確率が高いです。",
+    "s_meaning": "성공 확률이 높습니다.",
+    "s_pron": "세이코우노 카쿠리츠가 타카이데스。"
+  },
+  {
+    "word": "予想",
+    "yomi": "よそう",
+    "meaning": "예상",
+    "word_pron": "요소우",
+    "sentence": "予想より早いです。",
+    "s_meaning": "예상보다 빠릅니다.",
+    "s_pron": "요소우요리 하야이데스。"
+  },
+  {
+    "word": "予測",
+    "yomi": "よそく",
+    "meaning": "예측",
+    "word_pron": "요소쿠",
+    "sentence": "明日は雨だと予測します。",
+    "s_meaning": "내일은 비라고 예측합니다.",
+    "s_pron": "아시타와 아메다토 요소쿠시마스。"
+  },
+  {
+    "word": "おそらく",
+    "yomi": "おそらく",
+    "meaning": "아마",
+    "word_pron": "오소라쿠",
+    "sentence": "おそらく大丈夫です。",
+    "s_meaning": "아마 괜찮습니다.",
+    "s_pron": "오소라쿠 다이죠우부데스。"
+  },
+  {
+    "word": "きっと",
+    "yomi": "きっと",
+    "meaning": "분명",
+    "word_pron": "킷토",
+    "sentence": "きっと間に合います。",
+    "s_meaning": "분명 제시간에 맞을 겁니다.",
+    "s_pron": "킷토 마니아이마스。"
+  },
+  {
+    "word": "もしかすると",
+    "yomi": "もしかすると",
+    "meaning": "어쩌면",
+    "word_pron": "모시카스루토",
+    "sentence": "もしかすると遅れます。",
+    "s_meaning": "어쩌면 늦을 수도 있어요.",
+    "s_pron": "모시카스루토 오쿠레마스。"
+  },
+  {
+    "word": "確か",
+    "yomi": "たしか",
+    "meaning": "확실히",
+    "word_pron": "타시카",
+    "sentence": "確かにそうです。",
+    "s_meaning": "확실히 그렇습니다.",
+    "s_pron": "타시카니 소우데스。"
+  },
+  {
+    "word": "確かめる",
+    "yomi": "たしかめる",
+    "meaning": "확인하다",
+    "word_pron": "타시카메루",
+    "sentence": "もう一度確かめます。",
+    "s_meaning": "한 번 더 확인합니다.",
+    "s_pron": "모우이치도 타시카메마스。"
+  },
+  {
+    "word": "たまたま",
+    "yomi": "たまたま",
+    "meaning": "우연히",
+    "word_pron": "타마타마",
+    "sentence": "たまたま会いました。",
+    "s_meaning": "우연히 만났습니다.",
+    "s_pron": "타마타마 아이마시타。"
+  },
+  {
+    "word": "偶然",
+    "yomi": "ぐうぜん",
+    "meaning": "우연",
+    "word_pron": "구우젠",
+    "sentence": "偶然ですね。",
+    "s_meaning": "우연이네요.",
+    "s_pron": "구우젠데스네。"
+  },
+  {
+    "word": "必ず",
+    "yomi": "かならず",
+    "meaning": "반드시",
+    "word_pron": "카나라즈",
+    "sentence": "必ず連絡します。",
+    "s_meaning": "반드시 연락할게요.",
+    "s_pron": "카나라즈 렌라쿠시마스。"
+  },
+  {
+    "word": "万一",
+    "yomi": "まんいち",
+    "meaning": "만일",
+    "word_pron": "만이치",
+    "sentence": "万一の場合に備えます。",
+    "s_meaning": "만일의 경우에 대비합니다.",
+    "s_pron": "만이치노 바아이니 소나에마스。"
+  },
+  {
+    "word": "仮に",
+    "yomi": "かりに",
+    "meaning": "가령",
+    "word_pron": "카리니",
+    "sentence": "仮に遅れても大丈夫です。",
+    "s_meaning": "가령 늦어도 괜찮습니다.",
+    "s_pron": "카리니 오쿠레테모 다이죠우부데스。"
+  },
+  {
+    "word": "見込み",
+    "yomi": "みこみ",
+    "meaning": "전망",
+    "word_pron": "미코미",
+    "sentence": "成功の見込みがあります。",
+    "s_meaning": "성공할 전망이 있습니다.",
+    "s_pron": "세이코우노 미코미가 아리마스。"
+  },
+  {
+    "word": "らしい",
+    "yomi": "らしい",
+    "meaning": "~인 것 같다",
+    "word_pron": "라시이",
+    "sentence": "彼は忙しいらしいです。",
+    "s_meaning": "그는 바쁜 것 같습니다.",
+    "s_pron": "카레와 이소가시이라시이데스。"
+  },
+  {
+    "word": "ようだ",
+    "yomi": "ようだ",
+    "meaning": "~인 듯하다",
+    "word_pron": "요우다",
+    "sentence": "雨のようです。",
+    "s_meaning": "비가 올 것 같습니다.",
+    "s_pron": "아메노 요우데스。"
+  },
+  {
+    "word": "気がする",
+    "yomi": "きがする",
+    "meaning": "~한 느낌이다",
+    "word_pron": "키가스루",
+    "sentence": "今日は寒い気がします。",
+    "s_meaning": "오늘은 추운 느낌이 듭니다.",
+    "s_pron": "쿄우와 사무이 키가시마스。"
+  },
+  {
+    "word": "予報",
+    "yomi": "よほう",
+    "meaning": "예보",
+    "word_pron": "요호우",
+    "sentence": "雨の予報です。",
+    "s_meaning": "비 예보입니다.",
+    "s_pron": "아메노 요호우데스。"
+  },
+  {
+    "word": "見解",
+    "yomi": "けんかい",
+    "meaning": "견해",
+    "word_pron": "켄카이",
+    "sentence": "あなたの見解を聞きたいです。",
+    "s_meaning": "당신의 견해를 듣고 싶습니다.",
+    "s_pron": "아나타노 켄카이오 키키타이데스。"
+  },
+  {
+    "word": "感想",
+    "yomi": "かんそう",
+    "meaning": "감상",
+    "word_pron": "칸소우",
+    "sentence": "感想を教えてください。",
+    "s_meaning": "감상을 알려 주세요.",
+    "s_pron": "칸소우오 오시에테쿠다사이。"
+  },
+  {
+    "word": "考え",
+    "yomi": "かんがえ",
+    "meaning": "생각",
+    "word_pron": "칸가에",
+    "sentence": "私の考えです。",
+    "s_meaning": "제 생각입니다.",
+    "s_pron": "와타시노 칸가에데스。"
+  },
+  {
+    "word": "同感",
+    "yomi": "どうかん",
+    "meaning": "동감",
+    "word_pron": "도우칸",
+    "sentence": "私も同感です。",
+    "s_meaning": "저도 동감입니다.",
+    "s_pron": "와타시모 도우칸데스。"
+  },
+  {
+    "word": "反論",
+    "yomi": "はんろん",
+    "meaning": "반론",
+    "word_pron": "한론",
+    "sentence": "反論があります。",
+    "s_meaning": "반론이 있습니다.",
+    "s_pron": "한론가 아리마스。"
+  },
+  {
+    "word": "同意",
+    "yomi": "どうい",
+    "meaning": "동의",
+    "word_pron": "도우이",
+    "sentence": "その意見に同意します。",
+    "s_meaning": "그 의견에 동의합니다.",
+    "s_pron": "소노이켄니 도우이시마스。"
+  },
+  {
+    "word": "提示",
+    "yomi": "ていじ",
+    "meaning": "제시",
+    "word_pron": "테이지",
+    "sentence": "案を提示します。",
+    "s_meaning": "안을 제시합니다.",
+    "s_pron": "안오 테이지시마스。"
+  },
+  {
+    "word": "アイデア",
+    "yomi": "あいであ",
+    "meaning": "아이디어",
+    "word_pron": "아이데아",
+    "sentence": "いいアイデアですね。",
+    "s_meaning": "좋은 아이디어네요.",
+    "s_pron": "이이 아이데아데스네。"
+  },
+  {
+    "word": "解決",
+    "yomi": "かいけつ",
+    "meaning": "해결",
+    "word_pron": "카이케츠",
+    "sentence": "問題を解決します。",
+    "s_meaning": "문제를 해결합니다.",
+    "s_pron": "몬다이오 카이케츠시마스。"
+  },
+  {
+    "word": "問題",
+    "yomi": "もんだい",
+    "meaning": "문제",
+    "word_pron": "몬다이",
+    "sentence": "問題はここです。",
+    "s_meaning": "문제는 여기입니다.",
+    "s_pron": "몬다이와 코코데스。"
+  },
+  {
+    "word": "打ち合わせ",
+    "yomi": "うちあわせ",
+    "meaning": "협의/미팅",
+    "word_pron": "우치아와세",
+    "sentence": "明日打ち合わせがあります。",
+    "s_meaning": "내일 미팅이 있습니다.",
+    "s_pron": "아시타 우치아와세가 아리마스。"
+  },
+  {
+    "word": "共有",
+    "yomi": "きょうゆう",
+    "meaning": "공유",
+    "word_pron": "쿄우유우",
+    "sentence": "情報を共有します。",
+    "s_meaning": "정보를 공유합니다.",
+    "s_pron": "죠우호우오 쿄우유우시마스。"
+  },
+  {
+    "word": "発表",
+    "yomi": "はっぴょう",
+    "meaning": "발표",
+    "word_pron": "합표우",
+    "sentence": "明日発表します。",
+    "s_meaning": "내일 발표합니다.",
+    "s_pron": "아시타 합표우시마스。"
+  },
+  {
+    "word": "質問",
+    "yomi": "しつもん",
+    "meaning": "질문",
+    "word_pron": "시츠몬",
+    "sentence": "質問があります。",
+    "s_meaning": "질문이 있습니다.",
+    "s_pron": "시츠몬가 아리마스。"
+  },
+  {
+    "word": "返事",
+    "yomi": "へんじ",
+    "meaning": "답장/대답",
+    "word_pron": "헨지",
+    "sentence": "返事をください。",
+    "s_meaning": "답장을 주세요.",
+    "s_pron": "헨지오 쿠다사이。"
+  },
+  {
+    "word": "結論",
+    "yomi": "けつろん",
+    "meaning": "결론",
+    "word_pron": "케츠론",
+    "sentence": "結論を出します。",
+    "s_meaning": "결론을 내겠습니다.",
+    "s_pron": "케츠론오 다시마스。"
+  },
+  {
+    "word": "要点",
+    "yomi": "ようてん",
+    "meaning": "요점",
+    "word_pron": "요우텐",
+    "sentence": "要点だけ言います。",
+    "s_meaning": "요점만 말하겠습니다.",
+    "s_pron": "요우텐다케 이이마스。"
+  },
+  {
+    "word": "焦点",
+    "yomi": "しょうてん",
+    "meaning": "초점",
+    "word_pron": "쇼우텐",
+    "sentence": "焦点はここです。",
+    "s_meaning": "초점은 여기입니다.",
+    "s_pron": "쇼우텐와 코코데스。"
+  },
+  {
+    "word": "例",
+    "yomi": "れい",
+    "meaning": "예",
+    "word_pron": "레이",
+    "sentence": "例を見せます。",
+    "s_meaning": "예를 보여드립니다.",
+    "s_pron": "레이오 미세마스。"
+  },
+  {
+    "word": "結局",
+    "yomi": "けっきょく",
+    "meaning": "결국",
+    "word_pron": "켁쿄쿠",
+    "sentence": "結局、時間が足りません。",
+    "s_meaning": "결국 시간이 부족합니다.",
+    "s_pron": "켁쿄쿠、 지칸가 타리마센。"
+  },
+  {
+    "word": "緊張",
+    "yomi": "きんちょう",
+    "meaning": "긴장",
+    "word_pron": "킨쵸우",
+    "sentence": "少し緊張しています。",
+    "s_meaning": "조금 긴장하고 있습니다.",
+    "s_pron": "스코시 킨쵸우시테이마스。"
+  },
+  {
+    "word": "不安",
+    "yomi": "ふあん",
+    "meaning": "불안",
+    "word_pron": "후안",
+    "sentence": "不安があります。",
+    "s_meaning": "불안이 있습니다.",
+    "s_pron": "후안가 아리마스。"
+  },
+  {
+    "word": "退屈",
+    "yomi": "たいくつ",
+    "meaning": "지루함",
+    "word_pron": "타이쿠츠",
+    "sentence": "今日は退屈です。",
+    "s_meaning": "오늘은 지루합니다.",
+    "s_pron": "쿄우와 타이쿠츠데스。"
+  },
+  {
+    "word": "満足",
+    "yomi": "まんぞく",
+    "meaning": "만족",
+    "word_pron": "만조쿠",
+    "sentence": "結果に満足しています。",
+    "s_meaning": "결과에 만족하고 있습니다.",
+    "s_pron": "켁카니 만조쿠시테이마스。"
+  },
+  {
+    "word": "不満",
+    "yomi": "ふまん",
+    "meaning": "불만",
+    "word_pron": "후만",
+    "sentence": "少し不満があります。",
+    "s_meaning": "조금 불만이 있습니다.",
+    "s_pron": "스코시 후만가 아리마스。"
+  },
+  {
+    "word": "我慢",
+    "yomi": "がまん",
+    "meaning": "참다",
+    "word_pron": "가만",
+    "sentence": "もう少し我慢します。",
+    "s_meaning": "조금만 더 참겠습니다.",
+    "s_pron": "모우스코시 가만시마스。"
+  },
+  {
+    "word": "怒る",
+    "yomi": "おこる",
+    "meaning": "화내다",
+    "word_pron": "오코루",
+    "sentence": "彼は怒っています。",
+    "s_meaning": "그는 화나 있습니다.",
+    "s_pron": "카레와 오콧테이마스。"
+  },
+  {
+    "word": "喜ぶ",
+    "yomi": "よろこぶ",
+    "meaning": "기뻐하다",
+    "word_pron": "요로코부",
+    "sentence": "彼女は喜びました。",
+    "s_meaning": "그녀는 기뻐했습니다.",
+    "s_pron": "카노죠와 요로코비마시타。"
+  },
+  {
+    "word": "落ち着く",
+    "yomi": "おちつく",
+    "meaning": "진정하다",
+    "word_pron": "오치츠쿠",
+    "sentence": "落ち着いてください。",
+    "s_meaning": "진정해 주세요.",
+    "s_pron": "오치츠이테쿠다사이。"
+  },
+  {
+    "word": "リラックス",
+    "yomi": "りらっくす",
+    "meaning": "릴랙스",
+    "word_pron": "리락쿠스",
+    "sentence": "家でリラックスします。",
+    "s_meaning": "집에서 릴랙스합니다.",
+    "s_pron": "이에데 리락쿠스시마스。"
+  },
+  {
+    "word": "ストレス",
+    "yomi": "すとれす",
+    "meaning": "스트레스",
+    "word_pron": "스토레스",
+    "sentence": "ストレスがたまります。",
+    "s_meaning": "스트레스가 쌓입니다.",
+    "s_pron": "스토레스가 타마리마스。"
+  },
+  {
+    "word": "待ち遠しい",
+    "yomi": "まちどおしい",
+    "meaning": "기다려지다",
+    "word_pron": "마치도오시이",
+    "sentence": "週末が待ち遠しいです。",
+    "s_meaning": "주말이 기다려집니다.",
+    "s_pron": "슈우마츠가 마치도오시이데스。"
+  },
+  {
+    "word": "残念",
+    "yomi": "ざんねん",
+    "meaning": "아쉽다",
+    "word_pron": "잔넨",
+    "sentence": "それは残念です。",
+    "s_meaning": "그건 아쉽네요.",
+    "s_pron": "소레와 잔넨데스。"
+  },
+  {
+    "word": "感動",
+    "yomi": "かんどう",
+    "meaning": "감동",
+    "word_pron": "칸도우",
+    "sentence": "映画に感動しました。",
+    "s_meaning": "영화에 감동했습니다.",
+    "s_pron": "에이가니 칸도우시마시타。"
+  },
+  {
+    "word": "不思議",
+    "yomi": "ふしぎ",
+    "meaning": "신기하다",
+    "word_pron": "후시기",
+    "sentence": "不思議ですね。",
+    "s_meaning": "신기하네요.",
+    "s_pron": "후시기데스네。"
+  },
+  {
+    "word": "恥ずかしい",
+    "yomi": "はずかしい",
+    "meaning": "부끄럽다",
+    "word_pron": "하즈카시이",
+    "sentence": "ちょっと恥ずかしいです。",
+    "s_meaning": "조금 부끄럽습니다.",
+    "s_pron": "춋토 하즈카시이데스。"
+  },
+  {
+    "word": "羨ましい",
+    "yomi": "うらやましい",
+    "meaning": "부럽다",
+    "word_pron": "우라야마시이",
+    "sentence": "それは羨ましいです。",
+    "s_meaning": "그건 부럽네요.",
+    "s_pron": "소레와 우라야마시이데스。"
+  },
+  {
+    "word": "心細い",
+    "yomi": "こころぼそい",
+    "meaning": "마음이 불안/외롭다",
+    "word_pron": "코코로보소이",
+    "sentence": "一人だと心細いです。",
+    "s_meaning": "혼자면 마음이 불안합니다.",
+    "s_pron": "히토리다토 코코로보소이데스。"
+  },
+  {
+    "word": "迷惑",
+    "yomi": "めいわく",
+    "meaning": "민폐",
+    "word_pron": "메이와쿠",
+    "sentence": "迷惑をかけました。",
+    "s_meaning": "민폐를 끼쳤습니다.",
+    "s_pron": "메이와쿠오 카케마시타。"
+  },
+  {
+    "word": "安心感",
+    "yomi": "あんしんかん",
+    "meaning": "안심되는 느낌",
+    "word_pron": "안신칸",
+    "sentence": "安心感があります。",
+    "s_meaning": "안심이 됩니다.",
+    "s_pron": "안신칸가 아리마스。"
+  },
+  {
+    "word": "最初",
+    "yomi": "さいしょ",
+    "meaning": "처음",
+    "word_pron": "사이쇼",
+    "sentence": "最初は難しかったです。",
+    "s_meaning": "처음엔 어려웠습니다.",
+    "s_pron": "사이쇼와 무즈카시캇타데스。"
+  },
+  {
+    "word": "最後",
+    "yomi": "さいご",
+    "meaning": "마지막",
+    "word_pron": "사이고",
+    "sentence": "最後までやります。",
+    "s_meaning": "끝까지 하겠습니다.",
+    "s_pron": "사이고마데 야리마스。"
+  },
+  {
+    "word": "途中下車",
+    "yomi": "とちゅうげしゃ",
+    "meaning": "중간역 하차",
+    "word_pron": "토츄우게샤",
+    "sentence": "途中下車して、休みます。",
+    "s_meaning": "중간에 내려서 쉽니다.",
+    "s_pron": "토츄우게샤시테、 야스미마스。"
+  },
+  {
+    "word": "念のため",
+    "yomi": "ねんのため",
+    "meaning": "만약을 위해",
+    "word_pron": "넨노타메",
+    "sentence": "念のため確認します。",
+    "s_meaning": "만약을 위해 확인합니다.",
+    "s_pron": "넨노타메 카쿠닌시마스。"
+  },
+  {
+    "word": "予定通り",
+    "yomi": "よていどおり",
+    "meaning": "예정대로",
+    "word_pron": "요테이도오리",
+    "sentence": "予定通り進みます。",
+    "s_meaning": "예정대로 진행됩니다.",
+    "s_pron": "요테이도오리 스스미마스。"
+  },
+  {
+    "word": "予備",
+    "yomi": "よび",
+    "meaning": "예비",
+    "word_pron": "요비",
+    "sentence": "予備の電池があります。",
+    "s_meaning": "예비 배터리가 있습니다.",
+    "s_pron": "요비노 덴치가 아리마스。"
+  },
+  {
+    "word": "メモ",
+    "yomi": "めも",
+    "meaning": "메모",
+    "word_pron": "메모",
+    "sentence": "メモを取ります。",
+    "s_meaning": "메모를 합니다.",
+    "s_pron": "메모오 토리마스。"
+  },
+  {
+    "word": "判断",
+    "yomi": "はんだん",
+    "meaning": "판단",
+    "word_pron": "한단",
+    "sentence": "判断が難しいです。",
+    "s_meaning": "판단이 어렵습니다.",
+    "s_pron": "한단가 무즈카시이데스。"
+  },
+  {
+    "word": "決断",
+    "yomi": "けつだん",
+    "meaning": "결단",
+    "word_pron": "케츠단",
+    "sentence": "決断しました。",
+    "s_meaning": "결단했습니다.",
+    "s_pron": "케츠단시마시타。"
+  },
+  {
+    "word": "調節",
+    "yomi": "ちょうせつ",
+    "meaning": "조절",
+    "word_pron": "쵸우세츠",
+    "sentence": "温度を調節します。",
+    "s_meaning": "온도를 조절합니다.",
+    "s_pron": "온도오 쵸우세츠시마스。"
+  },
+  {
+    "word": "期限",
+    "yomi": "きげん",
+    "meaning": "기한",
+    "word_pron": "키겐",
+    "sentence": "期限は明日です。",
+    "s_meaning": "기한은 내일입니다.",
+    "s_pron": "키겐와 아시타데스。"
+  },
+  {
+    "word": "余裕",
+    "yomi": "よゆう",
+    "meaning": "여유",
+    "word_pron": "요유우",
+    "sentence": "時間に余裕があります。",
+    "s_meaning": "시간에 여유가 있습니다.",
+    "s_pron": "지칸니 요유우가 아리마스。"
+  },
+  {
+    "word": "優先事項",
+    "yomi": "ゆうせんじこう",
+    "meaning": "우선사항",
+    "word_pron": "유우센지코우",
+    "sentence": "優先事項を決めます。",
+    "s_meaning": "우선사항을 정합니다.",
+    "s_pron": "유우센지코우오 키메마스。"
+  },
+  {
+    "word": "変更点",
+    "yomi": "へんこうてん",
+    "meaning": "변경점",
+    "word_pron": "헨코우텐",
+    "sentence": "変更点を共有します。",
+    "s_meaning": "변경점을 공유합니다.",
+    "s_pron": "헨코우텐오 쿄우유우시마스。"
+  },
+  {
+    "word": "確認事項",
+    "yomi": "かくにんじこう",
+    "meaning": "확인사항",
+    "word_pron": "카쿠닌지코우",
+    "sentence": "確認事項は三つです。",
+    "s_meaning": "확인사항은 세 가지입니다.",
+    "s_pron": "카쿠닌지코우와 밋츠데스。"
+  },
+  {
+    "word": "要するに",
+    "yomi": "ようするに",
+    "meaning": "요컨대",
+    "word_pron": "요우스루니",
+    "sentence": "要するに、時間がありません。",
+    "s_meaning": "요컨대 시간이 없습니다.",
+    "s_pron": "요우스루니、 지칸가 아리마센。"
+  },
+  {
+    "word": "例えば",
+    "yomi": "たとえば",
+    "meaning": "예를 들면",
+    "word_pron": "타토에바",
+    "sentence": "例えば、これが一番です。",
+    "s_meaning": "예를 들면, 이게 최고입니다.",
+    "s_pron": "타토에바、 코레가 이치반데스。"
+  },
+  {
+    "word": "ついで",
+    "yomi": "ついで",
+    "meaning": "겸사겸사",
+    "word_pron": "츠이데",
+    "sentence": "ついでにコンビニへ行きます。",
+    "s_meaning": "겸사겸사 편의점에 갑니다.",
+    "s_pron": "츠이데니 콘비니에 이키마스。"
+  },
+  {
+    "word": "なお",
+    "yomi": "なお",
+    "meaning": "덧붙여",
+    "word_pron": "나오",
+    "sentence": "なお、明日は休みです。",
+    "s_meaning": "덧붙여, 내일은 쉽니다.",
+    "s_pron": "나오、 아시타와 야스미데스。"
+  },
+  {
+    "word": "念入り",
+    "yomi": "ねんいり",
+    "meaning": "꼼꼼함/꼼꼼히",
+    "word_pron": "넨이리",
+    "sentence": "念入りにチェックします。",
+    "s_meaning": "꼼꼼히 체크합니다.",
+    "s_pron": "넨이리니 첵쿠시마스。"
+  }
+]

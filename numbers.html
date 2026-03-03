@@ -14,6 +14,21 @@
             color: #000000;
         }
 
+        .page-title {
+            font-size: 1.9rem;
+            line-height: 1.05;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.35rem;
+            text-transform: uppercase;
+        }
+        .page-subtitle {
+            font-size: 0.78rem;
+            color: #6b7280;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+        }
+
         .audio-btn {
             padding: 0.25rem;
             border-radius: 9999px;
@@ -84,31 +99,37 @@
             .audio-btn { margin-left: 3px; padding: 0.15rem; }
             .audio-btn svg { width: 12px; height: 12px; }
             .section-title { font-size: 1rem; }
-            .main-title { font-size: 1.45rem !important; }
-            .main-subtitle { font-size: 0.72rem !important; }
-            nav a, nav span { padding: 0.4rem 0.55rem !important; font-size: 0.7rem !important; }
+            .page-title { font-size: 1.55rem !important; }
+            .page-subtitle { font-size: 0.68rem !important; letter-spacing: 0.1em; }
+            .top-nav { width: 100%; justify-content: flex-start; gap: 0.35rem; }
+            .top-nav a, .top-nav span { padding: 0.5rem 0.72rem !important; font-size: 0.78rem !important; letter-spacing: 0.03em; line-height: 1.1; }
+        }
+
+        @media (min-width: 768px) {
+            .page-title { font-size: 3rem; }
+            .page-subtitle { font-size: 0.9rem; }
         }
     </style>
 </head>
 <body class="p-4 md:p-10">
-    <header class="max-w-5xl mx-auto mb-8 border-b-4 border-black pb-6">
+    <header class="max-w-6xl mx-auto mb-8 border-b-4 border-black pb-6">
         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
             <div>
-                <h1 class="main-title text-3xl md:text-5xl font-extrabold tracking-tighter mb-2 uppercase">Japanese Number System</h1>
-                <p class="main-subtitle text-gray-500 font-medium tracking-widest">일본어 수체계 학습 가이드</p>
+                <h1 class="page-title">Japanese Number System</h1>
+                <p class="page-subtitle">일본어 수체계 학습 가이드</p>
             </div>
-            <nav class="flex gap-2 flex-wrap">
+            <nav class="top-nav flex gap-2 flex-wrap">
                 <a href="index.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">단어</a>
                 <a href="grammar.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">문법</a>
                 <a href="kana.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">가나</a>
                 <span class="px-4 py-2 border-2 border-black bg-black text-white text-sm font-bold uppercase tracking-widest">수체계</span>
             </nav>
         </div>
-        <div class="mt-4 pt-4 border-t border-gray-200 flex flex-wrap items-center gap-4">
+        <div class="mt-4 pt-4 border-t border-gray-200 flex flex-wrap items-center gap-3 md:gap-4">
             <div class="flex items-center gap-2">
-                <label class="text-sm font-bold">음성:</label>
-                <select id="voiceSelect" class="border-2 border-black px-2 py-1 text-sm font-bold">
-                    <option value="ja-JP-Neural2-B">N2-B 여</option>
+                <label class="text-xs md:text-sm font-bold">음성:</label>
+                <select id="voiceSelect" class="border-2 border-black px-2 py-1 text-xs md:text-sm font-bold bg-white cursor-pointer">
+                    <option value="ja-JP-Neural2-B" selected>N2-B 여</option>
                     <option value="ja-JP-Neural2-C">N2-C 남</option>
                     <option value="ja-JP-Neural2-D">N2-D 남</option>
                     <option value="ja-JP-Wavenet-A">WN-A 여</option>
@@ -116,7 +137,7 @@
                     <option value="ja-JP-Wavenet-C">WN-C 남</option>
                 </select>
             </div>
-            <span id="ttsStatus" class="text-sm text-gray-500">🔊 TTS 로딩 중...</span>
+            <span id="ttsStatus" class="text-xs md:text-sm text-gray-500">🔊 TTS 로딩 중...</span>
         </div>
     </header>
 

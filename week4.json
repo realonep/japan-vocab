@@ -1,0 +1,1262 @@
+[
+  {
+    "word": "台所",
+    "yomi": "だいどころ",
+    "meaning": "부엌",
+    "word_pron": "다이도코로",
+    "sentence": "台所で料理をします。",
+    "s_meaning": "부엌에서 요리합니다.",
+    "s_pron": "다이도코로데 료우리오 시마스。"
+  },
+  {
+    "word": "冷蔵庫",
+    "yomi": "れいぞうこ",
+    "meaning": "냉장고",
+    "word_pron": "레이조우코",
+    "sentence": "冷蔵庫に水があります。",
+    "s_meaning": "냉장고에 물이 있습니다.",
+    "s_pron": "레이조우코니 미즈가 아리마스。"
+  },
+  {
+    "word": "風呂",
+    "yomi": "ふろ",
+    "meaning": "목욕",
+    "word_pron": "후로",
+    "sentence": "風呂に入ります。",
+    "s_meaning": "목욕을 합니다(욕조에 들어갑니다).",
+    "s_pron": "후로니 하이리마스。"
+  },
+  {
+    "word": "洗面所",
+    "yomi": "せんめんじょ",
+    "meaning": "세면대/세면실",
+    "word_pron": "센멘죠",
+    "sentence": "洗面所はどこですか。",
+    "s_meaning": "세면실은 어디입니까?",
+    "s_pron": "센멘죠와 도코데스카。"
+  },
+  {
+    "word": "お手洗い",
+    "yomi": "おてあらい",
+    "meaning": "화장실",
+    "word_pron": "오테아라이",
+    "sentence": "お手洗いはあちらです。",
+    "s_meaning": "화장실은 저쪽입니다.",
+    "s_pron": "오테아라이와 아치라데스。"
+  },
+  {
+    "word": "玄関",
+    "yomi": "げんかん",
+    "meaning": "현관",
+    "word_pron": "겐칸",
+    "sentence": "玄関で靴を脱ぎます。",
+    "s_meaning": "현관에서 신발을 벗습니다.",
+    "s_pron": "겐칸데 쿠츠오 누기마스。"
+  },
+  {
+    "word": "ベランダ",
+    "yomi": "べらんだ",
+    "meaning": "베란다",
+    "word_pron": "베란다",
+    "sentence": "ベランダに出ます。",
+    "s_meaning": "베란다로 나갑니다.",
+    "s_pron": "베란다니 데마스。"
+  },
+  {
+    "word": "家具",
+    "yomi": "かぐ",
+    "meaning": "가구",
+    "word_pron": "카구",
+    "sentence": "新しい家具を買いました。",
+    "s_meaning": "새 가구를 샀습니다.",
+    "s_pron": "아타라시이 카구오 카이마시타。"
+  },
+  {
+    "word": "ソファー",
+    "yomi": "そふぁー",
+    "meaning": "소파",
+    "word_pron": "소파-",
+    "sentence": "ソファーで休みます。",
+    "s_meaning": "소파에서 쉽니다.",
+    "s_pron": "소파-데 야스미마스。"
+  },
+  {
+    "word": "テーブル",
+    "yomi": "てーぶる",
+    "meaning": "테이블",
+    "word_pron": "테-부루",
+    "sentence": "テーブルに本があります。",
+    "s_meaning": "테이블에 책이 있습니다.",
+    "s_pron": "테-부루니 혼가 아리마스。"
+  },
+  {
+    "word": "植物",
+    "yomi": "しょくぶつ",
+    "meaning": "식물",
+    "word_pron": "쇼쿠부츠",
+    "sentence": "植物に水をあげます。",
+    "s_meaning": "식물에 물을 줍니다.",
+    "s_pron": "쇼쿠부츠니 미즈오 아게마스。"
+  },
+  {
+    "word": "電子レンジ",
+    "yomi": "でんしれんじ",
+    "meaning": "전자레인지",
+    "word_pron": "덴시렌지",
+    "sentence": "電子レンジであたためます。",
+    "s_meaning": "전자레인지로 데웁니다.",
+    "s_pron": "덴시렌지데 아타타메마스。"
+  },
+  {
+    "word": "洗濯機",
+    "yomi": "せんたくき",
+    "meaning": "세탁기",
+    "word_pron": "센타쿠키",
+    "sentence": "洗濯機を使います。",
+    "s_meaning": "세탁기를 사용합니다.",
+    "s_pron": "센타쿠키오 츠카이마스。"
+  },
+  {
+    "word": "掃除機",
+    "yomi": "そうじき",
+    "meaning": "청소기",
+    "word_pron": "소우지키",
+    "sentence": "掃除機をかけます。",
+    "s_meaning": "청소기를 돌립니다.",
+    "s_pron": "소우지키오 카케마스。"
+  },
+  {
+    "word": "エアコン",
+    "yomi": "えあこん",
+    "meaning": "에어컨",
+    "word_pron": "에아콘",
+    "sentence": "エアコンをつけます。",
+    "s_meaning": "에어컨을 켭니다.",
+    "s_pron": "에아콘오츠케마스。"
+  },
+  {
+    "word": "鍵",
+    "yomi": "かぎ",
+    "meaning": "열쇠",
+    "word_pron": "카기",
+    "sentence": "鍵をなくしました。",
+    "s_meaning": "열쇠를 잃어버렸습니다.",
+    "s_pron": "카기오 나쿠시마시타。"
+  },
+  {
+    "word": "引き出し",
+    "yomi": "ひきだし",
+    "meaning": "서랍",
+    "word_pron": "히키다시",
+    "sentence": "引き出しに入れます。",
+    "s_meaning": "서랍에 넣습니다.",
+    "s_pron": "히키다시니 하이레마스。"
+  },
+  {
+    "word": "ごみ箱",
+    "yomi": "ごみばこ",
+    "meaning": "쓰레기통",
+    "word_pron": "고미바코",
+    "sentence": "ごみ箱に捨てます。",
+    "s_meaning": "쓰레기통에 버립니다.",
+    "s_pron": "고미바코니 스테마스。"
+  },
+  {
+    "word": "明かり",
+    "yomi": "あかり",
+    "meaning": "불/조명",
+    "word_pron": "아카리",
+    "sentence": "明かりを消します。",
+    "s_meaning": "불을 끕니다.",
+    "s_pron": "아카리오 케시마스。"
+  },
+  {
+    "word": "コンセント",
+    "yomi": "こんせんと",
+    "meaning": "콘센트",
+    "word_pron": "콘센토",
+    "sentence": "コンセントを探しています。",
+    "s_meaning": "콘센트를 찾고 있습니다.",
+    "s_pron": "콘센토오 사가시테이마스。"
+  },
+  {
+    "word": "目覚まし",
+    "yomi": "めざまし",
+    "meaning": "알람",
+    "word_pron": "메자마시",
+    "sentence": "目覚ましをセットします。",
+    "s_meaning": "알람을 맞춥니다.",
+    "s_pron": "메자마시오 셋토시마스。"
+  },
+  {
+    "word": "歯磨き",
+    "yomi": "はみがき",
+    "meaning": "양치",
+    "word_pron": "하미가키",
+    "sentence": "歯磨きをします。",
+    "s_meaning": "양치합니다.",
+    "s_pron": "하미가키오 시마스。"
+  },
+  {
+    "word": "着替える",
+    "yomi": "きがえる",
+    "meaning": "갈아입다",
+    "word_pron": "키가에루",
+    "sentence": "朝、着替えます。",
+    "s_meaning": "아침에 갈아입습니다.",
+    "s_pron": "아사、 키가에 마스。"
+  },
+  {
+    "word": "出勤",
+    "yomi": "しゅっきん",
+    "meaning": "출근",
+    "word_pron": "슉킨",
+    "sentence": "九時に出勤します。",
+    "s_meaning": "9시에 출근합니다.",
+    "s_pron": "큐우지니 슉킨 시마스。"
+  },
+  {
+    "word": "退勤",
+    "yomi": "たいきん",
+    "meaning": "퇴근",
+    "word_pron": "타이킨",
+    "sentence": "六時に退勤します。",
+    "s_meaning": "6시에 퇴근합니다.",
+    "s_pron": "로쿠지니 타이킨 시마스。"
+  },
+  {
+    "word": "通勤",
+    "yomi": "つうきん",
+    "meaning": "통근",
+    "word_pron": "츠우킨",
+    "sentence": "通勤は電車です。",
+    "s_meaning": "통근은 전철입니다.",
+    "s_pron": "츠우킨와 덴샤 데스。"
+  },
+  {
+    "word": "朝食",
+    "yomi": "ちょうしょく",
+    "meaning": "아침식사",
+    "word_pron": "쵸우쇼쿠",
+    "sentence": "朝食を食べます。",
+    "s_meaning": "아침식사를 먹습니다.",
+    "s_pron": "쵸우쇼쿠오 타베마스。"
+  },
+  {
+    "word": "昼食",
+    "yomi": "ちゅうしょく",
+    "meaning": "점심식사",
+    "word_pron": "츄우쇼쿠",
+    "sentence": "昼食は外で食べます。",
+    "s_meaning": "점심은 밖에서 먹습니다.",
+    "s_pron": "츄우쇼쿠와 소토데 타베마스。"
+  },
+  {
+    "word": "夕食",
+    "yomi": "ゆうしょく",
+    "meaning": "저녁식사",
+    "word_pron": "유우쇼쿠",
+    "sentence": "夕食を作ります。",
+    "s_meaning": "저녁식사를 만듭니다.",
+    "s_pron": "유우쇼쿠오 츠쿠리마스。"
+  },
+  {
+    "word": "残業",
+    "yomi": "ざんぎょう",
+    "meaning": "잔업/야근",
+    "word_pron": "잔교우",
+    "sentence": "今日は残業です。",
+    "s_meaning": "오늘은 야근입니다.",
+    "s_pron": "쿄우와 잔교우 데스。"
+  },
+  {
+    "word": "休憩",
+    "yomi": "きゅうけい",
+    "meaning": "휴식",
+    "word_pron": "큐우케이",
+    "sentence": "十時に休憩します。",
+    "s_meaning": "10시에 휴식합니다.",
+    "s_pron": "쥬우지니 큐우케이 시마스。"
+  },
+  {
+    "word": "早起き",
+    "yomi": "はやおき",
+    "meaning": "일찍 일어남",
+    "word_pron": "하야오키",
+    "sentence": "早起きが苦手です。",
+    "s_meaning": "일찍 일어나는 게 서툽니다.",
+    "s_pron": "하야오키가 니가테 데스。"
+  },
+  {
+    "word": "寝坊",
+    "yomi": "ねぼう",
+    "meaning": "늦잠",
+    "word_pron": "네보우",
+    "sentence": "寝坊しました。",
+    "s_meaning": "늦잠 잤습니다.",
+    "s_pron": "네보우 시마시타。"
+  },
+  {
+    "word": "ゴミ出し",
+    "yomi": "ごみだし",
+    "meaning": "쓰레기 버리기",
+    "word_pron": "고미다시",
+    "sentence": "朝にゴミ出しをします。",
+    "s_meaning": "아침에 쓰레기를 버립니다.",
+    "s_pron": "아사니 고미다시오 시마스。"
+  },
+  {
+    "word": "家事",
+    "yomi": "かじ",
+    "meaning": "집안일",
+    "word_pron": "카지",
+    "sentence": "家事を手伝います。",
+    "s_meaning": "집안일을 돕습니다.",
+    "s_pron": "카지오 테츠다 이마스。"
+  },
+  {
+    "word": "買い出し",
+    "yomi": "かいだし",
+    "meaning": "장보기",
+    "word_pron": "카이다시",
+    "sentence": "週末に買い出しします。",
+    "s_meaning": "주말에 장봅니다.",
+    "s_pron": "슈우마츠니 카이다시 시마스。"
+  },
+  {
+    "word": "皿洗い",
+    "yomi": "さらあらい",
+    "meaning": "설거지",
+    "word_pron": "사라아라이",
+    "sentence": "皿洗いをします。",
+    "s_meaning": "설거지합니다.",
+    "s_pron": "사라아라이오 시마스。"
+  },
+  {
+    "word": "支度",
+    "yomi": "したく",
+    "meaning": "준비",
+    "word_pron": "시타쿠",
+    "sentence": "出かける支度をします。",
+    "s_meaning": "외출 준비를 합니다.",
+    "s_pron": "데 카케루 시타쿠오 시마스。"
+  },
+  {
+    "word": "迎え",
+    "yomi": "むかえ",
+    "meaning": "마중",
+    "word_pron": "무카에",
+    "sentence": "駅まで迎えに行きます。",
+    "s_meaning": "역까지 마중 나갑니다.",
+    "s_pron": "에키마데 무카에니 이키마스。"
+  },
+  {
+    "word": "帰宅",
+    "yomi": "きたく",
+    "meaning": "귀가",
+    "word_pron": "키타쿠",
+    "sentence": "夜に帰宅します。",
+    "s_meaning": "밤에 귀가합니다.",
+    "s_pron": "요루니 키타쿠 시마스。"
+  },
+  {
+    "word": "趣味",
+    "yomi": "しゅみ",
+    "meaning": "취미",
+    "word_pron": "슈미",
+    "sentence": "趣味はなにですか。",
+    "s_meaning": "취미가 무엇입니까?",
+    "s_pron": "슈미와 나니데스카。"
+  },
+  {
+    "word": "映画",
+    "yomi": "えいが",
+    "meaning": "영화",
+    "word_pron": "에이가",
+    "sentence": "週末に映画を見ます。",
+    "s_meaning": "주말에 영화를 봅니다.",
+    "s_pron": "슈우마츠니 에이가오 켄마스。"
+  },
+  {
+    "word": "音楽",
+    "yomi": "おんがく",
+    "meaning": "음악",
+    "word_pron": "온가쿠",
+    "sentence": "音楽を聞くのが好きです。",
+    "s_meaning": "음악 듣는 것을 좋아합니다.",
+    "s_pron": "온가쿠오 키쿠 노가 스키 데스。"
+  },
+  {
+    "word": "読書",
+    "yomi": "どくしょ",
+    "meaning": "독서",
+    "word_pron": "도쿠쇼",
+    "sentence": "寝る前に読書します。",
+    "s_meaning": "자기 전에 독서합니다.",
+    "s_pron": "네루 마에니 도쿠쇼 시마스。"
+  },
+  {
+    "word": "散歩",
+    "yomi": "さんぽ",
+    "meaning": "산책",
+    "word_pron": "산포",
+    "sentence": "朝に散歩します。",
+    "s_meaning": "아침에 산책합니다.",
+    "s_pron": "아사니 산포 시마스。"
+  },
+  {
+    "word": "旅行",
+    "yomi": "りょこう",
+    "meaning": "여행",
+    "word_pron": "료코우",
+    "sentence": "旅行の計画を立てます。",
+    "s_meaning": "여행 계획을 세웁니다.",
+    "s_pron": "료코우 노 케이카쿠오 타테마스。"
+  },
+  {
+    "word": "温泉",
+    "yomi": "おんせん",
+    "meaning": "온천",
+    "word_pron": "온센",
+    "sentence": "温泉に行きたいです。",
+    "s_meaning": "온천에 가고 싶습니다.",
+    "s_pron": "온센니 이키타이 데스。"
+  },
+  {
+    "word": "カラオケ",
+    "yomi": "からおけ",
+    "meaning": "노래방",
+    "word_pron": "카라오케",
+    "sentence": "友達とカラオケに行きます。",
+    "s_meaning": "친구와 노래방에 갑니다.",
+    "s_pron": "토모다치토 카라오케니 이키마스。"
+  },
+  {
+    "word": "スポーツ",
+    "yomi": "すぽーつ",
+    "meaning": "스포츠",
+    "word_pron": "스포-츠",
+    "sentence": "週に一回スポーツします。",
+    "s_meaning": "일주일에 한 번 스포츠를 합니다.",
+    "s_pron": "슈우니 익카이 스포-츠시마스。"
+  },
+  {
+    "word": "ジョギング",
+    "yomi": "じょぎんぐ",
+    "meaning": "조깅",
+    "word_pron": "죠긴구",
+    "sentence": "朝にジョギングします。",
+    "s_meaning": "아침에 조깅합니다.",
+    "s_pron": "아사니 죠긴구시마스。"
+  },
+  {
+    "word": "ゲーム",
+    "yomi": "げーむ",
+    "meaning": "게임",
+    "word_pron": "게-무",
+    "sentence": "夜にゲームをします。",
+    "s_meaning": "밤에 게임을 합니다.",
+    "s_pron": "요루니 게-무오시마스。"
+  },
+  {
+    "word": "アニメ",
+    "yomi": "あにめ",
+    "meaning": "애니메이션",
+    "word_pron": "아니메",
+    "sentence": "アニメを見ています。",
+    "s_meaning": "애니를 보고 있습니다.",
+    "s_pron": "아니메오 켄테이마스。"
+  },
+  {
+    "word": "ドラマ",
+    "yomi": "どらま",
+    "meaning": "드라마",
+    "word_pron": "도라마",
+    "sentence": "このドラマは面白いです。",
+    "s_meaning": "이 드라마는 재미있습니다.",
+    "s_pron": "코노도라마와 오모시로이 데스。"
+  },
+  {
+    "word": "漫画",
+    "yomi": "まんが",
+    "meaning": "만화",
+    "word_pron": "만가",
+    "sentence": "漫画を読みます。",
+    "s_meaning": "만화를 읽습니다.",
+    "s_pron": "만가오 요미마스。"
+  },
+  {
+    "word": "釣り",
+    "yomi": "つり",
+    "meaning": "낚시",
+    "word_pron": "츠리",
+    "sentence": "海で釣りをします。",
+    "s_meaning": "바다에서 낚시합니다.",
+    "s_pron": "우미데 츠리오 시마스。"
+  },
+  {
+    "word": "登山",
+    "yomi": "とざん",
+    "meaning": "등산",
+    "word_pron": "토잔",
+    "sentence": "来月登山します。",
+    "s_meaning": "다음 달에 등산합니다.",
+    "s_pron": "라이게츠 토잔 시마스。"
+  },
+  {
+    "word": "手芸",
+    "yomi": "しゅげい",
+    "meaning": "수공예",
+    "word_pron": "슈게이",
+    "sentence": "手芸が好きです。",
+    "s_meaning": "수공예를 좋아합니다.",
+    "s_pron": "슈게이가 스키 데스。"
+  },
+  {
+    "word": "料理",
+    "yomi": "りょうり",
+    "meaning": "요리",
+    "word_pron": "료우리",
+    "sentence": "料理を作るのが楽しいです。",
+    "s_meaning": "요리 만드는 것이 즐겁습니다.",
+    "s_pron": "료우리오 츠쿠루 노가 타노시이 데스。"
+  },
+  {
+    "word": "練習",
+    "yomi": "れんしゅう",
+    "meaning": "연습",
+    "word_pron": "렌슈우",
+    "sentence": "毎日少し練習します。",
+    "s_meaning": "매일 조금 연습합니다.",
+    "s_pron": "마이니치 스코시 렌슈우 시마스。"
+  },
+  {
+    "word": "ダンス",
+    "yomi": "だんす",
+    "meaning": "댄스",
+    "word_pron": "단스",
+    "sentence": "ダンスを習っています。",
+    "s_meaning": "댄스를 배우고 있습니다.",
+    "s_pron": "단스오 나랏테이마스。"
+  },
+  {
+    "word": "在宅",
+    "yomi": "ざいたく",
+    "meaning": "재택",
+    "word_pron": "자이타쿠",
+    "sentence": "今日は在宅で働いています。",
+    "s_meaning": "오늘은 재택으로 일하고 있습니다.",
+    "s_pron": "쿄우와 자이타쿠데 하타라이테이마스。"
+  },
+  {
+    "word": "外出中",
+    "yomi": "がいしゅつちゅう",
+    "meaning": "외출 중",
+    "word_pron": "가이슈츠츄우",
+    "sentence": "今は外出中です。",
+    "s_meaning": "지금은 외출 중입니다.",
+    "s_pron": "이마와 가이슈츠츄우 데스。"
+  },
+  {
+    "word": "勉強中",
+    "yomi": "べんきょうちゅう",
+    "meaning": "공부 중",
+    "word_pron": "벤쿄우츄우",
+    "sentence": "今、勉強中です。",
+    "s_meaning": "지금 공부 중입니다.",
+    "s_pron": "이마、 벤쿄우츄우 데스。"
+  },
+  {
+    "word": "仕事中",
+    "yomi": "しごとちゅう",
+    "meaning": "업무 중",
+    "word_pron": "시고토츄우",
+    "sentence": "すみません、仕事中です。",
+    "s_meaning": "죄송합니다, 지금 업무 중입니다.",
+    "s_pron": "스미마센、 시고토츄우 데스。"
+  },
+  {
+    "word": "会議中",
+    "yomi": "かいぎちゅう",
+    "meaning": "회의 중",
+    "word_pron": "카이기츄우",
+    "sentence": "会議中なので後で連絡します。",
+    "s_meaning": "회의 중이라서 나중에 연락하겠습니다.",
+    "s_pron": "카이기츄우나노데 아토데 렌라쿠 시마스。"
+  },
+  {
+    "word": "運転中",
+    "yomi": "うんてんちゅう",
+    "meaning": "운전 중",
+    "word_pron": "운텐츄우",
+    "sentence": "運転中は電話しません。",
+    "s_meaning": "운전 중에는 전화하지 않습니다.",
+    "s_pron": "운텐츄우와 덴와 시마센。"
+  },
+  {
+    "word": "通話中",
+    "yomi": "つうわちゅう",
+    "meaning": "통화 중",
+    "word_pron": "츠우와츄우",
+    "sentence": "今、通話中です。",
+    "s_meaning": "지금 통화 중입니다.",
+    "s_pron": "이마、 츠우와츄우 데스。"
+  },
+  {
+    "word": "準備中",
+    "yomi": "じゅんびちゅう",
+    "meaning": "준비 중",
+    "word_pron": "쥰비츄우",
+    "sentence": "出発の準備中です。",
+    "s_meaning": "출발 준비 중입니다.",
+    "s_pron": "슙파츠 노 쥰비츄우 데스。"
+  },
+  {
+    "word": "充電中",
+    "yomi": "じゅうでんちゅう",
+    "meaning": "충전 중",
+    "word_pron": "쥬우덴츄우",
+    "sentence": "スマホは充電中です。",
+    "s_meaning": "휴대폰은 충전 중입니다.",
+    "s_pron": "스마호와 쥬우덴츄우 데스。"
+  },
+  {
+    "word": "移動中",
+    "yomi": "いどうちゅう",
+    "meaning": "이동 중",
+    "word_pron": "이도우츄우",
+    "sentence": "今、移動中です。",
+    "s_meaning": "지금 이동 중입니다.",
+    "s_pron": "이마、 이도우츄우 데스。"
+  },
+  {
+    "word": "休憩中",
+    "yomi": "きゅうけいちゅう",
+    "meaning": "휴식 중",
+    "word_pron": "큐우케이츄우",
+    "sentence": "少し休憩中です。",
+    "s_meaning": "잠깐 휴식 중입니다.",
+    "s_pron": "스코시 큐우케이츄우 데스。"
+  },
+  {
+    "word": "留守",
+    "yomi": "るす",
+    "meaning": "부재",
+    "word_pron": "루스",
+    "sentence": "今、家は留守です。",
+    "s_meaning": "지금 집은 부재입니다.",
+    "s_pron": "이마、 이에와 루스 데스。"
+  },
+  {
+    "word": "電源",
+    "yomi": "でんげん",
+    "meaning": "전원",
+    "word_pron": "덴겐",
+    "sentence": "電源をいれます。",
+    "s_meaning": "전원을 켭니다.",
+    "s_pron": "덴겐오 이레마스。"
+  },
+  {
+    "word": "画面",
+    "yomi": "がめん",
+    "meaning": "화면",
+    "word_pron": "가멘",
+    "sentence": "画面を見てください。",
+    "s_meaning": "화면을 봐주세요.",
+    "s_pron": "가멘오 켄테쿠다사이。"
+  },
+  {
+    "word": "音量",
+    "yomi": "おんりょう",
+    "meaning": "음량",
+    "word_pron": "온료우",
+    "sentence": "音量をさげてください。",
+    "s_meaning": "음량을 내려주세요.",
+    "s_pron": "온료우오 사게테쿠다사이。"
+  },
+  {
+    "word": "ミュート",
+    "yomi": "みゅーと",
+    "meaning": "음소거",
+    "word_pron": "뮤-토",
+    "sentence": "マイクをミュートにします。",
+    "s_meaning": "마이크를 음소거로 합니다.",
+    "s_pron": "마이쿠오뮤-토니시마스。"
+  },
+  {
+    "word": "オンライン",
+    "yomi": "おんらいん",
+    "meaning": "온라인",
+    "word_pron": "온라인",
+    "sentence": "今日はオンラインの会議です。",
+    "s_meaning": "오늘은 온라인 회의입니다.",
+    "s_pron": "쿄우와 온라인노 카이기 데스。"
+  },
+  {
+    "word": "返信",
+    "yomi": "へんしん",
+    "meaning": "답장",
+    "word_pron": "헨신",
+    "sentence": "あとで返信します。",
+    "s_meaning": "나중에 답장하겠습니다.",
+    "s_pron": "아토데 헨신 시마스。"
+  },
+  {
+    "word": "既読",
+    "yomi": "きどく",
+    "meaning": "읽음",
+    "word_pron": "키도쿠",
+    "sentence": "既読になっています。",
+    "s_meaning": "읽음 표시가 되어 있습니다.",
+    "s_pron": "키도쿠니 낫테이마스。"
+  },
+  {
+    "word": "使い方",
+    "yomi": "つかいかた",
+    "meaning": "사용법",
+    "word_pron": "츠카이카타",
+    "sentence": "このアプリの使い方を教えてください。",
+    "s_meaning": "이 앱 사용법을 알려주세요.",
+    "s_pron": "코노아푸리노 츠카이카타오 오시에테쿠다사이。"
+  },
+  {
+    "word": "日程",
+    "yomi": "にってい",
+    "meaning": "일정(날짜)",
+    "word_pron": "닛테이",
+    "sentence": "日程を調整します。",
+    "s_meaning": "일정을 조율합니다.",
+    "s_pron": "닛테이오 쵸우세이 시마스。"
+  },
+  {
+    "word": "調整",
+    "yomi": "ちょうせい",
+    "meaning": "조정/조율",
+    "word_pron": "쵸우세이",
+    "sentence": "時間を調整できますか。",
+    "s_meaning": "시간 조정이 가능합니까?",
+    "s_pron": "지칸오 쵸우세이데 키마스카。"
+  },
+  {
+    "word": "空き時間",
+    "yomi": "あきじかん",
+    "meaning": "빈 시간",
+    "word_pron": "아키지칸",
+    "sentence": "空き時間はありますか。",
+    "s_meaning": "빈 시간이 있습니까?",
+    "s_pron": "아키지칸와 아리마스카。"
+  },
+  {
+    "word": "参加",
+    "yomi": "さんか",
+    "meaning": "참가",
+    "word_pron": "산카",
+    "sentence": "会議に参加します。",
+    "s_meaning": "회의에 참가합니다.",
+    "s_pron": "카이기니 산카 시마스。"
+  },
+  {
+    "word": "欠席",
+    "yomi": "けっせき",
+    "meaning": "결석/불참",
+    "word_pron": "켓세키",
+    "sentence": "今日は欠席します。",
+    "s_meaning": "오늘은 불참합니다.",
+    "s_pron": "쿄우와 켓세키 시마스。"
+  },
+  {
+    "word": "変更する",
+    "yomi": "へんこうする",
+    "meaning": "변경하다",
+    "word_pron": "헨코우스루",
+    "sentence": "時間を変更したいです。",
+    "s_meaning": "시간을 변경하고 싶습니다.",
+    "s_pron": "지칸오 헨코우 시타이데스。"
+  },
+  {
+    "word": "延期",
+    "yomi": "えんき",
+    "meaning": "연기",
+    "word_pron": "엔키",
+    "sentence": "予定を延期します。",
+    "s_meaning": "예정을 연기합니다.",
+    "s_pron": "요테이오 엔키 시마스。"
+  },
+  {
+    "word": "中止",
+    "yomi": "ちゅうし",
+    "meaning": "취소(중지)",
+    "word_pron": "츄우시",
+    "sentence": "雨で中止です。",
+    "s_meaning": "비 때문에 취소입니다.",
+    "s_pron": "아메데 츄우시 데스。"
+  },
+  {
+    "word": "集合",
+    "yomi": "しゅうごう",
+    "meaning": "집합",
+    "word_pron": "슈우고우",
+    "sentence": "駅に集合します。",
+    "s_meaning": "역에 모입니다.",
+    "s_pron": "에키니 슈우고우 시마스。"
+  },
+  {
+    "word": "場所",
+    "yomi": "ばしょ",
+    "meaning": "장소",
+    "word_pron": "바쇼",
+    "sentence": "場所はどこですか。",
+    "s_meaning": "장소는 어디입니까?",
+    "s_pron": "바쇼와 도코데스카。"
+  },
+  {
+    "word": "時間帯",
+    "yomi": "じかんたい",
+    "meaning": "시간대",
+    "word_pron": "지칸타이",
+    "sentence": "午後の時間帯がいいです。",
+    "s_meaning": "오후 시간대가 좋습니다.",
+    "s_pron": "고고 노 지칸타이가 이이데스。"
+  },
+  {
+    "word": "明後日",
+    "yomi": "あさって",
+    "meaning": "모레",
+    "word_pron": "아삿테",
+    "sentence": "明後日はあいています。",
+    "s_meaning": "모레는 비어 있습니다.",
+    "s_pron": "아삿테와 아이테이마스。"
+  },
+  {
+    "word": "週末",
+    "yomi": "しゅうまつ",
+    "meaning": "주말",
+    "word_pron": "슈우마츠",
+    "sentence": "週末は予定があります。",
+    "s_meaning": "주말은 일정이 있습니다.",
+    "s_pron": "슈우마츠와 요테이가 아리마스。"
+  },
+  {
+    "word": "平日",
+    "yomi": "へいじつ",
+    "meaning": "평일",
+    "word_pron": "헤이지츠",
+    "sentence": "平日は忙しいです。",
+    "s_meaning": "평일은 바쁩니다.",
+    "s_pron": "헤이지츠와 이소가시이 데스。"
+  },
+  {
+    "word": "連休",
+    "yomi": "れんきゅう",
+    "meaning": "연휴",
+    "word_pron": "렌큐우",
+    "sentence": "連休に旅行します。",
+    "s_meaning": "연휴에 여행합니다.",
+    "s_pron": "렌큐우니 료코우 시마스。"
+  },
+  {
+    "word": "直前",
+    "yomi": "ちょくぜん",
+    "meaning": "직전",
+    "word_pron": "쵸쿠젠",
+    "sentence": "直前に連絡します。",
+    "s_meaning": "직전에 연락하겠습니다.",
+    "s_pron": "쵸쿠젠니 렌라쿠 시마스。"
+  },
+  {
+    "word": "早退",
+    "yomi": "そうたい",
+    "meaning": "조퇴",
+    "word_pron": "소우타이",
+    "sentence": "今日は早退します。",
+    "s_meaning": "오늘은 조퇴합니다.",
+    "s_pron": "쿄우와 소우타이 시마스。"
+  },
+  {
+    "word": "遅刻",
+    "yomi": "ちこく",
+    "meaning": "지각",
+    "word_pron": "치코쿠",
+    "sentence": "遅刻しそうです。",
+    "s_meaning": "지각할 것 같습니다.",
+    "s_pron": "치코쿠 시소우데스。"
+  },
+  {
+    "word": "確定",
+    "yomi": "かくてい",
+    "meaning": "확정",
+    "word_pron": "카쿠테이",
+    "sentence": "時間を確定します。",
+    "s_meaning": "시간을 확정합니다.",
+    "s_pron": "지칸오 카쿠테이 시마스。"
+  },
+  {
+    "word": "キャンセル",
+    "yomi": "きゃんせる",
+    "meaning": "캔슬/취소",
+    "word_pron": "캰세루",
+    "sentence": "予約をキャンセルします。",
+    "s_meaning": "예약을 취소합니다.",
+    "s_pron": "요야쿠오 캰세루시마스。"
+  },
+  {
+    "word": "誘う",
+    "yomi": "さそう",
+    "meaning": "초대하다",
+    "word_pron": "사소우",
+    "sentence": "友達を誘います。",
+    "s_meaning": "친구를 초대합니다.",
+    "s_pron": "토모다치오 사소이마스。"
+  },
+  {
+    "word": "提案",
+    "yomi": "ていあん",
+    "meaning": "제안",
+    "word_pron": "테이안",
+    "sentence": "いい提案ですね。",
+    "s_meaning": "좋은 제안이네요.",
+    "s_pron": "이이 테이안 데스네。"
+  },
+  {
+    "word": "相談する",
+    "yomi": "そうだんする",
+    "meaning": "상담하다",
+    "word_pron": "소우단스루",
+    "sentence": "少し相談してもいいですか。",
+    "s_meaning": "잠깐 상담해도 될까요?",
+    "s_pron": "스코시 소우단 시테모이이데스카。"
+  },
+  {
+    "word": "意見",
+    "yomi": "いけん",
+    "meaning": "의견",
+    "word_pron": "이켄",
+    "sentence": "意見を聞かせてください。",
+    "s_meaning": "의견을 들려주세요.",
+    "s_pron": "이켄오 키 카세테쿠다사이。"
+  },
+  {
+    "word": "賛成",
+    "yomi": "さんせい",
+    "meaning": "찬성",
+    "word_pron": "산세이",
+    "sentence": "私は賛成です。",
+    "s_meaning": "저는 찬성입니다.",
+    "s_pron": "와타시와 산세이 데스。"
+  },
+  {
+    "word": "反対",
+    "yomi": "はんたい",
+    "meaning": "반대",
+    "word_pron": "한타이",
+    "sentence": "それには反対です。",
+    "s_meaning": "그것에는 반대입니다.",
+    "s_pron": "소레니와 한타이 데스。"
+  },
+  {
+    "word": "都合",
+    "yomi": "つごう",
+    "meaning": "사정/형편",
+    "word_pron": "츠고우",
+    "sentence": "都合はどうですか。",
+    "s_meaning": "사정은 어떻습니까?",
+    "s_pron": "츠고우와 도우데스카。"
+  },
+  {
+    "word": "可能",
+    "yomi": "かのう",
+    "meaning": "가능",
+    "word_pron": "카노우",
+    "sentence": "明日は可能です。",
+    "s_meaning": "내일은 가능합니다.",
+    "s_pron": "아시타와 카노우 데스。"
+  },
+  {
+    "word": "無理",
+    "yomi": "むり",
+    "meaning": "무리",
+    "word_pron": "무리",
+    "sentence": "今日は無理です。",
+    "s_meaning": "오늘은 무리입니다.",
+    "s_pron": "쿄우와 무리 데스。"
+  },
+  {
+    "word": "ぜひ",
+    "yomi": "ぜひ",
+    "meaning": "꼭/부디",
+    "word_pron": "제히",
+    "sentence": "ぜひ来てください。",
+    "s_meaning": "꼭 와주세요.",
+    "s_pron": "제히 키테쿠다사이。"
+  },
+  {
+    "word": "もし",
+    "yomi": "もし",
+    "meaning": "만약",
+    "word_pron": "모시",
+    "sentence": "もし時間があれば来てください。",
+    "s_meaning": "만약 시간이 있으면 와주세요.",
+    "s_pron": "모 시 지칸가 아레바 키테쿠다사이。"
+  },
+  {
+    "word": "今度",
+    "yomi": "こんど",
+    "meaning": "다음에/이번에",
+    "word_pron": "콘도",
+    "sentence": "今度一緒に行きましょう。",
+    "s_meaning": "다음에 같이 갑시다.",
+    "s_pron": "콘도 잇쇼니 이키마쇼우。"
+  },
+  {
+    "word": "集まる",
+    "yomi": "あつまる",
+    "meaning": "모이다",
+    "word_pron": "아츠마루",
+    "sentence": "夜に集まります。",
+    "s_meaning": "밤에 모입니다.",
+    "s_pron": "요루니 아츠마리마스。"
+  },
+  {
+    "word": "決定",
+    "yomi": "けってい",
+    "meaning": "결정",
+    "word_pron": "켓테이",
+    "sentence": "今日中に決定します。",
+    "s_meaning": "오늘 안에 결정합니다.",
+    "s_pron": "쿄우쥬우니 켓테이 시마스。"
+  },
+  {
+    "word": "選択",
+    "yomi": "せんたく",
+    "meaning": "선택",
+    "word_pron": "센타쿠",
+    "sentence": "どちらを選択しますか。",
+    "s_meaning": "어느 쪽을 선택합니까?",
+    "s_pron": "도치라오 센타쿠 시마스카。"
+  },
+  {
+    "word": "開催",
+    "yomi": "かいさい",
+    "meaning": "개최",
+    "word_pron": "카이사이",
+    "sentence": "来週イベントを開催します。",
+    "s_meaning": "다음 주 이벤트를 개최합니다.",
+    "s_pron": "라이슈우 이벤토오 카이사이 시마스。"
+  },
+  {
+    "word": "参加者",
+    "yomi": "さんかしゃ",
+    "meaning": "참가자",
+    "word_pron": "산카샤",
+    "sentence": "参加者は何人ですか。",
+    "s_meaning": "참가자는 몇 명입니까?",
+    "s_pron": "산카샤와 난닌 데스카。"
+  },
+  {
+    "word": "連れて行く",
+    "yomi": "つれていく",
+    "meaning": "데리고 가다",
+    "word_pron": "츠레테이쿠",
+    "sentence": "友達をつれて行きます。",
+    "s_meaning": "친구를 데리고 갑니다.",
+    "s_pron": "토모다치오 츠레테 이키마스。"
+  },
+  {
+    "word": "迎える",
+    "yomi": "むかえる",
+    "meaning": "맞이하다",
+    "word_pron": "무카에루",
+    "sentence": "駅で迎えます。",
+    "s_meaning": "역에서 맞이합니다.",
+    "s_pron": "에키데 무카에 마스。"
+  },
+  {
+    "word": "集合場所",
+    "yomi": "しゅうごうばしょ",
+    "meaning": "집합 장소",
+    "word_pron": "슈우고우바쇼",
+    "sentence": "集合場所を確認します。",
+    "s_meaning": "집합 장소를 확인합니다.",
+    "s_pron": "슈우고우바쇼오 카쿠닌 시마스。"
+  },
+  {
+    "word": "計画",
+    "yomi": "けいかく",
+    "meaning": "계획",
+    "word_pron": "케이카쿠",
+    "sentence": "週末の計画を立てます。",
+    "s_meaning": "주말 계획을 세웁니다.",
+    "s_pron": "슈우마츠 노 케이카쿠오 타테마스。"
+  },
+  {
+    "word": "出発",
+    "yomi": "しゅっぱつ",
+    "meaning": "출발",
+    "word_pron": "슙파츠",
+    "sentence": "朝八時に出発します。",
+    "s_meaning": "아침 8시에 출발합니다.",
+    "s_pron": "아사 하치지니 슙파츠 시마스。"
+  },
+  {
+    "word": "到着",
+    "yomi": "とうちゃく",
+    "meaning": "도착",
+    "word_pron": "토우챠쿠",
+    "sentence": "昼に到着します。",
+    "s_meaning": "점심에 도착합니다.",
+    "s_pron": "히루니 토우챠쿠 시마스。"
+  },
+  {
+    "word": "目的",
+    "yomi": "もくてき",
+    "meaning": "목적",
+    "word_pron": "모쿠테키",
+    "sentence": "目的は何ですか。",
+    "s_meaning": "목적은 무엇입니까?",
+    "s_pron": "모쿠테키와 나니 데스카。"
+  },
+  {
+    "word": "旅館",
+    "yomi": "りょかん",
+    "meaning": "료칸",
+    "word_pron": "료칸",
+    "sentence": "旅館に泊まります。",
+    "s_meaning": "료칸에 묵습니다.",
+    "s_pron": "료칸니 토마리마스。"
+  },
+  {
+    "word": "お土産",
+    "yomi": "おみやげ",
+    "meaning": "기념품",
+    "word_pron": "오미야게",
+    "sentence": "お土産を買います。",
+    "s_meaning": "기념품을 삽니다.",
+    "s_pron": "오미야게오 카이마스。"
+  },
+  {
+    "word": "思い出",
+    "yomi": "おもいで",
+    "meaning": "추억",
+    "word_pron": "오모이데",
+    "sentence": "いい思い出になりました。",
+    "s_meaning": "좋은 추억이 되었습니다.",
+    "s_pron": "이이 오모이데니 나리마시타。"
+  },
+  {
+    "word": "久しぶり",
+    "yomi": "ひさしぶり",
+    "meaning": "오랜만",
+    "word_pron": "히사시부리",
+    "sentence": "久しぶりですね。",
+    "s_meaning": "오랜만이네요.",
+    "s_pron": "히사시부리 데스네。"
+  },
+  {
+    "word": "楽しみ",
+    "yomi": "たのしみ",
+    "meaning": "기대/즐거움",
+    "word_pron": "타노시미",
+    "sentence": "とても楽しみです。",
+    "s_meaning": "정말 기대돼요.",
+    "s_pron": "토 테모 타노시미 데스。"
+  },
+  {
+    "word": "天気",
+    "yomi": "てんき",
+    "meaning": "날씨",
+    "word_pron": "텐키",
+    "sentence": "明日の天気はどうですか。",
+    "s_meaning": "내일 날씨는 어떻습니까?",
+    "s_pron": "아시타 노 텐키와 도우데스카。"
+  },
+  {
+    "word": "晴れ",
+    "yomi": "はれ",
+    "meaning": "맑음",
+    "word_pron": "하레",
+    "sentence": "明日は晴れです。",
+    "s_meaning": "내일은 맑습니다.",
+    "s_pron": "아시타와 하레 데스。"
+  },
+  {
+    "word": "曇り",
+    "yomi": "くもり",
+    "meaning": "흐림",
+    "word_pron": "쿠모리",
+    "sentence": "今日は曇りです。",
+    "s_meaning": "오늘은 흐립니다.",
+    "s_pron": "쿄우와 쿠모리 데스。"
+  },
+  {
+    "word": "雨",
+    "yomi": "あめ",
+    "meaning": "비",
+    "word_pron": "아메",
+    "sentence": "雨が降りそうです。",
+    "s_meaning": "비가 올 것 같습니다.",
+    "s_pron": "아메가 후리소우 데스。"
+  },
+  {
+    "word": "帰り",
+    "yomi": "かえり",
+    "meaning": "돌아오는 길",
+    "word_pron": "카에리",
+    "sentence": "帰りにコンビニに寄ります。",
+    "s_meaning": "돌아오는 길에 편의점에 들릅니다.",
+    "s_pron": "카에리니 콘비니니 요리마스。"
+  },
+  {
+    "word": "道中",
+    "yomi": "どうちゅう",
+    "meaning": "길(도중)",
+    "word_pron": "도우츄우",
+    "sentence": "道中は気をつけてください。",
+    "s_meaning": "가는 길에 조심하세요.",
+    "s_pron": "도우츄우와 키오 츠케테쿠다사이。"
+  },
+  {
+    "word": "途中",
+    "yomi": "とちゅう",
+    "meaning": "도중",
+    "word_pron": "토츄우",
+    "sentence": "途中で休みましょう。",
+    "s_meaning": "도중에 쉽시다.",
+    "s_pron": "토츄우데 야스미마쇼우。"
+  },
+  {
+    "word": "集合時間",
+    "yomi": "しゅうごうじかん",
+    "meaning": "집합 시간",
+    "word_pron": "슈우고우지칸",
+    "sentence": "集合時間は九時です。",
+    "s_meaning": "집합 시간은 9시입니다.",
+    "s_pron": "슈우고우지칸와 큐우지 데스。"
+  },
+  {
+    "word": "終電",
+    "yomi": "しゅうでん",
+    "meaning": "막차",
+    "word_pron": "슈우덴",
+    "sentence": "終電までに帰ります。",
+    "s_meaning": "막차 전에 돌아갑니다.",
+    "s_pron": "슈우덴마데니 카에리 마스。"
+  },
+  {
+    "word": "費用",
+    "yomi": "ひよう",
+    "meaning": "비용",
+    "word_pron": "히요우",
+    "sentence": "費用はいくらですか。",
+    "s_meaning": "비용은 얼마입니까?",
+    "s_pron": "히요우와 이쿠라데스카。"
+  },
+  {
+    "word": "予約番号",
+    "yomi": "よやくばんごう",
+    "meaning": "예약 번호",
+    "word_pron": "요야쿠반고우",
+    "sentence": "予約番号を教えてください。",
+    "s_meaning": "예약 번호를 알려주세요.",
+    "s_pron": "요야쿠반고우오 오시에테쿠다사이。"
+  }
+]

@@ -14,6 +14,21 @@
             color: #000000;
         }
 
+        .page-title {
+            font-size: 1.9rem;
+            line-height: 1.05;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.35rem;
+            text-transform: uppercase;
+        }
+        .page-subtitle {
+            font-size: 0.78rem;
+            color: #6b7280;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+        }
+
         .monotone-border { border: 1px solid #e5e5e5; }
         .audio-btn:hover { background-color: #f3f3f3; transform: scale(1.05); }
         .audio-btn:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -47,6 +62,42 @@
               .col-example { width: 40%; }
               .col-count { width: 8%; }
               .col-listen { width: 9%; }
+            .page-title { font-size: 1.55rem; }
+            .page-subtitle { font-size: 0.68rem; letter-spacing: 0.1em; }
+            #mainApp .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+            #mainApp .header-actions {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+            #mainApp .header-nav {
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 0.35rem;
+            }
+            #mainApp .header-nav a,
+            #mainApp .header-nav span {
+                padding: 0.5rem 0.72rem;
+                font-size: 0.78rem;
+                letter-spacing: 0.03em;
+                line-height: 1.1;
+            }
+            #mainApp .header-user {
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .page-title { font-size: 3rem; }
+            .page-subtitle { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -80,20 +131,20 @@
 
     <!-- Main App (hidden by default) -->
     <div id="mainApp" class="hidden">
-        <header class="max-w-6xl mx-auto mb-12 border-b-4 border-black pb-6">
-            <div class="flex justify-between items-center flex-wrap gap-4">
+        <header class="max-w-6xl mx-auto mb-8 border-b-4 border-black pb-6">
+            <div class="header-top flex justify-between items-center flex-wrap gap-4">
                 <div>
-                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tighter mb-2 uppercase">Japanese AI Vocabulary</h1>
-                    <p class="text-gray-500 font-medium tracking-widest">일본어 단어 학습 프로그램</p>
+                    <h1 class="page-title">Japanese AI Vocabulary</h1>
+                    <p class="page-subtitle">일본어 단어 학습 프로그램</p>
                 </div>
-                <div class="flex items-center gap-4">
-                    <nav class="flex gap-2">
+                <div class="header-actions flex items-center gap-4">
+                    <nav class="header-nav flex gap-2">
                         <span class="px-4 py-2 border-2 border-black bg-black text-white text-sm font-bold uppercase tracking-widest">단어</span>
                         <a href="grammar.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">문법</a>
                         <a href="kana.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">가나</a>
                         <a href="numbers.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">수체계</a>
                     </nav>
-                    <div class="text-right">
+                    <div class="header-user text-right">
                         <p class="text-sm font-bold text-gray-600 mb-1">안녕하세요, <span id="currentUser"></span>님</p>
                         <button id="logoutBtn" class="text-xs font-bold uppercase tracking-widest text-red-500 hover:underline">로그아웃</button>
                     </div>
@@ -123,6 +174,9 @@
                         <option value="week1">1주차</option>
                         <option value="week2">2주차</option>
                         <option value="week3">3주차</option>
+                        <option value="week4">4주차</option>
+                        <option value="week5">5주차</option>
+                        <option value="week6">6주차</option>
                     </select>
                     <select id="filterMode" class="p-2 border-2 border-black text-xs font-bold uppercase tracking-widest bg-white cursor-pointer">
                         <option value="all">전체 보기</option>
@@ -137,23 +191,28 @@
             <div class="mb-8 flex flex-col md:flex-row gap-4 items-center justify-between">
                 <input type="text" id="searchInput" placeholder="검색어를 입력하세요 (단어, 뜻, 예문...)" 
                     class="w-full md:w-96 p-3 border-2 border-black focus:outline-none text-lg font-medium">
-            <div class="flex items-center gap-1 md:gap-2 flex-wrap justify-end">
-                <select id="ttsMode" class="p-1 md:p-2 border-2 border-black text-xs font-bold bg-white cursor-pointer">
-                    <option value="browser">🔊</option>
-                    <option value="ai" selected>🤖</option>
-                </select>
-                <select id="voiceSelect" class="p-1 md:p-2 border-2 border-black text-xs font-bold bg-white cursor-pointer max-w-[100px] md:max-w-none">
-                    <option value="ja-JP-Neural2-B" selected>N2-B 여</option>
-                    <option value="ja-JP-Neural2-C">N2-C 남</option>
-                    <option value="ja-JP-Neural2-D">N2-D 남</option>
-                    <option value="ja-JP-Wavenet-A">WN-A 여</option>
-                    <option value="ja-JP-Wavenet-B">WN-B 여</option>
-                    <option value="ja-JP-Wavenet-C">WN-C 남</option>
-                    <option value="ja-JP-Wavenet-D">WN-D 남</option>
-                    <option value="ja-JP-Standard-A">ST-A 여</option>
-                    <option value="ja-JP-Standard-B">ST-B 여</option>
-                </select>
-                <button id="clearCacheBtn" class="p-1 md:p-2 border-2 border-black text-xs font-bold bg-white hover:bg-red-50 hover:border-red-500 hover:text-red-500 transition-colors cursor-pointer" title="Clear Cache">🗑️</button>
+            <div class="flex items-center gap-1 md:gap-2 flex-wrap justify-end w-full md:w-auto">
+                <button id="ttsToggleBtn" class="md:hidden p-1 border-2 border-black text-xs font-bold bg-white hover:bg-gray-100 transition-colors cursor-pointer" aria-expanded="false">
+                    TTS 설정
+                </button>
+                <div id="ttsControls" class="hidden md:flex items-center gap-1 md:gap-2 flex-wrap justify-end">
+                    <select id="ttsMode" class="p-1 md:p-2 border-2 border-black text-xs font-bold bg-white cursor-pointer">
+                        <option value="browser">🔊</option>
+                        <option value="ai" selected>🤖</option>
+                    </select>
+                    <select id="voiceSelect" class="p-1 md:p-2 border-2 border-black text-xs font-bold bg-white cursor-pointer max-w-[100px] md:max-w-none">
+                        <option value="ja-JP-Neural2-B" selected>N2-B 여</option>
+                        <option value="ja-JP-Neural2-C">N2-C 남</option>
+                        <option value="ja-JP-Neural2-D">N2-D 남</option>
+                        <option value="ja-JP-Wavenet-A">WN-A 여</option>
+                        <option value="ja-JP-Wavenet-B">WN-B 여</option>
+                        <option value="ja-JP-Wavenet-C">WN-C 남</option>
+                        <option value="ja-JP-Wavenet-D">WN-D 남</option>
+                        <option value="ja-JP-Standard-A">ST-A 여</option>
+                        <option value="ja-JP-Standard-B">ST-B 여</option>
+                    </select>
+                    <button id="clearCacheBtn" class="p-1 md:p-2 border-2 border-black text-xs font-bold bg-white hover:bg-red-50 hover:border-red-500 hover:text-red-500 transition-colors cursor-pointer" title="Clear Cache">🗑️</button>
+                </div>
                 <div id="statusMessage" class="text-xs font-bold text-gray-400 hidden md:block">TTS Ready</div>
             </div>
         </div>
@@ -565,14 +624,9 @@
                 const response = await fetch(`./${week}.json`);
                 if (!response.ok) throw new Error(`Failed to load ${week}.json`);
                 vocabList = await response.json();
-                // 페이지네이션 계산
-                if (week === 'week1') {
-                    totalPages = PAGE_COUNT;
-                    currentPage = 1;
-                } else {
-                    totalPages = 1;
-                    currentPage = 1;
-                }
+                // 모든 주차에 동일한 페이지네이션 적용
+                totalPages = PAGE_COUNT;
+                currentPage = 1;
                 console.log(`📚 Loaded ${vocabList.length} vocabulary items from ${week}`);
                 return vocabList;
             } catch (err) {
@@ -631,6 +685,25 @@
         // TTS Mode selector
         const ttsMode = document.getElementById('ttsMode');
         const voiceSelect = document.getElementById('voiceSelect');
+        const ttsToggleBtn = document.getElementById('ttsToggleBtn');
+        const ttsControls = document.getElementById('ttsControls');
+
+        if (ttsToggleBtn && ttsControls) {
+            ttsToggleBtn.addEventListener('click', () => {
+                const isOpen = ttsControls.classList.contains('flex') && !ttsControls.classList.contains('hidden');
+                if (isOpen) {
+                    ttsControls.classList.add('hidden');
+                    ttsControls.classList.remove('flex');
+                    ttsToggleBtn.setAttribute('aria-expanded', 'false');
+                    ttsToggleBtn.textContent = 'TTS 설정';
+                } else {
+                    ttsControls.classList.remove('hidden');
+                    ttsControls.classList.add('flex');
+                    ttsToggleBtn.setAttribute('aria-expanded', 'true');
+                    ttsToggleBtn.textContent = 'TTS 닫기';
+                }
+            });
+        }
 
         // Show/hide voice selector based on TTS mode
         ttsMode.addEventListener('change', () => {
@@ -810,8 +883,8 @@
         function render(list) {
             tableBody.innerHTML = '';
             let pagedList = list;
-            // 1주차만 7페이지 분할
-            if (currentWeek === 'week1' && totalPages > 1) {
+            // 모든 주차를 7페이지 분할
+            if (totalPages > 1) {
                 const pageSize = Math.ceil(list.length / PAGE_COUNT);
                 const startIdx = (currentPage - 1) * pageSize;
                 const endIdx = startIdx + pageSize;
@@ -863,7 +936,7 @@
         // 페이지네이션 UI 렌더링
         function renderPagination(totalItems) {
             const pagination = document.getElementById('pagination');
-            if (currentWeek !== 'week1' || totalPages === 1) {
+            if (totalPages === 1) {
                 pagination.innerHTML = '';
                 return;
             }
@@ -916,10 +989,10 @@
                     return haystack.includes(term);
                 });
             }
-            // 페이지네이션: 검색/필터 시 1페이지로 이동
-            if (currentWeek === 'week1' && totalPages > 1 && filtered.length > 0) {
-                const pageSize = Math.ceil(vocabList.length / PAGE_COUNT);
-                const maxPage = Math.ceil(filtered.length / pageSize);
+            // 페이지네이션: 검색/필터 시 현재 주차 기준으로 페이지 계산
+            if (filtered.length > 0) {
+                const pageSize = Math.max(1, Math.ceil(vocabList.length / PAGE_COUNT));
+                const maxPage = Math.max(1, Math.ceil(filtered.length / pageSize));
                 if (currentPage > maxPage) currentPage = 1;
                 totalPages = maxPage;
             } else {
