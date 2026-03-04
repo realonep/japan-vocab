@@ -75,6 +75,9 @@
             transform-origin: left top;
             transform: scale(1.2);
         }
+        #mainApp.focus-mode .sentence-meaning {
+            cursor: pointer;
+        }
 
         @keyframes spin {
             from { transform: rotate(0deg); }
@@ -1043,7 +1046,7 @@
                     <td class="p-1 md:p-4 font-medium text-gray-600 text-xs md:text-base meaning-cell">${item.meaning}</td>
                     <td class="p-1 md:p-4">
                         <div class="font-bold text-black cursor-pointer hover:underline text-sm md:text-lg sentence-trigger sentence-cell sentence-jp">${item.sentence}</div>
-                        <div class="text-xs text-gray-400 sentence-sub sentence-meaning"><span class="sentence-meaning-text">${item.s_meaning}</span></div>
+                        <div class="text-xs text-gray-400 sentence-sub sentence-meaning sentence-meaning-trigger"><span class="sentence-meaning-text">${item.s_meaning}</span></div>
                         <div class="text-xs text-blue-500 sentence-sub sentence-pron">${item.s_pron || ''}</div>
                     </td>
                     <td class="p-1 md:p-4 text-center focus-col-count">
@@ -1057,6 +1060,7 @@
                 `;
                 const playBtn = tr.querySelector('.play-trigger');
                 const sentenceBtn = tr.querySelector('.sentence-trigger');
+                const sentenceMeaningBtn = tr.querySelector('.sentence-meaning-trigger');
                 playBtn.onclick = () => {
                     incrementStudyCount(item.yomi, itemWeek);
                     speak(item.yomi, playBtn);
@@ -1064,6 +1068,11 @@
                 sentenceBtn.onclick = () => {
                     incrementStudyCount(item.yomi, itemWeek);
                     speak(item.sentence, sentenceBtn);
+                };
+                sentenceMeaningBtn.onclick = () => {
+                    if (!mainApp.classList.contains('focus-mode')) return;
+                    incrementStudyCount(item.yomi, itemWeek);
+                    speak(item.sentence, sentenceMeaningBtn);
                 };
                 tableBody.appendChild(tr);
             });
