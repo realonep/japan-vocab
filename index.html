@@ -386,14 +386,23 @@
             return studyDataCache;
         }
 
+        function makeStudyKeyForWeek(week, yomi) {
+            return `${week}::${yomi}`;
+        }
+
         function makeStudyKey(yomi) {
-            return `${currentWeek}::${yomi}`;
+            return makeStudyKeyForWeek(currentWeek, yomi);
         }
 
         function getStudyItem(yomi) {
             const data = getStudyData();
             const scopedKey = makeStudyKey(yomi);
             return data[scopedKey] || null;
+        }
+
+        function getStudyItemByWeek(week, yomi) {
+            const data = getStudyData();
+            return data[makeStudyKeyForWeek(week, yomi)] || null;
         }
 
         async function loadStudyDataFromServer() {
@@ -437,10 +446,10 @@
             }
         }
 
-        function incrementStudyCount(yomi) {
+        function incrementStudyCount(yomi, week = currentWeek) {
             const data = getStudyData();
             const today = new Date().toISOString().split('T')[0];
-            const studyKey = makeStudyKey(yomi);
+            const studyKey = makeStudyKeyForWeek(week, yomi);
             if (!data[studyKey]) {
                 data[studyKey] = { count: 0, clicks: 0, lastStudied: null };
             }
@@ -458,13 +467,13 @@
             updateCountBadge(yomi, data[studyKey].count);
         }
 
-        function getStudyCount(yomi) {
-            const item = getStudyItem(yomi);
+        function getStudyCount(yomi, week = currentWeek) {
+            const item = getStudyItemByWeek(week, yomi);
             return item?.count || 0;
         }
 
-        function getLastStudied(yomi) {
-            const item = getStudyItem(yomi);
+        function getLastStudied(yomi, week = currentWeek) {
+            const item = getStudyItemByWeek(week, yomi);
             return item?.lastStudied || null;
         }
 
@@ -652,6 +661,7 @@
 
         // Load vocabulary data from JSON
         let vocabList = [];
+        let allVocabList = [];
         let currentWeek = 'week1';
         let currentPage = 1;
         let totalPages = 1;
@@ -685,6 +695,29 @@
                 statusMsg.classList.add("text-red-500");
                 return [];
             }
+        }
+
+        async function ensureAllVocabLoaded() {
+            if (allVocabList.length > 0) return allVocabList;
+            const weekSelectEl = document.getElementById('weekSelect');
+            const weeks = Array.from(weekSelectEl.options).map(opt => opt.value);
+            const merged = [];
+            for (const week of weeks) {
+                const candidates = [`./data/${week}.json`, `./${week}.json`];
+                for (const path of candidates) {
+                    try {
+                        const response = await fetch(path);
+                        if (!response.ok) continue;
+                        const rows = await response.json();
+                        rows.forEach(item => merged.push({ ...item, _week: week }));
+                        break;
+                    } catch (_) {
+                        // try next candidate
+                    }
+                }
+            }
+            allVocabList = merged;
+            return allVocabList;
         }
 
         const tableBody = document.getElementById('vocalTable');
@@ -941,13 +974,17 @@
                 pagedList = list.slice(startIdx, endIdx);
             }
             pagedList.forEach(item => {
-                const count = getStudyCount(item.yomi);
+                const itemWeek = item._week || currentWeek;
+                const count = getStudyCount(item.yomi, itemWeek);
+                const weekBadge = item._week
+                    ? `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-gray-100 text-gray-600 text-[10px] md:text-xs font-semibold">${item._week.replace('week', 'W')}</span>`
+                    : '';
                 const tr = document.createElement('tr');
                 tr.className = 'border-b border-gray-100 hover:bg-gray-50 transition-colors';
                 tr.setAttribute('data-yomi', item.yomi);
                 tr.innerHTML = `
                     <td class="p-1 md:p-4">
-                        <div class="font-bold text-lg md:text-2xl tracking-tight word-cell">${item.word}</div>
+                        <div class="font-bold text-lg md:text-2xl tracking-tight word-cell flex items-center">${item.word}${weekBadge}</div>
                         <div class="text-xs text-gray-400 md:hidden">${item.yomi}</div>
                         <div class="text-xs text-blue-500">${item.word_pron || ''}</div>
                     </td>
@@ -970,11 +1007,11 @@
                 const playBtn = tr.querySelector('.play-trigger');
                 const sentenceBtn = tr.querySelector('.sentence-trigger');
                 playBtn.onclick = () => {
-                    incrementStudyCount(item.yomi);
+                    incrementStudyCount(item.yomi, itemWeek);
                     speak(item.yomi, playBtn);
                 };
                 sentenceBtn.onclick = () => {
-                    incrementStudyCount(item.yomi);
+                    incrementStudyCount(item.yomi, itemWeek);
                     speak(item.sentence, sentenceBtn);
                 };
                 tableBody.appendChild(tr);
@@ -1017,23 +1054,35 @@
         // Filter functions
         const filterMode = document.getElementById('filterMode');
         
-        function renderFiltered() {
+        async function renderFiltered() {
             const mode = filterMode.value;
             const today = new Date().toISOString().split('T')[0];
             const studyData = getStudyData();
-            let filtered = vocabList;
+            const term = normalizeText(searchInput.value);
+            let baseList = vocabList;
+            if (term) {
+                await ensureAllVocabLoaded();
+                baseList = allVocabList;
+            }
+            let filtered = baseList;
             if (mode === 'unstudied') {
-                filtered = vocabList.filter(item => {
-                    const stat = studyData[makeStudyKey(item.yomi)];
+                filtered = baseList.filter(item => {
+                    const week = item._week || currentWeek;
+                    const stat = studyData[makeStudyKeyForWeek(week, item.yomi)];
                     return !stat || stat.count === 0;
                 });
             } else if (mode === 'today') {
-                filtered = vocabList.filter(item => studyData[makeStudyKey(item.yomi)]?.lastStudied === today);
+                filtered = baseList.filter(item => {
+                    const week = item._week || currentWeek;
+                    return studyData[makeStudyKeyForWeek(week, item.yomi)]?.lastStudied === today;
+                });
             } else if (mode === 'studied') {
-                filtered = vocabList.filter(item => studyData[makeStudyKey(item.yomi)]?.count > 0);
+                filtered = baseList.filter(item => {
+                    const week = item._week || currentWeek;
+                    return studyData[makeStudyKeyForWeek(week, item.yomi)]?.count > 0;
+                });
             }
             // Apply search filter too
-            const term = normalizeText(searchInput.value);
             if (term) {
                 filtered = filtered.filter(item => {
                     const haystack = normalizeText(
@@ -1044,7 +1093,7 @@
             }
             // 페이지네이션: 검색/필터 시 현재 주차 기준으로 페이지 계산
             if (filtered.length > 0) {
-                const pageSize = Math.max(1, Math.ceil(vocabList.length / PAGE_COUNT));
+                const pageSize = Math.max(1, Math.ceil(baseList.length / PAGE_COUNT));
                 const maxPage = Math.max(1, Math.ceil(filtered.length / pageSize));
                 if (currentPage > maxPage) currentPage = 1;
                 totalPages = maxPage;
