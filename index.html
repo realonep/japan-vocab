@@ -67,10 +67,13 @@
             pointer-events: none !important;
         }
         #mainApp.focus-mode .sentence-meaning {
-            font-size: 0.7rem;
-            line-height: 1.45;
             color: #4b5563;
             font-weight: 500;
+        }
+        #mainApp.focus-mode .sentence-meaning .sentence-meaning-text {
+            display: inline-block;
+            transform-origin: left top;
+            transform: scale(1.2);
         }
 
         @keyframes spin {
@@ -140,8 +143,8 @@
         @media (min-width: 768px) {
             .page-title { font-size: 3rem; }
             .page-subtitle { font-size: 0.9rem; }
-            #mainApp.focus-mode .sentence-meaning {
-                font-size: 1rem;
+            #mainApp.focus-mode .sentence-meaning .sentence-meaning-text {
+                transform: scale(1.35);
             }
         }
     </style>
@@ -1040,7 +1043,7 @@
                     <td class="p-1 md:p-4 font-medium text-gray-600 text-xs md:text-base meaning-cell">${item.meaning}</td>
                     <td class="p-1 md:p-4">
                         <div class="font-bold text-black cursor-pointer hover:underline text-sm md:text-lg sentence-trigger sentence-cell sentence-jp">${item.sentence}</div>
-                        <div class="text-xs text-gray-400 sentence-sub sentence-meaning">${item.s_meaning}</div>
+                        <div class="text-xs text-gray-400 sentence-sub sentence-meaning"><span class="sentence-meaning-text">${item.s_meaning}</span></div>
                         <div class="text-xs text-blue-500 sentence-sub sentence-pron">${item.s_pron || ''}</div>
                     </td>
                     <td class="p-1 md:p-4 text-center focus-col-count">
