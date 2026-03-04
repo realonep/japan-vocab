@@ -58,14 +58,13 @@
         }
 
         #mainApp.focus-mode .focus-col-word,
-        #mainApp.focus-mode .focus-col-reading,
-        #mainApp.focus-mode .focus-col-count,
-        #mainApp.focus-mode .focus-col-listen {
-            display: none !important;
+        #mainApp.focus-mode .focus-col-reading {
+            visibility: hidden !important;
         }
         #mainApp.focus-mode .sentence-jp,
         #mainApp.focus-mode .sentence-pron {
-            display: none !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
         }
         #mainApp.focus-mode .sentence-meaning {
             font-size: 0.7rem;
@@ -263,7 +262,7 @@
             </div>
         </div>
 
-        <div class="overflow-x-auto">
+        <div id="tableScrollWrap" class="overflow-x-auto">
             <table class="w-full text-left border-collapse mobile-compact">
                 <thead>
                     <tr class="border-b-2 border-black">
@@ -1020,15 +1019,17 @@
                 const endIdx = startIdx + pageSize;
                 pagedList = list.slice(startIdx, endIdx);
             }
-            pagedList.forEach(item => {
+            pagedList.forEach((item, idx) => {
                 const itemWeek = item._week || currentWeek;
                 const count = getStudyCount(item.yomi, itemWeek);
                 const weekBadge = item._week
                     ? `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-gray-100 text-gray-600 text-[10px] md:text-xs font-semibold">${item._week.replace('week', 'W')}</span>`
                     : '';
                 const tr = document.createElement('tr');
+                const rowKey = `${itemWeek}::${item.yomi}::${idx}`;
                 tr.className = 'border-b border-gray-100 hover:bg-gray-50 transition-colors';
                 tr.setAttribute('data-yomi', item.yomi);
+                tr.setAttribute('data-row-key', rowKey);
                 tr.innerHTML = `
                     <td class="p-1 md:p-4 focus-col-word">
                         <div class="font-bold text-lg md:text-2xl tracking-tight word-cell flex items-center">${item.word}${weekBadge}</div>
@@ -1188,9 +1189,44 @@
             }
         }
 
+        function toggleFocusModeWithPositionLock(nextEnabled) {
+            const viewportTop = 0;
+            const rows = Array.from(tableBody.querySelectorAll('tr[data-row-key]'));
+            const anchorRow = rows.find(row => row.getBoundingClientRect().bottom > viewportTop + 8) || null;
+            const anchor = anchorRow ? {
+                rowKey: anchorRow.getAttribute('data-row-key'),
+                offsetTop: anchorRow.getBoundingClientRect().top - viewportTop
+            } : null;
+            const prevScrollY = window.scrollY;
+            const tableScrollWrap = document.getElementById('tableScrollWrap');
+            const prevScrollX = tableScrollWrap ? tableScrollWrap.scrollLeft : 0;
+
+            const restoreAnchorPosition = () => {
+                if (!anchor) return;
+                const targetRow = Array.from(tableBody.querySelectorAll('tr[data-row-key]'))
+                    .find(row => row.getAttribute('data-row-key') === anchor.rowKey);
+                if (!targetRow) return;
+                const delta = (targetRow.getBoundingClientRect().top - viewportTop) - anchor.offsetTop;
+                if (Math.abs(delta) > 0.5) {
+                    window.scrollTo({ top: window.scrollY + delta, left: window.scrollX, behavior: 'auto' });
+                }
+            };
+
+            setFocusMode(nextEnabled);
+            requestAnimationFrame(() => {
+                window.scrollTo({ top: prevScrollY, left: window.scrollX, behavior: 'auto' });
+                if (tableScrollWrap) tableScrollWrap.scrollLeft = prevScrollX;
+                restoreAnchorPosition();
+                requestAnimationFrame(() => {
+                    if (tableScrollWrap) tableScrollWrap.scrollLeft = prevScrollX;
+                    restoreAnchorPosition();
+                });
+            });
+        }
+
         focusModeBtn.addEventListener('click', () => {
             const enabled = !mainApp.classList.contains('focus-mode');
-            setFocusMode(enabled);
+            toggleFocusModeWithPositionLock(enabled);
         });
 
         setFocusMode(localStorage.getItem(FOCUS_MODE_KEY) === 'on');
