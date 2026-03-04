@@ -37,6 +37,43 @@
             animation: spin 1s linear infinite;
         }
 
+        .focus-toggle-btn {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            z-index: 60;
+            border: 2px solid #000;
+            background: #000;
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            padding: 0.55rem 0.8rem;
+            border-radius: 9999px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+            transition: transform 0.15s ease, opacity 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+        }
+        .focus-toggle-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        #mainApp.focus-mode .focus-col-word,
+        #mainApp.focus-mode .focus-col-reading,
+        #mainApp.focus-mode .focus-col-count,
+        #mainApp.focus-mode .focus-col-listen {
+            display: none !important;
+        }
+        #mainApp.focus-mode .sentence-jp,
+        #mainApp.focus-mode .sentence-pron {
+            display: none !important;
+        }
+        #mainApp.focus-mode .sentence-meaning {
+            font-size: 0.7rem;
+            line-height: 1.45;
+            color: #4b5563;
+            font-weight: 500;
+        }
+
         @keyframes spin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -57,6 +94,12 @@
             .mobile-compact .sentence-sub { font-size: 0.6rem; }
             .mobile-compact .audio-btn { padding: 0.2rem; }
             .mobile-compact .audio-btn svg { width: 12px; height: 12px; }
+            .focus-toggle-btn {
+                right: 12px;
+                bottom: 12px;
+                font-size: 0.68rem;
+                padding: 0.48rem 0.7rem;
+            }
               .col-word { width: 18%; }
               .col-meaning { width: 25%; }
               .col-example { width: 40%; }
@@ -98,6 +141,9 @@
         @media (min-width: 768px) {
             .page-title { font-size: 3rem; }
             .page-subtitle { font-size: 0.9rem; }
+            #mainApp.focus-mode .sentence-meaning {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -221,12 +267,12 @@
             <table class="w-full text-left border-collapse mobile-compact">
                 <thead>
                     <tr class="border-b-2 border-black">
-                        <th class="p-1 md:p-4 text-xs font-black uppercase col-word">Word</th>
-                        <th class="p-1 md:p-4 text-xs font-black uppercase hidden md:table-cell">Reading</th>
+                        <th class="p-1 md:p-4 text-xs font-black uppercase col-word focus-col-word">Word</th>
+                        <th class="p-1 md:p-4 text-xs font-black uppercase hidden md:table-cell focus-col-reading">Reading</th>
                         <th class="p-1 md:p-4 text-xs font-black uppercase col-meaning">Meaning</th>
                         <th class="p-1 md:p-4 text-xs font-black uppercase col-example">Example</th>
-                        <th class="p-1 md:p-4 text-xs font-black uppercase text-center col-count">Cnt</th>
-                        <th class="p-1 md:p-4 text-xs font-black uppercase text-right col-listen">🔊</th>
+                        <th class="p-1 md:p-4 text-xs font-black uppercase text-center col-count focus-col-count">Cnt</th>
+                        <th class="p-1 md:p-4 text-xs font-black uppercase text-right col-listen focus-col-listen">🔊</th>
                     </tr>
                 </thead>
                 <tbody id="vocalTable">
@@ -236,6 +282,7 @@
             <div id="pagination" class="flex justify-center items-center gap-1 mt-4"></div>
         </div>
         </main>
+        <button id="focusModeBtn" class="focus-toggle-btn" type="button" aria-pressed="false">뜻만 보기</button>
     </div>
 
     <script>
@@ -983,22 +1030,22 @@
                 tr.className = 'border-b border-gray-100 hover:bg-gray-50 transition-colors';
                 tr.setAttribute('data-yomi', item.yomi);
                 tr.innerHTML = `
-                    <td class="p-1 md:p-4">
+                    <td class="p-1 md:p-4 focus-col-word">
                         <div class="font-bold text-lg md:text-2xl tracking-tight word-cell flex items-center">${item.word}${weekBadge}</div>
                         <div class="text-xs text-gray-400 md:hidden">${item.yomi}</div>
                         <div class="text-xs text-blue-500">${item.word_pron || ''}</div>
                     </td>
-                    <td class="p-1 md:p-4 text-gray-400 font-mono text-sm uppercase yomi-cell hidden md:table-cell">${item.yomi}</td>
+                    <td class="p-1 md:p-4 text-gray-400 font-mono text-sm uppercase yomi-cell hidden md:table-cell focus-col-reading">${item.yomi}</td>
                     <td class="p-1 md:p-4 font-medium text-gray-600 text-xs md:text-base meaning-cell">${item.meaning}</td>
                     <td class="p-1 md:p-4">
-                        <div class="font-bold text-black cursor-pointer hover:underline text-sm md:text-lg sentence-trigger sentence-cell">${item.sentence}</div>
-                        <div class="text-xs text-gray-400 sentence-sub">${item.s_meaning}</div>
-                        <div class="text-xs text-blue-500 sentence-sub">${item.s_pron || ''}</div>
+                        <div class="font-bold text-black cursor-pointer hover:underline text-sm md:text-lg sentence-trigger sentence-cell sentence-jp">${item.sentence}</div>
+                        <div class="text-xs text-gray-400 sentence-sub sentence-meaning">${item.s_meaning}</div>
+                        <div class="text-xs text-blue-500 sentence-sub sentence-pron">${item.s_pron || ''}</div>
                     </td>
-                    <td class="p-1 md:p-4 text-center">
+                    <td class="p-1 md:p-4 text-center focus-col-count">
                         <span class="count-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(count)}">${count}</span>
                     </td>
-                    <td class="p-1 md:p-4 text-right">
+                    <td class="p-1 md:p-4 text-right focus-col-listen">
                         <button class="audio-btn p-1 md:p-2 rounded-full border border-black transition-all play-trigger">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
                         </button>
@@ -1122,6 +1169,31 @@
         loadVocabData('week1').then(() => {
             renderFiltered();
         });
+
+        const FOCUS_MODE_KEY = 'word_focus_mode';
+        const focusModeBtn = document.getElementById('focusModeBtn');
+        const mainApp = document.getElementById('mainApp');
+
+        function setFocusMode(enabled) {
+            if (enabled) {
+                mainApp.classList.add('focus-mode');
+                focusModeBtn.textContent = '일반 보기';
+                focusModeBtn.setAttribute('aria-pressed', 'true');
+                localStorage.setItem(FOCUS_MODE_KEY, 'on');
+            } else {
+                mainApp.classList.remove('focus-mode');
+                focusModeBtn.textContent = '뜻만 보기';
+                focusModeBtn.setAttribute('aria-pressed', 'false');
+                localStorage.setItem(FOCUS_MODE_KEY, 'off');
+            }
+        }
+
+        focusModeBtn.addEventListener('click', () => {
+            const enabled = !mainApp.classList.contains('focus-mode');
+            setFocusMode(enabled);
+        });
+
+        setFocusMode(localStorage.getItem(FOCUS_MODE_KEY) === 'on');
     </script>
 </body>
 </html>
