@@ -133,6 +133,62 @@
             word-break: keep-all;
             text-align: left;
         }
+        .mic-permission-banner {
+            border: 2px solid #111827;
+            background: #f9fafb;
+            padding: 0.55rem 0.7rem;
+            margin-bottom: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .mic-guide-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 80;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .mic-guide-modal.show {
+            display: flex;
+        }
+        .mic-guide-panel {
+            width: min(680px, 96vw);
+            max-height: 85vh;
+            overflow: auto;
+            background: #fff;
+            border: 3px solid #000;
+            padding: 1rem;
+        }
+        .mic-guide-tab {
+            border: 1px solid #111827;
+            background: #fff;
+            padding: 0.3rem 0.6rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+        .mic-guide-tab.active {
+            background: #111827;
+            color: #fff;
+        }
+        .mic-guide-section { display: none; }
+        .mic-guide-section.active { display: block; }
+        .mic-guide-images {
+            margin-top: 0.7rem;
+            display: grid;
+            gap: 0.5rem;
+        }
+        .mic-guide-image {
+            width: 100%;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            display: block;
+        }
 
         @keyframes spin {
             from { transform: rotate(0deg); }
@@ -157,6 +213,8 @@
             .test-btn { font-size: 0.56rem; padding: 0.08rem 0.3rem; }
             .test-status { font-size: 0.52rem; max-width: 90px; }
             .word-cell-box { min-height: 3.9rem; }
+            .mic-permission-banner { padding: 0.45rem 0.55rem; }
+            .mic-guide-panel { padding: 0.75rem; }
             .focus-toggle-btn {
                 right: 12px;
                 bottom: 12px;
@@ -328,6 +386,14 @@
             </div>
         </div>
 
+        <div id="micPermissionBanner" class="mic-permission-banner hidden">
+            <p class="text-xs md:text-sm font-semibold text-gray-700">음성 테스트는 마이크 권한이 필요합니다. 첫 실행 시 브라우저 팝업에서 <span class="font-black text-black">허용</span>을 눌러주세요.</p>
+            <div class="flex items-center gap-2">
+                <button id="openMicGuideBtn" class="px-2 py-1 border-2 border-black text-xs font-bold bg-white hover:bg-gray-100">설정 가이드</button>
+                <button id="dismissMicBannerBtn" class="px-2 py-1 border text-xs font-bold bg-white text-gray-500 hover:text-black">닫기</button>
+            </div>
+        </div>
+
         <div id="tableScrollWrap" class="overflow-x-auto">
             <table class="w-full text-left border-collapse mobile-compact">
                 <thead>
@@ -348,6 +414,50 @@
         </div>
         </main>
         <button id="focusModeBtn" class="focus-toggle-btn" type="button" aria-pressed="false">뜻만 보기</button>
+
+        <div id="micGuideModal" class="mic-guide-modal" role="dialog" aria-modal="true" aria-labelledby="micGuideTitle">
+            <div class="mic-guide-panel">
+                <div class="flex items-start justify-between gap-3 mb-3">
+                    <div>
+                        <h2 id="micGuideTitle" class="text-lg font-black">마이크 권한 설정 가이드</h2>
+                        <p id="micGuideReason" class="text-xs text-gray-600 mt-1">권한 상태를 확인한 뒤 다시 테스트해 주세요.</p>
+                    </div>
+                    <button id="closeMicGuideBtn" class="px-2 py-1 border-2 border-black text-xs font-bold">닫기</button>
+                </div>
+                <div class="flex gap-2 mb-3">
+                    <button class="mic-guide-tab active" data-guide-tab="safari" type="button">Safari</button>
+                    <button class="mic-guide-tab" data-guide-tab="chrome-ios" type="button">Chrome(iOS)</button>
+                </div>
+                <div id="micGuideSafari" class="mic-guide-section active">
+                    <p class="text-sm font-bold mb-2">Safari 설정 순서</p>
+                    <ol class="text-sm text-gray-700 list-decimal pl-5 space-y-1">
+                        <li>`Safari`에서 사이트 열기 → 주소창 좌측 `aA`(또는 사이트 설정)</li>
+                        <li>`웹사이트 설정` → `마이크` 진입</li>
+                        <li>`허용` 또는 `묻기`로 설정</li>
+                        <li>페이지 새로고침 후 TEST 버튼 다시 실행</li>
+                    </ol>
+                    <div class="mic-guide-images">
+                        <img class="mic-guide-image" src="assets/safari_setting01.png" alt="Safari 웹사이트 설정에서 마이크 항목 위치">
+                        <img class="mic-guide-image" src="assets/safari_setting02.png" alt="Safari 마이크 권한에서 묻기/허용 선택 화면">
+                    </div>
+                </div>
+                <div id="micGuideChromeIos" class="mic-guide-section">
+                    <p class="text-sm font-bold mb-2">Chrome(iOS) 설정 순서</p>
+                    <ol class="text-sm text-gray-700 list-decimal pl-5 space-y-1">
+                        <li>iOS `설정` → `Chrome` → `마이크` 켜기</li>
+                        <li>Chrome에서 사이트 재접속 후 권한 팝업이 뜨면 `허용`</li>
+                        <li>팝업이 안 뜨면 사이트 데이터 삭제 후 재시도</li>
+                        <li>필요 시 Safari에서도 동일 사이트 권한 확인</li>
+                    </ol>
+                    <div class="mic-guide-images">
+                        <img class="mic-guide-image" src="assets/chrome_setting.png" alt="Chrome 앱 설정에서 마이크 권한 위치">
+                    </div>
+                </div>
+                <div class="mt-4 flex justify-end gap-2">
+                    <button id="retryMicCheckBtn" class="px-3 py-1 border-2 border-black text-xs font-bold bg-black text-white">다시 테스트</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -408,6 +518,12 @@
             document.getElementById('loginScreen').classList.add('hidden');
             document.getElementById('mainApp').classList.remove('hidden');
             document.getElementById('currentUser').textContent = getLoggedInUser();
+            // Delay banner init so late-declared DOM refs are ready
+            setTimeout(() => {
+                if (typeof initMicPermissionBanner === 'function') {
+                    initMicPermissionBanner();
+                }
+            }, 0);
         }
 
         // Load users from API
@@ -869,6 +985,17 @@
         const searchInput = document.getElementById('searchInput');
         const statusMsg = document.getElementById('statusMessage');
         const clearCacheBtn = document.getElementById('clearCacheBtn');
+        const micPermissionBanner = document.getElementById('micPermissionBanner');
+        const openMicGuideBtn = document.getElementById('openMicGuideBtn');
+        const dismissMicBannerBtn = document.getElementById('dismissMicBannerBtn');
+        const micGuideModal = document.getElementById('micGuideModal');
+        const closeMicGuideBtn = document.getElementById('closeMicGuideBtn');
+        const retryMicCheckBtn = document.getElementById('retryMicCheckBtn');
+        const micGuideReason = document.getElementById('micGuideReason');
+        const guideTabs = Array.from(document.querySelectorAll('[data-guide-tab]'));
+
+        const MIC_BANNER_DISMISSED_KEY = 'mic_permission_banner_dismissed';
+        let pendingMicRetryHandler = null;
 
         // Clear cache button event
         clearCacheBtn.addEventListener('click', async () => {
@@ -1016,6 +1143,79 @@
             }
         }
 
+        function detectPreferredGuideTab() {
+            const ua = navigator.userAgent || '';
+            if (/CriOS/i.test(ua)) return 'chrome-ios';
+            return 'safari';
+        }
+
+        function switchGuideTab(tabName) {
+            guideTabs.forEach(btn => {
+                const on = btn.getAttribute('data-guide-tab') === tabName;
+                btn.classList.toggle('active', on);
+            });
+            document.getElementById('micGuideSafari').classList.toggle('active', tabName === 'safari');
+            document.getElementById('micGuideChromeIos').classList.toggle('active', tabName === 'chrome-ios');
+        }
+
+        function openMicGuideModal(reasonText, retryHandler = null) {
+            micGuideReason.textContent = reasonText || '권한 상태를 확인한 뒤 다시 테스트해 주세요.';
+            pendingMicRetryHandler = retryHandler;
+            switchGuideTab(detectPreferredGuideTab());
+            micGuideModal.classList.add('show');
+        }
+
+        function closeMicGuideModal() {
+            micGuideModal.classList.remove('show');
+        }
+
+        function initMicPermissionBanner() {
+            if (!mainApp.classList.contains('focus-mode')) {
+                micPermissionBanner.classList.add('hidden');
+                return;
+            }
+            if (localStorage.getItem(MIC_BANNER_DISMISSED_KEY) === 'yes') {
+                micPermissionBanner.classList.add('hidden');
+                return;
+            }
+            micPermissionBanner.classList.remove('hidden');
+        }
+
+        function getMediaPermissionErrorMessage(errorName) {
+            switch (errorName) {
+                case 'NotAllowedError':
+                case 'SecurityError':
+                    return '마이크 권한이 꺼져 있어 요청 팝업이 뜨지 않습니다.';
+                case 'NotFoundError':
+                case 'DevicesNotFoundError':
+                    return '마이크 장치를 찾지 못했습니다.';
+                case 'NotReadableError':
+                case 'TrackStartError':
+                    return '마이크가 다른 앱에서 사용 중입니다.';
+                default:
+                    return '마이크 권한 확인이 필요합니다.';
+            }
+        }
+
+        async function ensureMicPermission(statusEl, retryHandler = null) {
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                const msg = '이 브라우저는 마이크 권한 확인 API를 지원하지 않습니다.';
+                statusEl.textContent = msg;
+                openMicGuideModal(msg, retryHandler);
+                return false;
+            }
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                stream.getTracks().forEach(track => track.stop());
+                return true;
+            } catch (err) {
+                const msg = getMediaPermissionErrorMessage(err?.name);
+                statusEl.textContent = msg;
+                openMicGuideModal(msg, retryHandler);
+                return false;
+            }
+        }
+
         function getSpeechRecognitionErrorMessage(errorCode) {
             switch (errorCode) {
                 case 'not-allowed':
@@ -1036,7 +1236,7 @@
             }
         }
 
-        function startSentenceSpeechTest(item, itemWeek, rowKey, testBtn, statusEl) {
+        async function startSentenceSpeechTest(item, itemWeek, rowKey, testBtn, statusEl) {
             if (!mainApp.classList.contains('focus-mode')) {
                 statusEl.textContent = '뜻만 보기에서만 사용';
                 return;
@@ -1045,6 +1245,9 @@
                 statusEl.textContent = '크롬 음성인식 미지원';
                 return;
             }
+
+            const permissionOk = await ensureMicPermission(statusEl, () => startSentenceSpeechTest(item, itemWeek, rowKey, testBtn, statusEl));
+            if (!permissionOk) return;
 
             if (activeSpeechTest && activeSpeechTest.rowKey !== rowKey) {
                 activeSpeechTest.finish('replaced');
@@ -1103,11 +1306,15 @@
                 if (reason === 'cancel' || reason === 'replaced') {
                     statusEl.textContent = '테스트 취소';
                 } else if (reason === 'error') {
-                    statusEl.textContent = getSpeechRecognitionErrorMessage(recognitionErrorCode);
+                    const msg = getSpeechRecognitionErrorMessage(recognitionErrorCode);
+                    statusEl.textContent = msg;
                     const countAsFail = ['no-speech', 'aborted'].includes(recognitionErrorCode);
                     if (countAsFail) {
                         recordSpeechTestResult(itemWeek, item.yomi, false);
                         playResultTone(false);
+                    }
+                    if (['not-allowed', 'service-not-allowed', 'audio-capture'].includes(recognitionErrorCode)) {
+                        openMicGuideModal(msg, () => startSentenceSpeechTest(item, itemWeek, rowKey, testBtn, statusEl));
                     }
                 } else if (!spokenNorm) {
                     statusEl.textContent = '인식 실패, 다시 시도';
@@ -1581,6 +1788,26 @@
         document.getElementById('resetStatsBtn').addEventListener('click', resetStudyData);
 
         searchInput.addEventListener('input', renderFiltered);
+        openMicGuideBtn.addEventListener('click', () => openMicGuideModal('브라우저의 마이크 권한 상태를 확인해 주세요.'));
+        dismissMicBannerBtn.addEventListener('click', () => {
+            localStorage.setItem(MIC_BANNER_DISMISSED_KEY, 'yes');
+            micPermissionBanner.classList.add('hidden');
+        });
+        closeMicGuideBtn.addEventListener('click', closeMicGuideModal);
+        retryMicCheckBtn.addEventListener('click', () => {
+            closeMicGuideModal();
+            if (typeof pendingMicRetryHandler === 'function') {
+                const fn = pendingMicRetryHandler;
+                pendingMicRetryHandler = null;
+                fn();
+            }
+        });
+        guideTabs.forEach(btn => {
+            btn.addEventListener('click', () => switchGuideTab(btn.getAttribute('data-guide-tab')));
+        });
+        micGuideModal.addEventListener('click', (e) => {
+            if (e.target === micGuideModal) closeMicGuideModal();
+        });
 
         // Initial Load
         loadVocabData('week1').then(() => {
@@ -1602,7 +1829,9 @@
                 focusModeBtn.textContent = '뜻만 보기';
                 focusModeBtn.setAttribute('aria-pressed', 'false');
                 localStorage.setItem(FOCUS_MODE_KEY, 'off');
+                closeMicGuideModal();
             }
+            initMicPermissionBanner();
         }
 
         function toggleFocusModeWithPositionLock(nextEnabled) {
