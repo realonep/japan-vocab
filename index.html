@@ -151,6 +151,104 @@
             background-color: #f3f4f6 !important;
             box-shadow: inset 3px 0 0 #6b7280;
         }
+        .listen-mode-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 120;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(1200px 600px at 20% 10%, rgba(34, 197, 94, 0.14), transparent 45%),
+                        radial-gradient(900px 500px at 85% 80%, rgba(59, 130, 246, 0.14), transparent 45%),
+                        linear-gradient(135deg, #020617 0%, #0f172a 48%, #111827 100%);
+            color: #f9fafb;
+            padding: 1rem;
+            text-align: center;
+            overflow: hidden;
+        }
+        .listen-mode-overlay.show {
+            display: flex;
+        }
+        .listen-mode-notes {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.2;
+        }
+        .listen-mode-note {
+            position: absolute;
+            color: #e5e7eb;
+            font-size: 2rem;
+            text-shadow: 0 4px 14px rgba(255, 255, 255, 0.12);
+            animation: floatNote 7s ease-in-out infinite;
+        }
+        .note-1 { left: 8%; top: 18%; animation-delay: 0s; }
+        .note-2 { left: 21%; top: 62%; animation-delay: 1s; font-size: 2.5rem; }
+        .note-3 { right: 16%; top: 24%; animation-delay: 2.1s; }
+        .note-4 { right: 10%; bottom: 18%; animation-delay: 3.3s; font-size: 2.2rem; }
+        .note-5 { left: 45%; bottom: 12%; animation-delay: 4.4s; }
+        .listen-mode-panel {
+            position: relative;
+            width: min(560px, 94vw);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 1rem;
+            background: rgba(15, 23, 42, 0.62);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+            padding: 1.3rem 1rem;
+        }
+        .listen-mode-eyebrow {
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            color: #a5b4fc;
+        }
+        .listen-mode-title {
+            font-size: 1.18rem;
+            font-weight: 800;
+            letter-spacing: 0.01em;
+            margin-bottom: 0.55rem;
+        }
+        .listen-mode-desc {
+            font-size: 0.86rem;
+            color: #e5e7eb;
+            line-height: 1.45;
+        }
+        .listen-mode-exit-btn {
+            margin-top: 1rem;
+            border: 2px solid #fff;
+            background: #fff;
+            color: #111827;
+            font-weight: 800;
+            font-size: 0.8rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 9999px;
+            transition: transform 0.12s ease, background-color 0.12s ease, color 0.12s ease;
+        }
+        .listen-mode-exit-btn.holding {
+            background: #111827;
+            color: #fff;
+            transform: scale(1.02);
+        }
+        @keyframes floatNote {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
+            50% { transform: translateY(-16px) rotate(5deg); opacity: 0.36; }
+            100% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
+        }
+        @media (orientation: landscape) and (max-width: 900px) {
+            .listen-mode-panel {
+                width: min(760px, 92vw);
+                padding: 1rem 1.2rem;
+            }
+            .listen-mode-title { font-size: 1.02rem; }
+            .listen-mode-desc { font-size: 0.79rem; }
+        }
+        body.listen-mode-lock {
+            overflow: hidden;
+        }
         .word-cell-box {
             position: relative;
             min-height: 4.2rem;
@@ -449,6 +547,9 @@
                 <button id="ttsToggleBtn" class="md:hidden p-1 border-2 border-black text-xs font-bold bg-white hover:bg-gray-100 transition-colors cursor-pointer" aria-expanded="false">
                     TTS 설정
                 </button>
+                <button id="listenModeBtn" class="hidden md:hidden p-1 border-2 border-black text-xs font-bold bg-white hover:bg-gray-100 transition-colors cursor-pointer" type="button">
+                    듣기모드
+                </button>
                 <div id="ttsControls" class="hidden md:flex items-center gap-1 md:gap-2 flex-wrap justify-end">
                     <select id="ttsMode" class="p-1 md:p-2 border-2 border-black text-xs font-bold bg-white cursor-pointer">
                         <option value="browser">🔊</option>
@@ -499,6 +600,21 @@
         </div>
         </main>
         <button id="focusModeBtn" class="focus-toggle-btn" type="button" aria-pressed="false">뜻만 보기</button>
+        <div id="listenModeOverlay" class="listen-mode-overlay" role="dialog" aria-modal="true" aria-labelledby="listenModeTitle">
+            <div class="listen-mode-notes" aria-hidden="true">
+                <span class="listen-mode-note note-1">♪</span>
+                <span class="listen-mode-note note-2">♩</span>
+                <span class="listen-mode-note note-3">♫</span>
+                <span class="listen-mode-note note-4">♬</span>
+                <span class="listen-mode-note note-5">♪</span>
+            </div>
+            <div class="listen-mode-panel">
+                <div class="listen-mode-eyebrow">LISTEN MODE</div>
+                <div id="listenModeTitle" class="listen-mode-title">듣기모드 - 휴대폰 잠금을 하지마세요</div>
+                <p class="listen-mode-desc">자동 잠금 시 재생이 끊기거나 재시작될 수 있습니다. 화면을 켠 상태로 학습해 주세요.</p>
+                <button id="exitListenModeBtn" class="listen-mode-exit-btn" type="button">돌아가기 (2초 길게 누르기)</button>
+            </div>
+        </div>
 
         <div id="micGuideModal" class="mic-guide-modal" role="dialog" aria-modal="true" aria-labelledby="micGuideTitle">
             <div class="mic-guide-panel">
@@ -1720,6 +1836,14 @@
         const voiceSelect = document.getElementById('voiceSelect');
         const ttsToggleBtn = document.getElementById('ttsToggleBtn');
         const ttsControls = document.getElementById('ttsControls');
+        const listenModeBtn = document.getElementById('listenModeBtn');
+        const listenModeOverlay = document.getElementById('listenModeOverlay');
+        const exitListenModeBtn = document.getElementById('exitListenModeBtn');
+        const LISTEN_MODE_HOLD_MS = 2000;
+        const LISTEN_MODE_EXIT_DEFAULT_TEXT = '돌아가기 (2초 길게 누르기)';
+        let listenModeExitHoldTimer = null;
+        let listenModeExitTickTimer = null;
+        let listenModeExitHoldStartedAt = 0;
         const mistakePlayControls = document.getElementById('mistakePlayControls');
         const mistakePlayBtn = document.getElementById('mistakePlayBtn');
         const mistakeRepeatChk = document.getElementById('mistakeRepeatChk');
@@ -1806,11 +1930,53 @@
                 mistakePlayControls.classList.toggle('hidden', !visible);
                 mistakePlayControls.classList.toggle('inline-flex', visible);
             }
+            if (listenModeBtn) {
+                listenModeBtn.classList.toggle('hidden', !visible);
+            }
+            if (!visible) setListenMode(false);
             if (!visible) stopMistakePlayback();
         }
 
         function waitFor(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function setListenMode(enabled) {
+            if (!listenModeOverlay) return;
+            listenModeOverlay.classList.toggle('show', enabled);
+            document.body.classList.toggle('listen-mode-lock', enabled);
+            resetListenModeExitHold();
+        }
+
+        function resetListenModeExitHold() {
+            clearTimeout(listenModeExitHoldTimer);
+            clearInterval(listenModeExitTickTimer);
+            listenModeExitHoldTimer = null;
+            listenModeExitTickTimer = null;
+            listenModeExitHoldStartedAt = 0;
+            if (!exitListenModeBtn) return;
+            exitListenModeBtn.classList.remove('holding');
+            exitListenModeBtn.textContent = LISTEN_MODE_EXIT_DEFAULT_TEXT;
+        }
+
+        function startListenModeExitHold() {
+            if (!exitListenModeBtn || !listenModeOverlay.classList.contains('show')) return;
+            resetListenModeExitHold();
+            listenModeExitHoldStartedAt = Date.now();
+            exitListenModeBtn.classList.add('holding');
+            listenModeExitTickTimer = setInterval(() => {
+                const elapsed = Date.now() - listenModeExitHoldStartedAt;
+                const remaining = Math.max(0, (LISTEN_MODE_HOLD_MS - elapsed) / 1000);
+                exitListenModeBtn.textContent = `계속 누르기 ${remaining.toFixed(1)}초`;
+            }, 100);
+            listenModeExitHoldTimer = setTimeout(() => {
+                setListenMode(false);
+            }, LISTEN_MODE_HOLD_MS);
+        }
+
+        function cancelListenModeExitHold() {
+            if (!listenModeExitHoldTimer && !listenModeExitTickTimer) return;
+            resetListenModeExitHold();
         }
 
         function waitUntilPageVisible(token) {
@@ -2434,6 +2600,21 @@
         document.getElementById('resetStatsBtn').addEventListener('click', resetAllData);
 
         searchInput.addEventListener('input', renderFiltered);
+        if (listenModeBtn && exitListenModeBtn) {
+            listenModeBtn.addEventListener('click', () => setListenMode(true));
+            exitListenModeBtn.addEventListener('pointerdown', (e) => {
+                e.preventDefault();
+                startListenModeExitHold();
+            });
+            exitListenModeBtn.addEventListener('pointerup', cancelListenModeExitHold);
+            exitListenModeBtn.addEventListener('pointerleave', cancelListenModeExitHold);
+            exitListenModeBtn.addEventListener('pointercancel', cancelListenModeExitHold);
+            listenModeOverlay.addEventListener('click', (e) => {
+                if (e.target === listenModeOverlay) {
+                    cancelListenModeExitHold();
+                }
+            });
+        }
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
                 if (mistakePlayRunning) wasHiddenDuringMistakePlay = true;
