@@ -1395,7 +1395,12 @@
                     activeSpeechTest = null;
                 }
                 if (filterMode.value === 'frequent_mistakes') {
-                    renderFiltered();
+                    // Let user read pass/fail score briefly before list refresh
+                    setTimeout(() => {
+                        if (filterMode.value === 'frequent_mistakes') {
+                            renderFiltered();
+                        }
+                    }, 1200);
                 }
             };
 
