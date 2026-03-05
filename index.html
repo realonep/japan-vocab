@@ -1730,6 +1730,8 @@
         let activeAutoAudio = null;
         let activeAutoUtterance = null;
         let activeMistakeHighlightKey = null;
+        let pendingRestartOnVisible = false;
+        let wasHiddenDuringMistakePlay = false;
 
         function clearMistakeRowHighlight() {
             if (!activeMistakeHighlightKey) return;
@@ -1777,6 +1779,10 @@
             updateMistakePlayBtnUI(false);
         }
 
+        function queueRestartOnVisible() {
+            pendingRestartOnVisible = true;
+        }
+
         function updateMistakePlayControls() {
             const visible = filterMode.value === 'frequent_mistakes';
             if (mistakePlayControls) {
@@ -1790,14 +1796,32 @@
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
+        function waitUntilPageVisible(token) {
+            if (!document.hidden) return Promise.resolve(true);
+            return new Promise((resolve) => {
+                const onVisible = () => {
+                    if (token !== mistakePlayToken) {
+                        document.removeEventListener('visibilitychange', onVisible);
+                        resolve(false);
+                        return;
+                    }
+                    if (!document.hidden) {
+                        document.removeEventListener('visibilitychange', onVisible);
+                        resolve(true);
+                    }
+                };
+                document.addEventListener('visibilitychange', onVisible);
+            });
+        }
+
         function playBrowserForSequence(text, token) {
             return new Promise((resolve) => {
                 if (!('speechSynthesis' in window)) {
-                    resolve();
+                    resolve(false);
                     return;
                 }
                 if (token !== mistakePlayToken) {
-                    resolve();
+                    resolve(false);
                     return;
                 }
                 window.speechSynthesis.cancel();
@@ -1811,11 +1835,11 @@
                 activeAutoUtterance = utterance;
                 utterance.onend = () => {
                     if (activeAutoUtterance === utterance) activeAutoUtterance = null;
-                    resolve();
+                    resolve(true);
                 };
                 utterance.onerror = () => {
                     if (activeAutoUtterance === utterance) activeAutoUtterance = null;
-                    resolve();
+                    resolve(false);
                 };
                 window.speechSynthesis.speak(utterance);
             });
@@ -1859,32 +1883,32 @@
         }
 
         async function playAIForSequence(text, token) {
-            if (token !== mistakePlayToken) return;
+            if (token !== mistakePlayToken) return false;
             let audioBlob = null;
             try {
                 audioBlob = await fetchTtsAudioBlobForSequence(text);
             } catch (error) {
                 console.error('Sequence TTS fetch failed:', error);
-                return;
+                return false;
             }
-            if (!audioBlob || token !== mistakePlayToken) return;
-            await new Promise((resolve) => {
+            if (!audioBlob || token !== mistakePlayToken) return false;
+            return new Promise((resolve) => {
                 const blobUrl = URL.createObjectURL(audioBlob);
                 const audio = new Audio(blobUrl);
                 activeAutoAudio = audio;
                 audio.onended = () => {
                     if (activeAutoAudio === audio) activeAutoAudio = null;
                     URL.revokeObjectURL(blobUrl);
-                    resolve();
+                    resolve(true);
                 };
                 audio.onerror = () => {
                     if (activeAutoAudio === audio) activeAutoAudio = null;
                     URL.revokeObjectURL(blobUrl);
-                    resolve();
+                    resolve(false);
                 };
                 audio.play().catch(() => {
                     URL.revokeObjectURL(blobUrl);
-                    resolve();
+                    resolve(false);
                 });
             });
         }
@@ -1895,6 +1919,8 @@
                 return;
             }
             if (filterMode.value !== 'frequent_mistakes') return;
+            pendingRestartOnVisible = false;
+            wasHiddenDuringMistakePlay = false;
             const queue = (currentRenderedPageList || []).filter(item => (item?.sentence || '').trim());
             if (!queue.length) {
                 statusMsg.innerText = '재생할 항목이 없습니다';
@@ -1914,13 +1940,29 @@
                         const text = queue[i].sentence;
                         for (let turn = 0; turn < perSentenceCount; turn++) {
                             if (!mistakePlayRunning || token !== mistakePlayToken) return;
+                            const canPlayNow = await waitUntilPageVisible(token);
+                            if (!canPlayNow || !mistakePlayRunning || token !== mistakePlayToken) return;
                             statusMsg.innerText = perSentenceCount === 2
                                 ? `오답 전체 재생 ${i + 1}/${queue.length} (${turn + 1}/2)`
                                 : `오답 전체 재생 ${i + 1}/${queue.length}`;
+                            let played = false;
                             if (ttsMode.value === 'browser') {
-                                await playBrowserForSequence(text, token);
+                                played = await playBrowserForSequence(text, token);
                             } else {
-                                await playAIForSequence(text, token);
+                                played = await playAIForSequence(text, token);
+                            }
+                            if (!played) {
+                                if (wasHiddenDuringMistakePlay || document.hidden) {
+                                    queueRestartOnVisible();
+                                    statusMsg.innerText = '잠금 해제 감지: 전체 재생을 자동 재시작합니다';
+                                } else {
+                                    statusMsg.innerText = '재생이 차단되어 중지됨 (다시 전체 재생 버튼을 눌러주세요)';
+                                }
+                                stopMistakePlayback();
+                                setTimeout(() => {
+                                    if (!mistakePlayRunning && !pendingRestartOnVisible) statusMsg.innerText = 'TTS Ready';
+                                }, 1600);
+                                return;
                             }
                             if (!mistakePlayRunning || token !== mistakePlayToken) return;
                             if (turn < perSentenceCount - 1) {
@@ -1936,7 +1978,7 @@
                     mistakePlayRunning = false;
                     clearMistakeRowHighlight();
                     updateMistakePlayBtnUI(false);
-                    statusMsg.innerText = 'TTS Ready';
+                    if (!pendingRestartOnVisible) statusMsg.innerText = 'TTS Ready';
                 }
             }
         }
@@ -2356,6 +2398,18 @@
         document.getElementById('resetStatsBtn').addEventListener('click', resetAllData);
 
         searchInput.addEventListener('input', renderFiltered);
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                if (mistakePlayRunning) wasHiddenDuringMistakePlay = true;
+                return;
+            }
+            if (pendingRestartOnVisible && !mistakePlayRunning && filterMode.value === 'frequent_mistakes') {
+                pendingRestartOnVisible = false;
+                setTimeout(() => {
+                    playMistakeSequence();
+                }, 260);
+            }
+        });
         if (mistakePlayBtn) {
             mistakePlayBtn.addEventListener('click', playMistakeSequence);
         }
