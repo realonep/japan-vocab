@@ -1571,6 +1571,7 @@
                 const includes = spokenNorm && expectedNorm && spokenNorm.includes(expectedNorm);
                 const coverage = expectedNorm ? (spokenNorm.length / expectedNorm.length) : 0;
                 const passed = includes || (score >= 0.72 && coverage >= 0.85);
+                const hasDiff = normalizeDiffText(spoken) !== normalizeDiffText(expected);
 
                 if (reason === 'cancel' || reason === 'replaced') {
                     statusEl.textContent = '테스트 취소';
@@ -1598,7 +1599,11 @@
                     statusEl.textContent = `통과 ${(score * 100).toFixed(0)}%`;
                     recordSpeechTestResult(itemWeek, item.yomi, true);
                     playResultTone(true);
-                    closeSpeechDiffOverlay();
+                    if (hasDiff) {
+                        showSpeechDiffOverlay(rowKey, itemWeek, item, spoken);
+                    } else {
+                        closeSpeechDiffOverlay();
+                    }
                 } else {
                     statusEl.textContent = `실패 ${(score * 100).toFixed(0)}%`;
                     recordSpeechTestResult(itemWeek, item.yomi, false);
