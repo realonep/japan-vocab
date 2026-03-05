@@ -1367,8 +1367,9 @@
                 const score = similarityScore(spoken, expected);
                 const spokenNorm = normalizeSpeechText(spoken);
                 const expectedNorm = normalizeSpeechText(expected);
-                const includes = spokenNorm && expectedNorm && (spokenNorm.includes(expectedNorm) || expectedNorm.includes(spokenNorm));
-                const passed = includes || score >= 0.72;
+                const includes = spokenNorm && expectedNorm && spokenNorm.includes(expectedNorm);
+                const coverage = expectedNorm ? (spokenNorm.length / expectedNorm.length) : 0;
+                const passed = includes || (score >= 0.72 && coverage >= 0.85);
 
                 if (reason === 'cancel' || reason === 'replaced') {
                     statusEl.textContent = '테스트 취소';
