@@ -80,6 +80,64 @@
         #mainApp.focus-mode .sentence-meaning {
             cursor: pointer;
         }
+        .sentence-wrap {
+            position: relative;
+        }
+        .speech-diff-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.97);
+            border: 1px solid #d1d5db;
+            border-radius: 0.35rem;
+            padding: 0.35rem 0.45rem;
+            display: none;
+            z-index: 12;
+            overflow: auto;
+        }
+        .speech-diff-overlay.show {
+            display: block;
+        }
+        .diff-row {
+            font-size: 0.65rem;
+            line-height: 1.35;
+            margin-bottom: 0.2rem;
+            word-break: break-word;
+        }
+        .diff-label {
+            font-weight: 800;
+            color: #111827;
+            margin-right: 0.25rem;
+        }
+        .diff-match { color: #15803d; font-weight: 700; }
+        .diff-miss {
+            color: #b91c1c;
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+            font-weight: 700;
+        }
+        .diff-change { color: #c2410c; font-weight: 700; }
+        .diff-ref { color: #9ca3af; font-weight: 500; }
+        .diff-actions {
+            margin-top: 0.25rem;
+            display: flex;
+            gap: 0.3rem;
+            flex-wrap: wrap;
+        }
+        .diff-btn {
+            border: 1px solid #111827;
+            padding: 0.1rem 0.35rem;
+            font-size: 0.58rem;
+            font-weight: 700;
+            border-radius: 9999px;
+            background: #fff;
+        }
+        .diff-tts {
+            cursor: pointer;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
         .word-cell-box {
             position: relative;
             min-height: 4.2rem;
@@ -208,6 +266,9 @@
             .mobile-compact .meaning-cell { font-size: 0.7rem; }
             .mobile-compact .sentence-cell { font-size: 0.75rem; }
             .mobile-compact .sentence-sub { font-size: 0.6rem; }
+            .speech-diff-overlay { padding: 0.3rem 0.35rem; }
+            .diff-row { font-size: 0.58rem; }
+            .diff-btn { font-size: 0.52rem; }
             .mobile-compact .audio-btn { padding: 0.2rem; }
             .mobile-compact .audio-btn svg { width: 12px; height: 12px; }
             .test-btn { font-size: 0.56rem; padding: 0.08rem 0.3rem; }
@@ -1190,6 +1251,145 @@
             }
         }
 
+        let activeDiffOverlayKey = null;
+
+        function escapeHtml(value) {
+            return (value || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function normalizeDiffText(text) {
+            return (text || '')
+                .toString()
+                .replace(/\s+/g, '')
+                .replace(/[。、，．・！？!?？"'「」『』（）()\[\]~〜\-]/g, '');
+        }
+
+        function isIgnoredDiffChar(ch) {
+            return /\s|[。、，．・！？!?？"'「」『』（）()\[\]~〜\-]/.test(ch || '');
+        }
+
+        function buildDiffOps(expected, spoken) {
+            const a = Array.from(normalizeDiffText(expected));
+            const b = Array.from(normalizeDiffText(spoken));
+            const m = a.length;
+            const n = b.length;
+            const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+            for (let i = 1; i <= m; i++) {
+                for (let j = 1; j <= n; j++) {
+                    dp[i][j] = a[i - 1] === b[j - 1]
+                        ? dp[i - 1][j - 1] + 1
+                        : Math.max(dp[i - 1][j], dp[i][j - 1]);
+                }
+            }
+            const expOps = [];
+            const spkOps = [];
+            let i = m;
+            let j = n;
+            while (i > 0 || j > 0) {
+                if (i > 0 && j > 0 && a[i - 1] === b[j - 1]) {
+                    expOps.push({ type: 'match', ch: a[i - 1] });
+                    spkOps.push({ type: 'match', ch: b[j - 1] });
+                    i--;
+                    j--;
+                } else if (i > 0 && (j === 0 || dp[i - 1][j] >= dp[i][j - 1])) {
+                    expOps.push({ type: 'miss', ch: a[i - 1] });
+                    i--;
+                } else if (j > 0) {
+                    spkOps.push({ type: 'change', ch: b[j - 1] });
+                    j--;
+                }
+            }
+            expOps.reverse();
+            spkOps.reverse();
+            return { expOps, spkOps };
+        }
+
+        function renderDiffHtml(ops) {
+            return ops.map(({ type, ch }) => {
+                const cls = type === 'match' ? 'diff-match' : type === 'miss' ? 'diff-miss' : 'diff-change';
+                return `<span class="${cls}">${escapeHtml(ch)}</span>`;
+            }).join('');
+        }
+
+        function renderDiffWithReference(sourceText, ops) {
+            const chars = Array.from(sourceText || '');
+            let opIndex = 0;
+            let html = '';
+            chars.forEach((ch) => {
+                if (isIgnoredDiffChar(ch)) {
+                    html += `<span class="diff-ref">${escapeHtml(ch)}</span>`;
+                    return;
+                }
+                const op = ops[opIndex] || { type: 'change', ch };
+                const cls = op.type === 'match' ? 'diff-match' : op.type === 'miss' ? 'diff-miss' : 'diff-change';
+                html += `<span class="${cls}">${escapeHtml(ch)}</span>`;
+                opIndex += 1;
+            });
+            for (; opIndex < ops.length; opIndex += 1) {
+                const op = ops[opIndex];
+                const cls = op.type === 'match' ? 'diff-match' : op.type === 'miss' ? 'diff-miss' : 'diff-change';
+                html += `<span class="${cls}">${escapeHtml(op.ch)}</span>`;
+            }
+            return html;
+        }
+
+        function closeSpeechDiffOverlay() {
+            if (!activeDiffOverlayKey) return;
+            const row = Array.from(tableBody.querySelectorAll('tr[data-row-key]'))
+                .find((node) => node.getAttribute('data-row-key') === activeDiffOverlayKey);
+            if (row) {
+                const overlay = row.querySelector('.speech-diff-overlay');
+                if (overlay) overlay.classList.remove('show');
+            }
+            activeDiffOverlayKey = null;
+        }
+
+        function showSpeechDiffOverlay(rowKey, itemWeek, item, spoken) {
+            closeSpeechDiffOverlay();
+            const row = Array.from(tableBody.querySelectorAll('tr[data-row-key]'))
+                .find((node) => node.getAttribute('data-row-key') === rowKey);
+            if (!row) return;
+            const overlay = row.querySelector('.speech-diff-overlay');
+            const expectedHost = row.querySelector('.diff-expected');
+            const spokenHost = row.querySelector('.diff-spoken');
+            const ttsBtn = row.querySelector('.diff-tts-btn');
+            const listenBtn = row.querySelector('.diff-listen-btn');
+            const retryBtn = row.querySelector('.diff-retry-btn');
+            const closeBtn = row.querySelector('.diff-close-btn');
+            if (!overlay || !expectedHost || !spokenHost || !ttsBtn || !listenBtn || !retryBtn || !closeBtn) return;
+
+            const expected = item.sentence || '';
+            const { expOps, spkOps } = buildDiffOps(expected, spoken || '');
+            expectedHost.innerHTML = renderDiffWithReference(expected, expOps);
+            spokenHost.innerHTML = (spoken || '').trim()
+                ? renderDiffWithReference(spoken, spkOps)
+                : '<span class="diff-ref">∅</span>';
+            overlay.classList.add('show');
+            activeDiffOverlayKey = rowKey;
+
+            const playExpectedSentence = (btnEl) => {
+                incrementStudyCount(item.yomi, itemWeek);
+                speak(item.sentence, btnEl);
+            };
+            ttsBtn.onclick = () => {
+                playExpectedSentence(ttsBtn);
+            };
+            listenBtn.onclick = () => playExpectedSentence(listenBtn);
+            retryBtn.onclick = () => {
+                const testBtn = row.querySelector('.sentence-test-trigger');
+                const statusEl = row.querySelector('.sentence-test-status');
+                if (testBtn && statusEl) {
+                    startSentenceSpeechTest(item, itemWeek, rowKey, testBtn, statusEl);
+                }
+            };
+            closeBtn.onclick = () => closeSpeechDiffOverlay();
+        }
+
         function detectPreferredGuideTab() {
             const ua = navigator.userAgent || '';
             if (/CriOS/i.test(ua)) return 'chrome-ios';
@@ -1304,6 +1504,7 @@
         }
 
         async function startSentenceSpeechTest(item, itemWeek, rowKey, testBtn, statusEl) {
+            closeSpeechDiffOverlay();
             if (!mainApp.classList.contains('focus-mode')) {
                 statusEl.textContent = '뜻만 보기에서만 사용';
                 return;
@@ -1392,14 +1593,17 @@
                     statusEl.textContent = '인식 실패, 다시 시도';
                     recordSpeechTestResult(itemWeek, item.yomi, false);
                     playResultTone(false);
+                    showSpeechDiffOverlay(rowKey, itemWeek, item, spoken);
                 } else if (passed) {
                     statusEl.textContent = `통과 ${(score * 100).toFixed(0)}%`;
                     recordSpeechTestResult(itemWeek, item.yomi, true);
                     playResultTone(true);
+                    closeSpeechDiffOverlay();
                 } else {
                     statusEl.textContent = `실패 ${(score * 100).toFixed(0)}%`;
                     recordSpeechTestResult(itemWeek, item.yomi, false);
                     playResultTone(false);
+                    showSpeechDiffOverlay(rowKey, itemWeek, item, spoken);
                 }
 
                 testBtn.disabled = false;
@@ -1681,6 +1885,7 @@
 
         function render(list) {
             stopActiveSpeechTest();
+            closeSpeechDiffOverlay();
             tableBody.innerHTML = '';
             const isMistakeMode = filterMode.value === 'frequent_mistakes';
             let pagedList = list;
@@ -1727,9 +1932,20 @@
                     <td class="p-1 md:p-4 text-gray-400 font-mono text-sm uppercase yomi-cell hidden md:table-cell focus-col-reading">${item.yomi}</td>
                     <td class="p-1 md:p-4 font-medium text-gray-600 text-xs md:text-base meaning-cell">${item.meaning}</td>
                     <td class="p-1 md:p-4">
-                        <div class="font-bold text-black cursor-pointer hover:underline text-sm md:text-lg sentence-trigger sentence-cell sentence-jp">${item.sentence}</div>
-                        <div class="text-xs text-gray-400 sentence-sub sentence-meaning sentence-meaning-trigger"><span class="sentence-meaning-text">${item.s_meaning}</span></div>
-                        <div class="text-xs text-blue-500 sentence-sub sentence-pron">${item.s_pron || ''}</div>
+                        <div class="sentence-wrap">
+                            <div class="font-bold text-black cursor-pointer hover:underline text-sm md:text-lg sentence-trigger sentence-cell sentence-jp">${item.sentence}</div>
+                            <div class="text-xs text-gray-400 sentence-sub sentence-meaning sentence-meaning-trigger"><span class="sentence-meaning-text">${item.s_meaning}</span></div>
+                            <div class="text-xs text-blue-500 sentence-sub sentence-pron">${item.s_pron || ''}</div>
+                            <div class="speech-diff-overlay">
+                                <div class="diff-row"><span class="diff-label">정답</span><span class="diff-expected diff-tts diff-tts-btn"></span></div>
+                                <div class="diff-row"><span class="diff-label">인식</span><span class="diff-spoken"></span></div>
+                                <div class="diff-actions">
+                                    <button class="diff-btn diff-listen-btn" type="button">다시 듣기</button>
+                                    <button class="diff-btn diff-retry-btn" type="button">다시 테스트</button>
+                                    <button class="diff-btn diff-close-btn" type="button">닫기</button>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                     <td class="p-1 md:p-4 text-center focus-col-count">
                         <span class="count-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${badgeClass}">${count}</span>
@@ -1914,6 +2130,7 @@
         const mainApp = document.getElementById('mainApp');
 
         function setFocusMode(enabled) {
+            closeSpeechDiffOverlay();
             if (enabled) {
                 mainApp.classList.add('focus-mode');
                 focusModeBtn.textContent = '일반 보기';
