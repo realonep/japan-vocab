@@ -1220,7 +1220,7 @@
                 micPermissionNeedsRecheck = true;
                 const msg = '이 브라우저는 마이크 권한 확인 API를 지원하지 않습니다.';
                 statusEl.textContent = msg;
-                openMicGuideModal(msg, retryHandler);
+                openMicGuideModal(msg, retryHandler, true);
                 return false;
             }
             try {
@@ -1234,7 +1234,7 @@
                 micPermissionNeedsRecheck = true;
                 const msg = getMediaPermissionErrorMessage(err?.name);
                 statusEl.textContent = msg;
-                openMicGuideModal(msg, retryHandler);
+                openMicGuideModal(msg, retryHandler, true);
                 return false;
             }
         }
@@ -1341,7 +1341,7 @@
                         playResultTone(false);
                     }
                     if (['not-allowed', 'service-not-allowed', 'audio-capture'].includes(recognitionErrorCode)) {
-                        openMicGuideModal(msg, () => startSentenceSpeechTest(item, itemWeek, rowKey, testBtn, statusEl));
+                        openMicGuideModal(msg, () => startSentenceSpeechTest(item, itemWeek, rowKey, testBtn, statusEl), true);
                     }
                 } else if (!spokenNorm) {
                     statusEl.textContent = '인식 실패, 다시 시도';
