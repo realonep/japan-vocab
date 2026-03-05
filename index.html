@@ -1115,14 +1115,13 @@
             const now = ctx.currentTime + 0.01;
             const seq = passed
                 ? [
-                    { f: 784, d: 0.08, g: 0.16, type: 'triangle' },
-                    { f: 1047, d: 0.1, g: 0.2, type: 'triangle' },
-                    { f: 1319, d: 0.12, g: 0.22, type: 'sine' }
+                    { f: 880, d: 0.09, g: 0.14, type: 'sine' },
+                    { f: 1175, d: 0.1, g: 0.18, type: 'sine' },
+                    { f: 1568, d: 0.12, g: 0.22, type: 'triangle' }
                 ]
                 : [
-                    { f: 360, d: 0.1, g: 0.2, type: 'sawtooth' },
-                    { f: 260, d: 0.12, g: 0.18, type: 'triangle' },
-                    { f: 180, d: 0.16, g: 0.22, type: 'sine' }
+                    { f: 392, d: 0.16, g: 0.22, type: 'square' },
+                    { f: 294, d: 0.2, g: 0.24, type: 'square' }
                 ];
             let t = now;
             seq.forEach(({ f, d, g, type }) => {
@@ -1136,7 +1135,7 @@
                 osc.connect(gain).connect(ctx.destination);
                 osc.start(t);
                 osc.stop(t + d + 0.02);
-                t += d + 0.025;
+                t += d + (passed ? 0.03 : 0.06);
             });
         }
 
