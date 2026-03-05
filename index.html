@@ -218,7 +218,6 @@
             line-height: 1.45;
         }
         .listen-mode-exit-btn {
-            margin-top: 1rem;
             border: 2px solid #fff;
             background: #fff;
             color: #111827;
@@ -232,6 +231,38 @@
             background: #111827;
             color: #fff;
             transform: scale(1.02);
+        }
+        .listen-mode-actions {
+            margin-top: 1rem;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .listen-mode-stage-btn,
+        .listen-mode-confirm-btn {
+            min-width: 38%;
+        }
+        .listen-mode-confirm-btn {
+            border-color: #fca5a5;
+            background: #991b1b;
+            color: #fff;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(4px);
+            transition: opacity 0.16s ease, transform 0.16s ease;
+        }
+        .listen-mode-confirm-btn.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .listen-mode-hint {
+            margin-top: 0.5rem;
+            font-size: 0.72rem;
+            color: #cbd5e1;
+            min-height: 1rem;
         }
         @keyframes floatNote {
             0% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
@@ -612,7 +643,11 @@
                 <div class="listen-mode-eyebrow">LISTEN MODE</div>
                 <div id="listenModeTitle" class="listen-mode-title">듣기모드 - 휴대폰 잠금을 하지마세요</div>
                 <p class="listen-mode-desc">자동 잠금 시 재생이 끊기거나 재시작될 수 있습니다. 화면을 켠 상태로 학습해 주세요.</p>
-                <button id="exitListenModeBtn" class="listen-mode-exit-btn" type="button">돌아가기 (2초 길게 누르기)</button>
+                <div class="listen-mode-actions">
+                    <button id="prepareExitListenModeBtn" class="listen-mode-exit-btn listen-mode-stage-btn" type="button">돌아가기 준비</button>
+                    <button id="confirmExitListenModeBtn" class="listen-mode-exit-btn listen-mode-confirm-btn" type="button">2초 내 종료</button>
+                </div>
+                <p id="listenModeConfirmHint" class="listen-mode-hint"></p>
             </div>
         </div>
 
@@ -1838,12 +1873,12 @@
         const ttsControls = document.getElementById('ttsControls');
         const listenModeBtn = document.getElementById('listenModeBtn');
         const listenModeOverlay = document.getElementById('listenModeOverlay');
-        const exitListenModeBtn = document.getElementById('exitListenModeBtn');
-        const LISTEN_MODE_HOLD_MS = 2000;
-        const LISTEN_MODE_EXIT_DEFAULT_TEXT = '돌아가기 (2초 길게 누르기)';
-        let listenModeExitHoldTimer = null;
-        let listenModeExitTickTimer = null;
-        let listenModeExitHoldStartedAt = 0;
+        const prepareExitListenModeBtn = document.getElementById('prepareExitListenModeBtn');
+        const confirmExitListenModeBtn = document.getElementById('confirmExitListenModeBtn');
+        const listenModeConfirmHint = document.getElementById('listenModeConfirmHint');
+        const LISTEN_MODE_CONFIRM_MS = 2000;
+        let listenModeConfirmTimer = null;
+        let listenModeConfirmArmed = false;
         const mistakePlayControls = document.getElementById('mistakePlayControls');
         const mistakePlayBtn = document.getElementById('mistakePlayBtn');
         const mistakeRepeatChk = document.getElementById('mistakeRepeatChk');
@@ -1945,38 +1980,49 @@
             if (!listenModeOverlay) return;
             listenModeOverlay.classList.toggle('show', enabled);
             document.body.classList.toggle('listen-mode-lock', enabled);
-            resetListenModeExitHold();
+            resetListenModeExitConfirm();
         }
 
-        function resetListenModeExitHold() {
-            clearTimeout(listenModeExitHoldTimer);
-            clearInterval(listenModeExitTickTimer);
-            listenModeExitHoldTimer = null;
-            listenModeExitTickTimer = null;
-            listenModeExitHoldStartedAt = 0;
-            if (!exitListenModeBtn) return;
-            exitListenModeBtn.classList.remove('holding');
-            exitListenModeBtn.textContent = LISTEN_MODE_EXIT_DEFAULT_TEXT;
+        function resetListenModeExitConfirm() {
+            clearTimeout(listenModeConfirmTimer);
+            listenModeConfirmTimer = null;
+            listenModeConfirmArmed = false;
+            if (prepareExitListenModeBtn) {
+                prepareExitListenModeBtn.classList.remove('holding');
+            }
+            if (confirmExitListenModeBtn) {
+                confirmExitListenModeBtn.classList.remove('show');
+            }
+            if (listenModeConfirmHint) {
+                listenModeConfirmHint.textContent = '';
+            }
         }
 
-        function startListenModeExitHold() {
-            if (!exitListenModeBtn || !listenModeOverlay.classList.contains('show')) return;
-            resetListenModeExitHold();
-            listenModeExitHoldStartedAt = Date.now();
-            exitListenModeBtn.classList.add('holding');
-            listenModeExitTickTimer = setInterval(() => {
-                const elapsed = Date.now() - listenModeExitHoldStartedAt;
-                const remaining = Math.max(0, (LISTEN_MODE_HOLD_MS - elapsed) / 1000);
-                exitListenModeBtn.textContent = `계속 누르기 ${remaining.toFixed(1)}초`;
-            }, 100);
-            listenModeExitHoldTimer = setTimeout(() => {
-                setListenMode(false);
-            }, LISTEN_MODE_HOLD_MS);
+        function armListenModeExitConfirm() {
+            if (!listenModeOverlay.classList.contains('show')) return;
+            resetListenModeExitConfirm();
+            listenModeConfirmArmed = true;
+            if (prepareExitListenModeBtn) {
+                prepareExitListenModeBtn.classList.add('holding');
+            }
+            if (confirmExitListenModeBtn) {
+                confirmExitListenModeBtn.classList.add('show');
+            }
+            if (listenModeConfirmHint) {
+                listenModeConfirmHint.textContent = '오른쪽 버튼을 2초 안에 누르면 종료됩니다.';
+            }
+            listenModeConfirmTimer = setTimeout(() => {
+                if (listenModeConfirmArmed && listenModeConfirmHint) {
+                    listenModeConfirmHint.textContent = '시간 초과: 다시 시도해 주세요.';
+                }
+                resetListenModeExitConfirm();
+            }, LISTEN_MODE_CONFIRM_MS);
         }
 
-        function cancelListenModeExitHold() {
-            if (!listenModeExitHoldTimer && !listenModeExitTickTimer) return;
-            resetListenModeExitHold();
+        function confirmListenModeExit() {
+            if (!listenModeConfirmArmed) return;
+            resetListenModeExitConfirm();
+            setListenMode(false);
         }
 
         function waitUntilPageVisible(token) {
@@ -2600,18 +2646,13 @@
         document.getElementById('resetStatsBtn').addEventListener('click', resetAllData);
 
         searchInput.addEventListener('input', renderFiltered);
-        if (listenModeBtn && exitListenModeBtn) {
+        if (listenModeBtn && prepareExitListenModeBtn && confirmExitListenModeBtn) {
             listenModeBtn.addEventListener('click', () => setListenMode(true));
-            exitListenModeBtn.addEventListener('pointerdown', (e) => {
-                e.preventDefault();
-                startListenModeExitHold();
-            });
-            exitListenModeBtn.addEventListener('pointerup', cancelListenModeExitHold);
-            exitListenModeBtn.addEventListener('pointerleave', cancelListenModeExitHold);
-            exitListenModeBtn.addEventListener('pointercancel', cancelListenModeExitHold);
+            prepareExitListenModeBtn.addEventListener('click', armListenModeExitConfirm);
+            confirmExitListenModeBtn.addEventListener('click', confirmListenModeExit);
             listenModeOverlay.addEventListener('click', (e) => {
                 if (e.target === listenModeOverlay) {
-                    cancelListenModeExitHold();
+                    resetListenModeExitConfirm();
                 }
             });
         }
