@@ -57,8 +57,10 @@
             transform: translateY(-1px);
         }
 
-        #mainApp.focus-mode .focus-col-word,
-        #mainApp.focus-mode .focus-col-reading {
+        #mainApp.focus-mode tbody .focus-col-reading {
+            visibility: hidden !important;
+        }
+        #mainApp.focus-mode .focus-col-word .word-content {
             visibility: hidden !important;
         }
         #mainApp.focus-mode .sentence-jp,
@@ -78,20 +80,36 @@
         #mainApp.focus-mode .sentence-meaning {
             cursor: pointer;
         }
-        .test-controls {
-            display: none;
+        .word-cell-box {
+            position: relative;
+            min-height: 4.2rem;
         }
-        #mainApp.focus-mode .test-controls {
+        .word-content {
+            min-height: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            gap: 0.05rem;
+        }
+        .test-controls {
+            position: absolute;
+            inset: 0;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            justify-content: center;
             gap: 0.2rem;
-            margin-top: 0.35rem;
+            width: 100%;
+            text-align: left;
+            padding-left: 0.05rem;
+            visibility: hidden;
+            pointer-events: none;
+            z-index: 2;
         }
-        #mainApp.focus-mode .focus-col-word .test-controls,
-        #mainApp.focus-mode .focus-col-word .test-controls * {
-            visibility: visible !important;
-            pointer-events: auto !important;
+        #mainApp.focus-mode .test-controls {
+            visibility: visible;
+            pointer-events: auto;
         }
         .test-btn {
             border: 1px solid #000;
@@ -111,8 +129,9 @@
             font-size: 0.58rem;
             color: #6b7280;
             line-height: 1.2;
-            max-width: 96px;
+            max-width: 110px;
             word-break: keep-all;
+            text-align: left;
         }
 
         @keyframes spin {
@@ -136,7 +155,8 @@
             .mobile-compact .audio-btn { padding: 0.2rem; }
             .mobile-compact .audio-btn svg { width: 12px; height: 12px; }
             .test-btn { font-size: 0.56rem; padding: 0.08rem 0.3rem; }
-            .test-status { font-size: 0.52rem; max-width: 88px; }
+            .test-status { font-size: 0.52rem; max-width: 90px; }
+            .word-cell-box { min-height: 3.9rem; }
             .focus-toggle-btn {
                 right: 12px;
                 bottom: 12px;
@@ -187,6 +207,7 @@
             #mainApp.focus-mode .sentence-meaning .sentence-meaning-text {
                 transform: scale(1.35);
             }
+            .word-cell-box { min-height: 5.1rem; }
         }
     </style>
 </head>
@@ -963,27 +984,55 @@
             if (!ctx) return;
             const now = ctx.currentTime + 0.01;
             const seq = passed
-                ? [{ f: 880, d: 0.08, g: 0.12 }, { f: 1175, d: 0.1, g: 0.16 }]
-                : [{ f: 300, d: 0.1, g: 0.12 }, { f: 210, d: 0.14, g: 0.14 }];
+                ? [
+                    { f: 784, d: 0.08, g: 0.16, type: 'triangle' },
+                    { f: 1047, d: 0.1, g: 0.2, type: 'triangle' },
+                    { f: 1319, d: 0.12, g: 0.22, type: 'sine' }
+                ]
+                : [
+                    { f: 360, d: 0.1, g: 0.2, type: 'sawtooth' },
+                    { f: 260, d: 0.12, g: 0.18, type: 'triangle' },
+                    { f: 180, d: 0.16, g: 0.22, type: 'sine' }
+                ];
             let t = now;
-            seq.forEach(({ f, d, g }) => {
+            seq.forEach(({ f, d, g, type }) => {
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
-                osc.type = 'sine';
+                osc.type = type || 'sine';
                 osc.frequency.setValueAtTime(f, t);
                 gain.gain.setValueAtTime(0.0001, t);
-                gain.gain.exponentialRampToValueAtTime(g, t + 0.015);
+                gain.gain.exponentialRampToValueAtTime(g, t + 0.012);
                 gain.gain.exponentialRampToValueAtTime(0.0001, t + d);
                 osc.connect(gain).connect(ctx.destination);
                 osc.start(t);
                 osc.stop(t + d + 0.02);
-                t += d + 0.03;
+                t += d + 0.025;
             });
         }
 
         function stopActiveSpeechTest() {
             if (activeSpeechTest && typeof activeSpeechTest.finish === 'function') {
                 activeSpeechTest.finish('cancel');
+            }
+        }
+
+        function getSpeechRecognitionErrorMessage(errorCode) {
+            switch (errorCode) {
+                case 'not-allowed':
+                case 'service-not-allowed':
+                    return '마이크 권한이 거부됨';
+                case 'audio-capture':
+                    return '마이크를 찾을 수 없음';
+                case 'network':
+                    return '음성 인식 네트워크 오류';
+                case 'no-speech':
+                    return '음성이 감지되지 않음';
+                case 'aborted':
+                    return '인식이 중단됨';
+                case 'language-not-supported':
+                    return '일본어 인식 미지원';
+                default:
+                    return '음성 인식 오류';
             }
         }
 
@@ -1010,6 +1059,7 @@
             let transcriptFinal = '';
             let transcriptInterim = '';
             let silenceTimer = null;
+            let recognitionErrorCode = null;
             const recognition = new SpeechRecognitionCtor();
             recognition.lang = 'ja-JP';
             recognition.continuous = true;
@@ -1052,6 +1102,13 @@
 
                 if (reason === 'cancel' || reason === 'replaced') {
                     statusEl.textContent = '테스트 취소';
+                } else if (reason === 'error') {
+                    statusEl.textContent = getSpeechRecognitionErrorMessage(recognitionErrorCode);
+                    const countAsFail = ['no-speech', 'aborted'].includes(recognitionErrorCode);
+                    if (countAsFail) {
+                        recordSpeechTestResult(itemWeek, item.yomi, false);
+                        playResultTone(false);
+                    }
                 } else if (!spokenNorm) {
                     statusEl.textContent = '인식 실패, 다시 시도';
                     recordSpeechTestResult(itemWeek, item.yomi, false);
@@ -1100,7 +1157,10 @@
                 }
             };
 
-            recognition.onerror = () => finish('error');
+            recognition.onerror = (event) => {
+                recognitionErrorCode = event?.error || 'error';
+                finish('error');
+            };
             recognition.onend = () => {
                 if (!finished) finish('end');
             };
@@ -1360,12 +1420,16 @@
                 tr.setAttribute('data-row-key', rowKey);
                 tr.innerHTML = `
                     <td class="p-1 md:p-4 focus-col-word">
-                        <div class="font-bold text-lg md:text-2xl tracking-tight word-cell flex items-center">${item.word}${weekBadge}</div>
-                        <div class="text-xs text-gray-400 md:hidden">${item.yomi}</div>
-                        <div class="text-xs text-blue-500">${item.word_pron || ''}</div>
-                        <div class="test-controls">
-                            <button class="test-btn sentence-test-trigger" type="button">TEST</button>
-                            <div class="test-status sentence-test-status"></div>
+                        <div class="word-cell-box">
+                            <div class="word-content">
+                                <div class="font-bold text-lg md:text-2xl tracking-tight word-cell flex items-center word-main">${item.word}${weekBadge}</div>
+                                <div class="text-xs text-gray-400 md:hidden word-yomi-mobile">${item.yomi}</div>
+                                <div class="text-xs text-blue-500 word-pron">${item.word_pron || ''}</div>
+                            </div>
+                            <div class="test-controls">
+                                <button class="test-btn sentence-test-trigger" type="button">TEST</button>
+                                <div class="test-status sentence-test-status"></div>
+                            </div>
                         </div>
                     </td>
                     <td class="p-1 md:p-4 text-gray-400 font-mono text-sm uppercase yomi-cell hidden md:table-cell focus-col-reading">${item.yomi}</td>
