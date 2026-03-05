@@ -725,7 +725,11 @@
             saveStudyData(data);
             saveStudyItem(studyKey, data[studyKey]);
             updateStatsUI();
-            updateCountBadge(yomi, data[studyKey].count);
+            if (filterMode.value === 'frequent_mistakes') {
+                renderFiltered();
+            } else {
+                updateCountBadge(yomi, data[studyKey].count, week);
+            }
         }
 
         function getStudyCount(yomi, week = currentWeek) {
@@ -738,8 +742,11 @@
             return item?.lastStudied || null;
         }
 
-        function updateCountBadge(yomi, count) {
-            const badge = document.querySelector(`[data-yomi="${yomi}"] .count-badge`);
+        function updateCountBadge(yomi, count, week = currentWeek) {
+            const studyKey = makeStudyKeyForWeek(week, yomi);
+            const row = Array.from(document.querySelectorAll('tr[data-study-key]'))
+                .find(el => el.getAttribute('data-study-key') === studyKey);
+            const badge = row ? row.querySelector('.count-badge') : null;
             if (badge) {
                 badge.textContent = count;
                 badge.className = `count-badge px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(count)}`;
@@ -1682,9 +1689,11 @@
                     : '';
                 const tr = document.createElement('tr');
                 const rowKey = `${itemWeek}::${item.yomi}::${idx}`;
+                const studyKey = makeStudyKeyForWeek(itemWeek, item.yomi);
                 tr.className = 'border-b border-gray-100 hover:bg-gray-50 transition-colors';
                 tr.setAttribute('data-yomi', item.yomi);
                 tr.setAttribute('data-row-key', rowKey);
+                tr.setAttribute('data-study-key', studyKey);
                 tr.innerHTML = `
                     <td class="p-1 md:p-4 focus-col-word">
                         <div class="word-cell-box">
