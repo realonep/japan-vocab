@@ -138,6 +138,19 @@
             text-decoration-thickness: 1px;
             text-underline-offset: 2px;
         }
+        .mistake-play-active {
+            background: #111827 !important;
+            color: #ffffff !important;
+            border-color: #111827 !important;
+        }
+        .mistake-play-active:hover {
+            background: #000000 !important;
+            color: #ffffff !important;
+        }
+        .mistake-playing-row {
+            background-color: #f3f4f6 !important;
+            box-shadow: inset 3px 0 0 #6b7280;
+        }
         .word-cell-box {
             position: relative;
             min-height: 4.2rem;
@@ -422,6 +435,17 @@
                 <input type="text" id="searchInput" placeholder="검색어를 입력하세요 (단어, 뜻, 예문...)" 
                     class="w-full md:w-96 p-3 border-2 border-black focus:outline-none text-lg font-medium">
             <div class="flex items-center gap-1 md:gap-2 flex-wrap justify-end w-full md:w-auto">
+                <div id="mistakePlayControls" class="hidden items-center gap-1 md:gap-2">
+                    <button id="mistakePlayBtn" class="p-1 md:p-2 border-2 border-black text-xs font-bold bg-white hover:bg-gray-100 transition-colors cursor-pointer">전체 재생</button>
+                    <label for="mistakeRepeatChk" class="inline-flex items-center gap-1 text-[11px] md:text-xs font-bold text-gray-700">
+                        <input id="mistakeRepeatChk" type="checkbox" class="h-3.5 w-3.5 md:h-4 md:w-4 border-2 border-black">
+                        반복
+                    </label>
+                    <label for="mistakeDoubleChk" class="inline-flex items-center gap-1 text-[11px] md:text-xs font-bold text-gray-700">
+                        <input id="mistakeDoubleChk" type="checkbox" class="h-3.5 w-3.5 md:h-4 md:w-4 border-2 border-black" checked>
+                        문장당 2회
+                    </label>
+                </div>
                 <button id="ttsToggleBtn" class="md:hidden p-1 border-2 border-black text-xs font-bold bg-white hover:bg-gray-100 transition-colors cursor-pointer" aria-expanded="false">
                     TTS 설정
                 </button>
@@ -1504,6 +1528,7 @@
         }
 
         async function startSentenceSpeechTest(item, itemWeek, rowKey, testBtn, statusEl) {
+            if (mistakePlayRunning) stopMistakePlayback();
             closeSpeechDiffOverlay();
             if (!mainApp.classList.contains('focus-mode')) {
                 statusEl.textContent = '뜻만 보기에서만 사용';
@@ -1695,6 +1720,226 @@
         const voiceSelect = document.getElementById('voiceSelect');
         const ttsToggleBtn = document.getElementById('ttsToggleBtn');
         const ttsControls = document.getElementById('ttsControls');
+        const mistakePlayControls = document.getElementById('mistakePlayControls');
+        const mistakePlayBtn = document.getElementById('mistakePlayBtn');
+        const mistakeRepeatChk = document.getElementById('mistakeRepeatChk');
+        const mistakeDoubleChk = document.getElementById('mistakeDoubleChk');
+        let currentRenderedPageList = [];
+        let mistakePlayToken = 0;
+        let mistakePlayRunning = false;
+        let activeAutoAudio = null;
+        let activeAutoUtterance = null;
+        let activeMistakeHighlightKey = null;
+
+        function clearMistakeRowHighlight() {
+            if (!activeMistakeHighlightKey) return;
+            const row = Array.from(tableBody.querySelectorAll('tr[data-study-key]'))
+                .find((node) => node.getAttribute('data-study-key') === activeMistakeHighlightKey);
+            if (row) row.classList.remove('mistake-playing-row');
+            activeMistakeHighlightKey = null;
+        }
+
+        function setMistakeRowHighlight(item) {
+            clearMistakeRowHighlight();
+            if (!item) return;
+            const itemWeek = item._week || currentWeek;
+            const studyKey = makeStudyKeyForWeek(itemWeek, item.yomi);
+            const row = Array.from(tableBody.querySelectorAll('tr[data-study-key]'))
+                .find((node) => node.getAttribute('data-study-key') === studyKey);
+            if (!row) return;
+            row.classList.add('mistake-playing-row');
+            activeMistakeHighlightKey = studyKey;
+        }
+
+        function updateMistakePlayBtnUI(running) {
+            if (!mistakePlayBtn) return;
+            mistakePlayBtn.textContent = running ? '전체 중지' : '전체 재생';
+            mistakePlayBtn.classList.toggle('mistake-play-active', running);
+        }
+
+        function stopMistakePlayback() {
+            mistakePlayToken += 1;
+            mistakePlayRunning = false;
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+            activeAutoUtterance = null;
+            if (activeAutoAudio) {
+                try {
+                    activeAutoAudio.pause();
+                    activeAutoAudio.src = '';
+                } catch (_) {
+                    // no-op
+                }
+                activeAutoAudio = null;
+            }
+            clearMistakeRowHighlight();
+            updateMistakePlayBtnUI(false);
+        }
+
+        function updateMistakePlayControls() {
+            const visible = filterMode.value === 'frequent_mistakes';
+            if (mistakePlayControls) {
+                mistakePlayControls.classList.toggle('hidden', !visible);
+                mistakePlayControls.classList.toggle('inline-flex', visible);
+            }
+            if (!visible) stopMistakePlayback();
+        }
+
+        function waitFor(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function playBrowserForSequence(text, token) {
+            return new Promise((resolve) => {
+                if (!('speechSynthesis' in window)) {
+                    resolve();
+                    return;
+                }
+                if (token !== mistakePlayToken) {
+                    resolve();
+                    return;
+                }
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'ja-JP';
+                utterance.rate = 0.9;
+                utterance.pitch = 1;
+                const voices = window.speechSynthesis.getVoices();
+                const japaneseVoice = voices.find(v => v.lang.startsWith('ja'));
+                if (japaneseVoice) utterance.voice = japaneseVoice;
+                activeAutoUtterance = utterance;
+                utterance.onend = () => {
+                    if (activeAutoUtterance === utterance) activeAutoUtterance = null;
+                    resolve();
+                };
+                utterance.onerror = () => {
+                    if (activeAutoUtterance === utterance) activeAutoUtterance = null;
+                    resolve();
+                };
+                window.speechSynthesis.speak(utterance);
+            });
+        }
+
+        async function fetchTtsAudioBlobForSequence(text) {
+            const cachedBlob = await getCachedAudio(text);
+            if (cachedBlob) return cachedBlob;
+            const selectedVoice = voiceSelect.value;
+            const response = await fetch(`${API_URL}/tts`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    input: { text },
+                    voice: {
+                        languageCode: 'ja-JP',
+                        name: selectedVoice
+                    },
+                    audioConfig: { audioEncoding: 'MP3' }
+                })
+            });
+            if (!response.ok) {
+                throw new Error(`API ${response.status}`);
+            }
+            const data = await response.json();
+            if (!data.audioContent) {
+                throw new Error('No audio data');
+            }
+            const binaryString = atob(data.audioContent);
+            const bytes = new Uint8Array(binaryString.length);
+            for (let i = 0; i < binaryString.length; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            const audioBlob = new Blob([bytes], { type: 'audio/mp3' });
+            try {
+                await saveCachedAudio(text, audioBlob);
+            } catch (_) {
+                // ignore cache errors in sequence mode
+            }
+            return audioBlob;
+        }
+
+        async function playAIForSequence(text, token) {
+            if (token !== mistakePlayToken) return;
+            let audioBlob = null;
+            try {
+                audioBlob = await fetchTtsAudioBlobForSequence(text);
+            } catch (error) {
+                console.error('Sequence TTS fetch failed:', error);
+                return;
+            }
+            if (!audioBlob || token !== mistakePlayToken) return;
+            await new Promise((resolve) => {
+                const blobUrl = URL.createObjectURL(audioBlob);
+                const audio = new Audio(blobUrl);
+                activeAutoAudio = audio;
+                audio.onended = () => {
+                    if (activeAutoAudio === audio) activeAutoAudio = null;
+                    URL.revokeObjectURL(blobUrl);
+                    resolve();
+                };
+                audio.onerror = () => {
+                    if (activeAutoAudio === audio) activeAutoAudio = null;
+                    URL.revokeObjectURL(blobUrl);
+                    resolve();
+                };
+                audio.play().catch(() => {
+                    URL.revokeObjectURL(blobUrl);
+                    resolve();
+                });
+            });
+        }
+
+        async function playMistakeSequence() {
+            if (mistakePlayRunning) {
+                stopMistakePlayback();
+                return;
+            }
+            if (filterMode.value !== 'frequent_mistakes') return;
+            const queue = (currentRenderedPageList || []).filter(item => (item?.sentence || '').trim());
+            if (!queue.length) {
+                statusMsg.innerText = '재생할 항목이 없습니다';
+                setTimeout(() => { statusMsg.innerText = 'TTS Ready'; }, 1200);
+                return;
+            }
+            mistakePlayToken += 1;
+            const token = mistakePlayToken;
+            mistakePlayRunning = true;
+            updateMistakePlayBtnUI(true);
+            try {
+                do {
+                    for (let i = 0; i < queue.length; i++) {
+                        if (!mistakePlayRunning || token !== mistakePlayToken) return;
+                        setMistakeRowHighlight(queue[i]);
+                        const perSentenceCount = (mistakeDoubleChk && mistakeDoubleChk.checked) ? 2 : 1;
+                        const text = queue[i].sentence;
+                        for (let turn = 0; turn < perSentenceCount; turn++) {
+                            if (!mistakePlayRunning || token !== mistakePlayToken) return;
+                            statusMsg.innerText = perSentenceCount === 2
+                                ? `오답 전체 재생 ${i + 1}/${queue.length} (${turn + 1}/2)`
+                                : `오답 전체 재생 ${i + 1}/${queue.length}`;
+                            if (ttsMode.value === 'browser') {
+                                await playBrowserForSequence(text, token);
+                            } else {
+                                await playAIForSequence(text, token);
+                            }
+                            if (!mistakePlayRunning || token !== mistakePlayToken) return;
+                            if (turn < perSentenceCount - 1) {
+                                await waitFor(500);
+                            }
+                        }
+                        if (!mistakePlayRunning || token !== mistakePlayToken) return;
+                        await waitFor(1000);
+                    }
+                } while (mistakeRepeatChk && mistakeRepeatChk.checked && mistakePlayRunning && token === mistakePlayToken);
+            } finally {
+                if (token === mistakePlayToken) {
+                    mistakePlayRunning = false;
+                    clearMistakeRowHighlight();
+                    updateMistakePlayBtnUI(false);
+                    statusMsg.innerText = 'TTS Ready';
+                }
+            }
+        }
 
         if (ttsToggleBtn && ttsControls) {
             ttsToggleBtn.addEventListener('click', () => {
@@ -1775,6 +2020,9 @@
 
         // Main speak function - routes to selected TTS mode
         function speak(text, btnElement) {
+            if (mistakePlayRunning) {
+                stopMistakePlayback();
+            }
             if (ttsMode.value === 'browser') {
                 speakBrowser(text, btnElement);
             } else {
@@ -1901,6 +2149,7 @@
                 const endIdx = startIdx + pageSize;
                 pagedList = list.slice(startIdx, endIdx);
             }
+            currentRenderedPageList = pagedList;
             pagedList.forEach((item, idx) => {
                 const itemWeek = item._week || currentWeek;
                 const studyCount = getStudyCount(item.yomi, itemWeek);
@@ -1982,6 +2231,7 @@
                     speak(item.sentence, sentenceMeaningBtn);
                 };
                 sentenceTestBtn.onclick = () => {
+                    if (mistakePlayRunning) stopMistakePlayback();
                     if (activeSpeechTest && activeSpeechTest.rowKey === rowKey) {
                         activeSpeechTest.finish('manual');
                         return;
@@ -2035,7 +2285,9 @@
         const filterMode = document.getElementById('filterMode');
         
         async function renderFiltered() {
+            if (mistakePlayRunning) stopMistakePlayback();
             const mode = filterMode.value;
+            updateMistakePlayControls();
             const countHeader = document.getElementById('countHeader');
             if (countHeader) countHeader.textContent = mode === 'frequent_mistakes' ? 'Fail' : 'Cnt';
             const today = new Date().toISOString().split('T')[0];
@@ -2104,6 +2356,9 @@
         document.getElementById('resetStatsBtn').addEventListener('click', resetAllData);
 
         searchInput.addEventListener('input', renderFiltered);
+        if (mistakePlayBtn) {
+            mistakePlayBtn.addEventListener('click', playMistakeSequence);
+        }
         openMicGuideBtn.addEventListener('click', () => openMicGuideModal('브라우저의 마이크 권한 상태를 확인해 주세요.', null, true));
         dismissMicBannerBtn.addEventListener('click', () => {
             localStorage.setItem(MIC_BANNER_DISMISSED_KEY, 'yes');
