@@ -402,7 +402,7 @@
                         <th class="p-1 md:p-4 text-xs font-black uppercase hidden md:table-cell focus-col-reading">Reading</th>
                         <th class="p-1 md:p-4 text-xs font-black uppercase col-meaning">Meaning</th>
                         <th class="p-1 md:p-4 text-xs font-black uppercase col-example">Example</th>
-                        <th class="p-1 md:p-4 text-xs font-black uppercase text-center col-count focus-col-count">Cnt</th>
+                        <th id="countHeader" class="p-1 md:p-4 text-xs font-black uppercase text-center col-count focus-col-count">Cnt</th>
                         <th class="p-1 md:p-4 text-xs font-black uppercase text-right col-listen focus-col-listen">🔊</th>
                     </tr>
                 </thead>
@@ -1095,6 +1095,21 @@
             return data[key]?.fail || 0;
         }
 
+        function resetSpeechTestFailCount(week, yomi) {
+            const data = getTestResultData();
+            const key = makeStudyKeyForWeek(week, yomi);
+            if (!data[key]) data[key] = { success: 0, fail: 0, lastStudied: null };
+            data[key].fail = 0;
+            saveTestResultData(data);
+            saveSpeechTestResultToServer(week, yomi, data[key]);
+        }
+
+        function getFailBadgeClass(failCount) {
+            if (failCount >= 5) return 'bg-red-600 text-white';
+            if (failCount >= 3) return 'bg-red-100 text-red-700';
+            return 'bg-orange-100 text-orange-700';
+        }
+
         let testAudioCtx = null;
 
         function getTestAudioCtx() {
@@ -1633,6 +1648,7 @@
         function render(list) {
             stopActiveSpeechTest();
             tableBody.innerHTML = '';
+            const isMistakeMode = filterMode.value === 'frequent_mistakes';
             let pagedList = list;
             // 모든 주차를 7페이지 분할
             if (totalPages > 1) {
@@ -1643,9 +1659,15 @@
             }
             pagedList.forEach((item, idx) => {
                 const itemWeek = item._week || currentWeek;
-                const count = getStudyCount(item.yomi, itemWeek);
+                const studyCount = getStudyCount(item.yomi, itemWeek);
+                const failCount = getSpeechTestFailCount(itemWeek, item.yomi);
+                const count = isMistakeMode ? failCount : studyCount;
+                const badgeClass = isMistakeMode ? getFailBadgeClass(count) : getCountBadgeClass(count);
                 const weekBadge = item._week
                     ? `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-gray-100 text-gray-600 text-[10px] md:text-xs font-semibold">${item._week.replace('week', 'W')}</span>`
+                    : '';
+                const resetBtnHtml = isMistakeMode
+                    ? `<button class="mistake-reset-btn mt-1 px-1.5 py-0.5 border rounded text-[10px] md:text-xs font-bold hover:bg-gray-100">리셋</button>`
                     : '';
                 const tr = document.createElement('tr');
                 const rowKey = `${itemWeek}::${item.yomi}::${idx}`;
@@ -1674,7 +1696,8 @@
                         <div class="text-xs text-blue-500 sentence-sub sentence-pron">${item.s_pron || ''}</div>
                     </td>
                     <td class="p-1 md:p-4 text-center focus-col-count">
-                        <span class="count-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(count)}">${count}</span>
+                        <span class="count-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${badgeClass}">${count}</span>
+                        ${resetBtnHtml}
                     </td>
                     <td class="p-1 md:p-4 text-right focus-col-listen">
                         <button class="audio-btn p-1 md:p-2 rounded-full border border-black transition-all play-trigger">
@@ -1687,6 +1710,7 @@
                 const sentenceMeaningBtn = tr.querySelector('.sentence-meaning-trigger');
                 const sentenceTestBtn = tr.querySelector('.sentence-test-trigger');
                 const sentenceTestStatus = tr.querySelector('.sentence-test-status');
+                const mistakeResetBtn = tr.querySelector('.mistake-reset-btn');
                 playBtn.onclick = () => {
                     incrementStudyCount(item.yomi, itemWeek);
                     speak(item.yomi, playBtn);
@@ -1707,6 +1731,12 @@
                     }
                     startSentenceSpeechTest(item, itemWeek, rowKey, sentenceTestBtn, sentenceTestStatus);
                 };
+                if (mistakeResetBtn) {
+                    mistakeResetBtn.onclick = () => {
+                        resetSpeechTestFailCount(itemWeek, item.yomi);
+                        renderFiltered();
+                    };
+                }
                 tableBody.appendChild(tr);
             });
             updateStatsUI();
@@ -1749,6 +1779,8 @@
         
         async function renderFiltered() {
             const mode = filterMode.value;
+            const countHeader = document.getElementById('countHeader');
+            if (countHeader) countHeader.textContent = mode === 'frequent_mistakes' ? 'Fail' : 'Cnt';
             const today = new Date().toISOString().split('T')[0];
             const studyData = getStudyData();
             const term = normalizeText(searchInput.value);
