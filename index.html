@@ -1732,6 +1732,15 @@
         let activeMistakeHighlightKey = null;
         let pendingRestartOnVisible = false;
         let wasHiddenDuringMistakePlay = false;
+        let sequenceAudioEl = null;
+
+        function getSequenceAudioEl() {
+            if (!sequenceAudioEl) {
+                sequenceAudioEl = new Audio();
+                sequenceAudioEl.preload = 'auto';
+            }
+            return sequenceAudioEl;
+        }
 
         function clearMistakeRowHighlight() {
             if (!activeMistakeHighlightKey) return;
@@ -1774,6 +1783,14 @@
                     // no-op
                 }
                 activeAutoAudio = null;
+            }
+            if (sequenceAudioEl) {
+                try {
+                    sequenceAudioEl.pause();
+                    sequenceAudioEl.src = '';
+                } catch (_) {
+                    // no-op
+                }
             }
             clearMistakeRowHighlight();
             updateMistakePlayBtnUI(false);
@@ -1893,23 +1910,42 @@
             }
             if (!audioBlob || token !== mistakePlayToken) return false;
             return new Promise((resolve) => {
+                const audio = getSequenceAudioEl();
                 const blobUrl = URL.createObjectURL(audioBlob);
-                const audio = new Audio(blobUrl);
                 activeAutoAudio = audio;
-                audio.onended = () => {
+                let settled = false;
+                const settle = (ok) => {
+                    if (settled) return;
+                    settled = true;
+                    audio.onended = null;
+                    audio.onerror = null;
                     if (activeAutoAudio === audio) activeAutoAudio = null;
                     URL.revokeObjectURL(blobUrl);
-                    resolve(true);
+                    resolve(ok);
+                };
+                audio.onended = () => {
+                    settle(true);
                 };
                 audio.onerror = () => {
-                    if (activeAutoAudio === audio) activeAutoAudio = null;
-                    URL.revokeObjectURL(blobUrl);
-                    resolve(false);
+                    settle(false);
                 };
-                audio.play().catch(() => {
-                    URL.revokeObjectURL(blobUrl);
-                    resolve(false);
-                });
+                audio.src = blobUrl;
+                audio.currentTime = 0;
+                const tryPlay = (attempt = 0) => {
+                    if (token !== mistakePlayToken || !mistakePlayRunning) {
+                        settle(false);
+                        return;
+                    }
+                    audio.play()
+                        .catch(() => {
+                            if (attempt < 1) {
+                                setTimeout(() => tryPlay(attempt + 1), 140);
+                                return;
+                            }
+                            settle(false);
+                        });
+                };
+                tryPlay(0);
             });
         }
 
