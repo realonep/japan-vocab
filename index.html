@@ -944,6 +944,9 @@
         }
 
         function incrementStudyCount(yomi, week = currentWeek) {
+            if (filterMode.value === 'frequent_mistakes') {
+                return;
+            }
             const data = getStudyData();
             const today = new Date().toISOString().split('T')[0];
             const studyKey = makeStudyKeyForWeek(week, yomi);
@@ -961,11 +964,7 @@
             saveStudyData(data);
             saveStudyItem(studyKey, data[studyKey]);
             updateStatsUI();
-            if (filterMode.value === 'frequent_mistakes') {
-                renderFiltered();
-            } else {
-                updateCountBadge(yomi, data[studyKey].count, week);
-            }
+            updateCountBadge(yomi, data[studyKey].count, week);
         }
 
         function getStudyCount(yomi, week = currentWeek) {
