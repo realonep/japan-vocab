@@ -1394,6 +1394,9 @@
                 if (activeSpeechTest && activeSpeechTest.rowKey === rowKey) {
                     activeSpeechTest = null;
                 }
+                if (filterMode.value === 'frequent_mistakes') {
+                    renderFiltered();
+                }
             };
 
             const countdownTimer = setInterval(() => {
