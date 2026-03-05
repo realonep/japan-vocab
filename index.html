@@ -78,6 +78,42 @@
         #mainApp.focus-mode .sentence-meaning {
             cursor: pointer;
         }
+        .test-controls {
+            display: none;
+        }
+        #mainApp.focus-mode .test-controls {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.2rem;
+            margin-top: 0.35rem;
+        }
+        #mainApp.focus-mode .focus-col-word .test-controls,
+        #mainApp.focus-mode .focus-col-word .test-controls * {
+            visibility: visible !important;
+            pointer-events: auto !important;
+        }
+        .test-btn {
+            border: 1px solid #000;
+            background: #fff;
+            color: #111827;
+            font-size: 0.62rem;
+            font-weight: 800;
+            padding: 0.1rem 0.35rem;
+            border-radius: 9999px;
+            letter-spacing: 0.03em;
+        }
+        .test-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .test-status {
+            font-size: 0.58rem;
+            color: #6b7280;
+            line-height: 1.2;
+            max-width: 96px;
+            word-break: keep-all;
+        }
 
         @keyframes spin {
             from { transform: rotate(0deg); }
@@ -99,6 +135,8 @@
             .mobile-compact .sentence-sub { font-size: 0.6rem; }
             .mobile-compact .audio-btn { padding: 0.2rem; }
             .mobile-compact .audio-btn svg { width: 12px; height: 12px; }
+            .test-btn { font-size: 0.56rem; padding: 0.08rem 0.3rem; }
+            .test-status { font-size: 0.52rem; max-width: 88px; }
             .focus-toggle-btn {
                 right: 12px;
                 bottom: 12px;
@@ -234,6 +272,7 @@
                         <option value="unstudied">학습 안 한 것</option>
                         <option value="today">오늘 학습한 것</option>
                         <option value="studied">학습한 것</option>
+                        <option value="frequent_mistakes">자주 틀린 것</option>
                     </select>
                     <button id="resetStatsBtn" class="p-2 border-2 border-black text-xs font-bold uppercase tracking-widest bg-white hover:bg-yellow-50 hover:border-yellow-500 hover:text-yellow-600 transition-colors cursor-pointer">🔄 리셋</button>
                 </div>
@@ -429,9 +468,15 @@
 
         // --- STUDY COUNT MANAGEMENT ---
         let studyDataCache = {};
+        let testResultCache = {};
+        const SPEECH_TEST_PREFIX = 'test::';
 
         function getStudyDataKey() {
             return `study_count_${getLoggedInUser()}`;
+        }
+
+        function getSpeechTestBackupKey() {
+            return `speech_test_backup_${getLoggedInUser() || 'guest'}`;
         }
 
         function getStudyData() {
@@ -440,6 +485,14 @@
 
         function makeStudyKeyForWeek(week, yomi) {
             return `${week}::${yomi}`;
+        }
+
+        function makeSpeechTestKeyForWeek(week, yomi) {
+            return `${SPEECH_TEST_PREFIX}${week}::${yomi}`;
+        }
+
+        function isSpeechTestKey(key) {
+            return typeof key === 'string' && key.startsWith(SPEECH_TEST_PREFIX);
         }
 
         function makeStudyKey(yomi) {
@@ -462,7 +515,24 @@
                 const username = getLoggedInUser();
                 if (!username) return;
                 const response = await fetch(`${API_URL}/study/${encodeURIComponent(username)}`);
-                studyDataCache = await response.json();
+                const payload = await response.json();
+                const studyOnly = {};
+                const speechOnly = {};
+                Object.entries(payload || {}).forEach(([key, value]) => {
+                    if (isSpeechTestKey(key)) {
+                        const scopedKey = key.slice(SPEECH_TEST_PREFIX.length);
+                        speechOnly[scopedKey] = {
+                            success: Number(value?.clicks || 0),
+                            fail: Number(value?.count || 0),
+                            lastStudied: value?.lastStudied || null
+                        };
+                    } else {
+                        studyOnly[key] = value;
+                    }
+                });
+                studyDataCache = studyOnly;
+                testResultCache = speechOnly;
+                localStorage.setItem(getSpeechTestBackupKey(), JSON.stringify(testResultCache));
                 renderFiltered();
                 updateStatsUI();
             } catch (err) {
@@ -470,6 +540,8 @@
                 // Fallback to localStorage
                 const data = localStorage.getItem(getStudyDataKey());
                 studyDataCache = data ? JSON.parse(data) : {};
+                const speechBackup = localStorage.getItem(getSpeechTestBackupKey());
+                testResultCache = speechBackup ? JSON.parse(speechBackup) : {};
             }
         }
 
@@ -793,6 +865,255 @@
             .replace(/[\u200B-\u200D\uFEFF]/g, '')
             .replace(/[\p{P}\p{S}]/gu, '');
 
+        const SpeechRecognitionCtor = window.SpeechRecognition || window.webkitSpeechRecognition;
+        let activeSpeechTest = null;
+
+        function normalizeSpeechText(text) {
+            return (text || '')
+                .toString()
+                .toLowerCase()
+                .replace(/\s+/g, '')
+                .replace(/[。、，．・！？!?"'「」『』（）()\[\]~〜\-]/g, '');
+        }
+
+        function levenshteinDistance(a, b) {
+            const m = a.length;
+            const n = b.length;
+            if (m === 0) return n;
+            if (n === 0) return m;
+            const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+            for (let i = 0; i <= m; i++) dp[i][0] = i;
+            for (let j = 0; j <= n; j++) dp[0][j] = j;
+            for (let i = 1; i <= m; i++) {
+                for (let j = 1; j <= n; j++) {
+                    const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+                    dp[i][j] = Math.min(
+                        dp[i - 1][j] + 1,
+                        dp[i][j - 1] + 1,
+                        dp[i - 1][j - 1] + cost
+                    );
+                }
+            }
+            return dp[m][n];
+        }
+
+        function similarityScore(a, b) {
+            const aa = normalizeSpeechText(a);
+            const bb = normalizeSpeechText(b);
+            if (!aa || !bb) return 0;
+            if (aa === bb) return 1;
+            const dist = levenshteinDistance(aa, bb);
+            const maxLen = Math.max(aa.length, bb.length);
+            return Math.max(0, 1 - dist / maxLen);
+        }
+
+        const TEST_MISTAKE_THRESHOLD = 2;
+
+        function getTestResultData() {
+            return testResultCache;
+        }
+
+        function saveTestResultData(data) {
+            testResultCache = data;
+            localStorage.setItem(getSpeechTestBackupKey(), JSON.stringify(data));
+        }
+
+        function saveSpeechTestResultToServer(week, yomi, itemData) {
+            const studyLikePayload = {
+                count: itemData.fail || 0,
+                clicks: itemData.success || 0,
+                lastStudied: itemData.lastStudied || null
+            };
+            saveStudyItem(makeSpeechTestKeyForWeek(week, yomi), studyLikePayload);
+        }
+
+        function recordSpeechTestResult(week, yomi, passed) {
+            const data = getTestResultData();
+            const key = makeStudyKeyForWeek(week, yomi);
+            if (!data[key]) data[key] = { success: 0, fail: 0 };
+            data[key].lastStudied = new Date().toISOString().split('T')[0];
+            if (passed) data[key].success += 1;
+            else data[key].fail += 1;
+            saveTestResultData(data);
+            saveSpeechTestResultToServer(week, yomi, data[key]);
+        }
+
+        function getSpeechTestFailCount(week, yomi) {
+            const data = getTestResultData();
+            const key = makeStudyKeyForWeek(week, yomi);
+            return data[key]?.fail || 0;
+        }
+
+        let testAudioCtx = null;
+
+        function getTestAudioCtx() {
+            if (!testAudioCtx) {
+                const Ctx = window.AudioContext || window.webkitAudioContext;
+                if (!Ctx) return null;
+                testAudioCtx = new Ctx();
+            }
+            if (testAudioCtx.state === 'suspended') {
+                testAudioCtx.resume().catch(() => {});
+            }
+            return testAudioCtx;
+        }
+
+        function playResultTone(passed) {
+            const ctx = getTestAudioCtx();
+            if (!ctx) return;
+            const now = ctx.currentTime + 0.01;
+            const seq = passed
+                ? [{ f: 880, d: 0.08, g: 0.12 }, { f: 1175, d: 0.1, g: 0.16 }]
+                : [{ f: 300, d: 0.1, g: 0.12 }, { f: 210, d: 0.14, g: 0.14 }];
+            let t = now;
+            seq.forEach(({ f, d, g }) => {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(f, t);
+                gain.gain.setValueAtTime(0.0001, t);
+                gain.gain.exponentialRampToValueAtTime(g, t + 0.015);
+                gain.gain.exponentialRampToValueAtTime(0.0001, t + d);
+                osc.connect(gain).connect(ctx.destination);
+                osc.start(t);
+                osc.stop(t + d + 0.02);
+                t += d + 0.03;
+            });
+        }
+
+        function stopActiveSpeechTest() {
+            if (activeSpeechTest && typeof activeSpeechTest.finish === 'function') {
+                activeSpeechTest.finish('cancel');
+            }
+        }
+
+        function startSentenceSpeechTest(item, itemWeek, rowKey, testBtn, statusEl) {
+            if (!mainApp.classList.contains('focus-mode')) {
+                statusEl.textContent = '뜻만 보기에서만 사용';
+                return;
+            }
+            if (!SpeechRecognitionCtor) {
+                statusEl.textContent = '크롬 음성인식 미지원';
+                return;
+            }
+
+            if (activeSpeechTest && activeSpeechTest.rowKey !== rowKey) {
+                activeSpeechTest.finish('replaced');
+            }
+            if (activeSpeechTest && activeSpeechTest.rowKey === rowKey) {
+                activeSpeechTest.finish('manual');
+                return;
+            }
+
+            let finished = false;
+            let secondsLeft = 10;
+            let transcriptFinal = '';
+            let transcriptInterim = '';
+            let silenceTimer = null;
+            const recognition = new SpeechRecognitionCtor();
+            recognition.lang = 'ja-JP';
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.maxAlternatives = 1;
+
+            testBtn.disabled = false;
+            testBtn.textContent = `STOP ${secondsLeft}`;
+            statusEl.textContent = '말하기 시작...';
+
+            const resetSilenceTimer = () => {
+                clearTimeout(silenceTimer);
+                silenceTimer = setTimeout(() => {
+                    finish('silence');
+                }, 1200);
+            };
+
+            const finish = (reason = 'done') => {
+                if (finished) return;
+                finished = true;
+                clearInterval(countdownTimer);
+                clearTimeout(timeoutTimer);
+                clearTimeout(silenceTimer);
+                try {
+                    recognition.onresult = null;
+                    recognition.onerror = null;
+                    recognition.onend = null;
+                    recognition.stop();
+                } catch (_) {
+                    // no-op
+                }
+
+                const spoken = `${transcriptFinal} ${transcriptInterim}`.trim();
+                const expected = item.sentence || '';
+                const score = similarityScore(spoken, expected);
+                const spokenNorm = normalizeSpeechText(spoken);
+                const expectedNorm = normalizeSpeechText(expected);
+                const includes = spokenNorm && expectedNorm && (spokenNorm.includes(expectedNorm) || expectedNorm.includes(spokenNorm));
+                const passed = includes || score >= 0.72;
+
+                if (reason === 'cancel' || reason === 'replaced') {
+                    statusEl.textContent = '테스트 취소';
+                } else if (!spokenNorm) {
+                    statusEl.textContent = '인식 실패, 다시 시도';
+                    recordSpeechTestResult(itemWeek, item.yomi, false);
+                    playResultTone(false);
+                } else if (passed) {
+                    statusEl.textContent = `통과 ${(score * 100).toFixed(0)}%`;
+                    recordSpeechTestResult(itemWeek, item.yomi, true);
+                    playResultTone(true);
+                } else {
+                    statusEl.textContent = `실패 ${(score * 100).toFixed(0)}%`;
+                    recordSpeechTestResult(itemWeek, item.yomi, false);
+                    playResultTone(false);
+                }
+
+                testBtn.disabled = false;
+                testBtn.textContent = 'TEST';
+                if (activeSpeechTest && activeSpeechTest.rowKey === rowKey) {
+                    activeSpeechTest = null;
+                }
+            };
+
+            const countdownTimer = setInterval(() => {
+                secondsLeft -= 1;
+                if (secondsLeft <= 0) return;
+                testBtn.textContent = `STOP ${secondsLeft}`;
+            }, 1000);
+
+            const timeoutTimer = setTimeout(() => {
+                finish('timeout');
+            }, 10000);
+
+            recognition.onresult = (event) => {
+                transcriptInterim = '';
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    const piece = event.results[i][0].transcript || '';
+                    if (event.results[i].isFinal) {
+                        transcriptFinal += `${piece} `;
+                    } else {
+                        transcriptInterim += piece;
+                    }
+                }
+                const preview = `${transcriptFinal} ${transcriptInterim}`.trim();
+                if (preview) {
+                    statusEl.textContent = `인식: ${preview}`;
+                    resetSilenceTimer();
+                }
+            };
+
+            recognition.onerror = () => finish('error');
+            recognition.onend = () => {
+                if (!finished) finish('end');
+            };
+
+            activeSpeechTest = { rowKey, finish };
+            try {
+                recognition.start();
+            } catch (_) {
+                finish('error');
+                statusEl.textContent = '마이크 권한 확인 필요';
+            }
+        }
+
         // PCM (L16) to WAV converter for Browser Playback
         function pcmToWav(pcmData, sampleRate) {
             const buffer = new ArrayBuffer(44 + pcmData.length * 2);
@@ -1016,6 +1337,7 @@
         }
 
         function render(list) {
+            stopActiveSpeechTest();
             tableBody.innerHTML = '';
             let pagedList = list;
             // 모든 주차를 7페이지 분할
@@ -1041,6 +1363,10 @@
                         <div class="font-bold text-lg md:text-2xl tracking-tight word-cell flex items-center">${item.word}${weekBadge}</div>
                         <div class="text-xs text-gray-400 md:hidden">${item.yomi}</div>
                         <div class="text-xs text-blue-500">${item.word_pron || ''}</div>
+                        <div class="test-controls">
+                            <button class="test-btn sentence-test-trigger" type="button">TEST</button>
+                            <div class="test-status sentence-test-status"></div>
+                        </div>
                     </td>
                     <td class="p-1 md:p-4 text-gray-400 font-mono text-sm uppercase yomi-cell hidden md:table-cell focus-col-reading">${item.yomi}</td>
                     <td class="p-1 md:p-4 font-medium text-gray-600 text-xs md:text-base meaning-cell">${item.meaning}</td>
@@ -1061,6 +1387,8 @@
                 const playBtn = tr.querySelector('.play-trigger');
                 const sentenceBtn = tr.querySelector('.sentence-trigger');
                 const sentenceMeaningBtn = tr.querySelector('.sentence-meaning-trigger');
+                const sentenceTestBtn = tr.querySelector('.sentence-test-trigger');
+                const sentenceTestStatus = tr.querySelector('.sentence-test-status');
                 playBtn.onclick = () => {
                     incrementStudyCount(item.yomi, itemWeek);
                     speak(item.yomi, playBtn);
@@ -1073,6 +1401,13 @@
                     if (!mainApp.classList.contains('focus-mode')) return;
                     incrementStudyCount(item.yomi, itemWeek);
                     speak(item.sentence, sentenceMeaningBtn);
+                };
+                sentenceTestBtn.onclick = () => {
+                    if (activeSpeechTest && activeSpeechTest.rowKey === rowKey) {
+                        activeSpeechTest.finish('manual');
+                        return;
+                    }
+                    startSentenceSpeechTest(item, itemWeek, rowKey, sentenceTestBtn, sentenceTestStatus);
                 };
                 tableBody.appendChild(tr);
             });
@@ -1140,6 +1475,11 @@
                 filtered = baseList.filter(item => {
                     const week = item._week || currentWeek;
                     return studyData[makeStudyKeyForWeek(week, item.yomi)]?.count > 0;
+                });
+            } else if (mode === 'frequent_mistakes') {
+                filtered = baseList.filter(item => {
+                    const week = item._week || currentWeek;
+                    return getSpeechTestFailCount(week, item.yomi) >= TEST_MISTAKE_THRESHOLD;
                 });
             }
             // Apply search filter too
