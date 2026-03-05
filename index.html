@@ -437,8 +437,8 @@
                         <li>페이지 새로고침 후 TEST 버튼 다시 실행</li>
                     </ol>
                     <div class="mic-guide-images">
-                        <img class="mic-guide-image" src="assets/safari_setting01.png" alt="Safari 웹사이트 설정에서 마이크 항목 위치">
-                        <img class="mic-guide-image" src="assets/safari_setting02.png" alt="Safari 마이크 권한에서 묻기/허용 선택 화면">
+                        <img class="mic-guide-image" src="assets/safari_setting01.png" alt="Safari 웹사이트 설정에서 마이크 항목 위치" width="568" height="1024" loading="lazy" decoding="async">
+                        <img class="mic-guide-image" src="assets/safari_setting02.png" alt="Safari 마이크 권한에서 묻기/허용 선택 화면" width="472" height="1024" loading="lazy" decoding="async">
                     </div>
                 </div>
                 <div id="micGuideChromeIos" class="mic-guide-section">
@@ -450,7 +450,7 @@
                         <li>필요 시 Safari에서도 동일 사이트 권한 확인</li>
                     </ol>
                     <div class="mic-guide-images">
-                        <img class="mic-guide-image" src="assets/chrome_setting.png" alt="Chrome 앱 설정에서 마이크 권한 위치">
+                        <img class="mic-guide-image" src="assets/chrome_setting.png" alt="Chrome 앱 설정에서 마이크 권한 위치" width="567" height="1024" loading="lazy" decoding="async">
                     </div>
                 </div>
                 <div class="mt-4 flex justify-end gap-2">
@@ -998,6 +998,7 @@
         const MIC_GUIDE_COMPLETED_KEY = 'mic_guide_completed';
         let pendingMicRetryHandler = null;
         let micPermissionGranted = false;
+        let micPermissionNeedsRecheck = true;
 
         // Clear cache button event
         clearCacheBtn.addEventListener('click', async () => {
@@ -1191,6 +1192,7 @@
         function markMicGuideCompleted() {
             localStorage.setItem(MIC_GUIDE_COMPLETED_KEY, 'yes');
             micPermissionGranted = true;
+            micPermissionNeedsRecheck = false;
             micPermissionBanner.classList.add('hidden');
             closeMicGuideModal();
         }
@@ -1212,8 +1214,10 @@
         }
 
         async function ensureMicPermission(statusEl, retryHandler = null) {
-            if (micPermissionGranted) return true;
+            if (!micPermissionNeedsRecheck) return true;
             if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                micPermissionGranted = false;
+                micPermissionNeedsRecheck = true;
                 const msg = '이 브라우저는 마이크 권한 확인 API를 지원하지 않습니다.';
                 statusEl.textContent = msg;
                 openMicGuideModal(msg, retryHandler);
@@ -1223,9 +1227,11 @@
                 const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
                 stream.getTracks().forEach(track => track.stop());
                 micPermissionGranted = true;
+                micPermissionNeedsRecheck = false;
                 return true;
             } catch (err) {
                 micPermissionGranted = false;
+                micPermissionNeedsRecheck = true;
                 const msg = getMediaPermissionErrorMessage(err?.name);
                 statusEl.textContent = msg;
                 openMicGuideModal(msg, retryHandler);
@@ -1327,6 +1333,7 @@
                     statusEl.textContent = msg;
                     if (['not-allowed', 'service-not-allowed', 'audio-capture'].includes(recognitionErrorCode)) {
                         micPermissionGranted = false;
+                        micPermissionNeedsRecheck = true;
                     }
                     const countAsFail = ['no-speech', 'aborted'].includes(recognitionErrorCode);
                     if (countAsFail) {
