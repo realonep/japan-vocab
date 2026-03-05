@@ -353,7 +353,7 @@
                         <option value="studied">학습한 것</option>
                         <option value="frequent_mistakes">자주 틀린 것</option>
                     </select>
-                    <button id="resetStatsBtn" class="p-2 border-2 border-black text-xs font-bold uppercase tracking-widest bg-white hover:bg-yellow-50 hover:border-yellow-500 hover:text-yellow-600 transition-colors cursor-pointer">🔄 리셋</button>
+                    <button id="resetStatsBtn" class="p-2 border-2 border-black text-xs font-bold uppercase tracking-widest bg-white hover:bg-yellow-50 hover:border-yellow-500 hover:text-yellow-600 transition-colors cursor-pointer">전체 리셋</button>
                 </div>
             </div>
 
@@ -770,20 +770,31 @@
             document.getElementById('statToday').textContent = todayCount;
         }
 
-        async function resetStudyData() {
-            if (confirm('정말 학습 기록을 초기화하시겠습니까?')) {
+        async function resetAllData() {
+            if (confirm('학습 데이터 및 실패횟수를 모두 초기화 합니다. 정말로 하시겠습니까?')) {
                 try {
-                    const data = getStudyData();
+                    const studyData = getStudyData();
+                    const testData = getTestResultData();
                     const updates = [];
-                    vocabList.forEach(item => {
-                        const key = makeStudyKey(item.yomi);
-                        if (data[key]) {
-                            data[key] = { count: 0, clicks: 0, lastStudied: null };
-                            updates.push(saveStudyItem(key, data[key]));
+
+                    Object.keys(studyData).forEach(key => {
+                        studyData[key] = { count: 0, clicks: 0, lastStudied: null };
+                        updates.push(saveStudyItem(key, studyData[key]));
+                    });
+
+                    Object.keys(testData).forEach(scopedKey => {
+                        const [week, ...rest] = scopedKey.split('::');
+                        const yomi = rest.join('::');
+                        const cleared = { success: 0, fail: 0, lastStudied: null };
+                        testData[scopedKey] = cleared;
+                        if (week && yomi) {
+                            updates.push(saveSpeechTestResultToServer(week, yomi, cleared));
                         }
                     });
+
                     await Promise.all(updates);
-                    saveStudyData(data);
+                    await saveStudyData(studyData);
+                    saveTestResultData(testData);
                     renderFiltered();
                     updateStatsUI();
                 } catch (err) {
@@ -1844,7 +1855,7 @@
         });
 
         // Stats buttons
-        document.getElementById('resetStatsBtn').addEventListener('click', resetStudyData);
+        document.getElementById('resetStatsBtn').addEventListener('click', resetAllData);
 
         searchInput.addEventListener('input', renderFiltered);
         openMicGuideBtn.addEventListener('click', () => openMicGuideModal('브라우저의 마이크 권한 상태를 확인해 주세요.', null, true));
