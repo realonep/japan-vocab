@@ -1337,42 +1337,42 @@
       "plain_present_affirmative": {
         "jp": "夜勉強する。",
         "pron_ko": "요루 벤쿄우 스루。",
-        "meaning_ko": "밤에 한다."
+        "meaning_ko": "밤에 공부한다."
       },
       "plain_present_negative": {
         "jp": "夜勉強しない。",
         "pron_ko": "요루 벤쿄우 시나이。",
-        "meaning_ko": "밤에 하지 않다."
+        "meaning_ko": "밤에 공부하지 않다."
       },
       "plain_past_affirmative": {
         "jp": "夜勉強した。",
         "pron_ko": "요루 벤쿄우 시타。",
-        "meaning_ko": "밤에 했다."
+        "meaning_ko": "밤에 공부했다."
       },
       "plain_past_negative": {
         "jp": "夜勉強しなかった。",
         "pron_ko": "요루 벤쿄우 시나캇타。",
-        "meaning_ko": "밤에 하지 않았다."
+        "meaning_ko": "밤에 공부하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "夜勉強します。",
         "pron_ko": "요루 벤쿄우 시마스。",
-        "meaning_ko": "밤에 합니다."
+        "meaning_ko": "밤에 공부합니다."
       },
       "polite_present_negative": {
         "jp": "夜勉強しません。",
         "pron_ko": "요루 벤쿄우 시마센。",
-        "meaning_ko": "밤에 하지 않습니다."
+        "meaning_ko": "밤에 공부하지 않습니다."
       },
       "polite_past_affirmative": {
         "jp": "夜勉強しました。",
         "pron_ko": "요루 벤쿄우 시마시타。",
-        "meaning_ko": "밤에 했습니다."
+        "meaning_ko": "밤에 공부했습니다."
       },
       "polite_past_negative": {
         "jp": "夜勉強しませんでした。",
         "pron_ko": "요루 벤쿄우 시마센데시타。",
-        "meaning_ko": "밤에 하지 않았습니다."
+        "meaning_ko": "밤에 공부하지 않았습니다."
       }
     }
   },
