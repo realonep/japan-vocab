@@ -225,7 +225,10 @@
 
         <div class="mb-6 flex flex-col md:flex-row gap-3 items-center justify-between">
             <input type="text" id="searchInput" placeholder="검색어를 입력하세요 (단어, 뜻, 변형문장...)" class="w-full md:w-96 p-3 border-2 border-black focus:outline-none text-base font-medium">
-            <div id="statusMessage" class="text-xs font-bold text-gray-500">Ready</div>
+            <div class="flex items-center gap-2">
+                <button id="refreshDataBtn" class="px-3 py-2 border-2 border-black text-xs font-bold bg-white hover:bg-gray-100 transition-colors" type="button">최신 데이터 다시 불러오기</button>
+                <div id="statusMessage" class="text-xs font-bold text-gray-500">Ready</div>
+            </div>
         </div>
 
         <div id="formList" class="space-y-4"></div>
@@ -260,6 +263,7 @@
             const ttsStatus = document.getElementById("ttsStatus");
             const voiceSelect = document.getElementById("voiceSelect");
             const statusMessage = document.getElementById("statusMessage");
+            const refreshDataBtn = document.getElementById("refreshDataBtn");
             const statStudied = document.getElementById("statStudied");
             const statTotal = document.getElementById("statTotal");
             const statToday = document.getElementById("statToday");
@@ -280,6 +284,7 @@
             let sttCooldownUntil = 0;
             let studyDataCache = {};
             let testDataCache = {};
+            let dataRefreshToken = 0;
 
             function getLoggedInUser() {
                 return localStorage.getItem("loggedInUser") || "guest";
@@ -446,11 +451,13 @@
                 return FORM_DEFS.some(({ key }) => (item.sentence_forms[key]?.jp || "").trim().length > 0);
             }
 
-            async function fetchWeekData(week) {
-                const candidates = [`./data/${week}.json`, `./${week}.json`];
+            async function fetchWeekData(week, options = {}) {
+                const { forceFresh = false } = options;
+                const suffix = forceFresh ? `?v=${Date.now()}_${dataRefreshToken}` : "";
+                const candidates = [`./data/${week}.json${suffix}`, `./${week}.json${suffix}`];
                 for (const path of candidates) {
                     try {
-                        const response = await fetch(path);
+                        const response = await fetch(path, forceFresh ? { cache: "no-store" } : undefined);
                         if (!response.ok) continue;
                         return await response.json();
                     } catch (_) {
@@ -460,10 +467,11 @@
                 return [];
             }
 
-            async function initWeekOptions() {
+            async function initWeekOptions(options = {}) {
+                const { forceFresh = false } = options;
                 const usable = [];
                 for (const week of WEEK_CANDIDATES) {
-                    const rows = await fetchWeekData(week);
+                    const rows = await fetchWeekData(week, { forceFresh });
                     if (rows.some(hasUsableForms)) {
                         usable.push(week);
                     }
@@ -979,7 +987,7 @@
                 const { resetPage = true } = options;
                 currentWeek = week;
                 statusMessage.textContent = "로딩 중...";
-                const rows = await fetchWeekData(week);
+                const rows = await fetchWeekData(week, options);
                 currentWordList = buildWordRows(rows, week);
                 statusMessage.textContent = "Ready";
                 runFilterAndRender({ resetPage });
@@ -1016,6 +1024,24 @@
                 weekSelect.addEventListener("change", () => loadWeek(weekSelect.value));
                 filterMode.addEventListener("change", () => runFilterAndRender({ resetPage: true }));
                 searchInput.addEventListener("input", () => runFilterAndRender({ resetPage: true }));
+                refreshDataBtn.addEventListener("click", async () => {
+                    refreshDataBtn.disabled = true;
+                    statusMessage.textContent = "최신 데이터 갱신 중...";
+                    try {
+                        dataRefreshToken += 1;
+                        await initWeekOptions({ forceFresh: true });
+                        const targetWeek = availableWeeks.includes(currentWeek) ? currentWeek : (availableWeeks[0] || currentWeek);
+                        if (targetWeek) {
+                            weekSelect.value = targetWeek;
+                            await loadWeek(targetWeek, { resetPage: false, forceFresh: true });
+                        }
+                        statusMessage.textContent = "최신 데이터 반영 완료";
+                    } catch (_) {
+                        statusMessage.textContent = "갱신 실패 - 다시 시도";
+                    } finally {
+                        refreshDataBtn.disabled = false;
+                    }
+                });
                 pagination.addEventListener("click", (event) => {
                     const btn = event.target.closest("button[data-page]");
                     if (!btn) return;
