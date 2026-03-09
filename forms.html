@@ -89,6 +89,16 @@
             color: #6b7280;
             line-height: 1.2;
         }
+        .test-trigger,
+        .test-status {
+            visibility: hidden;
+            pointer-events: none;
+        }
+        body.focus-mode .test-trigger,
+        body.focus-mode .test-status {
+            visibility: visible;
+            pointer-events: auto;
+        }
         .diff-feedback {
             margin-top: 0.25rem;
             border: 1px solid #d1d5db;
@@ -112,7 +122,8 @@
         .diff-ref { color: #9ca3af; font-weight: 500; }
         body.focus-mode .sentence-trigger,
         body.focus-mode .form-pron {
-            display: none !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
         }
         body.focus-mode .form-meaning {
             color: #4b5563;
@@ -652,6 +663,12 @@
                     statusEl.textContent = "크롬 음성인식 미지원";
                     return;
                 }
+                // 모바일에서 TTS 직후 STT 시작이 실패하는 경우를 줄이기 위해
+                // 먼저 재생 중 오디오를 정리하고 짧게 대기한다.
+                if (typeof TTS?.stop === "function") {
+                    TTS.stop();
+                    await new Promise((resolve) => setTimeout(resolve, 160));
+                }
                 if (activeSpeechTest && activeSpeechTest.rowKey === rowMeta.scopedKey) {
                     activeSpeechTest.finish("manual");
                     return;
@@ -758,8 +775,16 @@
                 try {
                     recognition.start();
                 } catch (_) {
-                    finish("error");
-                    statusEl.textContent = "마이크 권한 확인 필요";
+                    // 일부 모바일 브라우저에서 오디오 세션 전환 직후 start()가 실패해
+                    // 짧은 지연 뒤 1회 재시도한다.
+                    setTimeout(() => {
+                        try {
+                            recognition.start();
+                        } catch (_) {
+                            finish("error");
+                            statusEl.textContent = "마이크 권한 확인 필요";
+                        }
+                    }, 220);
                 }
             }
 
@@ -948,6 +973,7 @@
                 });
 
                 const setFocusMode = (enabled) => {
+                    closeActiveSpeechTest();
                     document.body.classList.toggle("focus-mode", enabled);
                     focusModeBtn.textContent = enabled ? "일반 보기" : "뜻만 보기";
                     focusModeBtn.setAttribute("aria-pressed", enabled ? "true" : "false");

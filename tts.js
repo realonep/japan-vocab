@@ -10,6 +10,8 @@ const TTS = (function() {
     let db = null;
     let currentVoice = 'ja-JP-Neural2-B';
     let statusCallback = null;
+    let activeAudio = null;
+    let activeAudioUrl = null;
 
     // Initialize IndexedDB
     async function initDB() {
@@ -119,6 +121,37 @@ const TTS = (function() {
         }
     }
 
+    function releaseActiveAudio() {
+        if (activeAudio) {
+            activeAudio.pause();
+            activeAudio.onended = null;
+            activeAudio.onerror = null;
+            activeAudio.src = '';
+            activeAudio = null;
+        }
+        if (activeAudioUrl) {
+            URL.revokeObjectURL(activeAudioUrl);
+            activeAudioUrl = null;
+        }
+    }
+
+    function stop() {
+        releaseActiveAudio();
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+        }
+    }
+
+    function playBlobAudio(audioBlob) {
+        releaseActiveAudio();
+        activeAudioUrl = URL.createObjectURL(audioBlob);
+        const audio = new Audio(activeAudioUrl);
+        activeAudio = audio;
+        audio.onended = () => releaseActiveAudio();
+        audio.onerror = () => releaseActiveAudio();
+        return audio.play();
+    }
+
     // Browser TTS (Web Speech API)
     function speakBrowser(text, btnElement) {
         if (!('speechSynthesis' in window)) {
@@ -126,7 +159,7 @@ const TTS = (function() {
             return;
         }
 
-        window.speechSynthesis.cancel();
+        stop();
 
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'ja-JP';
@@ -171,8 +204,7 @@ const TTS = (function() {
             const cachedBlob = await getCachedAudio(text);
             if (cachedBlob) {
                 setStatus("Playing from Cache 🚀");
-                const audio = new Audio(URL.createObjectURL(cachedBlob));
-                audio.play();
+                await playBlobAudio(cachedBlob);
                 btnElement.disabled = false;
                 btnElement.innerHTML = originalContent;
                 setTimeout(() => setStatus("TTS Ready"), 1500);
@@ -230,8 +262,7 @@ const TTS = (function() {
                     setStatus("Playing (Cache Failed)");
                 }
 
-                const audio = new Audio(URL.createObjectURL(audioBlob));
-                audio.play();
+                await playBlobAudio(audioBlob);
 
                 setTimeout(() => setStatus("TTS Ready"), 2000);
             } catch (error) {
@@ -290,6 +321,7 @@ const TTS = (function() {
     return {
         init,
         speak,
+        stop,
         setVoice,
         getVoice,
         clearCache: clearAllCache,
