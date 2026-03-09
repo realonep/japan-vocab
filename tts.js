@@ -12,6 +12,8 @@ const TTS = (function() {
     let statusCallback = null;
     let activeAudio = null;
     let activeAudioUrl = null;
+    let activeRequestController = null;
+    let speakSessionId = 0;
 
     // Initialize IndexedDB
     async function initDB() {
@@ -135,7 +137,18 @@ const TTS = (function() {
         }
     }
 
+    function isSessionActive(sessionId) {
+        return sessionId === speakSessionId;
+    }
+
     function stop() {
+        speakSessionId += 1;
+        if (activeRequestController) {
+            try {
+                activeRequestController.abort();
+            } catch (_) {}
+            activeRequestController = null;
+        }
         releaseActiveAudio();
         if ('speechSynthesis' in window) {
             window.speechSynthesis.cancel();
@@ -159,7 +172,9 @@ const TTS = (function() {
             return;
         }
 
+        const sessionId = speakSessionId + 1;
         stop();
+        speakSessionId = sessionId;
 
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'ja-JP';
@@ -178,12 +193,14 @@ const TTS = (function() {
         setStatus("🔊 Speaking...");
 
         utterance.onend = () => {
+            if (!isSessionActive(sessionId)) return;
             btnElement.disabled = false;
             btnElement.innerHTML = originalContent;
             setStatus("TTS Ready");
         };
 
         utterance.onerror = (e) => {
+            if (!isSessionActive(sessionId)) return;
             btnElement.disabled = false;
             btnElement.innerHTML = originalContent;
             setStatus("❌ Speech Error");
@@ -195,6 +212,9 @@ const TTS = (function() {
 
     // Google Cloud TTS via Cloudflare Worker
     async function speakAI(text, btnElement) {
+        const sessionId = speakSessionId + 1;
+        stop();
+        speakSessionId = sessionId;
         const originalContent = btnElement.innerHTML;
         btnElement.disabled = true;
         btnElement.innerHTML = `<svg class="loading-spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>`;
@@ -203,8 +223,10 @@ const TTS = (function() {
         try {
             const cachedBlob = await getCachedAudio(text);
             if (cachedBlob) {
+                if (!isSessionActive(sessionId)) return;
                 setStatus("Playing from Cache 🚀");
                 await playBlobAudio(cachedBlob);
+                if (!isSessionActive(sessionId)) return;
                 btnElement.disabled = false;
                 btnElement.innerHTML = originalContent;
                 setTimeout(() => setStatus("TTS Ready"), 1500);
@@ -218,9 +240,12 @@ const TTS = (function() {
 
         const callTTS = async (retryCount = 0) => {
             try {
+                const controller = new AbortController();
+                activeRequestController = controller;
                 const response = await fetch(`${API_URL}/tts`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
+                    signal: controller.signal,
                     body: JSON.stringify({
                         input: { text: text },
                         voice: {
@@ -240,6 +265,7 @@ const TTS = (function() {
                 }
 
                 const data = await response.json();
+                if (!isSessionActive(sessionId)) return;
 
                 if (!data.audioContent) {
                     throw new Error('No audio data in response');
@@ -256,6 +282,7 @@ const TTS = (function() {
                 // Save to cache
                 try {
                     await saveCachedAudio(text, audioBlob);
+                    if (!isSessionActive(sessionId)) return;
                     setStatus("Cached & Playing ✓");
                 } catch (err) {
                     console.warn('Cache save failed:', err);
@@ -263,9 +290,13 @@ const TTS = (function() {
                 }
 
                 await playBlobAudio(audioBlob);
+                if (!isSessionActive(sessionId)) return;
 
                 setTimeout(() => setStatus("TTS Ready"), 2000);
             } catch (error) {
+                if (error && error.name === 'AbortError') {
+                    return;
+                }
                 if (retryCount < 3) {
                     const delay = Math.pow(2, retryCount) * 1000;
                     setStatus(`Retrying... (${retryCount + 1}/3)`);
@@ -276,8 +307,13 @@ const TTS = (function() {
                 setStatus(`❌ ${error.message}`);
                 setTimeout(() => setStatus("TTS Ready"), 3000);
             } finally {
-                btnElement.disabled = false;
-                btnElement.innerHTML = originalContent;
+                if (activeRequestController) {
+                    activeRequestController = null;
+                }
+                if (isSessionActive(sessionId)) {
+                    btnElement.disabled = false;
+                    btnElement.innerHTML = originalContent;
+                }
             }
         };
 

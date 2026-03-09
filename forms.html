@@ -272,6 +272,7 @@
             let currentPage = 1;
             let renderedRows = [];
             let activeSpeechTest = null;
+            let sttCooldownUntil = 0;
             let studyDataCache = {};
             let testDataCache = {};
 
@@ -689,6 +690,10 @@
                     TTS.stop();
                     await new Promise((resolve) => setTimeout(resolve, 160));
                 }
+                const now = Date.now();
+                if (sttCooldownUntil > now) {
+                    await new Promise((resolve) => setTimeout(resolve, sttCooldownUntil - now));
+                }
                 if (activeSpeechTest && activeSpeechTest.rowKey === rowMeta.scopedKey) {
                     activeSpeechTest.finish("manual");
                     return;
@@ -793,19 +798,25 @@
                 };
 
                 activeSpeechTest = { rowKey: rowMeta.scopedKey, finish };
-                try {
-                    recognition.start();
-                } catch (_) {
-                    // 일부 모바일 브라우저에서 오디오 세션 전환 직후 start()가 실패해
-                    // 짧은 지연 뒤 1회 재시도한다.
-                    setTimeout(() => {
-                        try {
-                            recognition.start();
-                        } catch (_) {
-                            finish("error");
-                            statusEl.textContent = "마이크 권한 확인 필요";
-                        }
-                    }, 220);
+                const startDelays = [0, 260, 520];
+                let started = false;
+                for (let i = 0; i < startDelays.length; i++) {
+                    if (startDelays[i] > 0) {
+                        await new Promise((resolve) => setTimeout(resolve, startDelays[i]));
+                    }
+                    try {
+                        recognition.start();
+                        started = true;
+                        sttCooldownUntil = 0;
+                        break;
+                    } catch (_) {
+                        // retry
+                    }
+                }
+                if (!started) {
+                    sttCooldownUntil = Date.now() + 1800;
+                    finish("error");
+                    statusEl.textContent = "마이크 준비 중... 잠시 후 다시 시도";
                 }
             }
 
@@ -884,6 +895,7 @@
                         const currentTestBtn = card.querySelector(`.test-trigger[data-scoped-key="${scopedKey}"]`);
 
                         const playAction = (btnForTts) => {
+                            closeActiveSpeechTest();
                             incrementFormStudy(word._week, word.yomi, form.key);
                             if (btnForTts) {
                                 TTS.speak(form.jp, btnForTts);
