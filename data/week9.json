@@ -11,22 +11,22 @@
       "plain_present_affirmative": {
         "jp": "私は自己紹介する。",
         "pron_ko": "와타시와 지코쇼우카이 스루。",
-        "meaning_ko": "나는 자기소개한다."
+        "meaning_ko": "저는 자기소개한다."
       },
       "plain_present_negative": {
         "jp": "私は自己紹介しない。",
         "pron_ko": "와타시와 지코쇼우카이 시나이。",
-        "meaning_ko": "나는 자기소개하지 않는다."
+        "meaning_ko": "저는 자기소개하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は自己紹介した。",
         "pron_ko": "와타시와 지코쇼우카이 시타。",
-        "meaning_ko": "나는 자기소개했다."
+        "meaning_ko": "저는 자기소개했다."
       },
       "plain_past_negative": {
         "jp": "私は自己紹介しなかった。",
         "pron_ko": "와타시와 지코쇼우카이 시나캇타。",
-        "meaning_ko": "나는 자기소개하지 않았다."
+        "meaning_ko": "저는 자기소개하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は自己紹介します。",
@@ -62,22 +62,22 @@
       "plain_present_affirmative": {
         "jp": "私は韓国出身だ。",
         "pron_ko": "와타시와 칸코쿠슛신 다。",
-        "meaning_ko": "나는 한국 출신이다."
+        "meaning_ko": "저는 한국 출신이다."
       },
       "plain_present_negative": {
         "jp": "私は韓国出身じゃない。",
         "pron_ko": "와타시와 칸코쿠슛신 쟈나이。",
-        "meaning_ko": "나는 한국 출신이 아니다."
+        "meaning_ko": "저는 한국 출신이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "私は韓国出身だった。",
         "pron_ko": "와타시와 칸코쿠슛신 닷타。",
-        "meaning_ko": "나는 한국 출신이었다."
+        "meaning_ko": "저는 한국 출신이었다."
       },
       "plain_past_negative": {
         "jp": "私は韓国出身じゃなかった。",
         "pron_ko": "와타시와 칸코쿠슛신 쟈나캇타。",
-        "meaning_ko": "나는 한국 출신이 아니었다."
+        "meaning_ko": "저는 한국 출신이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "私は韓国出身です。",
@@ -164,22 +164,22 @@
       "plain_present_affirmative": {
         "jp": "私の趣味は映画だ。",
         "pron_ko": "와타시노 슈미와 에이가 다。",
-        "meaning_ko": "내 취미는 영화이다."
+        "meaning_ko": "제 취미는 영화다."
       },
       "plain_present_negative": {
         "jp": "私の趣味は映画じゃない。",
         "pron_ko": "와타시노 슈미와 에이가 쟈나이。",
-        "meaning_ko": "내 취미는 영화이 아니다."
+        "meaning_ko": "제 취미는 영화가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "私の趣味は映画だった。",
         "pron_ko": "와타시노 슈미와 에이가 닷타。",
-        "meaning_ko": "내 취미는 영화이었다."
+        "meaning_ko": "제 취미는 영화였다."
       },
       "plain_past_negative": {
         "jp": "私の趣味は映画じゃなかった。",
         "pron_ko": "와타시노 슈미와 에이가 쟈나캇타。",
-        "meaning_ko": "내 취미는 영화이 아니었다."
+        "meaning_ko": "제 취미는 영화가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "私の趣味は映画です。",
@@ -189,17 +189,17 @@
       "polite_present_negative": {
         "jp": "私の趣味は映画ではありません。",
         "pron_ko": "와타시노 슈미와 에이가 데와아리마센。",
-        "meaning_ko": "제 취미는 영화이 아닙니다."
+        "meaning_ko": "제 취미는 영화가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "私の趣味は映画でした。",
         "pron_ko": "와타시노 슈미와 에이가 데시타。",
-        "meaning_ko": "제 취미는 영화이었습니다."
+        "meaning_ko": "제 취미는 영화였습니다."
       },
       "polite_past_negative": {
         "jp": "私の趣味は映画ではありませんでした。",
         "pron_ko": "와타시노 슈미와 에이가 데와아리마센데시타。",
-        "meaning_ko": "제 취미는 영화이 아니었습니다."
+        "meaning_ko": "제 취미는 영화가 아니었습니다."
       }
     }
   },
@@ -266,22 +266,22 @@
       "plain_present_affirmative": {
         "jp": "私は計画する。",
         "pron_ko": "와타시와 케이카쿠 스루。",
-        "meaning_ko": "나는 계획한다."
+        "meaning_ko": "저는 계획한다."
       },
       "plain_present_negative": {
         "jp": "私は計画しない。",
         "pron_ko": "와타시와 케이카쿠 시나이。",
-        "meaning_ko": "나는 계획하지 않는다."
+        "meaning_ko": "저는 계획하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は計画した。",
         "pron_ko": "와타시와 케이카쿠 시타。",
-        "meaning_ko": "나는 계획했다."
+        "meaning_ko": "저는 계획했다."
       },
       "plain_past_negative": {
         "jp": "私は計画しなかった。",
         "pron_ko": "와타시와 케이카쿠 시나캇타。",
-        "meaning_ko": "나는 계획하지 않았다."
+        "meaning_ko": "저는 계획하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は計画します。",
@@ -317,22 +317,22 @@
       "plain_present_affirmative": {
         "jp": "私は約束する。",
         "pron_ko": "와타시와 야쿠소쿠 스루。",
-        "meaning_ko": "나는 약속한다."
+        "meaning_ko": "저는 약속한다."
       },
       "plain_present_negative": {
         "jp": "私は約束しない。",
         "pron_ko": "와타시와 야쿠소쿠 시나이。",
-        "meaning_ko": "나는 약속하지 않는다."
+        "meaning_ko": "저는 약속하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は約束した。",
         "pron_ko": "와타시와 야쿠소쿠 시타。",
-        "meaning_ko": "나는 약속했다."
+        "meaning_ko": "저는 약속했다."
       },
       "plain_past_negative": {
         "jp": "私は約束しなかった。",
         "pron_ko": "와타시와 야쿠소쿠 시나캇타。",
-        "meaning_ko": "나는 약속하지 않았다."
+        "meaning_ko": "저는 약속하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は約束します。",
@@ -368,22 +368,22 @@
       "plain_present_affirmative": {
         "jp": "私は練習する。",
         "pron_ko": "와타시와 렌슈우 스루。",
-        "meaning_ko": "나는 연습한다."
+        "meaning_ko": "저는 연습한다."
       },
       "plain_present_negative": {
         "jp": "私は練習しない。",
         "pron_ko": "와타시와 렌슈우 시나이。",
-        "meaning_ko": "나는 연습하지 않는다."
+        "meaning_ko": "저는 연습하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は練習した。",
         "pron_ko": "와타시와 렌슈우 시타。",
-        "meaning_ko": "나는 연습했다."
+        "meaning_ko": "저는 연습했다."
       },
       "plain_past_negative": {
         "jp": "私は練習しなかった。",
         "pron_ko": "와타시와 렌슈우 시나캇타。",
-        "meaning_ko": "나는 연습하지 않았다."
+        "meaning_ko": "저는 연습하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は練習します。",
@@ -419,22 +419,22 @@
       "plain_present_affirmative": {
         "jp": "私は継続する。",
         "pron_ko": "와타시와 케이조쿠 스루。",
-        "meaning_ko": "나는 지속한다."
+        "meaning_ko": "저는 지속한다."
       },
       "plain_present_negative": {
         "jp": "私は継続しない。",
         "pron_ko": "와타시와 케이조쿠 시나이。",
-        "meaning_ko": "나는 지속하지 않는다."
+        "meaning_ko": "저는 지속하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は継続した。",
         "pron_ko": "와타시와 케이조쿠 시타。",
-        "meaning_ko": "나는 지속했다."
+        "meaning_ko": "저는 지속했다."
       },
       "plain_past_negative": {
         "jp": "私は継続しなかった。",
         "pron_ko": "와타시와 케이조쿠 시나캇타。",
-        "meaning_ko": "나는 지속하지 않았다."
+        "meaning_ko": "저는 지속하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は継続します。",
@@ -470,22 +470,22 @@
       "plain_present_affirmative": {
         "jp": "私は挑戦する。",
         "pron_ko": "와타시와 쵸우센 스루。",
-        "meaning_ko": "나는 도전한다."
+        "meaning_ko": "저는 도전한다."
       },
       "plain_present_negative": {
         "jp": "私は挑戦しない。",
         "pron_ko": "와타시와 쵸우센 시나이。",
-        "meaning_ko": "나는 도전하지 않는다."
+        "meaning_ko": "저는 도전하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は挑戦した。",
         "pron_ko": "와타시와 쵸우센 시타。",
-        "meaning_ko": "나는 도전했다."
+        "meaning_ko": "저는 도전했다."
       },
       "plain_past_negative": {
         "jp": "私は挑戦しなかった。",
         "pron_ko": "와타시와 쵸우센 시나캇타。",
-        "meaning_ko": "나는 도전하지 않았다."
+        "meaning_ko": "저는 도전하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は挑戦します。",
@@ -521,22 +521,22 @@
       "plain_present_affirmative": {
         "jp": "私は集中する。",
         "pron_ko": "와타시와 슈우츄우 스루。",
-        "meaning_ko": "나는 집중한다."
+        "meaning_ko": "저는 집중한다."
       },
       "plain_present_negative": {
         "jp": "私は集中しない。",
         "pron_ko": "와타시와 슈우츄우 시나이。",
-        "meaning_ko": "나는 집중하지 않는다."
+        "meaning_ko": "저는 집중하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は集中した。",
         "pron_ko": "와타시와 슈우츄우 시타。",
-        "meaning_ko": "나는 집중했다."
+        "meaning_ko": "저는 집중했다."
       },
       "plain_past_negative": {
         "jp": "私は集中しなかった。",
         "pron_ko": "와타시와 슈우츄우 시나캇타。",
-        "meaning_ko": "나는 집중하지 않았다."
+        "meaning_ko": "저는 집중하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は集中します。",
@@ -572,22 +572,22 @@
       "plain_present_affirmative": {
         "jp": "私は反省する。",
         "pron_ko": "와타시와 한세이 스루。",
-        "meaning_ko": "나는 반성한다."
+        "meaning_ko": "저는 반성한다."
       },
       "plain_present_negative": {
         "jp": "私は反省しない。",
         "pron_ko": "와타시와 한세이 시나이。",
-        "meaning_ko": "나는 반성하지 않는다."
+        "meaning_ko": "저는 반성하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は反省した。",
         "pron_ko": "와타시와 한세이 시타。",
-        "meaning_ko": "나는 반성했다."
+        "meaning_ko": "저는 반성했다."
       },
       "plain_past_negative": {
         "jp": "私は反省しなかった。",
         "pron_ko": "와타시와 한세이 시나캇타。",
-        "meaning_ko": "나는 반성하지 않았다."
+        "meaning_ko": "저는 반성하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は反省します。",
@@ -623,22 +623,22 @@
       "plain_present_affirmative": {
         "jp": "私は準備する。",
         "pron_ko": "와타시와 쥰비 스루。",
-        "meaning_ko": "나는 준비한다."
+        "meaning_ko": "저는 준비한다."
       },
       "plain_present_negative": {
         "jp": "私は準備しない。",
         "pron_ko": "와타시와 쥰비 시나이。",
-        "meaning_ko": "나는 준비하지 않는다."
+        "meaning_ko": "저는 준비하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は準備した。",
         "pron_ko": "와타시와 쥰비 시타。",
-        "meaning_ko": "나는 준비했다."
+        "meaning_ko": "저는 준비했다."
       },
       "plain_past_negative": {
         "jp": "私は準備しなかった。",
         "pron_ko": "와타시와 쥰비 시나캇타。",
-        "meaning_ko": "나는 준비하지 않았다."
+        "meaning_ko": "저는 준비하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は準備します。",
@@ -674,22 +674,22 @@
       "plain_present_affirmative": {
         "jp": "私は復習する。",
         "pron_ko": "와타시와 후쿠슈우 스루。",
-        "meaning_ko": "나는 복습한다."
+        "meaning_ko": "저는 복습한다."
       },
       "plain_present_negative": {
         "jp": "私は復習しない。",
         "pron_ko": "와타시와 후쿠슈우 시나이。",
-        "meaning_ko": "나는 복습하지 않는다."
+        "meaning_ko": "저는 복습하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は復習した。",
         "pron_ko": "와타시와 후쿠슈우 시타。",
-        "meaning_ko": "나는 복습했다."
+        "meaning_ko": "저는 복습했다."
       },
       "plain_past_negative": {
         "jp": "私は復習しなかった。",
         "pron_ko": "와타시와 후쿠슈우 시나캇타。",
-        "meaning_ko": "나는 복습하지 않았다."
+        "meaning_ko": "저는 복습하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は復習します。",
@@ -725,22 +725,22 @@
       "plain_present_affirmative": {
         "jp": "私は相談する。",
         "pron_ko": "와타시와 소우단 스루。",
-        "meaning_ko": "나는 상담한다."
+        "meaning_ko": "저는 상담한다."
       },
       "plain_present_negative": {
         "jp": "私は相談しない。",
         "pron_ko": "와타시와 소우단 시나이。",
-        "meaning_ko": "나는 상담하지 않는다."
+        "meaning_ko": "저는 상담하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は相談した。",
         "pron_ko": "와타시와 소우단 시타。",
-        "meaning_ko": "나는 상담했다."
+        "meaning_ko": "저는 상담했다."
       },
       "plain_past_negative": {
         "jp": "私は相談しなかった。",
         "pron_ko": "와타시와 소우단 시나캇타。",
-        "meaning_ko": "나는 상담하지 않았다."
+        "meaning_ko": "저는 상담하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は相談します。",
@@ -776,22 +776,22 @@
       "plain_present_affirmative": {
         "jp": "私は参加する。",
         "pron_ko": "와타시와 산카 스루。",
-        "meaning_ko": "나는 참가한다."
+        "meaning_ko": "저는 참가한다."
       },
       "plain_present_negative": {
         "jp": "私は参加しない。",
         "pron_ko": "와타시와 산카 시나이。",
-        "meaning_ko": "나는 참가하지 않는다."
+        "meaning_ko": "저는 참가하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は参加した。",
         "pron_ko": "와타시와 산카 시타。",
-        "meaning_ko": "나는 참가했다."
+        "meaning_ko": "저는 참가했다."
       },
       "plain_past_negative": {
         "jp": "私は参加しなかった。",
         "pron_ko": "와타시와 산카 시나캇타。",
-        "meaning_ko": "나는 참가하지 않았다."
+        "meaning_ko": "저는 참가하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は参加します。",
@@ -827,22 +827,22 @@
       "plain_present_affirmative": {
         "jp": "私は近況報告する。",
         "pron_ko": "와타시와 킨쿄우호우코쿠 스루。",
-        "meaning_ko": "나는 근황 보고한다."
+        "meaning_ko": "저는 근황 보고한다."
       },
       "plain_present_negative": {
         "jp": "私は近況報告しない。",
         "pron_ko": "와타시와 킨쿄우호우코쿠 시나이。",
-        "meaning_ko": "나는 근황 보고하지 않는다."
+        "meaning_ko": "저는 근황 보고하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は近況報告した。",
         "pron_ko": "와타시와 킨쿄우호우코쿠 시타。",
-        "meaning_ko": "나는 근황 보고했다."
+        "meaning_ko": "저는 근황 보고했다."
       },
       "plain_past_negative": {
         "jp": "私は近況報告しなかった。",
         "pron_ko": "와타시와 킨쿄우호우코쿠 시나캇타。",
-        "meaning_ko": "나는 근황 보고하지 않았다."
+        "meaning_ko": "저는 근황 보고하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は近況報告します。",
@@ -929,22 +929,22 @@
       "plain_present_affirmative": {
         "jp": "私は早起きする。",
         "pron_ko": "와타시와 하야오키 스루。",
-        "meaning_ko": "나는 조기 기상한다."
+        "meaning_ko": "저는 조기 기상한다."
       },
       "plain_present_negative": {
         "jp": "私は早起きしない。",
         "pron_ko": "와타시와 하야오키 시나이。",
-        "meaning_ko": "나는 조기 기상하지 않는다."
+        "meaning_ko": "저는 조기 기상하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は早起きした。",
         "pron_ko": "와타시와 하야오키 시타。",
-        "meaning_ko": "나는 조기 기상했다."
+        "meaning_ko": "저는 조기 기상했다."
       },
       "plain_past_negative": {
         "jp": "私は早起きしなかった。",
         "pron_ko": "와타시와 하야오키 시나캇타。",
-        "meaning_ko": "나는 조기 기상하지 않았다."
+        "meaning_ko": "저는 조기 기상하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は早起きします。",
@@ -980,22 +980,22 @@
       "plain_present_affirmative": {
         "jp": "私はメモする。",
         "pron_ko": "와타시와 메모 스루。",
-        "meaning_ko": "나는 메모한다."
+        "meaning_ko": "저는 메모한다."
       },
       "plain_present_negative": {
         "jp": "私はメモしない。",
         "pron_ko": "와타시와 메모 시나이。",
-        "meaning_ko": "나는 메모하지 않는다."
+        "meaning_ko": "저는 메모하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私はメモした。",
         "pron_ko": "와타시와 메모 시타。",
-        "meaning_ko": "나는 메모했다."
+        "meaning_ko": "저는 메모했다."
       },
       "plain_past_negative": {
         "jp": "私はメモしなかった。",
         "pron_ko": "와타시와 메모 시나캇타。",
-        "meaning_ko": "나는 메모하지 않았다."
+        "meaning_ko": "저는 메모하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私はメモします。",
@@ -1031,22 +1031,22 @@
       "plain_present_affirmative": {
         "jp": "私は注文する。",
         "pron_ko": "와타시와 츄우몬 스루。",
-        "meaning_ko": "나는 주문한다."
+        "meaning_ko": "저는 주문한다."
       },
       "plain_present_negative": {
         "jp": "私は注文しない。",
         "pron_ko": "와타시와 츄우몬 시나이。",
-        "meaning_ko": "나는 주문하지 않는다."
+        "meaning_ko": "저는 주문하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は注文した。",
         "pron_ko": "와타시와 츄우몬 시타。",
-        "meaning_ko": "나는 주문했다."
+        "meaning_ko": "저는 주문했다."
       },
       "plain_past_negative": {
         "jp": "私は注文しなかった。",
         "pron_ko": "와타시와 츄우몬 시나캇타。",
-        "meaning_ko": "나는 주문하지 않았다."
+        "meaning_ko": "저는 주문하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は注文します。",
@@ -1082,22 +1082,22 @@
       "plain_present_affirmative": {
         "jp": "私は会計する。",
         "pron_ko": "와타시와 카이케이 스루。",
-        "meaning_ko": "나는 계산한다."
+        "meaning_ko": "저는 계산한다."
       },
       "plain_present_negative": {
         "jp": "私は会計しない。",
         "pron_ko": "와타시와 카이케이 시나이。",
-        "meaning_ko": "나는 계산하지 않는다."
+        "meaning_ko": "저는 계산하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は会計した。",
         "pron_ko": "와타시와 카이케이 시타。",
-        "meaning_ko": "나는 계산했다."
+        "meaning_ko": "저는 계산했다."
       },
       "plain_past_negative": {
         "jp": "私は会計しなかった。",
         "pron_ko": "와타시와 카이케이 시나캇타。",
-        "meaning_ko": "나는 계산하지 않았다."
+        "meaning_ko": "저는 계산하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は会計します。",
@@ -1133,22 +1133,22 @@
       "plain_present_affirmative": {
         "jp": "私は支払いする。",
         "pron_ko": "와타시와 시하라이 스루。",
-        "meaning_ko": "나는 지불한다."
+        "meaning_ko": "저는 지불한다."
       },
       "plain_present_negative": {
         "jp": "私は支払いしない。",
         "pron_ko": "와타시와 시하라이 시나이。",
-        "meaning_ko": "나는 지불하지 않는다."
+        "meaning_ko": "저는 지불하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は支払いした。",
         "pron_ko": "와타시와 시하라이 시타。",
-        "meaning_ko": "나는 지불했다."
+        "meaning_ko": "저는 지불했다."
       },
       "plain_past_negative": {
         "jp": "私は支払いしなかった。",
         "pron_ko": "와타시와 시하라이 시나캇타。",
-        "meaning_ko": "나는 지불하지 않았다."
+        "meaning_ko": "저는 지불하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は支払いします。",
@@ -1184,22 +1184,22 @@
       "plain_present_affirmative": {
         "jp": "私は両替する。",
         "pron_ko": "와타시와 료우가에 스루。",
-        "meaning_ko": "나는 환전한다."
+        "meaning_ko": "저는 환전한다."
       },
       "plain_present_negative": {
         "jp": "私は両替しない。",
         "pron_ko": "와타시와 료우가에 시나이。",
-        "meaning_ko": "나는 환전하지 않는다."
+        "meaning_ko": "저는 환전하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は両替した。",
         "pron_ko": "와타시와 료우가에 시타。",
-        "meaning_ko": "나는 환전했다."
+        "meaning_ko": "저는 환전했다."
       },
       "plain_past_negative": {
         "jp": "私は両替しなかった。",
         "pron_ko": "와타시와 료우가에 시나캇타。",
-        "meaning_ko": "나는 환전하지 않았다."
+        "meaning_ko": "저는 환전하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は両替します。",
@@ -1235,22 +1235,22 @@
       "plain_present_affirmative": {
         "jp": "私は試着する。",
         "pron_ko": "와타시와 시챠쿠 스루。",
-        "meaning_ko": "나는 시착한다."
+        "meaning_ko": "저는 시착한다."
       },
       "plain_present_negative": {
         "jp": "私は試着しない。",
         "pron_ko": "와타시와 시챠쿠 시나이。",
-        "meaning_ko": "나는 시착하지 않는다."
+        "meaning_ko": "저는 시착하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は試着した。",
         "pron_ko": "와타시와 시챠쿠 시타。",
-        "meaning_ko": "나는 시착했다."
+        "meaning_ko": "저는 시착했다."
       },
       "plain_past_negative": {
         "jp": "私は試着しなかった。",
         "pron_ko": "와타시와 시챠쿠 시나캇타。",
-        "meaning_ko": "나는 시착하지 않았다."
+        "meaning_ko": "저는 시착하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は試着します。",
@@ -1286,22 +1286,22 @@
       "plain_present_affirmative": {
         "jp": "私は返品する。",
         "pron_ko": "와타시와 헨핀 스루。",
-        "meaning_ko": "나는 반품한다."
+        "meaning_ko": "저는 반품한다."
       },
       "plain_present_negative": {
         "jp": "私は返品しない。",
         "pron_ko": "와타시와 헨핀 시나이。",
-        "meaning_ko": "나는 반품하지 않는다."
+        "meaning_ko": "저는 반품하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は返品した。",
         "pron_ko": "와타시와 헨핀 시타。",
-        "meaning_ko": "나는 반품했다."
+        "meaning_ko": "저는 반품했다."
       },
       "plain_past_negative": {
         "jp": "私は返品しなかった。",
         "pron_ko": "와타시와 헨핀 시나캇타。",
-        "meaning_ko": "나는 반품하지 않았다."
+        "meaning_ko": "저는 반품하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は返品します。",
@@ -1337,22 +1337,22 @@
       "plain_present_affirmative": {
         "jp": "私は返金する。",
         "pron_ko": "와타시와 헨킨 스루。",
-        "meaning_ko": "나는 환불한다."
+        "meaning_ko": "저는 환불한다."
       },
       "plain_present_negative": {
         "jp": "私は返金しない。",
         "pron_ko": "와타시와 헨킨 시나이。",
-        "meaning_ko": "나는 환불하지 않는다."
+        "meaning_ko": "저는 환불하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は返金した。",
         "pron_ko": "와타시와 헨킨 시타。",
-        "meaning_ko": "나는 환불했다."
+        "meaning_ko": "저는 환불했다."
       },
       "plain_past_negative": {
         "jp": "私は返金しなかった。",
         "pron_ko": "와타시와 헨킨 시나캇타。",
-        "meaning_ko": "나는 환불하지 않았다."
+        "meaning_ko": "저는 환불하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は返金します。",
@@ -1388,22 +1388,22 @@
       "plain_present_affirmative": {
         "jp": "私は問い合わせする。",
         "pron_ko": "와타시와 토이아와세 스루。",
-        "meaning_ko": "나는 문의한다."
+        "meaning_ko": "저는 문의한다."
       },
       "plain_present_negative": {
         "jp": "私は問い合わせしない。",
         "pron_ko": "와타시와 토이아와세 시나이。",
-        "meaning_ko": "나는 문의하지 않는다."
+        "meaning_ko": "저는 문의하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は問い合わせした。",
         "pron_ko": "와타시와 토이아와세 시타。",
-        "meaning_ko": "나는 문의했다."
+        "meaning_ko": "저는 문의했다."
       },
       "plain_past_negative": {
         "jp": "私は問い合わせしなかった。",
         "pron_ko": "와타시와 토이아와세 시나캇타。",
-        "meaning_ko": "나는 문의하지 않았다."
+        "meaning_ko": "저는 문의하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は問い合わせします。",
@@ -1439,22 +1439,22 @@
       "plain_present_affirmative": {
         "jp": "私は案内する。",
         "pron_ko": "와타시와 안나이 스루。",
-        "meaning_ko": "나는 안내한다."
+        "meaning_ko": "저는 안내한다."
       },
       "plain_present_negative": {
         "jp": "私は案内しない。",
         "pron_ko": "와타시와 안나이 시나이。",
-        "meaning_ko": "나는 안내하지 않는다."
+        "meaning_ko": "저는 안내하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は案内した。",
         "pron_ko": "와타시와 안나이 시타。",
-        "meaning_ko": "나는 안내했다."
+        "meaning_ko": "저는 안내했다."
       },
       "plain_past_negative": {
         "jp": "私は案内しなかった。",
         "pron_ko": "와타시와 안나이 시나캇타。",
-        "meaning_ko": "나는 안내하지 않았다."
+        "meaning_ko": "저는 안내하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は案内します。",
@@ -1490,22 +1490,22 @@
       "plain_present_affirmative": {
         "jp": "私は道案内する。",
         "pron_ko": "와타시와 미치안나이 스루。",
-        "meaning_ko": "나는 길 안내한다."
+        "meaning_ko": "저는 길 안내한다."
       },
       "plain_present_negative": {
         "jp": "私は道案内しない。",
         "pron_ko": "와타시와 미치안나이 시나이。",
-        "meaning_ko": "나는 길 안내하지 않는다."
+        "meaning_ko": "저는 길 안내하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は道案内した。",
         "pron_ko": "와타시와 미치안나이 시타。",
-        "meaning_ko": "나는 길 안내했다."
+        "meaning_ko": "저는 길 안내했다."
       },
       "plain_past_negative": {
         "jp": "私は道案内しなかった。",
         "pron_ko": "와타시와 미치안나이 시나캇타。",
-        "meaning_ko": "나는 길 안내하지 않았다."
+        "meaning_ko": "저는 길 안내하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は道案内します。",
@@ -1541,22 +1541,22 @@
       "plain_present_affirmative": {
         "jp": "私は予約する。",
         "pron_ko": "와타시와 요야쿠 스루。",
-        "meaning_ko": "나는 예약한다."
+        "meaning_ko": "저는 예약한다."
       },
       "plain_present_negative": {
         "jp": "私は予約しない。",
         "pron_ko": "와타시와 요야쿠 시나이。",
-        "meaning_ko": "나는 예약하지 않는다."
+        "meaning_ko": "저는 예약하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は予約した。",
         "pron_ko": "와타시와 요야쿠 시타。",
-        "meaning_ko": "나는 예약했다."
+        "meaning_ko": "저는 예약했다."
       },
       "plain_past_negative": {
         "jp": "私は予約しなかった。",
         "pron_ko": "와타시와 요야쿠 시나캇타。",
-        "meaning_ko": "나는 예약하지 않았다."
+        "meaning_ko": "저는 예약하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は予約します。",
@@ -1592,22 +1592,22 @@
       "plain_present_affirmative": {
         "jp": "これは品切れだ。",
         "pron_ko": "코레와 시나기레 다。",
-        "meaning_ko": "이건 품절이다."
+        "meaning_ko": "이것은 품절이다."
       },
       "plain_present_negative": {
         "jp": "これは品切れじゃない。",
         "pron_ko": "코레와 시나기레 쟈나이。",
-        "meaning_ko": "이건 품절이 아니다."
+        "meaning_ko": "이것은 품절이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "これは品切れだった。",
         "pron_ko": "코레와 시나기레 닷타。",
-        "meaning_ko": "이건 품절이었다."
+        "meaning_ko": "이것은 품절이었다."
       },
       "plain_past_negative": {
         "jp": "これは品切れじゃなかった。",
         "pron_ko": "코레와 시나기레 쟈나캇타。",
-        "meaning_ko": "이건 품절이 아니었다."
+        "meaning_ko": "이것은 품절이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "これは品切れです。",
@@ -1643,22 +1643,22 @@
       "plain_present_affirmative": {
         "jp": "これは免税だ。",
         "pron_ko": "코레와 멘제이 다。",
-        "meaning_ko": "이건 면세이다."
+        "meaning_ko": "이것은 면세다."
       },
       "plain_present_negative": {
         "jp": "これは免税じゃない。",
         "pron_ko": "코레와 멘제이 쟈나이。",
-        "meaning_ko": "이건 면세이 아니다."
+        "meaning_ko": "이것은 면세가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "これは免税だった。",
         "pron_ko": "코레와 멘제이 닷타。",
-        "meaning_ko": "이건 면세이었다."
+        "meaning_ko": "이것은 면세였다."
       },
       "plain_past_negative": {
         "jp": "これは免税じゃなかった。",
         "pron_ko": "코레와 멘제이 쟈나캇타。",
-        "meaning_ko": "이건 면세이 아니었다."
+        "meaning_ko": "이것은 면세가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "これは免税です。",
@@ -1668,17 +1668,17 @@
       "polite_present_negative": {
         "jp": "これは免税ではありません。",
         "pron_ko": "코레와 멘제이 데와아리마센。",
-        "meaning_ko": "이것은 면세이 아닙니다."
+        "meaning_ko": "이것은 면세가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "これは免税でした。",
         "pron_ko": "코레와 멘제이 데시타。",
-        "meaning_ko": "이것은 면세이었습니다."
+        "meaning_ko": "이것은 면세였습니다."
       },
       "polite_past_negative": {
         "jp": "これは免税ではありませんでした。",
         "pron_ko": "코레와 멘제이 데와아리마센데시타。",
-        "meaning_ko": "이것은 면세이 아니었습니다."
+        "meaning_ko": "이것은 면세가 아니었습니다."
       }
     }
   },
@@ -1694,22 +1694,22 @@
       "plain_present_affirmative": {
         "jp": "これはクーポンだ。",
         "pron_ko": "코레와 쿠-폰 다。",
-        "meaning_ko": "이건 쿠폰이다."
+        "meaning_ko": "이것은 쿠폰이다."
       },
       "plain_present_negative": {
         "jp": "これはクーポンじゃない。",
         "pron_ko": "코레와 쿠-폰 쟈나이。",
-        "meaning_ko": "이건 쿠폰이 아니다."
+        "meaning_ko": "이것은 쿠폰이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "これはクーポンだった。",
         "pron_ko": "코레와 쿠-폰 닷타。",
-        "meaning_ko": "이건 쿠폰이었다."
+        "meaning_ko": "이것은 쿠폰이었다."
       },
       "plain_past_negative": {
         "jp": "これはクーポンじゃなかった。",
         "pron_ko": "코레와 쿠-폰 쟈나캇타。",
-        "meaning_ko": "이건 쿠폰이 아니었다."
+        "meaning_ko": "이것은 쿠폰이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "これはクーポンです。",
@@ -1796,22 +1796,22 @@
       "plain_present_affirmative": {
         "jp": "これはサイズ違いだ。",
         "pron_ko": "코레와 사이즈치가이 다。",
-        "meaning_ko": "이건 사이즈가 다름이다."
+        "meaning_ko": "이것은 사이즈가 다름이다."
       },
       "plain_present_negative": {
         "jp": "これはサイズ違いじゃない。",
         "pron_ko": "코레와 사이즈치가이 쟈나이。",
-        "meaning_ko": "이건 사이즈가 다름이 아니다."
+        "meaning_ko": "이것은 사이즈가 다름이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "これはサイズ違いだった。",
         "pron_ko": "코레와 사이즈치가이 닷타。",
-        "meaning_ko": "이건 사이즈가 다름이었다."
+        "meaning_ko": "이것은 사이즈가 다름이었다."
       },
       "plain_past_negative": {
         "jp": "これはサイズ違いじゃなかった。",
         "pron_ko": "코레와 사이즈치가이 쟈나캇타。",
-        "meaning_ko": "이건 사이즈가 다름이 아니었다."
+        "meaning_ko": "이것은 사이즈가 다름이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "これはサイズ違いです。",
@@ -1847,22 +1847,22 @@
       "plain_present_affirmative": {
         "jp": "私は乗車する。",
         "pron_ko": "와타시와 죠우샤 스루。",
-        "meaning_ko": "나는 승차한다."
+        "meaning_ko": "저는 승차한다."
       },
       "plain_present_negative": {
         "jp": "私は乗車しない。",
         "pron_ko": "와타시와 죠우샤 시나이。",
-        "meaning_ko": "나는 승차하지 않는다."
+        "meaning_ko": "저는 승차하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は乗車した。",
         "pron_ko": "와타시와 죠우샤 시타。",
-        "meaning_ko": "나는 승차했다."
+        "meaning_ko": "저는 승차했다."
       },
       "plain_past_negative": {
         "jp": "私は乗車しなかった。",
         "pron_ko": "와타시와 죠우샤 시나캇타。",
-        "meaning_ko": "나는 승차하지 않았다."
+        "meaning_ko": "저는 승차하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は乗車します。",
@@ -1898,22 +1898,22 @@
       "plain_present_affirmative": {
         "jp": "私は下車する。",
         "pron_ko": "와타시와 게샤 스루。",
-        "meaning_ko": "나는 하차한다."
+        "meaning_ko": "저는 하차한다."
       },
       "plain_present_negative": {
         "jp": "私は下車しない。",
         "pron_ko": "와타시와 게샤 시나이。",
-        "meaning_ko": "나는 하차하지 않는다."
+        "meaning_ko": "저는 하차하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は下車した。",
         "pron_ko": "와타시와 게샤 시타。",
-        "meaning_ko": "나는 하차했다."
+        "meaning_ko": "저는 하차했다."
       },
       "plain_past_negative": {
         "jp": "私は下車しなかった。",
         "pron_ko": "와타시와 게샤 시나캇타。",
-        "meaning_ko": "나는 하차하지 않았다."
+        "meaning_ko": "저는 하차하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は下車します。",
@@ -1949,22 +1949,22 @@
       "plain_present_affirmative": {
         "jp": "私は乗り換えする。",
         "pron_ko": "와타시와 노리카에 스루。",
-        "meaning_ko": "나는 환승한다."
+        "meaning_ko": "저는 환승한다."
       },
       "plain_present_negative": {
         "jp": "私は乗り換えしない。",
         "pron_ko": "와타시와 노리카에 시나이。",
-        "meaning_ko": "나는 환승하지 않는다."
+        "meaning_ko": "저는 환승하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は乗り換えした。",
         "pron_ko": "와타시와 노리카에 시타。",
-        "meaning_ko": "나는 환승했다."
+        "meaning_ko": "저는 환승했다."
       },
       "plain_past_negative": {
         "jp": "私は乗り換えしなかった。",
         "pron_ko": "와타시와 노리카에 시나캇타。",
-        "meaning_ko": "나는 환승하지 않았다."
+        "meaning_ko": "저는 환승하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は乗り換えします。",
@@ -2051,22 +2051,22 @@
       "plain_present_affirmative": {
         "jp": "私は共有する。",
         "pron_ko": "와타시와 쿄우유우 스루。",
-        "meaning_ko": "나는 공유한다."
+        "meaning_ko": "저는 공유한다."
       },
       "plain_present_negative": {
         "jp": "私は共有しない。",
         "pron_ko": "와타시와 쿄우유우 시나이。",
-        "meaning_ko": "나는 공유하지 않는다."
+        "meaning_ko": "저는 공유하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は共有した。",
         "pron_ko": "와타시와 쿄우유우 시타。",
-        "meaning_ko": "나는 공유했다."
+        "meaning_ko": "저는 공유했다."
       },
       "plain_past_negative": {
         "jp": "私は共有しなかった。",
         "pron_ko": "와타시와 쿄우유우 시나캇타。",
-        "meaning_ko": "나는 공유하지 않았다."
+        "meaning_ko": "저는 공유하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は共有します。",
@@ -2102,22 +2102,22 @@
       "plain_present_affirmative": {
         "jp": "私は報告する。",
         "pron_ko": "와타시와 호우코쿠 스루。",
-        "meaning_ko": "나는 보고한다."
+        "meaning_ko": "저는 보고한다."
       },
       "plain_present_negative": {
         "jp": "私は報告しない。",
         "pron_ko": "와타시와 호우코쿠 시나이。",
-        "meaning_ko": "나는 보고하지 않는다."
+        "meaning_ko": "저는 보고하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は報告した。",
         "pron_ko": "와타시와 호우코쿠 시타。",
-        "meaning_ko": "나는 보고했다."
+        "meaning_ko": "저는 보고했다."
       },
       "plain_past_negative": {
         "jp": "私は報告しなかった。",
         "pron_ko": "와타시와 호우코쿠 시나캇타。",
-        "meaning_ko": "나는 보고하지 않았다."
+        "meaning_ko": "저는 보고하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は報告します。",
@@ -2153,22 +2153,22 @@
       "plain_present_affirmative": {
         "jp": "私は依頼する。",
         "pron_ko": "와타시와 이라이 스루。",
-        "meaning_ko": "나는 의뢰한다."
+        "meaning_ko": "저는 의뢰한다."
       },
       "plain_present_negative": {
         "jp": "私は依頼しない。",
         "pron_ko": "와타시와 이라이 시나이。",
-        "meaning_ko": "나는 의뢰하지 않는다."
+        "meaning_ko": "저는 의뢰하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は依頼した。",
         "pron_ko": "와타시와 이라이 시타。",
-        "meaning_ko": "나는 의뢰했다."
+        "meaning_ko": "저는 의뢰했다."
       },
       "plain_past_negative": {
         "jp": "私は依頼しなかった。",
         "pron_ko": "와타시와 이라이 시나캇타。",
-        "meaning_ko": "나는 의뢰하지 않았다."
+        "meaning_ko": "저는 의뢰하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は依頼します。",
@@ -2204,22 +2204,22 @@
       "plain_present_affirmative": {
         "jp": "私は承認する。",
         "pron_ko": "와타시와 쇼우닌 스루。",
-        "meaning_ko": "나는 승인한다."
+        "meaning_ko": "저는 승인한다."
       },
       "plain_present_negative": {
         "jp": "私は承認しない。",
         "pron_ko": "와타시와 쇼우닌 시나이。",
-        "meaning_ko": "나는 승인하지 않는다."
+        "meaning_ko": "저는 승인하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は承認した。",
         "pron_ko": "와타시와 쇼우닌 시타。",
-        "meaning_ko": "나는 승인했다."
+        "meaning_ko": "저는 승인했다."
       },
       "plain_past_negative": {
         "jp": "私は承認しなかった。",
         "pron_ko": "와타시와 쇼우닌 시나캇타。",
-        "meaning_ko": "나는 승인하지 않았다."
+        "meaning_ko": "저는 승인하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は承認します。",
@@ -2255,22 +2255,22 @@
       "plain_present_affirmative": {
         "jp": "私は決裁する。",
         "pron_ko": "와타시와 켓사이 스루。",
-        "meaning_ko": "나는 결재한다."
+        "meaning_ko": "저는 결재한다."
       },
       "plain_present_negative": {
         "jp": "私は決裁しない。",
         "pron_ko": "와타시와 켓사이 시나이。",
-        "meaning_ko": "나는 결재하지 않는다."
+        "meaning_ko": "저는 결재하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は決裁した。",
         "pron_ko": "와타시와 켓사이 시타。",
-        "meaning_ko": "나는 결재했다."
+        "meaning_ko": "저는 결재했다."
       },
       "plain_past_negative": {
         "jp": "私は決裁しなかった。",
         "pron_ko": "와타시와 켓사이 시나캇타。",
-        "meaning_ko": "나는 결재하지 않았다."
+        "meaning_ko": "저는 결재하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は決裁します。",
@@ -2306,22 +2306,22 @@
       "plain_present_affirmative": {
         "jp": "私は調整する。",
         "pron_ko": "와타시와 쵸우세이 스루。",
-        "meaning_ko": "나는 조정한다."
+        "meaning_ko": "저는 조정한다."
       },
       "plain_present_negative": {
         "jp": "私は調整しない。",
         "pron_ko": "와타시와 쵸우세이 시나이。",
-        "meaning_ko": "나는 조정하지 않는다."
+        "meaning_ko": "저는 조정하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は調整した。",
         "pron_ko": "와타시와 쵸우세이 시타。",
-        "meaning_ko": "나는 조정했다."
+        "meaning_ko": "저는 조정했다."
       },
       "plain_past_negative": {
         "jp": "私は調整しなかった。",
         "pron_ko": "와타시와 쵸우세이 시나캇타。",
-        "meaning_ko": "나는 조정하지 않았다."
+        "meaning_ko": "저는 조정하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は調整します。",
@@ -2357,22 +2357,22 @@
       "plain_present_affirmative": {
         "jp": "私は進捗報告する。",
         "pron_ko": "와타시와 신쵸쿠호우코쿠 스루。",
-        "meaning_ko": "나는 진척 보고한다."
+        "meaning_ko": "저는 진척 보고한다."
       },
       "plain_present_negative": {
         "jp": "私は進捗報告しない。",
         "pron_ko": "와타시와 신쵸쿠호우코쿠 시나이。",
-        "meaning_ko": "나는 진척 보고하지 않는다."
+        "meaning_ko": "저는 진척 보고하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は進捗報告した。",
         "pron_ko": "와타시와 신쵸쿠호우코쿠 시타。",
-        "meaning_ko": "나는 진척 보고했다."
+        "meaning_ko": "저는 진척 보고했다."
       },
       "plain_past_negative": {
         "jp": "私は進捗報告しなかった。",
         "pron_ko": "와타시와 신쵸쿠호우코쿠 시나캇타。",
-        "meaning_ko": "나는 진척 보고하지 않았다."
+        "meaning_ko": "저는 진척 보고하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は進捗報告します。",
@@ -2408,22 +2408,22 @@
       "plain_present_affirmative": {
         "jp": "私は会議招待する。",
         "pron_ko": "와타시와 카이기쇼우타이 스루。",
-        "meaning_ko": "나는 회의 초대한다."
+        "meaning_ko": "저는 회의 초대한다."
       },
       "plain_present_negative": {
         "jp": "私は会議招待しない。",
         "pron_ko": "와타시와 카이기쇼우타이 시나이。",
-        "meaning_ko": "나는 회의 초대하지 않는다."
+        "meaning_ko": "저는 회의 초대하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は会議招待した。",
         "pron_ko": "와타시와 카이기쇼우타이 시타。",
-        "meaning_ko": "나는 회의 초대했다."
+        "meaning_ko": "저는 회의 초대했다."
       },
       "plain_past_negative": {
         "jp": "私は会議招待しなかった。",
         "pron_ko": "와타시와 카이기쇼우타이 시나캇타。",
-        "meaning_ko": "나는 회의 초대하지 않았다."
+        "meaning_ko": "저는 회의 초대하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は会議招待します。",
@@ -2459,22 +2459,22 @@
       "plain_present_affirmative": {
         "jp": "私は議題整理する。",
         "pron_ko": "와타시와 기다이세이리 스루。",
-        "meaning_ko": "나는 의제 정리한다."
+        "meaning_ko": "저는 의제 정리한다."
       },
       "plain_present_negative": {
         "jp": "私は議題整理しない。",
         "pron_ko": "와타시와 기다이세이리 시나이。",
-        "meaning_ko": "나는 의제 정리하지 않는다."
+        "meaning_ko": "저는 의제 정리하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は議題整理した。",
         "pron_ko": "와타시와 기다이세이리 시타。",
-        "meaning_ko": "나는 의제 정리했다."
+        "meaning_ko": "저는 의제 정리했다."
       },
       "plain_past_negative": {
         "jp": "私は議題整理しなかった。",
         "pron_ko": "와타시와 기다이세이리 시나캇타。",
-        "meaning_ko": "나는 의제 정리하지 않았다."
+        "meaning_ko": "저는 의제 정리하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は議題整理します。",
@@ -2510,22 +2510,22 @@
       "plain_present_affirmative": {
         "jp": "私は資料作成する。",
         "pron_ko": "와타시와 시료우사쿠세이 스루。",
-        "meaning_ko": "나는 자료 작성한다."
+        "meaning_ko": "저는 자료 작성한다."
       },
       "plain_present_negative": {
         "jp": "私は資料作成しない。",
         "pron_ko": "와타시와 시료우사쿠세이 시나이。",
-        "meaning_ko": "나는 자료 작성하지 않는다."
+        "meaning_ko": "저는 자료 작성하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は資料作成した。",
         "pron_ko": "와타시와 시료우사쿠세이 시타。",
-        "meaning_ko": "나는 자료 작성했다."
+        "meaning_ko": "저는 자료 작성했다."
       },
       "plain_past_negative": {
         "jp": "私は資料作成しなかった。",
         "pron_ko": "와타시와 시료우사쿠세이 시나캇타。",
-        "meaning_ko": "나는 자료 작성하지 않았다."
+        "meaning_ko": "저는 자료 작성하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は資料作成します。",
@@ -2561,22 +2561,22 @@
       "plain_present_affirmative": {
         "jp": "私は議事録作成する。",
         "pron_ko": "와타시와 기지로쿠사쿠세이 스루。",
-        "meaning_ko": "나는 회의록 작성한다."
+        "meaning_ko": "저는 회의록 작성한다."
       },
       "plain_present_negative": {
         "jp": "私は議事録作成しない。",
         "pron_ko": "와타시와 기지로쿠사쿠세이 시나이。",
-        "meaning_ko": "나는 회의록 작성하지 않는다."
+        "meaning_ko": "저는 회의록 작성하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は議事録作成した。",
         "pron_ko": "와타시와 기지로쿠사쿠세이 시타。",
-        "meaning_ko": "나는 회의록 작성했다."
+        "meaning_ko": "저는 회의록 작성했다."
       },
       "plain_past_negative": {
         "jp": "私は議事録作成しなかった。",
         "pron_ko": "와타시와 기지로쿠사쿠세이 시나캇타。",
-        "meaning_ko": "나는 회의록 작성하지 않았다."
+        "meaning_ko": "저는 회의록 작성하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は議事録作成します。",
@@ -2612,22 +2612,22 @@
       "plain_present_affirmative": {
         "jp": "私はフィードバックする。",
         "pron_ko": "와타시와 피-도박쿠 스루。",
-        "meaning_ko": "나는 피드백한다."
+        "meaning_ko": "저는 피드백한다."
       },
       "plain_present_negative": {
         "jp": "私はフィードバックしない。",
         "pron_ko": "와타시와 피-도박쿠 시나이。",
-        "meaning_ko": "나는 피드백하지 않는다."
+        "meaning_ko": "저는 피드백하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私はフィードバックした。",
         "pron_ko": "와타시와 피-도박쿠 시타。",
-        "meaning_ko": "나는 피드백했다."
+        "meaning_ko": "저는 피드백했다."
       },
       "plain_past_negative": {
         "jp": "私はフィードバックしなかった。",
         "pron_ko": "와타시와 피-도박쿠 시나캇타。",
-        "meaning_ko": "나는 피드백하지 않았다."
+        "meaning_ko": "저는 피드백하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私はフィードバックします。",
@@ -2663,22 +2663,22 @@
       "plain_present_affirmative": {
         "jp": "私はタスク管理する。",
         "pron_ko": "와타시와 타스쿠칸리 스루。",
-        "meaning_ko": "나는 태스크 관리한다."
+        "meaning_ko": "저는 태스크 관리한다."
       },
       "plain_present_negative": {
         "jp": "私はタスク管理しない。",
         "pron_ko": "와타시와 타스쿠칸리 시나이。",
-        "meaning_ko": "나는 태스크 관리하지 않는다."
+        "meaning_ko": "저는 태스크 관리하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私はタスク管理した。",
         "pron_ko": "와타시와 타스쿠칸리 시타。",
-        "meaning_ko": "나는 태스크 관리했다."
+        "meaning_ko": "저는 태스크 관리했다."
       },
       "plain_past_negative": {
         "jp": "私はタスク管理しなかった。",
         "pron_ko": "와타시와 타스쿠칸리 시나캇타。",
-        "meaning_ko": "나는 태스크 관리하지 않았다."
+        "meaning_ko": "저는 태스크 관리하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私はタスク管理します。",
@@ -2714,22 +2714,22 @@
       "plain_present_affirmative": {
         "jp": "私は締切設定する。",
         "pron_ko": "와타시와 시메키리셋테이 스루。",
-        "meaning_ko": "나는 마감 설정한다."
+        "meaning_ko": "저는 마감 설정한다."
       },
       "plain_present_negative": {
         "jp": "私は締切設定しない。",
         "pron_ko": "와타시와 시메키리셋테이 시나이。",
-        "meaning_ko": "나는 마감 설정하지 않는다."
+        "meaning_ko": "저는 마감 설정하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は締切設定した。",
         "pron_ko": "와타시와 시메키리셋테이 시타。",
-        "meaning_ko": "나는 마감 설정했다."
+        "meaning_ko": "저는 마감 설정했다."
       },
       "plain_past_negative": {
         "jp": "私は締切設定しなかった。",
         "pron_ko": "와타시와 시메키리셋테이 시나캇타。",
-        "meaning_ko": "나는 마감 설정하지 않았다."
+        "meaning_ko": "저는 마감 설정하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は締切設定します。",
@@ -2765,22 +2765,22 @@
       "plain_present_affirmative": {
         "jp": "私は修正依頼する。",
         "pron_ko": "와타시와 슈우세이이라이 스루。",
-        "meaning_ko": "나는 수정 의뢰한다."
+        "meaning_ko": "저는 수정 의뢰한다."
       },
       "plain_present_negative": {
         "jp": "私は修正依頼しない。",
         "pron_ko": "와타시와 슈우세이이라이 시나이。",
-        "meaning_ko": "나는 수정 의뢰하지 않는다."
+        "meaning_ko": "저는 수정 의뢰하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は修正依頼した。",
         "pron_ko": "와타시와 슈우세이이라이 시타。",
-        "meaning_ko": "나는 수정 의뢰했다."
+        "meaning_ko": "저는 수정 의뢰했다."
       },
       "plain_past_negative": {
         "jp": "私は修正依頼しなかった。",
         "pron_ko": "와타시와 슈우세이이라이 시나캇타。",
-        "meaning_ko": "나는 수정 의뢰하지 않았다."
+        "meaning_ko": "저는 수정 의뢰하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は修正依頼します。",
@@ -2816,22 +2816,22 @@
       "plain_present_affirmative": {
         "jp": "私は確認依頼する。",
         "pron_ko": "와타시와 카쿠닌이라이 스루。",
-        "meaning_ko": "나는 확인 요청한다."
+        "meaning_ko": "저는 확인 요청한다."
       },
       "plain_present_negative": {
         "jp": "私は確認依頼しない。",
         "pron_ko": "와타시와 카쿠닌이라이 시나이。",
-        "meaning_ko": "나는 확인 요청하지 않는다."
+        "meaning_ko": "저는 확인 요청하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は確認依頼した。",
         "pron_ko": "와타시와 카쿠닌이라이 시타。",
-        "meaning_ko": "나는 확인 요청했다."
+        "meaning_ko": "저는 확인 요청했다."
       },
       "plain_past_negative": {
         "jp": "私は確認依頼しなかった。",
         "pron_ko": "와타시와 카쿠닌이라이 시나캇타。",
-        "meaning_ko": "나는 확인 요청하지 않았다."
+        "meaning_ko": "저는 확인 요청하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は確認依頼します。",
@@ -2867,22 +2867,22 @@
       "plain_present_affirmative": {
         "jp": "私は共有先確認する。",
         "pron_ko": "와타시와 쿄우유우사키카쿠닌 스루。",
-        "meaning_ko": "나는 공유 대상 확인한다."
+        "meaning_ko": "저는 공유 대상 확인한다."
       },
       "plain_present_negative": {
         "jp": "私は共有先確認しない。",
         "pron_ko": "와타시와 쿄우유우사키카쿠닌 시나이。",
-        "meaning_ko": "나는 공유 대상 확인하지 않는다."
+        "meaning_ko": "저는 공유 대상 확인하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は共有先確認した。",
         "pron_ko": "와타시와 쿄우유우사키카쿠닌 시타。",
-        "meaning_ko": "나는 공유 대상 확인했다."
+        "meaning_ko": "저는 공유 대상 확인했다."
       },
       "plain_past_negative": {
         "jp": "私は共有先確認しなかった。",
         "pron_ko": "와타시와 쿄우유우사키카쿠닌 시나캇타。",
-        "meaning_ko": "나는 공유 대상 확인하지 않았다."
+        "meaning_ko": "저는 공유 대상 확인하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は共有先確認します。",
@@ -2969,22 +2969,22 @@
       "plain_present_affirmative": {
         "jp": "私は議事進行する。",
         "pron_ko": "와타시와 기지신코우 스루。",
-        "meaning_ko": "나는 회의 진행한다."
+        "meaning_ko": "저는 회의 진행한다."
       },
       "plain_present_negative": {
         "jp": "私は議事進行しない。",
         "pron_ko": "와타시와 기지신코우 시나이。",
-        "meaning_ko": "나는 회의 진행하지 않는다."
+        "meaning_ko": "저는 회의 진행하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は議事進行した。",
         "pron_ko": "와타시와 기지신코우 시타。",
-        "meaning_ko": "나는 회의 진행했다."
+        "meaning_ko": "저는 회의 진행했다."
       },
       "plain_past_negative": {
         "jp": "私は議事進行しなかった。",
         "pron_ko": "와타시와 기지신코우 시나캇타。",
-        "meaning_ko": "나는 회의 진행하지 않았다."
+        "meaning_ko": "저는 회의 진행하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は議事進行します。",
@@ -3020,22 +3020,22 @@
       "plain_present_affirmative": {
         "jp": "私は受診する。",
         "pron_ko": "와타시와 쥬신 스루。",
-        "meaning_ko": "나는 진료한다."
+        "meaning_ko": "저는 진료한다."
       },
       "plain_present_negative": {
         "jp": "私は受診しない。",
         "pron_ko": "와타시와 쥬신 시나이。",
-        "meaning_ko": "나는 진료하지 않는다."
+        "meaning_ko": "저는 진료하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は受診した。",
         "pron_ko": "와타시와 쥬신 시타。",
-        "meaning_ko": "나는 진료했다."
+        "meaning_ko": "저는 진료했다."
       },
       "plain_past_negative": {
         "jp": "私は受診しなかった。",
         "pron_ko": "와타시와 쥬신 시나캇타。",
-        "meaning_ko": "나는 진료하지 않았다."
+        "meaning_ko": "저는 진료하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は受診します。",
@@ -3071,22 +3071,22 @@
       "plain_present_affirmative": {
         "jp": "私は検査する。",
         "pron_ko": "와타시와 켄사 스루。",
-        "meaning_ko": "나는 검사한다."
+        "meaning_ko": "저는 검사한다."
       },
       "plain_present_negative": {
         "jp": "私は検査しない。",
         "pron_ko": "와타시와 켄사 시나이。",
-        "meaning_ko": "나는 검사하지 않는다."
+        "meaning_ko": "저는 검사하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は検査した。",
         "pron_ko": "와타시와 켄사 시타。",
-        "meaning_ko": "나는 검사했다."
+        "meaning_ko": "저는 검사했다."
       },
       "plain_past_negative": {
         "jp": "私は検査しなかった。",
         "pron_ko": "와타시와 켄사 시나캇타。",
-        "meaning_ko": "나는 검사하지 않았다."
+        "meaning_ko": "저는 검사하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は検査します。",
@@ -3122,22 +3122,22 @@
       "plain_present_affirmative": {
         "jp": "私は処置する。",
         "pron_ko": "와타시와 쇼치 스루。",
-        "meaning_ko": "나는 처치한다."
+        "meaning_ko": "저는 처치한다."
       },
       "plain_present_negative": {
         "jp": "私は処置しない。",
         "pron_ko": "와타시와 쇼치 시나이。",
-        "meaning_ko": "나는 처치하지 않는다."
+        "meaning_ko": "저는 처치하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は処置した。",
         "pron_ko": "와타시와 쇼치 시타。",
-        "meaning_ko": "나는 처치했다."
+        "meaning_ko": "저는 처치했다."
       },
       "plain_past_negative": {
         "jp": "私は処置しなかった。",
         "pron_ko": "와타시와 쇼치 시나캇타。",
-        "meaning_ko": "나는 처치하지 않았다."
+        "meaning_ko": "저는 처치하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は処置します。",
@@ -3173,22 +3173,22 @@
       "plain_present_affirmative": {
         "jp": "私は処方する。",
         "pron_ko": "와타시와 쇼호우 스루。",
-        "meaning_ko": "나는 처방한다."
+        "meaning_ko": "저는 처방한다."
       },
       "plain_present_negative": {
         "jp": "私は処方しない。",
         "pron_ko": "와타시와 쇼호우 시나이。",
-        "meaning_ko": "나는 처방하지 않는다."
+        "meaning_ko": "저는 처방하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は処方した。",
         "pron_ko": "와타시와 쇼호우 시타。",
-        "meaning_ko": "나는 처방했다."
+        "meaning_ko": "저는 처방했다."
       },
       "plain_past_negative": {
         "jp": "私は処方しなかった。",
         "pron_ko": "와타시와 쇼호우 시나캇타。",
-        "meaning_ko": "나는 처방하지 않았다."
+        "meaning_ko": "저는 처방하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は処方します。",
@@ -3224,22 +3224,22 @@
       "plain_present_affirmative": {
         "jp": "これは処方箋だ。",
         "pron_ko": "코레와 쇼호우센 다。",
-        "meaning_ko": "이건 처방전이다."
+        "meaning_ko": "이것은 처방전이다."
       },
       "plain_present_negative": {
         "jp": "これは処方箋じゃない。",
         "pron_ko": "코레와 쇼호우센 쟈나이。",
-        "meaning_ko": "이건 처방전이 아니다."
+        "meaning_ko": "이것은 처방전이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "これは処方箋だった。",
         "pron_ko": "코레와 쇼호우센 닷타。",
-        "meaning_ko": "이건 처방전이었다."
+        "meaning_ko": "이것은 처방전이었다."
       },
       "plain_past_negative": {
         "jp": "これは処方箋じゃなかった。",
         "pron_ko": "코레와 쇼호우센 쟈나캇타。",
-        "meaning_ko": "이건 처방전이 아니었다."
+        "meaning_ko": "이것은 처방전이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "これは処方箋です。",
@@ -3377,22 +3377,22 @@
       "plain_present_affirmative": {
         "jp": "私は再発行する。",
         "pron_ko": "와타시와 사이학코우 스루。",
-        "meaning_ko": "나는 재발급한다."
+        "meaning_ko": "저는 재발급한다."
       },
       "plain_present_negative": {
         "jp": "私は再発行しない。",
         "pron_ko": "와타시와 사이학코우 시나이。",
-        "meaning_ko": "나는 재발급하지 않는다."
+        "meaning_ko": "저는 재발급하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は再発行した。",
         "pron_ko": "와타시와 사이학코우 시타。",
-        "meaning_ko": "나는 재발급했다."
+        "meaning_ko": "저는 재발급했다."
       },
       "plain_past_negative": {
         "jp": "私は再発行しなかった。",
         "pron_ko": "와타시와 사이학코우 시나캇타。",
-        "meaning_ko": "나는 재발급하지 않았다."
+        "meaning_ko": "저는 재발급하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は再発行します。",
@@ -3428,22 +3428,22 @@
       "plain_present_affirmative": {
         "jp": "私は手続きする。",
         "pron_ko": "와타시와 테츠즈키 스루。",
-        "meaning_ko": "나는 절차한다."
+        "meaning_ko": "저는 절차한다."
       },
       "plain_present_negative": {
         "jp": "私は手続きしない。",
         "pron_ko": "와타시와 테츠즈키 시나이。",
-        "meaning_ko": "나는 절차하지 않는다."
+        "meaning_ko": "저는 절차하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は手続きした。",
         "pron_ko": "와타시와 테츠즈키 시타。",
-        "meaning_ko": "나는 절차했다."
+        "meaning_ko": "저는 절차했다."
       },
       "plain_past_negative": {
         "jp": "私は手続きしなかった。",
         "pron_ko": "와타시와 테츠즈키 시나캇타。",
-        "meaning_ko": "나는 절차하지 않았다."
+        "meaning_ko": "저는 절차하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は手続きします。",
@@ -3479,22 +3479,22 @@
       "plain_present_affirmative": {
         "jp": "私は申請する。",
         "pron_ko": "와타시와 신세이 스루。",
-        "meaning_ko": "나는 신청한다."
+        "meaning_ko": "저는 신청한다."
       },
       "plain_present_negative": {
         "jp": "私は申請しない。",
         "pron_ko": "와타시와 신세이 시나이。",
-        "meaning_ko": "나는 신청하지 않는다."
+        "meaning_ko": "저는 신청하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は申請した。",
         "pron_ko": "와타시와 신세이 시타。",
-        "meaning_ko": "나는 신청했다."
+        "meaning_ko": "저는 신청했다."
       },
       "plain_past_negative": {
         "jp": "私は申請しなかった。",
         "pron_ko": "와타시와 신세이 시나캇타。",
-        "meaning_ko": "나는 신청하지 않았다."
+        "meaning_ko": "저는 신청하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は申請します。",
@@ -3530,22 +3530,22 @@
       "plain_present_affirmative": {
         "jp": "私は届け出する。",
         "pron_ko": "와타시와 토도케데 스루。",
-        "meaning_ko": "나는 신고/제출한다."
+        "meaning_ko": "저는 신고/제출한다."
       },
       "plain_present_negative": {
         "jp": "私は届け出しない。",
         "pron_ko": "와타시와 토도케데 시나이。",
-        "meaning_ko": "나는 신고/제출하지 않는다."
+        "meaning_ko": "저는 신고/제출하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は届け出した。",
         "pron_ko": "와타시와 토도케데 시타。",
-        "meaning_ko": "나는 신고/제출했다."
+        "meaning_ko": "저는 신고/제출했다."
       },
       "plain_past_negative": {
         "jp": "私は届け出しなかった。",
         "pron_ko": "와타시와 토도케데 시나캇타。",
-        "meaning_ko": "나는 신고/제출하지 않았다."
+        "meaning_ko": "저는 신고/제출하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は届け出します。",
@@ -3581,22 +3581,22 @@
       "plain_present_affirmative": {
         "jp": "私は紛失届する。",
         "pron_ko": "와타시와 훈시츠토도케 스루。",
-        "meaning_ko": "나는 분실 신고한다."
+        "meaning_ko": "저는 분실 신고한다."
       },
       "plain_present_negative": {
         "jp": "私は紛失届しない。",
         "pron_ko": "와타시와 훈시츠토도케 시나이。",
-        "meaning_ko": "나는 분실 신고하지 않는다."
+        "meaning_ko": "저는 분실 신고하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は紛失届した。",
         "pron_ko": "와타시와 훈시츠토도케 시타。",
-        "meaning_ko": "나는 분실 신고했다."
+        "meaning_ko": "저는 분실 신고했다."
       },
       "plain_past_negative": {
         "jp": "私は紛失届しなかった。",
         "pron_ko": "와타시와 훈시츠토도케 시나캇타。",
-        "meaning_ko": "나는 분실 신고하지 않았다."
+        "meaning_ko": "저는 분실 신고하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は紛失届します。",
@@ -3632,22 +3632,22 @@
       "plain_present_affirmative": {
         "jp": "私は盗難届する。",
         "pron_ko": "와타시와 토우난토도케 스루。",
-        "meaning_ko": "나는 도난 신고한다."
+        "meaning_ko": "저는 도난 신고한다."
       },
       "plain_present_negative": {
         "jp": "私は盗難届しない。",
         "pron_ko": "와타시와 토우난토도케 시나이。",
-        "meaning_ko": "나는 도난 신고하지 않는다."
+        "meaning_ko": "저는 도난 신고하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は盗難届した。",
         "pron_ko": "와타시와 토우난토도케 시타。",
-        "meaning_ko": "나는 도난 신고했다."
+        "meaning_ko": "저는 도난 신고했다."
       },
       "plain_past_negative": {
         "jp": "私は盗難届しなかった。",
         "pron_ko": "와타시와 토우난토도케 시나캇타。",
-        "meaning_ko": "나는 도난 신고하지 않았다."
+        "meaning_ko": "저는 도난 신고하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は盗難届します。",
@@ -3683,22 +3683,22 @@
       "plain_present_affirmative": {
         "jp": "これは保険証だ。",
         "pron_ko": "코레와 호켄쇼우 다。",
-        "meaning_ko": "이건 보험증이다."
+        "meaning_ko": "이것은 보험증이다."
       },
       "plain_present_negative": {
         "jp": "これは保険証じゃない。",
         "pron_ko": "코레와 호켄쇼우 쟈나이。",
-        "meaning_ko": "이건 보험증이 아니다."
+        "meaning_ko": "이것은 보험증이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "これは保険証だった。",
         "pron_ko": "코레와 호켄쇼우 닷타。",
-        "meaning_ko": "이건 보험증이었다."
+        "meaning_ko": "이것은 보험증이었다."
       },
       "plain_past_negative": {
         "jp": "これは保険証じゃなかった。",
         "pron_ko": "코레와 호켄쇼우 쟈나캇타。",
-        "meaning_ko": "이건 보험증이 아니었다."
+        "meaning_ko": "이것은 보험증이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "これは保険証です。",
@@ -3734,22 +3734,22 @@
       "plain_present_affirmative": {
         "jp": "これは運転免許証だ。",
         "pron_ko": "코레와 운텐멘쿄쇼우 다。",
-        "meaning_ko": "이건 운전면허증이다."
+        "meaning_ko": "이것은 운전면허증이다."
       },
       "plain_present_negative": {
         "jp": "これは運転免許証じゃない。",
         "pron_ko": "코레와 운텐멘쿄쇼우 쟈나이。",
-        "meaning_ko": "이건 운전면허증이 아니다."
+        "meaning_ko": "이것은 운전면허증이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "これは運転免許証だった。",
         "pron_ko": "코레와 운텐멘쿄쇼우 닷타。",
-        "meaning_ko": "이건 운전면허증이었다."
+        "meaning_ko": "이것은 운전면허증이었다."
       },
       "plain_past_negative": {
         "jp": "これは運転免許証じゃなかった。",
         "pron_ko": "코레와 운텐멘쿄쇼우 쟈나캇타。",
-        "meaning_ko": "이건 운전면허증이 아니었다."
+        "meaning_ko": "이것은 운전면허증이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "これは運転免許証です。",
@@ -3785,22 +3785,22 @@
       "plain_present_affirmative": {
         "jp": "これはパスポートだ。",
         "pron_ko": "코레와 파스포-토 다。",
-        "meaning_ko": "이건 여권이다."
+        "meaning_ko": "이것은 여권이다."
       },
       "plain_present_negative": {
         "jp": "これはパスポートじゃない。",
         "pron_ko": "코레와 파스포-토 쟈나이。",
-        "meaning_ko": "이건 여권이 아니다."
+        "meaning_ko": "이것은 여권이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "これはパスポートだった。",
         "pron_ko": "코레와 파스포-토 닷타。",
-        "meaning_ko": "이건 여권이었다."
+        "meaning_ko": "이것은 여권이었다."
       },
       "plain_past_negative": {
         "jp": "これはパスポートじゃなかった。",
         "pron_ko": "코레와 파스포-토 쟈나캇타。",
-        "meaning_ko": "이건 여권이 아니었다."
+        "meaning_ko": "이것은 여권이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "これはパスポートです。",
@@ -3836,22 +3836,22 @@
       "plain_present_affirmative": {
         "jp": "私は通訳する。",
         "pron_ko": "와타시와 츠우야쿠 스루。",
-        "meaning_ko": "나는 통역한다."
+        "meaning_ko": "저는 통역한다."
       },
       "plain_present_negative": {
         "jp": "私は通訳しない。",
         "pron_ko": "와타시와 츠우야쿠 시나이。",
-        "meaning_ko": "나는 통역하지 않는다."
+        "meaning_ko": "저는 통역하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は通訳した。",
         "pron_ko": "와타시와 츠우야쿠 시타。",
-        "meaning_ko": "나는 통역했다."
+        "meaning_ko": "저는 통역했다."
       },
       "plain_past_negative": {
         "jp": "私は通訳しなかった。",
         "pron_ko": "와타시와 츠우야쿠 시나캇타。",
-        "meaning_ko": "나는 통역하지 않았다."
+        "meaning_ko": "저는 통역하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は通訳します。",
@@ -3887,22 +3887,22 @@
       "plain_present_affirmative": {
         "jp": "私は救助要請する。",
         "pron_ko": "와타시와 큐우죠요우세이 스루。",
-        "meaning_ko": "나는 구조 요청한다."
+        "meaning_ko": "저는 구조 요청한다."
       },
       "plain_present_negative": {
         "jp": "私は救助要請しない。",
         "pron_ko": "와타시와 큐우죠요우세이 시나이。",
-        "meaning_ko": "나는 구조 요청하지 않는다."
+        "meaning_ko": "저는 구조 요청하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は救助要請した。",
         "pron_ko": "와타시와 큐우죠요우세이 시타。",
-        "meaning_ko": "나는 구조 요청했다."
+        "meaning_ko": "저는 구조 요청했다."
       },
       "plain_past_negative": {
         "jp": "私は救助要請しなかった。",
         "pron_ko": "와타시와 큐우죠요우세이 시나캇타。",
-        "meaning_ko": "나는 구조 요청하지 않았다."
+        "meaning_ko": "저는 구조 요청하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は救助要請します。",
@@ -3938,22 +3938,22 @@
       "plain_present_affirmative": {
         "jp": "これは緊急事態だ。",
         "pron_ko": "코레와 킨큐우지타이 다。",
-        "meaning_ko": "이건 긴급 상황이다."
+        "meaning_ko": "이것은 긴급 상황이다."
       },
       "plain_present_negative": {
         "jp": "これは緊急事態じゃない。",
         "pron_ko": "코레와 킨큐우지타이 쟈나이。",
-        "meaning_ko": "이건 긴급 상황이 아니다."
+        "meaning_ko": "이것은 긴급 상황이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "これは緊急事態だった。",
         "pron_ko": "코레와 킨큐우지타이 닷타。",
-        "meaning_ko": "이건 긴급 상황이었다."
+        "meaning_ko": "이것은 긴급 상황이었다."
       },
       "plain_past_negative": {
         "jp": "これは緊急事態じゃなかった。",
         "pron_ko": "코레와 킨큐우지타이 쟈나캇타。",
-        "meaning_ko": "이건 긴급 상황이 아니었다."
+        "meaning_ko": "이것은 긴급 상황이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "これは緊急事態です。",
@@ -3989,22 +3989,22 @@
       "plain_present_affirmative": {
         "jp": "私は警察連絡する。",
         "pron_ko": "와타시와 케이사츠렌라쿠 스루。",
-        "meaning_ko": "나는 경찰 연락한다."
+        "meaning_ko": "저는 경찰 연락한다."
       },
       "plain_present_negative": {
         "jp": "私は警察連絡しない。",
         "pron_ko": "와타시와 케이사츠렌라쿠 시나이。",
-        "meaning_ko": "나는 경찰 연락하지 않는다."
+        "meaning_ko": "저는 경찰 연락하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私は警察連絡した。",
         "pron_ko": "와타시와 케이사츠렌라쿠 시타。",
-        "meaning_ko": "나는 경찰 연락했다."
+        "meaning_ko": "저는 경찰 연락했다."
       },
       "plain_past_negative": {
         "jp": "私は警察連絡しなかった。",
         "pron_ko": "와타시와 케이사츠렌라쿠 시나캇타。",
-        "meaning_ko": "나는 경찰 연락하지 않았다."
+        "meaning_ko": "저는 경찰 연락하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私は警察連絡します。",
@@ -4040,22 +4040,22 @@
       "plain_present_affirmative": {
         "jp": "私はサポートする。",
         "pron_ko": "와타시와 사포-토 스루。",
-        "meaning_ko": "나는 지원한다."
+        "meaning_ko": "저는 지원한다."
       },
       "plain_present_negative": {
         "jp": "私はサポートしない。",
         "pron_ko": "와타시와 사포-토 시나이。",
-        "meaning_ko": "나는 지원하지 않는다."
+        "meaning_ko": "저는 지원하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "私はサポートした。",
         "pron_ko": "와타시와 사포-토 시타。",
-        "meaning_ko": "나는 지원했다."
+        "meaning_ko": "저는 지원했다."
       },
       "plain_past_negative": {
         "jp": "私はサポートしなかった。",
         "pron_ko": "와타시와 사포-토 시나캇타。",
-        "meaning_ko": "나는 지원하지 않았다."
+        "meaning_ko": "저는 지원하지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "私はサポートします。",
