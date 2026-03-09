@@ -89,6 +89,10 @@
             color: #6b7280;
             line-height: 1.2;
         }
+        .count-badge-tight {
+            font-size: 0.62rem !important;
+            letter-spacing: -0.01em;
+        }
         .test-trigger,
         .test-status {
             visibility: hidden;
@@ -139,6 +143,7 @@
         @media (max-width: 768px) {
             .page-title { font-size: 1.55rem; }
             .page-subtitle { font-size: 0.68rem; letter-spacing: 0.1em; }
+            .count-badge-tight { font-size: 0.56rem !important; }
             .top-nav { width: 100%; justify-content: flex-start; gap: 0.35rem; }
             .top-nav a, .top-nav span {
                 padding: 0.5rem 0.72rem !important;
@@ -566,6 +571,10 @@
                 return "bg-orange-100 text-orange-700";
             }
 
+            function getCountSizeClass(value) {
+                return Number(value || 0) >= 10 ? "count-badge-tight" : "";
+            }
+
             function incrementFormStudy(week, yomi, formKey) {
                 const scopedKey = makeFormScopedKey(week, yomi, formKey);
                 const today = new Date().toISOString().split("T")[0];
@@ -581,7 +590,7 @@
                 if (studyBadge) {
                     const count = Number(current.count || 0);
                     studyBadge.textContent = `S ${String(count)}`;
-                    studyBadge.className = `px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(count)}`;
+                    studyBadge.className = `px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(count)} ${getCountSizeClass(count)}`;
                 }
                 updateStatsUI();
             }
@@ -604,7 +613,7 @@
                 if (failBadge) {
                     const fail = Number(testDataCache[scopedKey].fail || 0);
                     failBadge.textContent = `F ${String(fail)}`;
-                    failBadge.className = `px-2 py-1 rounded-full text-xs font-bold ${getFailBadgeClass(fail)}`;
+                    failBadge.className = `px-2 py-1 rounded-full text-xs font-bold ${getFailBadgeClass(fail)} ${getCountSizeClass(fail)}`;
                 }
                 updateStatsUI();
             }
@@ -840,6 +849,8 @@
                         const failCount = getFormFail(scopedKey) || 0;
                         const studyBadgeClass = getCountBadgeClass(Number(studyCount || 0));
                         const failBadgeClass = getFailBadgeClass(Number(failCount || 0));
+                        const studySizeClass = getCountSizeClass(Number(studyCount || 0));
+                        const failSizeClass = getCountSizeClass(Number(failCount || 0));
                         renderedRows.push({ scopedKey });
                         return `
                             <div class="form-row p-3">
@@ -853,8 +864,8 @@
                                     </div>
                                     <div class="flex flex-col items-end gap-1">
                                         <div class="flex items-center gap-1">
-                                            <span class="px-2 py-1 rounded-full text-xs font-bold ${studyBadgeClass}" data-study-key="${scopedKey}">S ${studyCount}</span>
-                                            <span class="px-2 py-1 rounded-full text-xs font-bold ${failBadgeClass}" data-fail-key="${scopedKey}">F ${failCount}</span>
+                                            <span class="px-2 py-1 rounded-full text-xs font-bold ${studyBadgeClass} ${studySizeClass}" data-study-key="${scopedKey}">S ${studyCount}</span>
+                                            <span class="px-2 py-1 rounded-full text-xs font-bold ${failBadgeClass} ${failSizeClass}" data-fail-key="${scopedKey}">F ${failCount}</span>
                                         </div>
                                         <div class="flex items-center gap-1">
                                             <button class="audio-btn p-2 rounded-full border border-black transition-all play-trigger" data-scoped-key="${scopedKey}" type="button">

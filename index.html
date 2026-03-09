@@ -32,6 +32,10 @@
         .monotone-border { border: 1px solid #e5e5e5; }
         .audio-btn:hover { background-color: #f3f3f3; transform: scale(1.05); }
         .audio-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .count-badge-tight {
+            font-size: 0.62rem !important;
+            letter-spacing: -0.01em;
+        }
 
         .loading-spinner {
             animation: spin 1s linear infinite;
@@ -413,6 +417,7 @@
             .diff-btn { font-size: 0.52rem; }
             .mobile-compact .audio-btn { padding: 0.2rem; }
             .mobile-compact .audio-btn svg { width: 12px; height: 12px; }
+            .count-badge-tight { font-size: 0.56rem !important; }
             .test-btn { font-size: 0.56rem; padding: 0.08rem 0.3rem; }
             .test-status { font-size: 0.52rem; max-width: 90px; }
             .word-cell-box { min-height: 3.9rem; }
@@ -993,7 +998,7 @@
             const badge = row ? row.querySelector('.count-study-badge') : null;
             if (badge) {
                 badge.textContent = `S ${count}`;
-                badge.className = `count-study-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(count)}`;
+                badge.className = `count-study-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(count)} ${getCountSizeClass(count)}`;
             }
         }
 
@@ -1005,7 +1010,7 @@
             if (badge) {
                 const failCount = getSpeechTestFailCount(week, yomi);
                 badge.textContent = `F ${failCount}`;
-                badge.className = `count-fail-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getFailBadgeClass(failCount)}`;
+                badge.className = `count-fail-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getFailBadgeClass(failCount)} ${getCountSizeClass(failCount)}`;
             }
         }
 
@@ -1013,6 +1018,10 @@
             if (count === 0) return 'bg-gray-200 text-gray-500';
             if (count <= 5) return 'bg-blue-100 text-blue-600';
             return 'bg-green-100 text-green-600';
+        }
+
+        function getCountSizeClass(value) {
+            return Number(value || 0) >= 10 ? 'count-badge-tight' : '';
         }
 
         function updateStatsUI() {
@@ -2501,8 +2510,8 @@
                     </td>
                     <td class="p-1 md:p-4 text-center focus-col-count">
                         <div class="inline-flex items-center gap-1">
-                            <span class="count-study-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(studyCount)}">S ${studyCount}</span>
-                            <span class="count-fail-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getFailBadgeClass(failCount)}">F ${failCount}</span>
+                            <span class="count-study-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(studyCount)} ${getCountSizeClass(studyCount)}">S ${studyCount}</span>
+                            <span class="count-fail-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getFailBadgeClass(failCount)} ${getCountSizeClass(failCount)}">F ${failCount}</span>
                         </div>
                         ${resetBtnHtml}
                     </td>
