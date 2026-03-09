@@ -13,8 +13,8 @@ import json
 from pathlib import Path
 
 
-EXPECTED_COLUMNS = 7
-EXPECTED_KEYS = (
+BASE_COLUMNS = 7
+BASE_KEYS = (
     "word",
     "yomi",
     "meaning",
@@ -23,6 +23,44 @@ EXPECTED_KEYS = (
     "s_meaning",
     "s_pron",
 )
+
+FORM_KEYS = (
+    "plain_present_affirmative",
+    "plain_present_negative",
+    "plain_past_affirmative",
+    "plain_past_negative",
+    "polite_present_affirmative",
+    "polite_present_negative",
+    "polite_past_affirmative",
+    "polite_past_negative",
+)
+
+FORM_COLUMNS_PER_ITEM = 3  # jp, pron_ko, meaning_ko
+EXTENDED_COLUMNS = BASE_COLUMNS + len(FORM_KEYS) * FORM_COLUMNS_PER_ITEM
+
+
+def make_empty_forms() -> dict[str, dict[str, str]]:
+    return {
+        form_key: {
+            "jp": "",
+            "pron_ko": "",
+            "meaning_ko": "",
+        }
+        for form_key in FORM_KEYS
+    }
+
+
+def parse_extended_forms(parts: list[str]) -> dict[str, dict[str, str]]:
+    forms = make_empty_forms()
+    start = BASE_COLUMNS
+    for idx, form_key in enumerate(FORM_KEYS):
+        offset = start + idx * FORM_COLUMNS_PER_ITEM
+        forms[form_key] = {
+            "jp": parts[offset],
+            "pron_ko": parts[offset + 1],
+            "meaning_ko": parts[offset + 2],
+        }
+    return forms
 
 
 def parse_args() -> argparse.Namespace:
@@ -38,19 +76,25 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def build_rows(input_path: Path) -> list[dict[str, str]]:
-    rows: list[dict[str, str]] = []
+def build_rows(input_path: Path) -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
     for line_no, raw in enumerate(input_path.read_text(encoding="utf-8").splitlines(), start=1):
         line = raw.strip("\ufeff").strip()
         if not line:
             continue
         parts = [p.strip() for p in line.split("\t")]
-        if len(parts) != EXPECTED_COLUMNS:
+        if len(parts) not in (BASE_COLUMNS, EXTENDED_COLUMNS):
             raise ValueError(
-                f"Line {line_no}: expected {EXPECTED_COLUMNS} tab columns, got {len(parts)}\n"
+                f"Line {line_no}: expected {BASE_COLUMNS} or {EXTENDED_COLUMNS} tab columns, got {len(parts)}\n"
                 f"line={raw!r}"
             )
-        rows.append(dict(zip(EXPECTED_KEYS, parts)))
+        row = dict(zip(BASE_KEYS, parts[:BASE_COLUMNS]))
+        if len(parts) == EXTENDED_COLUMNS:
+            row["sentence_forms"] = parse_extended_forms(parts)
+        else:
+            # Keep schema consistent for legacy 7-column files.
+            row["sentence_forms"] = make_empty_forms()
+        rows.append(row)
     return rows
 
 

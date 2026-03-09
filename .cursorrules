@@ -1,0 +1,294 @@
+# Japanese AI Project Rules (japan-vocab)
+# 저장소: https://github.com/realonep/japan-vocab.git  브랜치: main
+
+## Language & Communication
+- 모든 사용자 응답은 한국어로 작성한다.
+- 단순 설명보다 실제 코드 반영을 우선한다(사용자가 계획만 요청한 경우 제외).
+- 변경 이유와 영향 범위를 짧게 명확히 설명한다.
+
+---
+
+## Technology Stack
+- **프론트엔드**: HTML5 / Vanilla JS (ES6+) / Tailwind CSS (CDN)
+- **빌드 도구 없음**: `webpack`, `vite`, `npm` 등 빌드 체인을 사용하지 않는다.
+- **폰트**: Google Fonts — `Inter` (기본 UI) + `Noto Sans JP` (일본어 표기)
+- **백엔드 API**: Cloudflare Worker (`https://japan-api.garagehousekr.workers.dev`)
+  - `GET  /users`            — 사용자 목록 조회
+  - `POST /login`            — `{ username, password_hash }` (SHA-256 해시된 패스워드)
+  - `GET  /study/:username`  — 학습/테스트 데이터 일괄 로드
+  - `POST /study`            — `{ username, word_yomi, count, clicks, last_studied }`
+  - `POST /tts`              — Google Cloud TTS 프록시 (MP3 base64 응답)
+- **TTS 캐시**: IndexedDB (`japanese-tts-cache`) — 7일 만료, 동일 텍스트 재사용
+- **인증**: SHA-256 해시 → API 검증 → `localStorage.loggedInUser` 저장
+
+---
+
+## Folder Structure
+```
+japan/
+├── index.html          # 단어 학습 (로그인 포함, auth-guard 불필요)
+├── grammar.html        # 문법 학습
+├── kana.html           # 히라가나/카타카나 학습
+├── numbers.html        # 수체계 학습
+├── forms.html          # 기본변형 (sentence_forms 데이터 기반)
+├── tts.js              # 공용 TTS 모듈 (IIFE 패턴)
+├── auth-guard.js       # 비로그인 리다이렉트 (index.html 제외 전 페이지 적용)
+├── DATA_WORKFLOW.md    # 데이터 추가 절차 문서
+├── merge_data.py       # (유틸) 데이터 병합 스크립트
+├── assets/
+│   ├── chrome_setting.png   # 마이크 가이드 이미지
+│   ├── safari_setting01.png
+│   └── safari_setting02.png
+├── data/
+│   └── week{N}.json    # N = 1,2,3,4,5,6,9 (현재 존재)
+└── scripts/
+    └── import_week_data.py  # 탭구분 TXT → JSON 변환
+```
+- 새 HTML 페이지는 루트에 추가한다.
+- 이미지 에셋은 `assets/`에 배치한다.
+- 데이터 JSON은 `data/`에만 저장한다.
+
+---
+
+## Page Conventions
+- 모든 페이지 공통 헤더 구조:
+  ```html
+  <div class="page-title">TITLE</div>
+  <div class="page-subtitle">SUBTITLE</div>
+  ```
+- 상단 네비 버튼 순서 (모든 페이지 동일): **단어 → 문법 → 가나 → 수체계 → 기본변형**
+- 새 페이지 추가 시 **모든 기존 페이지의 네비 링크에도 추가**한다.
+- `index.html`을 제외한 모든 페이지는 `<head>`에 `<script src="auth-guard.js"></script>` 포함.
+- TTS 컨트롤(음성 선택 + 상태 표시)은 모든 페이지에서 동일한 UI/기본값을 사용한다.
+
+---
+
+## Data Schema (data/week{N}.json)
+```jsonc
+{
+  "word":      "自己紹介",   // 일본어 단어
+  "yomi":      "じこしょうかい", // 히라가나 읽기 (DB 키로 사용)
+  "meaning":   "자기소개",   // 한글 뜻
+  "word_pron": "지코쇼우카이", // 한글 발음
+  "sentence":  "私は自己紹介します。",
+  "s_meaning": "저는 자기소개합니다.",
+  "s_pron":    "와타시와 지코쇼우카이 시마스。",
+  "sentence_forms": {        // 8개 변형 (데이터 없으면 빈 문자열)
+    "plain_present_affirmative":  { "jp": "", "pron_ko": "", "meaning_ko": "" },
+    "plain_present_negative":     { "jp": "", "pron_ko": "", "meaning_ko": "" },
+    "plain_past_affirmative":     { "jp": "", "pron_ko": "", "meaning_ko": "" },
+    "plain_past_negative":        { "jp": "", "pron_ko": "", "meaning_ko": "" },
+    "polite_present_affirmative": { "jp": "", "pron_ko": "", "meaning_ko": "" },
+    "polite_present_negative":    { "jp": "", "pron_ko": "", "meaning_ko": "" },
+    "polite_past_affirmative":    { "jp": "", "pron_ko": "", "meaning_ko": "" },
+    "polite_past_negative":       { "jp": "", "pron_ko": "", "meaning_ko": "" }
+  }
+}
+```
+- 신규 로직은 `sentence_forms` 값이 비어 있어도 기존 동작이 깨지지 않도록 방어 처리한다.
+- `yomi`는 학습/테스트 데이터의 기본 키로 사용되므로 변경하지 않는다.
+
+---
+
+## Import Script Usage (scripts/import_week_data.py)
+```bash
+# 7열 (기본) 또는 31열 (기본 7 + 변형 24) 탭구분 TXT 처리
+python3 scripts/import_week_data.py --week 7 --input "/path/to/week7.txt"
+# 출력: data/week7.json (자동 생성)
+```
+- **7열**: `word, yomi, meaning, word_pron, sentence, s_meaning, s_pron`
+- **31열**: 위 7열 + `(jp, pron_ko, meaning_ko) × 8폼`
+- 두 형식 외 열 수는 에러로 거부한다.
+- 데이터 수작업 수정은 최소화하고 스크립트 기반 재생성을 우선한다.
+
+---
+
+## Naming Conventions
+
+### localStorage Keys
+| 용도 | 키 패턴 |
+|------|---------|
+| 로그인 사용자 | `loggedInUser` |
+| 학습 카운트 (백업) | `study_count_{username}` |
+| 음성테스트 결과 (백업) | `speech_test_backup_{username}` |
+| 마이크 가이드 완료 플래그 | `mic_guide_completed` |
+| 뜻만 보기 상태 | `focus_mode` |
+
+### Backend Data Keys (word_yomi 필드로 저장)
+| 용도 | 키 형식 | 예시 |
+|------|---------|------|
+| 단어 학습 카운트 | `{week}::{yomi}` | `1::じこしょうかい` |
+| 음성 테스트 결과 | `test::{week}::{yomi}` | `test::1::じこしょうかい` |
+| 기본변형 학습 카운트 | `form::{week}::{yomi}::{formKey}` | `form::9::じこしょうかい::plain_present_affirmative` |
+| 기본변형 테스트 결과 | `formtest::{week}::{yomi}::{formKey}` | `formtest::9::...` |
+
+### JavaScript 변수/함수명
+- 상수: `UPPER_SNAKE_CASE` (예: `SPEECH_TEST_PREFIX`, `API_URL`)
+- 함수: `camelCase` 동사+명사 (예: `loadStudyDataFromServer`, `renderFiltered`)
+- DOM 요소 참조: `camelCase` + 요소 타입 힌트 생략 가능 (예: `filterMode`, `weekSelect`)
+- CSS 클래스: `kebab-case` (예: `speech-diff-overlay`, `focus-toggle-btn`)
+
+### CSS Class Patterns
+- 오버레이: `*-overlay` + `.show` 토글 (display: none ↔ flex/block)
+- 모드 상태: `body.focus-mode`, `body.listen-mode-lock` 등 body 클래스로 제어
+- 재생 중 강조: `mistake-playing-row`
+- 활성 버튼 상태: `mistake-play-active`
+
+---
+
+## Repeating Code Patterns
+
+### 1. 오버레이 표시/숨김
+```js
+// 표시: classList.add('show') / 숨김: classList.remove('show')
+// CSS: .overlay { display: none; } .overlay.show { display: flex; }
+overlay.classList.add('show');
+document.body.classList.add('lock-class'); // 스크롤 방지 필요 시
+```
+
+### 2. API 저장 (study 엔드포인트 공통 패턴)
+```js
+await fetch(`${API_URL}/study`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ username, word_yomi: key, count, clicks, last_studied })
+});
+// localStorage에도 동시에 백업 저장
+localStorage.setItem(backupKey, JSON.stringify(cache));
+```
+
+### 3. 학습 카운트 로직 (2클릭 = 1카운트)
+```js
+data[key].clicks = (data[key].clicks || 0) + 1;
+if (data[key].clicks >= 2) {
+  data[key].count++;
+  data[key].clicks = 0;
+  data[key].lastStudied = today; // "오늘 학습"도 동시 갱신
+}
+```
+
+### 4. Levenshtein 유사도 기반 음성 테스트 판정
+```js
+// 통과 조건: similarity >= 0.75 AND (spoken이 expected에 포함 OR coverage >= 0.85)
+const coverage = spokenNorm.length / expectedNorm.length;
+const passed = similarity >= 0.75 && (expectedNorm.includes(spokenNorm) || coverage >= 0.85);
+```
+
+### 5. 음성 테스트 diff 렌더링
+- `normalizeDiffText()`: 구두점 제거 후 비교용 정규화
+- `isIgnoredDiffChar()`: 구두점 판별 (참고용 회색 표시)
+- `buildDiffOps()`: Levenshtein backtrack으로 match/insert/delete 연산 생성
+- `renderDiffWithReference()`: 구두점을 `.diff-ref`(회색)로 표시하며 diff HTML 생성
+- diff 오버레이는 `.speech-diff-overlay`로 예제 칸에 `position: absolute` 배치 (행 높이 불변)
+
+### 6. TTS 연속재생 (전체 재생)
+```js
+// 단일 Audio 요소 재사용 (모바일 안정성)
+if (!sequenceAudioEl) sequenceAudioEl = new Audio();
+sequenceAudioEl.src = URL.createObjectURL(blob);
+await sequenceAudioEl.play(); // 실패 시 140ms 후 1회 재시도
+URL.revokeObjectURL(sequenceAudioEl.src);
+```
+
+### 7. 모바일 가시성 이벤트 처리
+```js
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) { wasHiddenDuringMistakePlay = mistakePlayRunning; }
+  else if (wasHiddenDuringMistakePlay) { /* 잠금해제 시 재시작 */ }
+});
+```
+
+### 8. 페이지네이션
+```js
+const PAGE_SIZE = 10;
+const totalPages = Math.ceil(list.length / PAGE_SIZE);
+const pagedList = list.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+```
+
+---
+
+## Audio/Speech Rules
+- TTS/음성인식 변경 시 iOS Safari / iOS Chrome 제약을 반드시 고려한다.
+- `getUserMedia` 호출은 세션 내 캐시 (`micPermissionGranted` 플래그)를 활용해 반복 호출을 방지한다.
+- 마이크 권한 오류 시 `forceOpen: true`로 가이드 모달을 강제 표시한다.
+- 연속재생 중 잠금/백그라운드 시 `visibilitychange` 이벤트로 재시작을 처리한다.
+- 성공/실패 알림음은 Web Audio API (`AudioContext` + `OscillatorNode`)로 생성한다.
+
+---
+
+## Mobile-First UX Rules
+- iPhone 기준 `@media (max-width: 768px)` 브레이크포인트를 항상 적용한다.
+- 버튼 크기/간격/정렬/헤더 높이는 페이지 간 일관성을 유지한다.
+- TTS 관련 버튼 3개는 모바일에서 접기(collapsible) 처리한다.
+- 새 토글/오버레이는 실수 터치 방지 원칙을 따른다 (2단계 확인, 명확한 닫기 동작).
+- 듣기모드 등 전체화면 오버레이는 가로 화면(`landscape`) 최적화 CSS를 포함한다.
+- 테이블 행 높이 변형 및 스크롤 점프를 유발하지 않도록 오버레이는 `position: absolute`로 배치한다.
+
+---
+
+## GitHub Sync Rules
+
+### 커밋 타입 접두사
+| 타입 | 용도 |
+|------|------|
+| `feat` | 새 기능 추가 |
+| `fix`  | 버그 수정 |
+| `data` | week*.json 데이터만 추가/수정 |
+| `refactor` | 기능 변경 없는 코드 개선 |
+| `docs` | 문서/주석 변경 |
+
+### 커밋 메시지 형식
+```
+<type>(<scope>): <한국어 한 줄 요약>
+```
+예시:
+- `feat(speech-overlay): 실패 발화 비교 오버레이와 다시 듣기 동작을 추가`
+- `fix(mistake-play): 모바일 연속 재생 안정화를 위해 오디오 재사용 처리`
+- `data(week9): 9주차 단어 및 기본변형 데이터 추가`
+
+### 코드 vs 데이터 커밋 분리
+- 코드 변경(`*.html`, `*.js`, `*.py`)과 데이터(`data/week*.json`)는 **별도 커밋**으로 분리한다.
+- 데이터 커밋은 `data` 타입을 사용하고 코드 변경과 섞지 않는다.
+
+### GitHub 동기화 절차
+```bash
+# 1. 현재 상태 확인
+git status
+git diff
+
+# 2. 코드 변경 커밋
+git add index.html grammar.html kana.html numbers.html forms.html tts.js auth-guard.js scripts/
+git commit -m "feat(scope): 변경 내용 요약"
+
+# 3. 데이터 변경이 있으면 별도 커밋
+git add data/
+git commit -m "data(weekN): N주차 데이터 추가"
+
+# 4. 푸시
+git push origin main
+
+# 5. 결과 확인
+git log --oneline -5
+```
+- `git push --force` 는 명시적 요청 없이 절대 실행하지 않는다.
+- `--no-verify` 플래그는 명시적 요청 없이 사용하지 않는다.
+- 커밋 전 `ReadLints`로 변경 파일 진단을 확인한다.
+
+---
+
+## Safety Rules
+- 사용자가 요청하지 않으면 커밋/푸시하지 않는다.
+- 기존에 동작 중인 기능을 제거하는 변경은 명시적 요청 시만 허용한다.
+- 의도치 않은 대규모 포맷 변경 / 키 이름 변경을 피한다.
+- `자주 틀린 것` 필터 모드에서는 학습 카운트 갱신(`incrementStudyCount`)을 즉시 반환(`return`)하여 재렌더링을 막는다.
+
+---
+
+## Verification Checklist (동기화 전 필수 확인)
+- [ ] 대상 페이지 로드 / 로그인 가드 동작
+- [ ] 검색(전체 주차 통합) / 필터 / 페이지네이션 회귀
+- [ ] TTS 재생 및 TEST 버튼 동작
+- [ ] 음성 테스트 diff 오버레이 표시/닫힘
+- [ ] 전체 재생 / 듣기모드 동작 (모바일 포함)
+- [ ] 모바일 레이아웃(헤더/네비/버튼/오버레이) 확인
+- [ ] `ReadLints`로 변경 파일 진단 확인

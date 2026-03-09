@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본변형 | Japanese AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="auth-guard.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background: #fff;
+            color: #000;
+        }
+
+        .page-title {
+            font-size: 1.9rem;
+            line-height: 1.05;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.35rem;
+            text-transform: uppercase;
+        }
+        .page-subtitle {
+            font-size: 0.78rem;
+            color: #6b7280;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+        }
+        .audio-btn:hover { background-color: #f3f3f3; transform: scale(1.05); }
+        .audio-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .loading-spinner { animation: spin 1s linear infinite; }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .word-card {
+            border: 2px solid #111827;
+            background: #fff;
+        }
+        .focus-toggle-btn {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            z-index: 60;
+            border: 2px solid #000;
+            background: #000;
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            padding: 0.55rem 0.8rem;
+            border-radius: 9999px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+            transition: transform 0.15s ease;
+        }
+        .focus-toggle-btn:hover { transform: translateY(-1px); }
+        .form-row {
+            border-top: 1px solid #e5e7eb;
+        }
+        .form-label-chip {
+            display: inline-block;
+            border: 1px solid #111827;
+            border-radius: 9999px;
+            padding: 0.1rem 0.4rem;
+            font-size: 0.65rem;
+            font-weight: 800;
+            background: #f9fafb;
+        }
+        .test-btn {
+            border: 1px solid #000;
+            background: #fff;
+            color: #111827;
+            font-size: 0.62rem;
+            font-weight: 800;
+            padding: 0.1rem 0.35rem;
+            border-radius: 9999px;
+            letter-spacing: 0.03em;
+        }
+        .test-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .test-status {
+            font-size: 0.66rem;
+            color: #6b7280;
+            line-height: 1.2;
+        }
+        .diff-feedback {
+            margin-top: 0.25rem;
+            border: 1px solid #d1d5db;
+            background: #f9fafb;
+            border-radius: 0.35rem;
+            padding: 0.25rem 0.35rem;
+            font-size: 0.68rem;
+            line-height: 1.35;
+            display: none;
+        }
+        .diff-feedback.show { display: block; }
+        .diff-match { color: #15803d; font-weight: 700; }
+        .diff-miss {
+            color: #b91c1c;
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+            font-weight: 700;
+        }
+        .diff-change { color: #c2410c; font-weight: 700; }
+        .diff-ref { color: #9ca3af; font-weight: 500; }
+        body.focus-mode .sentence-trigger,
+        body.focus-mode .form-pron {
+            display: none !important;
+        }
+        body.focus-mode .form-meaning {
+            color: #4b5563;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        body.focus-mode .form-meaning .form-meaning-text {
+            display: inline-block;
+            transform-origin: left top;
+            transform: scale(1.15);
+        }
+
+        @media (max-width: 768px) {
+            .page-title { font-size: 1.55rem; }
+            .page-subtitle { font-size: 0.68rem; letter-spacing: 0.1em; }
+            .top-nav { width: 100%; justify-content: flex-start; gap: 0.35rem; }
+            .top-nav a, .top-nav span {
+                padding: 0.5rem 0.72rem !important;
+                font-size: 0.78rem !important;
+                letter-spacing: 0.03em;
+                line-height: 1.1;
+            }
+            .focus-toggle-btn {
+                right: 12px;
+                bottom: 12px;
+                font-size: 0.68rem;
+                padding: 0.48rem 0.7rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .page-title { font-size: 3rem; }
+            .page-subtitle { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+    <header class="max-w-6xl mx-auto mb-8 border-b-4 border-black pb-6">
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+            <div>
+                <h1 class="page-title">Japanese Base Forms</h1>
+                <p class="page-subtitle">기본변형 학습 페이지</p>
+            </div>
+            <nav class="top-nav flex gap-2 flex-wrap">
+                <a href="index.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">단어</a>
+                <a href="grammar.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">문법</a>
+                <a href="kana.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">가나</a>
+                <a href="numbers.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">수체계</a>
+                <span class="px-4 py-2 border-2 border-black bg-black text-white text-sm font-bold uppercase tracking-widest">기본변형</span>
+            </nav>
+        </div>
+        <div class="mt-4 pt-4 border-t border-gray-200 flex flex-wrap items-center gap-3 md:gap-4">
+            <div class="flex items-center gap-2">
+                <label class="text-xs md:text-sm font-bold">음성:</label>
+                <select id="voiceSelect" class="border-2 border-black px-2 py-1 text-xs md:text-sm font-bold bg-white cursor-pointer">
+                    <option value="ja-JP-Neural2-B" selected>N2-B 여</option>
+                    <option value="ja-JP-Neural2-C">N2-C 남</option>
+                    <option value="ja-JP-Neural2-D">N2-D 남</option>
+                    <option value="ja-JP-Wavenet-A">WN-A 여</option>
+                    <option value="ja-JP-Wavenet-B">WN-B 여</option>
+                    <option value="ja-JP-Wavenet-C">WN-C 남</option>
+                </select>
+            </div>
+            <span id="ttsStatus" class="text-xs md:text-sm text-gray-500">🔊 TTS 로딩 중...</span>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto">
+        <div class="mb-4 p-4 bg-gray-50 border-2 border-gray-200 flex flex-wrap gap-4 items-center justify-between">
+            <div class="flex gap-6">
+                <div class="text-center">
+                    <div class="text-2xl font-bold" id="statStudied">0</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-widest">학습 완료</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold" id="statTotal">0</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-widest">전체</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold" id="statToday">0</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-widest">오늘 학습</div>
+                </div>
+            </div>
+            <div class="flex gap-2 flex-wrap">
+                <select id="weekSelect" class="p-2 border-2 border-black text-xs font-bold uppercase tracking-widest bg-white cursor-pointer"></select>
+                <select id="filterMode" class="p-2 border-2 border-black text-xs font-bold uppercase tracking-widest bg-white cursor-pointer">
+                    <option value="all">전체 보기</option>
+                    <option value="unstudied">학습 안 한 것</option>
+                    <option value="today">오늘 학습한 것</option>
+                    <option value="studied">학습한 것</option>
+                    <option value="frequent_mistakes">자주 틀린 것</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="mb-6 flex flex-col md:flex-row gap-3 items-center justify-between">
+            <input type="text" id="searchInput" placeholder="검색어를 입력하세요 (단어, 뜻, 변형문장...)" class="w-full md:w-96 p-3 border-2 border-black focus:outline-none text-base font-medium">
+            <div id="statusMessage" class="text-xs font-bold text-gray-500">Ready</div>
+        </div>
+
+        <div id="formList" class="space-y-4"></div>
+        <div id="emptyState" class="hidden border-2 border-dashed border-gray-300 p-6 text-center text-gray-500 font-bold">표시할 변형 데이터가 없습니다.</div>
+    </main>
+    <button id="focusModeBtn" class="focus-toggle-btn" type="button" aria-pressed="false">뜻만 보기</button>
+
+    <script src="tts.js"></script>
+    <script>
+        (function () {
+            const API_URL = "https://japan-api.garagehousekr.workers.dev";
+            const FORM_DEFS = [
+                { key: "plain_present_affirmative", label: "현재긍정 보통체" },
+                { key: "plain_present_negative", label: "현재부정 보통체" },
+                { key: "plain_past_affirmative", label: "과거긍정 보통체" },
+                { key: "plain_past_negative", label: "과거부정 보통체" },
+                { key: "polite_present_affirmative", label: "현재긍정 존중체" },
+                { key: "polite_present_negative", label: "현재부정 존중체" },
+                { key: "polite_past_affirmative", label: "과거긍정 존중체" },
+                { key: "polite_past_negative", label: "과거부정 존중체" }
+            ];
+            const WEEK_CANDIDATES = ["week1", "week2", "week3", "week4", "week5", "week6", "week7", "week8", "week9"];
+            const FORM_STUDY_PREFIX = "form::";
+            const FORM_TEST_PREFIX = "formtest::";
+
+            const weekSelect = document.getElementById("weekSelect");
+            const filterMode = document.getElementById("filterMode");
+            const searchInput = document.getElementById("searchInput");
+            const formList = document.getElementById("formList");
+            const emptyState = document.getElementById("emptyState");
+            const ttsStatus = document.getElementById("ttsStatus");
+            const voiceSelect = document.getElementById("voiceSelect");
+            const statusMessage = document.getElementById("statusMessage");
+            const statStudied = document.getElementById("statStudied");
+            const statTotal = document.getElementById("statTotal");
+            const statToday = document.getElementById("statToday");
+            const focusModeBtn = document.getElementById("focusModeBtn");
+            const FOCUS_MODE_KEY = "forms_focus_mode";
+
+            const SpeechRecognitionCtor = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+            let availableWeeks = [];
+            let currentWeek = "";
+            let currentWordList = [];
+            let renderedRows = [];
+            let activeSpeechTest = null;
+            let studyDataCache = {};
+            let testDataCache = {};
+
+            function getLoggedInUser() {
+                return localStorage.getItem("loggedInUser") || "guest";
+            }
+
+            function getStudyDataKey() {
+                return `form_study_${getLoggedInUser()}`;
+            }
+
+            function getTestDataKey() {
+                return `form_test_${getLoggedInUser()}`;
+            }
+
+            function makeFormScopedKey(week, yomi, formKey) {
+                return `${week}::${yomi}::${formKey}`;
+            }
+
+            function makeFormStudyKey(week, yomi, formKey) {
+                return `${FORM_STUDY_PREFIX}${makeFormScopedKey(week, yomi, formKey)}`;
+            }
+
+            function makeFormTestKey(week, yomi, formKey) {
+                return `${FORM_TEST_PREFIX}${makeFormScopedKey(week, yomi, formKey)}`;
+            }
+
+            function normalizeText(value) {
+                return (value || "")
+                    .toString()
+                    .toLowerCase()
+                    .replace(/\s+/g, "")
+                    .replace(/[\u200B-\u200D\uFEFF]/g, "")
+                    .replace(/[\p{P}\p{S}]/gu, "");
+            }
+
+            function normalizeSpeechText(text) {
+                return (text || "")
+                    .toString()
+                    .toLowerCase()
+                    .replace(/\s+/g, "")
+                    .replace(/[。、，．・！？!?"'「」『』（）()\[\]~〜\-]/g, "");
+            }
+
+            function isIgnoredDiffChar(ch) {
+                return /\s|[。、，．・！？!?？"'「」『』（）()\[\]~〜\-]/.test(ch || "");
+            }
+
+            function escapeHtml(value) {
+                return (value || "")
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#39;");
+            }
+
+            function levenshteinDistance(a, b) {
+                const m = a.length;
+                const n = b.length;
+                if (m === 0) return n;
+                if (n === 0) return m;
+                const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+                for (let i = 0; i <= m; i++) dp[i][0] = i;
+                for (let j = 0; j <= n; j++) dp[0][j] = j;
+                for (let i = 1; i <= m; i++) {
+                    for (let j = 1; j <= n; j++) {
+                        const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+                        dp[i][j] = Math.min(
+                            dp[i - 1][j] + 1,
+                            dp[i][j - 1] + 1,
+                            dp[i - 1][j - 1] + cost
+                        );
+                    }
+                }
+                return dp[m][n];
+            }
+
+            function similarityScore(a, b) {
+                const aa = normalizeSpeechText(a);
+                const bb = normalizeSpeechText(b);
+                if (!aa || !bb) return 0;
+                if (aa === bb) return 1;
+                const dist = levenshteinDistance(aa, bb);
+                const maxLen = Math.max(aa.length, bb.length);
+                return Math.max(0, 1 - dist / maxLen);
+            }
+
+            function parseDiff(expected, spoken) {
+                const a = Array.from(expected || "");
+                const b = Array.from(spoken || "");
+                const m = a.length;
+                const n = b.length;
+                const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+                for (let i = 1; i <= m; i++) {
+                    for (let j = 1; j <= n; j++) {
+                        dp[i][j] = a[i - 1] === b[j - 1]
+                            ? dp[i - 1][j - 1] + 1
+                            : Math.max(dp[i - 1][j], dp[i][j - 1]);
+                    }
+                }
+                const expOps = [];
+                let i = m;
+                let j = n;
+                while (i > 0 || j > 0) {
+                    if (i > 0 && j > 0 && a[i - 1] === b[j - 1]) {
+                        expOps.push({ type: "match", ch: a[i - 1] });
+                        i--;
+                        j--;
+                    } else if (i > 0 && (j === 0 || dp[i - 1][j] >= dp[i][j - 1])) {
+                        expOps.push({ type: "miss", ch: a[i - 1] });
+                        i--;
+                    } else {
+                        j--;
+                    }
+                }
+                return expOps.reverse();
+            }
+
+            function renderDiffReference(sourceText, ops) {
+                const chars = Array.from(sourceText || "");
+                let opIndex = 0;
+                let html = "";
+                chars.forEach((ch) => {
+                    if (isIgnoredDiffChar(ch)) {
+                        html += `<span class="diff-ref">${escapeHtml(ch)}</span>`;
+                        return;
+                    }
+                    const op = ops[opIndex] || { type: "change", ch };
+                    const cls = op.type === "match" ? "diff-match" : op.type === "miss" ? "diff-miss" : "diff-change";
+                    html += `<span class="${cls}">${escapeHtml(ch)}</span>`;
+                    opIndex += 1;
+                });
+                return html;
+            }
+
+            function hasUsableForms(item) {
+                if (!item || typeof item !== "object" || !item.sentence_forms) return false;
+                return FORM_DEFS.some(({ key }) => (item.sentence_forms[key]?.jp || "").trim().length > 0);
+            }
+
+            async function fetchWeekData(week) {
+                const candidates = [`./data/${week}.json`, `./${week}.json`];
+                for (const path of candidates) {
+                    try {
+                        const response = await fetch(path);
+                        if (!response.ok) continue;
+                        return await response.json();
+                    } catch (_) {
+                        // try next path
+                    }
+                }
+                return [];
+            }
+
+            async function initWeekOptions() {
+                const usable = [];
+                for (const week of WEEK_CANDIDATES) {
+                    const rows = await fetchWeekData(week);
+                    if (rows.some(hasUsableForms)) {
+                        usable.push(week);
+                    }
+                }
+                availableWeeks = usable;
+                weekSelect.innerHTML = "";
+                if (!availableWeeks.length) {
+                    const opt = document.createElement("option");
+                    opt.value = "";
+                    opt.textContent = "데이터 없음";
+                    weekSelect.appendChild(opt);
+                    weekSelect.disabled = true;
+                    return;
+                }
+                availableWeeks.forEach((week) => {
+                    const opt = document.createElement("option");
+                    opt.value = week;
+                    opt.textContent = `${week.replace("week", "")}주차`;
+                    weekSelect.appendChild(opt);
+                });
+                weekSelect.disabled = false;
+                currentWeek = availableWeeks[0];
+                weekSelect.value = currentWeek;
+            }
+
+            function saveStudyLocal() {
+                localStorage.setItem(getStudyDataKey(), JSON.stringify(studyDataCache));
+            }
+
+            function saveTestLocal() {
+                localStorage.setItem(getTestDataKey(), JSON.stringify(testDataCache));
+            }
+
+            async function saveStudyItem(serverKey, itemData) {
+                try {
+                    await fetch(`${API_URL}/study`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            username: getLoggedInUser(),
+                            word_yomi: serverKey,
+                            count: itemData.count || 0,
+                            clicks: itemData.clicks || 0,
+                            last_studied: itemData.lastStudied || null
+                        })
+                    });
+                } catch (err) {
+                    console.error("Failed to save study item:", err);
+                }
+            }
+
+            async function loadProgressFromServer() {
+                try {
+                    const response = await fetch(`${API_URL}/study/${encodeURIComponent(getLoggedInUser())}`);
+                    const payload = await response.json();
+                    const studyOnly = {};
+                    const testOnly = {};
+                    Object.entries(payload || {}).forEach(([key, value]) => {
+                        if (key.startsWith(FORM_STUDY_PREFIX)) {
+                            const scoped = key.slice(FORM_STUDY_PREFIX.length);
+                            studyOnly[scoped] = {
+                                count: Number(value?.count || 0),
+                                clicks: Number(value?.clicks || 0),
+                                lastStudied: value?.lastStudied || null
+                            };
+                        } else if (key.startsWith(FORM_TEST_PREFIX)) {
+                            const scoped = key.slice(FORM_TEST_PREFIX.length);
+                            testOnly[scoped] = {
+                                success: Number(value?.clicks || 0),
+                                fail: Number(value?.count || 0),
+                                lastStudied: value?.lastStudied || null
+                            };
+                        }
+                    });
+                    studyDataCache = studyOnly;
+                    testDataCache = testOnly;
+                    saveStudyLocal();
+                    saveTestLocal();
+                } catch (err) {
+                    console.error("Failed to load form progress:", err);
+                    const localStudy = localStorage.getItem(getStudyDataKey());
+                    const localTest = localStorage.getItem(getTestDataKey());
+                    studyDataCache = localStudy ? JSON.parse(localStudy) : {};
+                    testDataCache = localTest ? JSON.parse(localTest) : {};
+                }
+            }
+
+            function getFormStudy(scopedKey) {
+                return studyDataCache[scopedKey] || { count: 0, clicks: 0, lastStudied: null };
+            }
+
+            function getFormFail(scopedKey) {
+                return testDataCache[scopedKey]?.fail || 0;
+            }
+
+            function incrementFormStudy(week, yomi, formKey) {
+                const scopedKey = makeFormScopedKey(week, yomi, formKey);
+                const today = new Date().toISOString().split("T")[0];
+                const current = getFormStudy(scopedKey);
+                current.clicks = Number(current.clicks || 0) + 1;
+                if (current.clicks >= 2) {
+                    current.count = Number(current.count || 0) + 1;
+                    current.clicks = 0;
+                    current.lastStudied = today;
+                }
+                studyDataCache[scopedKey] = current;
+                saveStudyLocal();
+                saveStudyItem(makeFormStudyKey(week, yomi, formKey), current);
+                const badge = document.querySelector(`[data-count-key="${scopedKey}"]`);
+                if (badge) badge.textContent = String(current.count || 0);
+                updateStatsUI();
+            }
+
+            function recordFormTest(week, yomi, formKey, passed) {
+                const scopedKey = makeFormScopedKey(week, yomi, formKey);
+                if (!testDataCache[scopedKey]) {
+                    testDataCache[scopedKey] = { success: 0, fail: 0, lastStudied: null };
+                }
+                if (passed) testDataCache[scopedKey].success += 1;
+                else testDataCache[scopedKey].fail += 1;
+                testDataCache[scopedKey].lastStudied = new Date().toISOString().split("T")[0];
+                saveTestLocal();
+                saveStudyItem(makeFormTestKey(week, yomi, formKey), {
+                    count: testDataCache[scopedKey].fail,
+                    clicks: testDataCache[scopedKey].success,
+                    lastStudied: testDataCache[scopedKey].lastStudied
+                });
+                updateStatsUI();
+            }
+
+            function updateStatsUI() {
+                const today = new Date().toISOString().split("T")[0];
+                let total = 0;
+                let studied = 0;
+                let todayCount = 0;
+                renderedRows.forEach((row) => {
+                    total += 1;
+                    const study = getFormStudy(row.scopedKey);
+                    if ((study.count || 0) > 0) studied += 1;
+                    if (study.lastStudied === today) todayCount += 1;
+                });
+                statTotal.textContent = String(total);
+                statStudied.textContent = String(studied);
+                statToday.textContent = String(todayCount);
+            }
+
+            function buildWordRows(rawRows, week) {
+                return rawRows
+                    .filter(hasUsableForms)
+                    .map((item) => {
+                        const forms = FORM_DEFS.map(({ key, label }) => ({
+                            key,
+                            label,
+                            jp: item.sentence_forms?.[key]?.jp || "",
+                            pron_ko: item.sentence_forms?.[key]?.pron_ko || "",
+                            meaning_ko: item.sentence_forms?.[key]?.meaning_ko || ""
+                        })).filter((f) => f.jp.trim().length > 0);
+                        return {
+                            _week: week,
+                            word: item.word,
+                            yomi: item.yomi,
+                            meaning: item.meaning,
+                            word_pron: item.word_pron || "",
+                            forms
+                        };
+                    })
+                    .filter((item) => item.forms.length > 0);
+            }
+
+            function matchesFilter(word) {
+                const mode = filterMode.value;
+                if (mode === "all") return true;
+                const today = new Date().toISOString().split("T")[0];
+                const checks = word.forms.map((form) => {
+                    const scopedKey = makeFormScopedKey(word._week, word.yomi, form.key);
+                    const study = getFormStudy(scopedKey);
+                    if (mode === "unstudied") return (study.count || 0) === 0;
+                    if (mode === "studied") return (study.count || 0) > 0;
+                    if (mode === "today") return study.lastStudied === today;
+                    if (mode === "frequent_mistakes") return getFormFail(scopedKey) >= 1;
+                    return true;
+                });
+                return checks.some(Boolean);
+            }
+
+            function matchesSearch(word, term) {
+                if (!term) return true;
+                const base = `${word.word} ${word.yomi} ${word.meaning} ${word.word_pron}`;
+                const formsText = word.forms
+                    .map((f) => `${f.label} ${f.jp} ${f.pron_ko} ${f.meaning_ko}`)
+                    .join(" ");
+                return normalizeText(`${base} ${formsText}`).includes(term);
+            }
+
+            function closeActiveSpeechTest() {
+                if (activeSpeechTest && typeof activeSpeechTest.finish === "function") {
+                    activeSpeechTest.finish("cancel");
+                }
+            }
+
+            async function startSpeechTest(rowMeta, testBtn, statusEl, diffEl) {
+                if (!SpeechRecognitionCtor) {
+                    statusEl.textContent = "크롬 음성인식 미지원";
+                    return;
+                }
+                if (activeSpeechTest && activeSpeechTest.rowKey === rowMeta.scopedKey) {
+                    activeSpeechTest.finish("manual");
+                    return;
+                }
+                if (activeSpeechTest && activeSpeechTest.rowKey !== rowMeta.scopedKey) {
+                    activeSpeechTest.finish("replaced");
+                }
+
+                let finished = false;
+                let secondsLeft = 10;
+                let transcriptFinal = "";
+                let transcriptInterim = "";
+                let silenceTimer = null;
+                const recognition = new SpeechRecognitionCtor();
+                recognition.lang = "ja-JP";
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                recognition.maxAlternatives = 1;
+
+                testBtn.textContent = `STOP ${secondsLeft}`;
+                statusEl.textContent = "말하기 시작...";
+
+                const resetSilenceTimer = () => {
+                    clearTimeout(silenceTimer);
+                    silenceTimer = setTimeout(() => finish("silence"), 1200);
+                };
+
+                const finish = (reason) => {
+                    if (finished) return;
+                    finished = true;
+                    clearInterval(countdownTimer);
+                    clearTimeout(timeoutTimer);
+                    clearTimeout(silenceTimer);
+                    try {
+                        recognition.onresult = null;
+                        recognition.onerror = null;
+                        recognition.onend = null;
+                        recognition.stop();
+                    } catch (_) {}
+
+                    const spoken = `${transcriptFinal} ${transcriptInterim}`.trim();
+                    const expected = rowMeta.jp;
+                    const score = similarityScore(spoken, expected);
+                    const spokenNorm = normalizeSpeechText(spoken);
+                    const expectedNorm = normalizeSpeechText(expected);
+                    const includes = spokenNorm && expectedNorm && spokenNorm.includes(expectedNorm);
+                    const coverage = expectedNorm ? (spokenNorm.length / expectedNorm.length) : 0;
+                    const passed = includes || (score >= 0.72 && coverage >= 0.85);
+
+                    if (reason === "cancel" || reason === "replaced") {
+                        statusEl.textContent = "테스트 취소";
+                    } else if (!spokenNorm) {
+                        statusEl.textContent = "인식 실패, 다시 시도";
+                        recordFormTest(rowMeta.week, rowMeta.yomi, rowMeta.formKey, false);
+                    } else if (passed) {
+                        statusEl.textContent = `통과 ${(score * 100).toFixed(0)}%`;
+                        recordFormTest(rowMeta.week, rowMeta.yomi, rowMeta.formKey, true);
+                    } else {
+                        statusEl.textContent = `실패 ${(score * 100).toFixed(0)}%`;
+                        recordFormTest(rowMeta.week, rowMeta.yomi, rowMeta.formKey, false);
+                    }
+
+                    const ops = parseDiff(expected, spoken || "");
+                    diffEl.innerHTML = `
+                        <div><span class="font-bold">정답:</span> ${renderDiffReference(expected, ops)}</div>
+                        <div class="mt-1"><span class="font-bold">인식:</span> ${escapeHtml(spoken || "∅")}</div>
+                    `;
+                    diffEl.classList.add("show");
+
+                    testBtn.textContent = "TEST";
+                    if (activeSpeechTest && activeSpeechTest.rowKey === rowMeta.scopedKey) {
+                        activeSpeechTest = null;
+                    }
+                };
+
+                const countdownTimer = setInterval(() => {
+                    secondsLeft -= 1;
+                    if (secondsLeft <= 0) return;
+                    testBtn.textContent = `STOP ${secondsLeft}`;
+                }, 1000);
+
+                const timeoutTimer = setTimeout(() => finish("timeout"), 10000);
+
+                recognition.onresult = (event) => {
+                    transcriptInterim = "";
+                    for (let i = event.resultIndex; i < event.results.length; i++) {
+                        const piece = event.results[i][0].transcript || "";
+                        if (event.results[i].isFinal) transcriptFinal += `${piece} `;
+                        else transcriptInterim += piece;
+                    }
+                    const preview = `${transcriptFinal} ${transcriptInterim}`.trim();
+                    if (preview) {
+                        statusEl.textContent = `인식: ${preview}`;
+                        resetSilenceTimer();
+                    }
+                };
+
+                recognition.onerror = () => finish("error");
+                recognition.onend = () => {
+                    if (!finished) finish("end");
+                };
+
+                activeSpeechTest = { rowKey: rowMeta.scopedKey, finish };
+                try {
+                    recognition.start();
+                } catch (_) {
+                    finish("error");
+                    statusEl.textContent = "마이크 권한 확인 필요";
+                }
+            }
+
+            function render(words) {
+                closeActiveSpeechTest();
+                formList.innerHTML = "";
+                renderedRows = [];
+                if (!words.length) {
+                    emptyState.classList.remove("hidden");
+                    updateStatsUI();
+                    return;
+                }
+                emptyState.classList.add("hidden");
+
+                words.forEach((word) => {
+                    const card = document.createElement("section");
+                    card.className = "word-card";
+                    const formsHtml = word.forms.map((form) => {
+                        const scopedKey = makeFormScopedKey(word._week, word.yomi, form.key);
+                        const count = getFormStudy(scopedKey).count || 0;
+                        renderedRows.push({ scopedKey });
+                        return `
+                            <div class="form-row p-3">
+                                <div class="flex items-start justify-between gap-3">
+                                    <div class="min-w-0 flex-1">
+                                        <div class="mb-1"><span class="form-label-chip">${form.label}</span></div>
+                                        <div class="font-bold text-black cursor-pointer hover:underline text-sm md:text-base sentence-trigger" data-scoped-key="${scopedKey}">${escapeHtml(form.jp)}</div>
+                                        <div class="text-xs text-gray-500 mt-1 form-meaning" data-scoped-key="${scopedKey}"><span class="form-meaning-text">${escapeHtml(form.meaning_ko)}</span></div>
+                                        <div class="text-xs text-blue-500 mt-0.5 form-pron">${escapeHtml(form.pron_ko)}</div>
+                                        <div class="diff-feedback" data-diff-key="${scopedKey}"></div>
+                                    </div>
+                                    <div class="flex flex-col items-end gap-1">
+                                        <span class="px-2 py-1 rounded-full text-xs font-bold bg-gray-100 text-gray-700" data-count-key="${scopedKey}">${count}</span>
+                                        <div class="flex items-center gap-1">
+                                            <button class="audio-btn p-2 rounded-full border border-black transition-all play-trigger" data-scoped-key="${scopedKey}" type="button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                                            </button>
+                                            <button class="test-btn test-trigger" data-scoped-key="${scopedKey}" type="button">TEST</button>
+                                        </div>
+                                        <div class="test-status" data-status-key="${scopedKey}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join("");
+
+                    card.innerHTML = `
+                        <div class="p-3 md:p-4 bg-gray-50 border-b border-gray-200">
+                            <div class="font-bold text-lg md:text-2xl tracking-tight">${escapeHtml(word.word)} <span class="text-xs md:text-sm text-gray-400">(${escapeHtml(word.yomi)})</span></div>
+                            <div class="text-sm md:text-base text-gray-700 mt-0.5">${escapeHtml(word.meaning)}</div>
+                            <div class="text-xs text-blue-500">${escapeHtml(word.word_pron)}</div>
+                        </div>
+                        ${formsHtml}
+                    `;
+
+                    word.forms.forEach((form) => {
+                        const scopedKey = makeFormScopedKey(word._week, word.yomi, form.key);
+                        const rowMeta = {
+                            week: word._week,
+                            yomi: word.yomi,
+                            formKey: form.key,
+                            jp: form.jp,
+                            scopedKey
+                        };
+                        const sentenceBtn = card.querySelector(`.sentence-trigger[data-scoped-key="${scopedKey}"]`);
+                        const meaningBtn = card.querySelector(`.form-meaning[data-scoped-key="${scopedKey}"]`);
+                        const statusEl = card.querySelector(`[data-status-key="${scopedKey}"]`);
+                        const diffEl = card.querySelector(`[data-diff-key="${scopedKey}"]`);
+                        const currentPlayBtn = card.querySelector(`.play-trigger[data-scoped-key="${scopedKey}"]`);
+                        const currentTestBtn = card.querySelector(`.test-trigger[data-scoped-key="${scopedKey}"]`);
+
+                        const playAction = (btnForTts) => {
+                            incrementFormStudy(word._week, word.yomi, form.key);
+                            if (btnForTts) {
+                                TTS.speak(form.jp, btnForTts);
+                            }
+                        };
+                        if (sentenceBtn) sentenceBtn.onclick = () => playAction(currentPlayBtn);
+                        if (currentPlayBtn) currentPlayBtn.onclick = () => playAction(currentPlayBtn);
+                        if (meaningBtn) {
+                            meaningBtn.onclick = () => {
+                                if (!document.body.classList.contains("focus-mode")) return;
+                                playAction(currentPlayBtn);
+                            };
+                        }
+                        if (currentTestBtn && statusEl && diffEl) {
+                            currentTestBtn.onclick = () => startSpeechTest(rowMeta, currentTestBtn, statusEl, diffEl);
+                        }
+                    });
+
+                    formList.appendChild(card);
+                });
+                updateStatsUI();
+            }
+
+            function runFilterAndRender() {
+                const term = normalizeText(searchInput.value);
+                const filtered = currentWordList
+                    .filter(matchesFilter)
+                    .filter((word) => matchesSearch(word, term));
+                render(filtered);
+            }
+
+            async function loadWeek(week) {
+                currentWeek = week;
+                statusMessage.textContent = "로딩 중...";
+                const rows = await fetchWeekData(week);
+                currentWordList = buildWordRows(rows, week);
+                statusMessage.textContent = "Ready";
+                runFilterAndRender();
+            }
+
+            async function init() {
+                const ok = await TTS.init((msg) => {
+                    ttsStatus.textContent = msg;
+                });
+                if (!ok) ttsStatus.textContent = "❌ TTS 초기화 실패";
+                voiceSelect.addEventListener("change", () => TTS.setVoice(voiceSelect.value));
+                TTS.setVoice(voiceSelect.value);
+
+                await loadProgressFromServer();
+                await initWeekOptions();
+                if (!availableWeeks.length) {
+                    emptyState.classList.remove("hidden");
+                    return;
+                }
+
+                await loadWeek(currentWeek);
+                weekSelect.addEventListener("change", () => loadWeek(weekSelect.value));
+                filterMode.addEventListener("change", runFilterAndRender);
+                searchInput.addEventListener("input", runFilterAndRender);
+
+                const setFocusMode = (enabled) => {
+                    document.body.classList.toggle("focus-mode", enabled);
+                    focusModeBtn.textContent = enabled ? "일반 보기" : "뜻만 보기";
+                    focusModeBtn.setAttribute("aria-pressed", enabled ? "true" : "false");
+                    localStorage.setItem(FOCUS_MODE_KEY, enabled ? "on" : "off");
+                };
+                focusModeBtn.addEventListener("click", () => {
+                    const enabled = !document.body.classList.contains("focus-mode");
+                    setFocusMode(enabled);
+                });
+                setFocusMode(localStorage.getItem(FOCUS_MODE_KEY) === "on");
+            }
+
+            init();
+        })();
+    </script>
+</body>
+</html>
