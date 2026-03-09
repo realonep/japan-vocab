@@ -2587,8 +2587,16 @@
                         currentPage = Number(val);
                     }
                     renderFiltered();
+                    scrollToVocabTop();
                 };
             });
+        }
+
+        function scrollToVocabTop() {
+            const target = document.getElementById('tableScrollWrap') || document.getElementById('vocalTable');
+            if (!target) return;
+            const top = Math.max(0, window.scrollY + target.getBoundingClientRect().top - 10);
+            window.scrollTo({ top, behavior: 'smooth' });
         }
 
         const filterMode = document.getElementById('filterMode');

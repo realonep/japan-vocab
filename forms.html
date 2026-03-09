@@ -1055,6 +1055,7 @@
                     else if (val === "next" && currentPage < maxPage) currentPage += 1;
                     else if (!Number.isNaN(Number(val))) currentPage = Number(val);
                     runFilterAndRender();
+                    scrollToFormsTop();
                 });
 
                 const setFocusMode = (enabled) => {
@@ -1069,6 +1070,13 @@
                     setFocusMode(enabled);
                 });
                 setFocusMode(localStorage.getItem(FOCUS_MODE_KEY) === "on");
+            }
+
+            function scrollToFormsTop() {
+                const target = formList || document.getElementById("formList");
+                if (!target) return;
+                const top = Math.max(0, window.scrollY + target.getBoundingClientRect().top - 10);
+                window.scrollTo({ top, behavior: "smooth" });
             }
 
             init();
