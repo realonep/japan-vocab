@@ -9,44 +9,44 @@
     "s_pron": "쇼우죠우오 오시에테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "症状を教える。",
-        "pron_ko": "쇼우죠우오 오시에루。",
-        "meaning_ko": "증상을 가르친다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "症状を教えない。",
-        "pron_ko": "쇼우죠우오 오시에나이。",
-        "meaning_ko": "증상을 가르치지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "症状を教えた。",
-        "pron_ko": "쇼우죠우오 오시에타。",
-        "meaning_ko": "증상을 가르쳤다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "症状を教えなかった。",
-        "pron_ko": "쇼우죠우오 오시에나캇타。",
-        "meaning_ko": "증상을 가르치지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "症状を教えます。",
-        "pron_ko": "쇼우죠우오 오시에마스。",
-        "meaning_ko": "증상을 가르칩니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "症状を教えません。",
-        "pron_ko": "쇼우죠우오 오시에마센。",
-        "meaning_ko": "증상을 가르치지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "症状を教えました。",
-        "pron_ko": "쇼우죠우오 오시에마시타。",
-        "meaning_ko": "증상을 가르쳤습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "症状を教えませんでした。",
-        "pron_ko": "쇼우죠우오 오시에마센데시타。",
-        "meaning_ko": "증상을 가르치지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -169,7 +169,7 @@
       "plain_present_negative": {
         "jp": "高熱でつらくない。",
         "pron_ko": "코우네츠데 츠라쿠나이。",
-        "meaning_ko": "고열로 힘드지 않다."
+        "meaning_ko": "고열로 힘드지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "高熱でつらかった。",
@@ -220,12 +220,12 @@
       "plain_present_negative": {
         "jp": "体温を測らない。",
         "pron_ko": "타이온오 하카라나이。",
-        "meaning_ko": "체온을 재지 않다."
+        "meaning_ko": "체온을 재지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "体温を測った。",
         "pron_ko": "타이온오 하캇타。",
-        "meaning_ko": "체온을 쟀다."
+        "meaning_ko": "체온을 재었다."
       },
       "plain_past_negative": {
         "jp": "体温を測らなかった。",
@@ -245,7 +245,7 @@
       "polite_past_affirmative": {
         "jp": "体温を測りました。",
         "pron_ko": "타이온오 하카리마시타。",
-        "meaning_ko": "체온을 쟀습니다."
+        "meaning_ko": "체온을 재었습니다."
       },
       "polite_past_negative": {
         "jp": "体温を測りませんでした。",
@@ -271,7 +271,7 @@
       "plain_present_negative": {
         "jp": "体調が悪くない。",
         "pron_ko": "타이쵸우가 와루 쿠나이。",
-        "meaning_ko": "몸 상태가 안 좋지 않다."
+        "meaning_ko": "몸 상태가 안 좋지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "体調が悪かった。",
@@ -322,7 +322,7 @@
       "plain_present_negative": {
         "jp": "頭痛がしない。",
         "pron_ko": "즈츠우가 시나이。",
-        "meaning_ko": "두통이 하지 않다."
+        "meaning_ko": "두통이 하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "頭痛がした。",
@@ -419,22 +419,22 @@
       "plain_present_affirmative": {
         "jp": "吐き気がする。",
         "pron_ko": "하키케가 스루。",
-        "meaning_ko": "메스꺼움이 ~한 느낌인다."
+        "meaning_ko": "메스꺼움이 ~한 느낌이다."
       },
       "plain_present_negative": {
         "jp": "吐き気がしない。",
         "pron_ko": "하키케가 시나이。",
-        "meaning_ko": "메스꺼움이 ~한 느낌이지 않다."
+        "meaning_ko": "메스꺼움이 ~한 느낌이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "吐き気がした。",
         "pron_ko": "하키케가 시타。",
-        "meaning_ko": "메스꺼움이 ~한 느낌였다."
+        "meaning_ko": "메스꺼움이 ~한 느낌이었다."
       },
       "plain_past_negative": {
         "jp": "吐き気がしなかった。",
         "pron_ko": "하키케가 시나캇타。",
-        "meaning_ko": "메스꺼움이 ~한 느낌이지 않았다."
+        "meaning_ko": "메스꺼움이 ~한 느낌이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "吐き気がします。",
@@ -444,17 +444,17 @@
       "polite_present_negative": {
         "jp": "吐き気がしません。",
         "pron_ko": "하키케가 시마센。",
-        "meaning_ko": "메스꺼움이 ~한 느낌이지 않습니다."
+        "meaning_ko": "메스꺼움이 ~한 느낌이 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "吐き気がしました。",
         "pron_ko": "하키케가 시마시타。",
-        "meaning_ko": "메스꺼움이 ~한 느낌였습니다."
+        "meaning_ko": "메스꺼움이 ~한 느낌이었습니다."
       },
       "polite_past_negative": {
         "jp": "吐き気がしませんでした。",
         "pron_ko": "하키케가 시마센데시타。",
-        "meaning_ko": "메스꺼움이 ~한 느낌이지 않았습니다."
+        "meaning_ko": "메스꺼움이 ~한 느낌이 아니었습니다."
       }
     }
   },
@@ -470,42 +470,42 @@
       "plain_present_affirmative": {
         "jp": "めまいがする。",
         "pron_ko": "메마이가 스루。",
-        "meaning_ko": "어지럼한다."
+        "meaning_ko": "어지럽는다."
       },
       "plain_present_negative": {
         "jp": "めまいがしない。",
         "pron_ko": "메마이가 시나이。",
-        "meaning_ko": "어지럼하지 않는다."
+        "meaning_ko": "어지럽지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "めまいがした。",
         "pron_ko": "메마이가 시타。",
-        "meaning_ko": "어지럼했다."
+        "meaning_ko": "어지러웠다."
       },
       "plain_past_negative": {
         "jp": "めまいがしなかった。",
         "pron_ko": "메마이가 시나캇타。",
-        "meaning_ko": "어지럼하지 않았다."
+        "meaning_ko": "어지럽지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "めまいがします。",
         "pron_ko": "메마이가 시마스。",
-        "meaning_ko": "어지럼합니다."
+        "meaning_ko": "어지럽습니다."
       },
       "polite_present_negative": {
         "jp": "めまいがしません。",
         "pron_ko": "메마이가 시마센。",
-        "meaning_ko": "어지럼하지 않습니다."
+        "meaning_ko": "어지럽지 않습니다."
       },
       "polite_past_affirmative": {
         "jp": "めまいがしました。",
         "pron_ko": "메마이가 시마시타。",
-        "meaning_ko": "어지럼했습니다."
+        "meaning_ko": "어지러웠습니다."
       },
       "polite_past_negative": {
         "jp": "めまいがしませんでした。",
         "pron_ko": "메마이가 시마센데시타。",
-        "meaning_ko": "어지럼하지 않았습니다."
+        "meaning_ko": "어지럽지 않았습니다."
       }
     }
   },
@@ -526,7 +526,7 @@
       "plain_present_negative": {
         "jp": "咳が止まらない。",
         "pron_ko": "세키가 토마라나이。",
-        "meaning_ko": "기침이 멈추지 멈추지 않다."
+        "meaning_ko": "기침이 멈추지 멈추지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "咳が止まった。",
@@ -577,7 +577,7 @@
       "plain_present_negative": {
         "jp": "鼻水が出ない。",
         "pron_ko": "하나미즈가 데나이。",
-        "meaning_ko": "콧물이 나가지 않다."
+        "meaning_ko": "콧물이 나가지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "鼻水が出た。",
@@ -623,22 +623,22 @@
       "plain_present_affirmative": {
         "jp": "寒気がする。",
         "pron_ko": "사무케가 스루。",
-        "meaning_ko": "오한이 ~한 느낌인다."
+        "meaning_ko": "오한이 ~한 느낌이다."
       },
       "plain_present_negative": {
         "jp": "寒気がしない。",
         "pron_ko": "사무케가 시나이。",
-        "meaning_ko": "오한이 ~한 느낌이지 않다."
+        "meaning_ko": "오한이 ~한 느낌이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "寒気がした。",
         "pron_ko": "사무케가 시타。",
-        "meaning_ko": "오한이 ~한 느낌였다."
+        "meaning_ko": "오한이 ~한 느낌이었다."
       },
       "plain_past_negative": {
         "jp": "寒気がしなかった。",
         "pron_ko": "사무케가 시나캇타。",
-        "meaning_ko": "오한이 ~한 느낌이지 않았다."
+        "meaning_ko": "오한이 ~한 느낌이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "寒気がします。",
@@ -648,17 +648,17 @@
       "polite_present_negative": {
         "jp": "寒気がしません。",
         "pron_ko": "사무케가 시마센。",
-        "meaning_ko": "오한이 ~한 느낌이지 않습니다."
+        "meaning_ko": "오한이 ~한 느낌이 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "寒気がしました。",
         "pron_ko": "사무케가 시마시타。",
-        "meaning_ko": "오한이 ~한 느낌였습니다."
+        "meaning_ko": "오한이 ~한 느낌이었습니다."
       },
       "polite_past_negative": {
         "jp": "寒気がしませんでした。",
         "pron_ko": "사무케가 시마센데시타。",
-        "meaning_ko": "오한이 ~한 느낌이지 않았습니다."
+        "meaning_ko": "오한이 ~한 느낌이 아니었습니다."
       }
     }
   },
@@ -674,12 +674,12 @@
       "plain_present_affirmative": {
         "jp": "今日はだるい。",
         "pron_ko": "쿄우와 다루이。",
-        "meaning_ko": "오늘은 몸이 몸이 나른하다."
+        "meaning_ko": "오늘은 몸이 몸이 나른한다."
       },
       "plain_present_negative": {
         "jp": "今日はだるくない。",
         "pron_ko": "쿄우와 다루쿠나이。",
-        "meaning_ko": "오늘은 몸이 몸이 나른하지 않다."
+        "meaning_ko": "오늘은 몸이 몸이 나른하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "今日はだるかった。",
@@ -934,7 +934,7 @@
       "plain_present_negative": {
         "jp": "発疹が出ない。",
         "pron_ko": "홋신가 데나이。",
-        "meaning_ko": "발진이 나가지 않다."
+        "meaning_ko": "발진이 나가지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "発疹が出た。",
@@ -1036,7 +1036,7 @@
       "plain_present_negative": {
         "jp": "病院へ行きたくない。",
         "pron_ko": "뵤우인에 이키 타쿠나이。",
-        "meaning_ko": "병원에 가고 싶지 않다."
+        "meaning_ko": "병원에 가고 싶지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "病院へ行きたかった。",
@@ -1087,12 +1087,12 @@
       "plain_present_negative": {
         "jp": "医者に診てもらわない。",
         "pron_ko": "이샤니 신테모 라와나이。",
-        "meaning_ko": "의사에게 받지 않다."
+        "meaning_ko": "의사에게 받지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "医者に診てもらった。",
         "pron_ko": "이샤니 신테모 랏타。",
-        "meaning_ko": "의사에게 받았다."
+        "meaning_ko": "의사에게 발았다."
       },
       "plain_past_negative": {
         "jp": "医者に診てもらわなかった。",
@@ -1112,7 +1112,7 @@
       "polite_past_affirmative": {
         "jp": "医者に診てもらいました。",
         "pron_ko": "이샤니 신테모 라이마시타。",
-        "meaning_ko": "의사에게 받았습니다."
+        "meaning_ko": "의사에게 발았습니다."
       },
       "polite_past_negative": {
         "jp": "医者に診てもらいませんでした。",
@@ -1138,12 +1138,12 @@
       "plain_present_negative": {
         "jp": "看護師さんに聞かない。",
         "pron_ko": "칸고시 산니 키카나이。",
-        "meaning_ko": "간호사에게 듣지 않다."
+        "meaning_ko": "간호사에게 듣지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "看護師さんに聞いた。",
         "pron_ko": "칸고시 산니 키이타。",
-        "meaning_ko": "간호사에게 듣었다."
+        "meaning_ko": "간호사에게 들었다."
       },
       "plain_past_negative": {
         "jp": "看護師さんに聞かなかった。",
@@ -1163,7 +1163,7 @@
       "polite_past_affirmative": {
         "jp": "看護師さんに聞きました。",
         "pron_ko": "칸고시 산니 키키마시타。",
-        "meaning_ko": "간호사에게 듣었습니다."
+        "meaning_ko": "간호사에게 들었습니다."
       },
       "polite_past_negative": {
         "jp": "看護師さんに聞きませんでした。",
@@ -1189,7 +1189,7 @@
       "plain_present_negative": {
         "jp": "待合室で待たない。",
         "pron_ko": "마치아이시츠데 마타나이。",
-        "meaning_ko": "대기실에서 기다리지 않다."
+        "meaning_ko": "대기실에서 기다리지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "待合室で待った。",
@@ -1240,7 +1240,7 @@
       "plain_present_negative": {
         "jp": "受付番号を呼ばれない。",
         "pron_ko": "우케츠케반고우오 요바레나이。",
-        "meaning_ko": "접수번호가 불리지 않다."
+        "meaning_ko": "접수번호가 불리지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "受付番号を呼ばれた。",
@@ -1291,7 +1291,7 @@
       "plain_present_negative": {
         "jp": "診察券を出しない。",
         "pron_ko": "신사츠켄오데 시나이。",
-        "meaning_ko": "진료카드를 하지 않다."
+        "meaning_ko": "진료카드를 하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "診察券を出した。",
@@ -1335,44 +1335,44 @@
     "s_pron": "신료우카와 도코데스카。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "診療科はどこだ。",
-        "pron_ko": "신료우카와 도코 다。",
-        "meaning_ko": "진료과는 어디이다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "診療科はどこじゃない。",
-        "pron_ko": "신료우카와 도코자나이。",
-        "meaning_ko": "진료과는 어디이 아니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "診療科はどこだった。",
-        "pron_ko": "신료우카와 도코 닷타。",
-        "meaning_ko": "진료과는 어디이었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "診療科はどこじゃなかった。",
-        "pron_ko": "신료우카와 도코자나캇타。",
-        "meaning_ko": "진료과는 어디이 아니었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "診療科はどこです。",
-        "pron_ko": "신료우카와 도코 데스。",
-        "meaning_ko": "진료과는 어디입니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "診療科はどこではありません。",
-        "pron_ko": "신료우카와 도코데하아리마센。",
-        "meaning_ko": "진료과는 어디이 아닙니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "診療科はどこでした。",
-        "pron_ko": "신료우카와 도코 데시타。",
-        "meaning_ko": "진료과는 어디이었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "診療科はどこではありませんでした。",
-        "pron_ko": "신료우카와 도코데하아리마센데시타。",
-        "meaning_ko": "진료과는 어디이 아니었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -1393,12 +1393,12 @@
       "plain_present_negative": {
         "jp": "内科で診てもらわない。",
         "pron_ko": "나이카데 신테모 라와나이。",
-        "meaning_ko": "내과에서 받지 않다."
+        "meaning_ko": "내과에서 받지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "内科で診てもらった。",
         "pron_ko": "나이카데 신테모 랏타。",
-        "meaning_ko": "내과에서 받았다."
+        "meaning_ko": "내과에서 발았다."
       },
       "plain_past_negative": {
         "jp": "内科で診てもらわなかった。",
@@ -1418,7 +1418,7 @@
       "polite_past_affirmative": {
         "jp": "内科で診てもらいました。",
         "pron_ko": "나이카데 신테모 라이마시타。",
-        "meaning_ko": "내과에서 받았습니다."
+        "meaning_ko": "내과에서 발았습니다."
       },
       "polite_past_negative": {
         "jp": "内科で診てもらいませんでした。",
@@ -1444,7 +1444,7 @@
       "plain_present_negative": {
         "jp": "外科に行かない。",
         "pron_ko": "게카니 이카나이。",
-        "meaning_ko": "외과에 가지 않다."
+        "meaning_ko": "외과에 가지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "外科に行った。",
@@ -1539,44 +1539,44 @@
     "s_pron": "몬신효우오 카이테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "問診票を書く。",
-        "pron_ko": "몬신효우오 카쿠。",
-        "meaning_ko": "문진표를 쓴다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "問診票を書かない。",
-        "pron_ko": "몬신효우오 카카나이。",
-        "meaning_ko": "문진표를 쓰지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "問診票を書いた。",
-        "pron_ko": "몬신효우오 카이타。",
-        "meaning_ko": "문진표를 썼다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "問診票を書かなかった。",
-        "pron_ko": "몬신효우오 카카나캇타。",
-        "meaning_ko": "문진표를 쓰지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "問診票を書きます。",
-        "pron_ko": "몬신효우오 카키마스。",
-        "meaning_ko": "문진표를 씁니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "問診票を書きません。",
-        "pron_ko": "몬신효우오 카키마센。",
-        "meaning_ko": "문진표를 쓰지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "問診票を書きました。",
-        "pron_ko": "몬신효우오 카키마시타。",
-        "meaning_ko": "문진표를 썼습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "問診票を書きませんでした。",
-        "pron_ko": "몬신효우오 카키마센데시타。",
-        "meaning_ko": "문진표를 쓰지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -1590,44 +1590,44 @@
     "s_pron": "호켄쇼우오 못테이마스카。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "保険証を持っている。",
-        "pron_ko": "호켄쇼우오모 테이루。",
-        "meaning_ko": "보험증을 가지고 있다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "保険証を持っていない。",
-        "pron_ko": "호켄쇼우오모 테이나이。",
-        "meaning_ko": "보험증을 가지고 없다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "保険証を持っていた。",
-        "pron_ko": "호켄쇼우오모 테이타。",
-        "meaning_ko": "보험증을 가지고 있었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "保険証を持っていなかった。",
-        "pron_ko": "호켄쇼우오모 테이나카 타。",
-        "meaning_ko": "보험증을 가지고 없었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "保険証を持っています。",
-        "pron_ko": "호켄쇼우오모 테이마스。",
-        "meaning_ko": "보험증을 가지고 있습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "保険証を持っていません。",
-        "pron_ko": "호켄쇼우오모 테이마센。",
-        "meaning_ko": "보험증을 가지고 없습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "保険証を持っていました。",
-        "pron_ko": "호켄쇼우오모 테이마시타。",
-        "meaning_ko": "보험증을 가지고 있었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "保険証を持っていませんでした。",
-        "pron_ko": "호켄쇼우오모 테이마센 데시타。",
-        "meaning_ko": "보험증을 가지고 없었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -1641,44 +1641,44 @@
     "s_pron": "쇼호우센오 쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "処方箋がほしい。",
-        "pron_ko": "쇼호우센가 호시이。",
-        "meaning_ko": "처방전을 원한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "処方箋がほしくない。",
-        "pron_ko": "쇼호우센가 호시쿠나이。",
-        "meaning_ko": "처방전을 원하지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "処方箋がほしかった。",
-        "pron_ko": "쇼호우센가 호시캇타。",
-        "meaning_ko": "처방전을 원했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "処方箋がほしくなかった。",
-        "pron_ko": "쇼호우센가 호시쿠나캇타。",
-        "meaning_ko": "처방전을 원하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "処方箋がほしいです。",
-        "pron_ko": "쇼호우센가 호시이데스。",
-        "meaning_ko": "처방전을 원합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "処方箋がほしくないです。",
-        "pron_ko": "쇼호우센가 호시쿠나이데스。",
-        "meaning_ko": "처방전을 원하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "処方箋がほしかったです。",
-        "pron_ko": "쇼호우센가 호시캇타데스。",
-        "meaning_ko": "처방전을 원했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "処方箋がほしくなかったです。",
-        "pron_ko": "쇼호우센가 호시쿠나캇타데스。",
-        "meaning_ko": "처방전을 원하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -1692,44 +1692,44 @@
     "s_pron": "약쿄쿠와 도코데스카。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "薬局はどこだ。",
-        "pron_ko": "약쿄쿠와 도코 다。",
-        "meaning_ko": "약국은 어디이다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "薬局はどこじゃない。",
-        "pron_ko": "약쿄쿠와 도코자나이。",
-        "meaning_ko": "약국은 어디이 아니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "薬局はどこだった。",
-        "pron_ko": "약쿄쿠와 도코 닷타。",
-        "meaning_ko": "약국은 어디이었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "薬局はどこじゃなかった。",
-        "pron_ko": "약쿄쿠와 도코자나캇타。",
-        "meaning_ko": "약국은 어디이 아니었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "薬局はどこです。",
-        "pron_ko": "약쿄쿠와 도코 데스。",
-        "meaning_ko": "약국은 어디입니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "薬局はどこではありません。",
-        "pron_ko": "약쿄쿠와 도코데하아리마센。",
-        "meaning_ko": "약국은 어디이 아닙니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "薬局はどこでした。",
-        "pron_ko": "약쿄쿠와 도코 데시타。",
-        "meaning_ko": "약국은 어디이었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "薬局はどこではありませんでした。",
-        "pron_ko": "약쿄쿠와 도코데하아리마센데시타。",
-        "meaning_ko": "약국은 어디이 아니었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -1750,7 +1750,7 @@
       "plain_present_negative": {
         "jp": "薬剤師に相談しない。",
         "pron_ko": "야쿠자이시니 소우단시나이。",
-        "meaning_ko": "약사에게 상담하지 않다."
+        "meaning_ko": "약사에게 상담하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "薬剤師に相談した。",
@@ -1796,22 +1796,22 @@
       "plain_present_affirmative": {
         "jp": "副作用が心配だ。",
         "pron_ko": "후쿠사요우가 신파이 다。",
-        "meaning_ko": "부작용이 걱정됩니다이다."
+        "meaning_ko": "부작용이 걱정됩니다다."
       },
       "plain_present_negative": {
         "jp": "副作用が心配じゃない。",
         "pron_ko": "후쿠사요우가 신파이자나이。",
-        "meaning_ko": "부작용이 걱정됩니다이 아니다."
+        "meaning_ko": "부작용이 걱정됩니다가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "副作用が心配だった。",
         "pron_ko": "후쿠사요우가 신파이 닷타。",
-        "meaning_ko": "부작용이 걱정됩니다이었다."
+        "meaning_ko": "부작용이 걱정됩니다였다."
       },
       "plain_past_negative": {
         "jp": "副作用が心配じゃなかった。",
         "pron_ko": "후쿠사요우가 신파이자나캇타。",
-        "meaning_ko": "부작용이 걱정됩니다이 아니었다."
+        "meaning_ko": "부작용이 걱정됩니다가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "副作用が心配です。",
@@ -1821,17 +1821,17 @@
       "polite_present_negative": {
         "jp": "副作用が心配ではありません。",
         "pron_ko": "후쿠사요우가 신파이데하아리마센。",
-        "meaning_ko": "부작용이 걱정됩니다이 아닙니다."
+        "meaning_ko": "부작용이 걱정됩니다가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "副作用が心配でした。",
         "pron_ko": "후쿠사요우가 신파이 데시타。",
-        "meaning_ko": "부작용이 걱정됩니다이었습니다."
+        "meaning_ko": "부작용이 걱정됩니다였습니다."
       },
       "polite_past_negative": {
         "jp": "副作用が心配ではありませんでした。",
         "pron_ko": "후쿠사요우가 신파이데하아리마센데시타。",
-        "meaning_ko": "부작용이 걱정됩니다이 아니었습니다."
+        "meaning_ko": "부작용이 걱정됩니다가 아니었습니다."
       }
     }
   },
@@ -1845,44 +1845,44 @@
     "s_pron": "코노쿠스리오 후쿠요우시테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "この薬を服用する。",
-        "pron_ko": "코노 쿠스리오 후쿠요우 스루。",
-        "meaning_ko": "이 약을 복용한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "この薬を服用しない。",
-        "pron_ko": "코노 쿠스리오 후쿠요우 시나이。",
-        "meaning_ko": "이 약을 복용하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "この薬を服用した。",
-        "pron_ko": "코노 쿠스리오 후쿠요우 시타。",
-        "meaning_ko": "이 약을 복용했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "この薬を服用しなかった。",
-        "pron_ko": "코노 쿠스리오 후쿠요우 시나캇타。",
-        "meaning_ko": "이 약을 복용하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "この薬を服用します。",
-        "pron_ko": "코노 쿠스리오 후쿠요우 시마스。",
-        "meaning_ko": "이 약을 복용합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "この薬を服用しません。",
-        "pron_ko": "코노 쿠스리오 후쿠요우 시마센。",
-        "meaning_ko": "이 약을 복용하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "この薬を服用しました。",
-        "pron_ko": "코노 쿠스리오 후쿠요우 시마시타。",
-        "meaning_ko": "이 약을 복용했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "この薬を服用しませんでした。",
-        "pron_ko": "코노 쿠스리오 후쿠요우 시마센데시타。",
-        "meaning_ko": "이 약을 복용하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -1903,7 +1903,7 @@
       "plain_present_negative": {
         "jp": "点滴をしない。",
         "pron_ko": "텐테키오 시나이。",
-        "meaning_ko": "링거를 하지 않다."
+        "meaning_ko": "링거를 하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "点滴をした。",
@@ -1954,7 +1954,7 @@
       "plain_present_negative": {
         "jp": "レントゲンを撮らない。",
         "pron_ko": "렌토겐오 토라나이。",
-        "meaning_ko": "엑스레이를 찍지 않다."
+        "meaning_ko": "엑스레이를 찍지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "レントゲンを撮った。",
@@ -2005,12 +2005,12 @@
       "plain_present_negative": {
         "jp": "血液検査を受けない。",
         "pron_ko": "케츠에키켄사오 우케나이。",
-        "meaning_ko": "혈액검사를 받지 않다."
+        "meaning_ko": "혈액검사를 받지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "血液検査を受けた。",
         "pron_ko": "케츠에키켄사오 우케타。",
-        "meaning_ko": "혈액검사를 받았다."
+        "meaning_ko": "혈액검사를 발았다."
       },
       "plain_past_negative": {
         "jp": "血液検査を受けなかった。",
@@ -2030,7 +2030,7 @@
       "polite_past_affirmative": {
         "jp": "血液検査を受けました。",
         "pron_ko": "케츠에키켄사오 우케마시타。",
-        "meaning_ko": "혈액검사를 받았습니다."
+        "meaning_ko": "혈액검사를 발았습니다."
       },
       "polite_past_negative": {
         "jp": "血液検査を受けませんでした。",
@@ -2056,7 +2056,7 @@
       "plain_present_negative": {
         "jp": "財布をなくしない。",
         "pron_ko": "사이후오 나쿠시나이。",
-        "meaning_ko": "지갑을 하지 않다."
+        "meaning_ko": "지갑을 하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "財布をなくした。",
@@ -2107,12 +2107,12 @@
       "plain_present_negative": {
         "jp": "携帯が見つからない。",
         "pron_ko": "케이타이가 미츠카라나이。",
-        "meaning_ko": "휴대폰을 찾을 수 발견되지 않다."
+        "meaning_ko": "휴대폰을 찾을 수 발견되지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "携帯が見つかった。",
         "pron_ko": "케이타이가 미츠캇타。",
-        "meaning_ko": "휴대폰을 찾을 수 발견됬다."
+        "meaning_ko": "휴대폰을 찾을 수 발견되었다."
       },
       "plain_past_negative": {
         "jp": "携帯が見つからなかった。",
@@ -2132,7 +2132,7 @@
       "polite_past_affirmative": {
         "jp": "携帯が見つかりました。",
         "pron_ko": "케이타이가 미츠카리마시타。",
-        "meaning_ko": "휴대폰을 찾을 수 발견됬습니다."
+        "meaning_ko": "휴대폰을 찾을 수 발견되었습니다."
       },
       "polite_past_negative": {
         "jp": "携帯が見つかりませんでした。",
@@ -2158,7 +2158,7 @@
       "plain_present_negative": {
         "jp": "合鍵を作りたくない。",
         "pron_ko": "아이카기오 츠쿠리 타쿠나이。",
-        "meaning_ko": "예비 열쇠를 만들고 싶지 않다."
+        "meaning_ko": "예비 열쇠를 만들고 싶지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "合鍵を作りたかった。",
@@ -2260,7 +2260,7 @@
       "plain_present_negative": {
         "jp": "警察署へ行かない。",
         "pron_ko": "케이사츠쇼에 이카나이。",
-        "meaning_ko": "경찰서로 가지 않다."
+        "meaning_ko": "경찰서로 가지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "警察署へ行った。",
@@ -2311,7 +2311,7 @@
       "plain_present_negative": {
         "jp": "交通事故を見ない。",
         "pron_ko": "코우츠우지코오 미나이。",
-        "meaning_ko": "교통사고를 보지 않다."
+        "meaning_ko": "교통사고를 보지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "交通事故を見た。",
@@ -2355,44 +2355,44 @@
     "s_pron": "토우난니 츄우이시테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "盗難に注意する。",
-        "pron_ko": "토우난니 츄우이 스루。",
-        "meaning_ko": "도난에 주의한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "盗難に注意しない。",
-        "pron_ko": "토우난니 츄우이 시나이。",
-        "meaning_ko": "도난에 주의하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "盗難に注意した。",
-        "pron_ko": "토우난니 츄우이 시타。",
-        "meaning_ko": "도난에 주의했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "盗難に注意しなかった。",
-        "pron_ko": "토우난니 츄우이 시나캇타。",
-        "meaning_ko": "도난에 주의하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "盗難に注意します。",
-        "pron_ko": "토우난니 츄우이 시마스。",
-        "meaning_ko": "도난에 주의합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "盗難に注意しません。",
-        "pron_ko": "토우난니 츄우이 시마센。",
-        "meaning_ko": "도난에 주의하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "盗難に注意しました。",
-        "pron_ko": "토우난니 츄우이 시마시타。",
-        "meaning_ko": "도난에 주의했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "盗難に注意しませんでした。",
-        "pron_ko": "토우난니 츄우이 시마센데시타。",
-        "meaning_ko": "도난에 주의하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -2408,42 +2408,42 @@
       "plain_present_affirmative": {
         "jp": "紛失する。",
         "pron_ko": "훈시츠 스루。",
-        "meaning_ko": "분실한다."
+        "meaning_ko": "분실했는다."
       },
       "plain_present_negative": {
         "jp": "紛失しない。",
         "pron_ko": "훈시츠 시나이。",
-        "meaning_ko": "분실하지 않는다."
+        "meaning_ko": "분실했지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "紛失した。",
         "pron_ko": "훈시츠 시타。",
-        "meaning_ko": "분실했다."
+        "meaning_ko": "분실했었다."
       },
       "plain_past_negative": {
         "jp": "紛失しなかった。",
         "pron_ko": "훈시츠 시나캇타。",
-        "meaning_ko": "분실하지 않았다."
+        "meaning_ko": "분실했지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "紛失します。",
         "pron_ko": "훈시츠 시마스。",
-        "meaning_ko": "분실합니다."
+        "meaning_ko": "분실했습니다."
       },
       "polite_present_negative": {
         "jp": "紛失しません。",
         "pron_ko": "훈시츠 시마센。",
-        "meaning_ko": "분실하지 않습니다."
+        "meaning_ko": "분실했지 않습니다."
       },
       "polite_past_affirmative": {
         "jp": "紛失しました。",
         "pron_ko": "훈시츠 시마시타。",
-        "meaning_ko": "분실했습니다."
+        "meaning_ko": "분실했었습니다."
       },
       "polite_past_negative": {
         "jp": "紛失しませんでした。",
         "pron_ko": "훈시츠 시마센데시타。",
-        "meaning_ko": "분실하지 않았습니다."
+        "meaning_ko": "분실했지 않았습니다."
       }
     }
   },
@@ -2464,7 +2464,7 @@
       "plain_present_negative": {
         "jp": "落とし物を届けない。",
         "pron_ko": "오토시모노오 토도케나이。",
-        "meaning_ko": "분실물을 전달하지 않다."
+        "meaning_ko": "분실물을 전달하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "落とし物を届けた。",
@@ -2515,12 +2515,12 @@
       "plain_present_negative": {
         "jp": "遺失物係に聞かない。",
         "pron_ko": "이시츠부츠 카카리니 키카나이。",
-        "meaning_ko": "유실물 담당에 듣지 않다."
+        "meaning_ko": "유실물 담당에 듣지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "遺失物係に聞いた。",
         "pron_ko": "이시츠부츠 카카리니 키이타。",
-        "meaning_ko": "유실물 담당에 듣었다."
+        "meaning_ko": "유실물 담당에 들었다."
       },
       "plain_past_negative": {
         "jp": "遺失物係に聞かなかった。",
@@ -2540,7 +2540,7 @@
       "polite_past_affirmative": {
         "jp": "遺失物係に聞きました。",
         "pron_ko": "이시츠부츠 카카리니 키키마시타。",
-        "meaning_ko": "유실물 담당에 듣었습니다."
+        "meaning_ko": "유실물 담당에 들었습니다."
       },
       "polite_past_negative": {
         "jp": "遺失物係に聞きませんでした。",
@@ -2566,7 +2566,7 @@
       "plain_present_negative": {
         "jp": "被害届を出しない。",
         "pron_ko": "히가이토도케오데 시나이。",
-        "meaning_ko": "피해 신고를 하지 않다."
+        "meaning_ko": "피해 신고를 하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "被害届を出した。",
@@ -2617,7 +2617,7 @@
       "plain_present_negative": {
         "jp": "再発行をお願いしない。",
         "pron_ko": "사이학코우오 오네가이 시나이。",
-        "meaning_ko": "재발급을 하지 않다."
+        "meaning_ko": "재발급을 하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "再発行をお願いした。",
@@ -2661,44 +2661,44 @@
     "s_pron": "미분쇼우메이쇼오 미세테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "身分証明書を見せる。",
-        "pron_ko": "미분쇼우메이쇼오 미세루。",
-        "meaning_ko": "신분증을 보여준다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "身分証明書を見せない。",
-        "pron_ko": "미분쇼우메이쇼오 미세나이。",
-        "meaning_ko": "신분증을 보여주지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "身分証明書を見せた。",
-        "pron_ko": "미분쇼우메이쇼오 미세타。",
-        "meaning_ko": "신분증을 보여줬다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "身分証明書を見せなかった。",
-        "pron_ko": "미분쇼우메이쇼오 미세나캇타。",
-        "meaning_ko": "신분증을 보여주지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "身分証明書を見せます。",
-        "pron_ko": "미분쇼우메이쇼오 미세마스。",
-        "meaning_ko": "신분증을 보여줍니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "身分証明書を見せません。",
-        "pron_ko": "미분쇼우메이쇼오 미세마센。",
-        "meaning_ko": "신분증을 보여주지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "身分証明書を見せました。",
-        "pron_ko": "미분쇼우메이쇼오 미세마시타。",
-        "meaning_ko": "신분증을 보여줬습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "身分証明書を見せませんでした。",
-        "pron_ko": "미분쇼우메이쇼오 미세마센데시타。",
-        "meaning_ko": "신분증을 보여주지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -2770,7 +2770,7 @@
       "plain_present_negative": {
         "jp": "在留カードを忘れない。",
         "pron_ko": "자이류우카-도오 와스레나이。",
-        "meaning_ko": "재류카드를 잊지 않다."
+        "meaning_ko": "재류카드를 잊지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "在留カードを忘れた。",
@@ -2821,7 +2821,7 @@
       "plain_present_negative": {
         "jp": "旅券を再発行したくない。",
         "pron_ko": "료켄오 사이학코우 시타 쿠나이。",
-        "meaning_ko": "여권을 재발급하고 싶지 않다."
+        "meaning_ko": "여권을 재발급하고 싶지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "旅券を再発行したかった。",
@@ -2865,44 +2865,44 @@
     "s_pron": "카-도테이시오 시테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "カード停止をする。",
-        "pron_ko": "카-도테이시오 스루。",
-        "meaning_ko": "카드 정지를 한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "カード停止をしない。",
-        "pron_ko": "카-도테이시오 시나이。",
-        "meaning_ko": "카드 정지를 하지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "カード停止をした。",
-        "pron_ko": "카-도테이시오 시타。",
-        "meaning_ko": "카드 정지를 했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "カード停止をしなかった。",
-        "pron_ko": "카-도테이시오 시나캇타。",
-        "meaning_ko": "카드 정지를 하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "カード停止をします。",
-        "pron_ko": "카-도테이시오 시마스。",
-        "meaning_ko": "카드 정지를 합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "カード停止をしません。",
-        "pron_ko": "카-도테이시오 시마센。",
-        "meaning_ko": "카드 정지를 하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "カード停止をしました。",
-        "pron_ko": "카-도테이시오 시마시타。",
-        "meaning_ko": "카드 정지를 했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "カード停止をしませんでした。",
-        "pron_ko": "카-도테이시오 시마센데시타。",
-        "meaning_ko": "카드 정지를 하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -2923,7 +2923,7 @@
       "plain_present_negative": {
         "jp": "暗証番号を忘れない。",
         "pron_ko": "안쇼우반고우오 와스레나이。",
-        "meaning_ko": "비밀번호를 잊지 않다."
+        "meaning_ko": "비밀번호를 잊지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "暗証番号を忘れた。",
@@ -2974,7 +2974,7 @@
       "plain_present_negative": {
         "jp": "防犯カメラを確認しない。",
         "pron_ko": "보우한카메라오 카쿠닌시나이。",
-        "meaning_ko": "방범카메라를 확인하지 않다."
+        "meaning_ko": "방범카메라를 확인하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "防犯カメラを確認した。",
@@ -3020,42 +3020,42 @@
       "plain_present_affirmative": {
         "jp": "通報する。",
         "pron_ko": "츠우호우 스루。",
-        "meaning_ko": "신고한다."
+        "meaning_ko": "신고했는다."
       },
       "plain_present_negative": {
         "jp": "通報しない。",
         "pron_ko": "츠우호우 시나이。",
-        "meaning_ko": "신고하지 않는다."
+        "meaning_ko": "신고했지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "通報した。",
         "pron_ko": "츠우호우 시타。",
-        "meaning_ko": "신고했다."
+        "meaning_ko": "신고했었다."
       },
       "plain_past_negative": {
         "jp": "通報しなかった。",
         "pron_ko": "츠우호우 시나캇타。",
-        "meaning_ko": "신고하지 않았다."
+        "meaning_ko": "신고했지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "通報します。",
         "pron_ko": "츠우호우 시마스。",
-        "meaning_ko": "신고합니다."
+        "meaning_ko": "신고했습니다."
       },
       "polite_present_negative": {
         "jp": "通報しません。",
         "pron_ko": "츠우호우 시마센。",
-        "meaning_ko": "신고하지 않습니다."
+        "meaning_ko": "신고했지 않습니다."
       },
       "polite_past_affirmative": {
         "jp": "通報しました。",
         "pron_ko": "츠우호우 시마시타。",
-        "meaning_ko": "신고했습니다."
+        "meaning_ko": "신고했었습니다."
       },
       "polite_past_negative": {
         "jp": "通報しませんでした。",
         "pron_ko": "츠우호우 시마센데시타。",
-        "meaning_ko": "신고하지 않았습니다."
+        "meaning_ko": "신고했지 않았습니다."
       }
     }
   },
@@ -3076,7 +3076,7 @@
       "plain_present_negative": {
         "jp": "故障しない。",
         "pron_ko": "코쇼우 시나이。",
-        "meaning_ko": "고장 하지 않다."
+        "meaning_ko": "고장 하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "故障した。",
@@ -3122,42 +3122,42 @@
       "plain_present_affirmative": {
         "jp": "画面が破損する。",
         "pron_ko": "가멘가 하손 스루。",
-        "meaning_ko": "파손한다."
+        "meaning_ko": "화면이 파손되었는다."
       },
       "plain_present_negative": {
         "jp": "画面が破損しない。",
         "pron_ko": "가멘가 하손 시나이。",
-        "meaning_ko": "파손하지 않는다."
+        "meaning_ko": "화면이 파손되었지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "画面が破損した。",
         "pron_ko": "가멘가 하손 시타。",
-        "meaning_ko": "파손했다."
+        "meaning_ko": "화면이 파손되었었다."
       },
       "plain_past_negative": {
         "jp": "画面が破損しなかった。",
         "pron_ko": "가멘가 하손 시나캇타。",
-        "meaning_ko": "파손하지 않았다."
+        "meaning_ko": "화면이 파손되었지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "画面が破損します。",
         "pron_ko": "가멘가 하손 시마스。",
-        "meaning_ko": "파손합니다."
+        "meaning_ko": "화면이 파손되었습니다."
       },
       "polite_present_negative": {
         "jp": "画面が破損しません。",
         "pron_ko": "가멘가 하손 시마센。",
-        "meaning_ko": "파손하지 않습니다."
+        "meaning_ko": "화면이 파손되었지 않습니다."
       },
       "polite_past_affirmative": {
         "jp": "画面が破損しました。",
         "pron_ko": "가멘가 하손 시마시타。",
-        "meaning_ko": "파손했습니다."
+        "meaning_ko": "화면이 파손되었었습니다."
       },
       "polite_past_negative": {
         "jp": "画面が破損しませんでした。",
         "pron_ko": "가멘가 하손 시마센데시타。",
-        "meaning_ko": "파손하지 않았습니다."
+        "meaning_ko": "화면이 파손되었지 않았습니다."
       }
     }
   },
@@ -3178,17 +3178,17 @@
       "plain_present_negative": {
         "jp": "初期不良かもしれない。",
         "pron_ko": "쇼키후료우 카모시레나이。",
-        "meaning_ko": "초기 불량일지도 아닐지도 모른다."
+        "meaning_ko": "초기 불량일지도 일지도 모르지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "初期不良かもしれなかった。",
         "pron_ko": "쇼키후료우 카모시레나캇타。",
-        "meaning_ko": "초기 불량일지도 이었을지도 몰랐다."
+        "meaning_ko": "초기 불량일지도 일지도 몰랐다."
       },
       "plain_past_negative": {
         "jp": "初期不良かもしれなかった。",
         "pron_ko": "쇼키후료우 카모시레나캇타。",
-        "meaning_ko": "초기 불량일지도 아니었을지도 몰랐다."
+        "meaning_ko": "초기 불량일지도 일지도 모르지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "初期不良かもしれません。",
@@ -3198,17 +3198,17 @@
       "polite_present_negative": {
         "jp": "初期不良かもしれません。",
         "pron_ko": "쇼키후료우 카모시레마센。",
-        "meaning_ko": "초기 불량일지도 아닐지도 모릅니다."
+        "meaning_ko": "초기 불량일지도 일지도 모르지 않습니다."
       },
       "polite_past_affirmative": {
         "jp": "初期不良かもしれませんでした。",
         "pron_ko": "쇼키후료우 카모시레마센데시타。",
-        "meaning_ko": "초기 불량일지도 이었을지도 몰랐습니다."
+        "meaning_ko": "초기 불량일지도 일지도 몰랐습니다."
       },
       "polite_past_negative": {
         "jp": "初期不良かもしれませんでした。",
         "pron_ko": "쇼키후료우 카모시레마센데시타。",
-        "meaning_ko": "초기 불량일지도 아니었을지도 몰랐습니다."
+        "meaning_ko": "초기 불량일지도 일지도 모르지 않았습니다."
       }
     }
   },
@@ -3331,7 +3331,7 @@
       "plain_present_negative": {
         "jp": "サポートセンターに電話さない。",
         "pron_ko": "사포-토센타-니 덴와 사나이。",
-        "meaning_ko": "고객센터에 말하지 않다."
+        "meaning_ko": "고객센터에 말하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "サポートセンターに電話した。",
@@ -3382,7 +3382,7 @@
       "plain_present_negative": {
         "jp": "問い合わせをお願いしない。",
         "pron_ko": "토이아와세오 오네가이 시나이。",
-        "meaning_ko": "문의 하지 않다."
+        "meaning_ko": "문의 하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "問い合わせをお願いした。",
@@ -3426,44 +3426,44 @@
     "s_pron": "타이오우마도구치와 도코데스카。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "対応窓口はどこだ。",
-        "pron_ko": "타이오우마도구치와 도코 다。",
-        "meaning_ko": "담당 창구는 어디이다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "対応窓口はどこじゃない。",
-        "pron_ko": "타이오우마도구치와 도코자나이。",
-        "meaning_ko": "담당 창구는 어디이 아니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "対応窓口はどこだった。",
-        "pron_ko": "타이오우마도구치와 도코 닷타。",
-        "meaning_ko": "담당 창구는 어디이었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "対応窓口はどこじゃなかった。",
-        "pron_ko": "타이오우마도구치와 도코자나캇타。",
-        "meaning_ko": "담당 창구는 어디이 아니었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "対応窓口はどこです。",
-        "pron_ko": "타이오우마도구치와 도코 데스。",
-        "meaning_ko": "담당 창구는 어디입니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "対応窓口はどこではありません。",
-        "pron_ko": "타이오우마도구치와 도코데하아리마센。",
-        "meaning_ko": "담당 창구는 어디이 아닙니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "対応窓口はどこでした。",
-        "pron_ko": "타이오우마도구치와 도코 데시타。",
-        "meaning_ko": "담당 창구는 어디이었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "対応窓口はどこではありませんでした。",
-        "pron_ko": "타이오우마도구치와 도코데하아리마센데시타。",
-        "meaning_ko": "담당 창구는 어디이 아니었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -3484,7 +3484,7 @@
       "plain_present_negative": {
         "jp": "修理店を探さない。",
         "pron_ko": "슈우리텐오 사가사나이。",
-        "meaning_ko": "수리점을 찾지 않다."
+        "meaning_ko": "수리점을 찾지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "修理店を探した。",
@@ -3528,44 +3528,44 @@
     "s_pron": "슈우리다이와 이쿠라데스카。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "修理代はいくらだ。",
-        "pron_ko": "슈우리다이 하이 쿠라다。",
-        "meaning_ko": "수리비는 얼마이다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "修理代はいくらじゃない。",
-        "pron_ko": "슈우리다이 하이 쿠라자나이。",
-        "meaning_ko": "수리비는 얼마이 아니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "修理代はいくらだった。",
-        "pron_ko": "슈우리다이 하이 쿠라닷타。",
-        "meaning_ko": "수리비는 얼마이었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "修理代はいくらじゃなかった。",
-        "pron_ko": "슈우리다이 하이 쿠라자나캇타。",
-        "meaning_ko": "수리비는 얼마이 아니었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "修理代はいくらです。",
-        "pron_ko": "슈우리다이 하이 쿠라 데스。",
-        "meaning_ko": "수리비는 얼마입니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "修理代はいくらではありません。",
-        "pron_ko": "슈우리다이 하이 쿠라데하아리마센。",
-        "meaning_ko": "수리비는 얼마이 아닙니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "修理代はいくらでした。",
-        "pron_ko": "슈우리다이 하이 쿠라 데시타。",
-        "meaning_ko": "수리비는 얼마이었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "修理代はいくらではありませんでした。",
-        "pron_ko": "슈우리다이 하이 쿠라데하아리마센데시타。",
-        "meaning_ko": "수리비는 얼마이 아니었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -3586,7 +3586,7 @@
       "plain_present_negative": {
         "jp": "返金申請をしない。",
         "pron_ko": "헨킨신세이오 시나이。",
-        "meaning_ko": "환불 신청을 하지 않다."
+        "meaning_ko": "환불 신청을 하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "返金申請をした。",
@@ -3630,44 +3630,44 @@
     "s_pron": "헨킨가쿠오 카쿠닌시테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "返金額を確認する。",
-        "pron_ko": "헨킨가쿠오 카쿠닌스루。",
-        "meaning_ko": "환불 금액을 확인한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "返金額を確認しない。",
-        "pron_ko": "헨킨가쿠오 카쿠닌시나이。",
-        "meaning_ko": "환불 금액을 확인하지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "返金額を確認した。",
-        "pron_ko": "헨킨가쿠오 카쿠닌시타。",
-        "meaning_ko": "환불 금액을 확인했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "返金額を確認しなかった。",
-        "pron_ko": "헨킨가쿠오 카쿠닌시나캇타。",
-        "meaning_ko": "환불 금액을 확인하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "返金額を確認します。",
-        "pron_ko": "헨킨가쿠오 카쿠닌시마스。",
-        "meaning_ko": "환불 금액을 확인합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "返金額を確認しません。",
-        "pron_ko": "헨킨가쿠오 카쿠닌시마센。",
-        "meaning_ko": "환불 금액을 확인하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "返金額を確認しました。",
-        "pron_ko": "헨킨가쿠오 카쿠닌시마시타。",
-        "meaning_ko": "환불 금액을 확인했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "返金額を確認しませんでした。",
-        "pron_ko": "헨킨가쿠오 카쿠닌시마센데시타。",
-        "meaning_ko": "환불 금액을 확인하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -3732,44 +3732,44 @@
     "s_pron": "코우칸타이오우 데키마스카。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "交換対応できる。",
-        "pron_ko": "코우칸타이오우 데키루。",
-        "meaning_ko": "교환 대응이 할 수 있다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "交換対応できない。",
-        "pron_ko": "코우칸타이오우 데키나이。",
-        "meaning_ko": "교환 대응이 할 수 없다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "交換対応できた。",
-        "pron_ko": "코우칸타이오우 데키타。",
-        "meaning_ko": "교환 대응이 할 수 있었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "交換対応できなかった。",
-        "pron_ko": "코우칸타이오우 데키나캇타。",
-        "meaning_ko": "교환 대응이 할 수 없었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "交換対応できます。",
-        "pron_ko": "코우칸타이오우 데키마스。",
-        "meaning_ko": "교환 대응이 할 수 있습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "交換対応できません。",
-        "pron_ko": "코우칸타이오우 데키마센。",
-        "meaning_ko": "교환 대응이 할 수 없습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "交換対応できました。",
-        "pron_ko": "코우칸타이오우 데키마시타。",
-        "meaning_ko": "교환 대응이 할 수 있었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "交換対応できませんでした。",
-        "pron_ko": "코우칸타이오우 데키마센데시타。",
-        "meaning_ko": "교환 대응이 할 수 없었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -3783,44 +3783,44 @@
     "s_pron": "다이타이힌오 오쿳테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "代替品を送る。",
-        "pron_ko": "다이타이힌오 오쿠루。",
-        "meaning_ko": "대체품을 보낸다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "代替品を送らない。",
-        "pron_ko": "다이타이힌오 오쿠라나이。",
-        "meaning_ko": "대체품을 보내지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "代替品を送った。",
-        "pron_ko": "다이타이힌오 오쿳타。",
-        "meaning_ko": "대체품을 보냈다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "代替品を送らなかった。",
-        "pron_ko": "다이타이힌오 오쿠라나캇타。",
-        "meaning_ko": "대체품을 보내지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "代替品を送ります。",
-        "pron_ko": "다이타이힌오 오쿠리마스。",
-        "meaning_ko": "대체품을 보냅니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "代替品を送りません。",
-        "pron_ko": "다이타이힌오 오쿠리마센。",
-        "meaning_ko": "대체품을 보내지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "代替品を送りました。",
-        "pron_ko": "다이타이힌오 오쿠리마시타。",
-        "meaning_ko": "대체품을 보냈습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "代替品を送りませんでした。",
-        "pron_ko": "다이타이힌오 오쿠리마센데시타。",
-        "meaning_ko": "대체품을 보내지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -3836,12 +3836,12 @@
       "plain_present_affirmative": {
         "jp": "部品が足りる。",
         "pron_ko": "부힌가 타리루。",
-        "meaning_ko": "부품이 충분하다."
+        "meaning_ko": "부품이 충분한다."
       },
       "plain_present_negative": {
         "jp": "部品が足りない。",
         "pron_ko": "부힌가 타리나이。",
-        "meaning_ko": "부품이 충분하지 않다."
+        "meaning_ko": "부품이 충분하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "部品が足りた。",
@@ -3892,7 +3892,7 @@
       "plain_present_negative": {
         "jp": "取扱説明書を読まない。",
         "pron_ko": "토리아츠카이세츠메이쇼오 요마나이。",
-        "meaning_ko": "설명서를 읽지 않다."
+        "meaning_ko": "설명서를 읽지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "取扱説明書を読んだ。",
@@ -3943,7 +3943,7 @@
       "plain_present_negative": {
         "jp": "設置をお願いしない。",
         "pron_ko": "셋치오 오네가이 시나이。",
-        "meaning_ko": "설치를 하지 않다."
+        "meaning_ko": "설치를 하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "設置をお願いした。",
@@ -3994,7 +3994,7 @@
       "plain_present_negative": {
         "jp": "動作確認をしない。",
         "pron_ko": "도우사카쿠닌오 시나이。",
-        "meaning_ko": "동작 확인을 하지 않다."
+        "meaning_ko": "동작 확인을 하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "動作確認をした。",
@@ -4038,44 +4038,44 @@
     "s_pron": "츠이세키반고우오 오시에테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "追跡番号を教える。",
-        "pron_ko": "츠이세키반고우오 오시에루。",
-        "meaning_ko": "추적 번호를 가르친다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "追跡番号を教えない。",
-        "pron_ko": "츠이세키반고우오 오시에나이。",
-        "meaning_ko": "추적 번호를 가르치지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "追跡番号を教えた。",
-        "pron_ko": "츠이세키반고우오 오시에타。",
-        "meaning_ko": "추적 번호를 가르쳤다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "追跡番号を教えなかった。",
-        "pron_ko": "츠이세키반고우오 오시에나캇타。",
-        "meaning_ko": "추적 번호를 가르치지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "追跡番号を教えます。",
-        "pron_ko": "츠이세키반고우오 오시에마스。",
-        "meaning_ko": "추적 번호를 가르칩니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "追跡番号を教えません。",
-        "pron_ko": "츠이세키반고우오 오시에마센。",
-        "meaning_ko": "추적 번호를 가르치지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "追跡番号を教えました。",
-        "pron_ko": "츠이세키반고우오 오시에마시타。",
-        "meaning_ko": "추적 번호를 가르쳤습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "追跡番号を教えませんでした。",
-        "pron_ko": "츠이세키반고우오 오시에마센데시타。",
-        "meaning_ko": "추적 번호를 가르치지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -4089,44 +4089,44 @@
     "s_pron": "안젠카쿠닌오 시테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "安全確認をする。",
-        "pron_ko": "안젠카쿠닌오 스루。",
-        "meaning_ko": "안전 확인을 한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "安全確認をしない。",
-        "pron_ko": "안젠카쿠닌오 시나이。",
-        "meaning_ko": "안전 확인을 하지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "安全確認をした。",
-        "pron_ko": "안젠카쿠닌오 시타。",
-        "meaning_ko": "안전 확인을 했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "安全確認をしなかった。",
-        "pron_ko": "안젠카쿠닌오 시나캇타。",
-        "meaning_ko": "안전 확인을 하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "安全確認をします。",
-        "pron_ko": "안젠카쿠닌오 시마스。",
-        "meaning_ko": "안전 확인을 합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "安全確認をしません。",
-        "pron_ko": "안젠카쿠닌오 시마센。",
-        "meaning_ko": "안전 확인을 하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "安全確認をしました。",
-        "pron_ko": "안젠카쿠닌오 시마시타。",
-        "meaning_ko": "안전 확인을 했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "安全確認をしませんでした。",
-        "pron_ko": "안젠카쿠닌오 시마센데시타。",
-        "meaning_ko": "안전 확인을 하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -4147,12 +4147,12 @@
       "plain_present_negative": {
         "jp": "警告が表示されない。",
         "pron_ko": "케이코쿠가 효우지사레나이。",
-        "meaning_ko": "경고가 표시되지 않다."
+        "meaning_ko": "경고가 표시되지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "警告が表示された。",
         "pron_ko": "케이코쿠가 효우지사레타。",
-        "meaning_ko": "경고가 표시됬다."
+        "meaning_ko": "경고가 표시되었다."
       },
       "plain_past_negative": {
         "jp": "警告が表示されなかった。",
@@ -4172,7 +4172,7 @@
       "polite_past_affirmative": {
         "jp": "警告が表示されました。",
         "pron_ko": "케이코쿠가 효우지사레마시타。",
-        "meaning_ko": "경고가 표시됬습니다."
+        "meaning_ko": "경고가 표시되었습니다."
       },
       "polite_past_negative": {
         "jp": "警告が表示されませんでした。",
@@ -4191,44 +4191,44 @@
     "s_pron": "효우시키오 미테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "標識を見る。",
-        "pron_ko": "효우시키오 미루。",
-        "meaning_ko": "표지를 본다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "標識を見ない。",
-        "pron_ko": "효우시키오 미나이。",
-        "meaning_ko": "표지를 보지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "標識を見た。",
-        "pron_ko": "효우시키오 미타。",
-        "meaning_ko": "표지를 봤다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "標識を見なかった。",
-        "pron_ko": "효우시키오 미나캇타。",
-        "meaning_ko": "표지를 보지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "標識を見ます。",
-        "pron_ko": "효우시키오 미마스。",
-        "meaning_ko": "표지를 봅니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "標識を見ません。",
-        "pron_ko": "효우시키오 미마센。",
-        "meaning_ko": "표지를 보지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "標識を見ました。",
-        "pron_ko": "효우시키오 미마시타。",
-        "meaning_ko": "표지를 봤습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "標識を見ませんでした。",
-        "pron_ko": "효우시키오 미마센데시타。",
-        "meaning_ko": "표지를 보지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -4244,22 +4244,22 @@
       "plain_present_affirmative": {
         "jp": "ここは立入禁止だ。",
         "pron_ko": "코코와 타치이리킨시 다。",
-        "meaning_ko": "여기는 출입 금지이다."
+        "meaning_ko": "여기는 출입 금지다."
       },
       "plain_present_negative": {
         "jp": "ここは立入禁止じゃない。",
         "pron_ko": "코코와 타치이리킨시자나이。",
-        "meaning_ko": "여기는 출입 금지이 아니다."
+        "meaning_ko": "여기는 출입 금지가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "ここは立入禁止だった。",
         "pron_ko": "코코와 타치이리킨시 닷타。",
-        "meaning_ko": "여기는 출입 금지이었다."
+        "meaning_ko": "여기는 출입 금지였다."
       },
       "plain_past_negative": {
         "jp": "ここは立入禁止じゃなかった。",
         "pron_ko": "코코와 타치이리킨시자나캇타。",
-        "meaning_ko": "여기는 출입 금지이 아니었다."
+        "meaning_ko": "여기는 출입 금지가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "ここは立入禁止です。",
@@ -4269,17 +4269,17 @@
       "polite_present_negative": {
         "jp": "ここは立入禁止ではありません。",
         "pron_ko": "코코와 타치이리킨시데하아리마센。",
-        "meaning_ko": "여기는 출입 금지이 아닙니다."
+        "meaning_ko": "여기는 출입 금지가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "ここは立入禁止でした。",
         "pron_ko": "코코와 타치이리킨시 데시타。",
-        "meaning_ko": "여기는 출입 금지이었습니다."
+        "meaning_ko": "여기는 출입 금지였습니다."
       },
       "polite_past_negative": {
         "jp": "ここは立入禁止ではありませんでした。",
         "pron_ko": "코코와 타치이리킨시데하아리마센데시타。",
-        "meaning_ko": "여기는 출입 금지이 아니었습니다."
+        "meaning_ko": "여기는 출입 금지가 아니었습니다."
       }
     }
   },
@@ -4346,22 +4346,22 @@
       "plain_present_affirmative": {
         "jp": "この席は飲食禁止だ。",
         "pron_ko": "코노 세키와 인쇼쿠킨시 다。",
-        "meaning_ko": "이 자리는 취식 금지이다."
+        "meaning_ko": "이 자리는 취식 금지다."
       },
       "plain_present_negative": {
         "jp": "この席は飲食禁止じゃない。",
         "pron_ko": "코노 세키와 인쇼쿠킨시자나이。",
-        "meaning_ko": "이 자리는 취식 금지이 아니다."
+        "meaning_ko": "이 자리는 취식 금지가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "この席は飲食禁止だった。",
         "pron_ko": "코노 세키와 인쇼쿠킨시 닷타。",
-        "meaning_ko": "이 자리는 취식 금지이었다."
+        "meaning_ko": "이 자리는 취식 금지였다."
       },
       "plain_past_negative": {
         "jp": "この席は飲食禁止じゃなかった。",
         "pron_ko": "코노 세키와 인쇼쿠킨시자나캇타。",
-        "meaning_ko": "이 자리는 취식 금지이 아니었다."
+        "meaning_ko": "이 자리는 취식 금지가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "この席は飲食禁止です。",
@@ -4371,17 +4371,17 @@
       "polite_present_negative": {
         "jp": "この席は飲食禁止ではありません。",
         "pron_ko": "코노 세키와 인쇼쿠킨시데하아리마센。",
-        "meaning_ko": "이 자리는 취식 금지이 아닙니다."
+        "meaning_ko": "이 자리는 취식 금지가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "この席は飲食禁止でした。",
         "pron_ko": "코노 세키와 인쇼쿠킨시 데시타。",
-        "meaning_ko": "이 자리는 취식 금지이었습니다."
+        "meaning_ko": "이 자리는 취식 금지였습니다."
       },
       "polite_past_negative": {
         "jp": "この席は飲食禁止ではありませんでした。",
         "pron_ko": "코노 세키와 인쇼쿠킨시데하아리마센데시타。",
-        "meaning_ko": "이 자리는 취식 금지이 아니었습니다."
+        "meaning_ko": "이 자리는 취식 금지가 아니었습니다."
       }
     }
   },
@@ -4395,44 +4395,44 @@
     "s_pron": "사츠에이킨시나노데 츄우이시테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "撮影禁止なので注意する。",
-        "pron_ko": "사츠에이킨시나노데 츄우이 스루。",
-        "meaning_ko": "촬영 금지이니 주의한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "撮影禁止なので注意しない。",
-        "pron_ko": "사츠에이킨시나노데 츄우이 시나이。",
-        "meaning_ko": "촬영 금지이니 주의하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "撮影禁止なので注意した。",
-        "pron_ko": "사츠에이킨시나노데 츄우이 시타。",
-        "meaning_ko": "촬영 금지이니 주의했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "撮影禁止なので注意しなかった。",
-        "pron_ko": "사츠에이킨시나노데 츄우이 시나캇타。",
-        "meaning_ko": "촬영 금지이니 주의하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "撮影禁止なので注意します。",
-        "pron_ko": "사츠에이킨시나노데 츄우이 시마스。",
-        "meaning_ko": "촬영 금지이니 주의합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "撮影禁止なので注意しません。",
-        "pron_ko": "사츠에이킨시나노데 츄우이 시마센。",
-        "meaning_ko": "촬영 금지이니 주의하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "撮影禁止なので注意しました。",
-        "pron_ko": "사츠에이킨시나노데 츄우이 시마시타。",
-        "meaning_ko": "촬영 금지이니 주의했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "撮影禁止なので注意しませんでした。",
-        "pron_ko": "사츠에이킨시나노데 츄우이 시마센데시타。",
-        "meaning_ko": "촬영 금지이니 주의하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -4446,44 +4446,44 @@
     "s_pron": "킨엔쿠이키데 스와나이데쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "禁煙区域で吸わないでがほしい。",
-        "pron_ko": "킨엔쿠이키데 큐우 와나이데가 호시이。",
-        "meaning_ko": "금연 구역에서 피우지 마세요 원한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "禁煙区域で吸わないでがほしくない。",
-        "pron_ko": "킨엔쿠이키데 큐우 와나이데가 호시쿠나이。",
-        "meaning_ko": "금연 구역에서 피우지 마세요 원하지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "禁煙区域で吸わないでがほしかった。",
-        "pron_ko": "킨엔쿠이키데 큐우 와나이데가 호시캇타。",
-        "meaning_ko": "금연 구역에서 피우지 마세요 원했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "禁煙区域で吸わないでがほしくなかった。",
-        "pron_ko": "킨엔쿠이키데 큐우 와나이데가 호시쿠나캇타。",
-        "meaning_ko": "금연 구역에서 피우지 마세요 원하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "禁煙区域で吸わないでがほしいです。",
-        "pron_ko": "킨엔쿠이키데 큐우 와나이데가 호시이데스。",
-        "meaning_ko": "금연 구역에서 피우지 마세요 원합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "禁煙区域で吸わないでがほしくないです。",
-        "pron_ko": "킨엔쿠이키데 큐우 와나이데가 호시쿠나이데스。",
-        "meaning_ko": "금연 구역에서 피우지 마세요 원하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "禁煙区域で吸わないでがほしかったです。",
-        "pron_ko": "킨엔쿠이키데 큐우 와나이데가 호시캇타데스。",
-        "meaning_ko": "금연 구역에서 피우지 마세요 원했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "禁煙区域で吸わないでがほしくなかったです。",
-        "pron_ko": "킨엔쿠이키데 큐우 와나이데가 호시쿠나캇타데스。",
-        "meaning_ko": "금연 구역에서 피우지 마세요 원하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -4606,7 +4606,7 @@
       "plain_present_negative": {
         "jp": "緊急出口を確認しない。",
         "pron_ko": "킨큐우데구치오 카쿠닌시나이。",
-        "meaning_ko": "긴급 출구를 확인하지 않다."
+        "meaning_ko": "긴급 출구를 확인하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "緊急出口を確認した。",
@@ -4650,44 +4650,44 @@
     "s_pron": "히죠우베루오 오시테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "非常ベルを押する。",
-        "pron_ko": "히죠우베루오 오 스루。",
-        "meaning_ko": "비상벨을 한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "非常ベルを押しない。",
-        "pron_ko": "히죠우베루오 오 시나이。",
-        "meaning_ko": "비상벨을 하지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "非常ベルを押した。",
-        "pron_ko": "히죠우베루오 오 시타。",
-        "meaning_ko": "비상벨을 했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "非常ベルを押しなかった。",
-        "pron_ko": "히죠우베루오 오 시나캇타。",
-        "meaning_ko": "비상벨을 하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "非常ベルを押します。",
-        "pron_ko": "히죠우베루오 오 시마스。",
-        "meaning_ko": "비상벨을 합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "非常ベルを押しません。",
-        "pron_ko": "히죠우베루오 오 시마센。",
-        "meaning_ko": "비상벨을 하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "非常ベルを押しました。",
-        "pron_ko": "히죠우베루오 오 시마시타。",
-        "meaning_ko": "비상벨을 했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "非常ベルを押しませんでした。",
-        "pron_ko": "히죠우베루오 오 시마센데시타。",
-        "meaning_ko": "비상벨을 하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -4701,44 +4701,44 @@
     "s_pron": "히난시테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "避難する。",
-        "pron_ko": "히난 스루。",
-        "meaning_ko": "대피한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "避難しない。",
-        "pron_ko": "히난 시나이。",
-        "meaning_ko": "대피하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "避難した。",
-        "pron_ko": "히난 시타。",
-        "meaning_ko": "대피했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "避難しなかった。",
-        "pron_ko": "히난 시나캇타。",
-        "meaning_ko": "대피하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "避難します。",
-        "pron_ko": "히난 시마스。",
-        "meaning_ko": "대피합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "避難しません。",
-        "pron_ko": "히난 시마센。",
-        "meaning_ko": "대피하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "避難しました。",
-        "pron_ko": "히난 시마시타。",
-        "meaning_ko": "대피했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "避難しませんでした。",
-        "pron_ko": "히난 시마센데시타。",
-        "meaning_ko": "대피하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -4759,7 +4759,7 @@
       "plain_present_negative": {
         "jp": "避難経路を覚えない。",
         "pron_ko": "히난케이로오 오보에나이。",
-        "meaning_ko": "대피 경로를 외우지 않다."
+        "meaning_ko": "대피 경로를 외우지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "避難経路を覚えた。",
@@ -4905,44 +4905,44 @@
     "s_pron": "지신가 키타라 오치츠이테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "地震が来たら落ち着く。",
-        "pron_ko": "지신가 키타 라 오치츠쿠。",
-        "meaning_ko": "지진이 오면 진정한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "地震が来たら落ち着かない。",
-        "pron_ko": "지신가 키타 라 오치츠카나이。",
-        "meaning_ko": "지진이 오면 진정하지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "地震が来たら落ち着いた。",
-        "pron_ko": "지신가 키타 라 오치츠이타。",
-        "meaning_ko": "지진이 오면 진정했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "地震が来たら落ち着かなかった。",
-        "pron_ko": "지신가 키타 라 오치츠카나캇타。",
-        "meaning_ko": "지진이 오면 진정하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "地震が来たら落ち着きます。",
-        "pron_ko": "지신가 키타 라 오치츠키마스。",
-        "meaning_ko": "지진이 오면 진정합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "地震が来たら落ち着きません。",
-        "pron_ko": "지신가 키타 라 오치츠키마센。",
-        "meaning_ko": "지진이 오면 진정하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "地震が来たら落ち着きました。",
-        "pron_ko": "지신가 키타 라 오치츠키마시타。",
-        "meaning_ko": "지진이 오면 진정했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "地震が来たら落ち着きませんでした。",
-        "pron_ko": "지신가 키타 라 오치츠키마센데시타。",
-        "meaning_ko": "지진이 오면 진정하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -5009,22 +5009,22 @@
       "plain_present_affirmative": {
         "jp": "停電で真っ暗だ。",
         "pron_ko": "테이덴데 마  쿠라 다。",
-        "meaning_ko": "정전으로 깜깜합니다이다."
+        "meaning_ko": "정전으로 깜깜합니다다."
       },
       "plain_present_negative": {
         "jp": "停電で真っ暗じゃない。",
         "pron_ko": "테이덴데 마  쿠라자나이。",
-        "meaning_ko": "정전으로 깜깜합니다이 아니다."
+        "meaning_ko": "정전으로 깜깜합니다가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "停電で真っ暗だった。",
         "pron_ko": "테이덴데 마  쿠라 닷타。",
-        "meaning_ko": "정전으로 깜깜합니다이었다."
+        "meaning_ko": "정전으로 깜깜합니다였다."
       },
       "plain_past_negative": {
         "jp": "停電で真っ暗じゃなかった。",
         "pron_ko": "테이덴데 마  쿠라자나캇타。",
-        "meaning_ko": "정전으로 깜깜합니다이 아니었다."
+        "meaning_ko": "정전으로 깜깜합니다가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "停電で真っ暗です。",
@@ -5034,17 +5034,17 @@
       "polite_present_negative": {
         "jp": "停電で真っ暗ではありません。",
         "pron_ko": "테이덴데 마  쿠라데하아리마센。",
-        "meaning_ko": "정전으로 깜깜합니다이 아닙니다."
+        "meaning_ko": "정전으로 깜깜합니다가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "停電で真っ暗でした。",
         "pron_ko": "테이덴데 마  쿠라 데시타。",
-        "meaning_ko": "정전으로 깜깜합니다이었습니다."
+        "meaning_ko": "정전으로 깜깜합니다였습니다."
       },
       "polite_past_negative": {
         "jp": "停電で真っ暗ではありませんでした。",
         "pron_ko": "테이덴데 마  쿠라데하아리마센데시타。",
-        "meaning_ko": "정전으로 깜깜합니다이 아니었습니다."
+        "meaning_ko": "정전으로 깜깜합니다가 아니었습니다."
       }
     }
   },
@@ -5065,17 +5065,17 @@
       "plain_present_negative": {
         "jp": "罰金になるかもしれない。",
         "pron_ko": "박킨니 나루 카모시레나이。",
-        "meaning_ko": "벌금이 될지도 아닐지도 모른다."
+        "meaning_ko": "벌금이 될지도 일지도 모르지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "罰金になるかもしれなかった。",
         "pron_ko": "박킨니 나루 카모시레나캇타。",
-        "meaning_ko": "벌금이 될지도 이었을지도 몰랐다."
+        "meaning_ko": "벌금이 될지도 일지도 몰랐다."
       },
       "plain_past_negative": {
         "jp": "罰金になるかもしれなかった。",
         "pron_ko": "박킨니 나루 카모시레나캇타。",
-        "meaning_ko": "벌금이 될지도 아니었을지도 몰랐다."
+        "meaning_ko": "벌금이 될지도 일지도 모르지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "罰金になるかもしれません。",
@@ -5085,17 +5085,17 @@
       "polite_present_negative": {
         "jp": "罰金になるかもしれません。",
         "pron_ko": "박킨니 나루 카모시레마센。",
-        "meaning_ko": "벌금이 될지도 아닐지도 모릅니다."
+        "meaning_ko": "벌금이 될지도 일지도 모르지 않습니다."
       },
       "polite_past_affirmative": {
         "jp": "罰金になるかもしれませんでした。",
         "pron_ko": "박킨니 나루 카모시레마센데시타。",
-        "meaning_ko": "벌금이 될지도 이었을지도 몰랐습니다."
+        "meaning_ko": "벌금이 될지도 일지도 몰랐습니다."
       },
       "polite_past_negative": {
         "jp": "罰金になるかもしれませんでした。",
         "pron_ko": "박킨니 나루 카모시레마센데시타。",
-        "meaning_ko": "벌금이 될지도 아니었을지도 몰랐습니다."
+        "meaning_ko": "벌금이 될지도 일지도 모르지 않았습니다."
       }
     }
   },
@@ -5116,7 +5116,7 @@
       "plain_present_negative": {
         "jp": "苦情を伝えない。",
         "pron_ko": "쿠죠우오 츠타에나이。",
-        "meaning_ko": "항의를 전달하지 않다."
+        "meaning_ko": "항의를 전달하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "苦情を伝えた。",
@@ -5167,7 +5167,7 @@
       "plain_present_negative": {
         "jp": "クレームを入れない。",
         "pron_ko": "쿠레-무오 이레나이。",
-        "meaning_ko": "클레임을 넣지 않다."
+        "meaning_ko": "클레임을 넣지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "クレームを入れた。",
@@ -5213,12 +5213,12 @@
       "plain_present_affirmative": {
         "jp": "騒音がひどい。",
         "pron_ko": "소우온가 히도이。",
-        "meaning_ko": "소음이 심하다."
+        "meaning_ko": "소음이 심한다."
       },
       "plain_present_negative": {
         "jp": "騒音がひどくない。",
         "pron_ko": "소우온가 히도쿠나이。",
-        "meaning_ko": "소음이 심하지 않다."
+        "meaning_ko": "소음이 심하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "騒音がひどかった。",
@@ -5269,7 +5269,7 @@
       "plain_present_negative": {
         "jp": "悪臭がしない。",
         "pron_ko": "아쿠슈우가 시나이。",
-        "meaning_ko": "악취가 하지 않다."
+        "meaning_ko": "악취가 하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "悪臭がした。",
@@ -5364,44 +5364,44 @@
     "s_pron": "요고레오 오토시테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "汚れを落とす。",
-        "pron_ko": "요고레오 오토스。",
-        "meaning_ko": "더러움을 떨어뜨린다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "汚れを落とさない。",
-        "pron_ko": "요고레오 오토사나이。",
-        "meaning_ko": "더러움을 떨어뜨리지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "汚れを落とした。",
-        "pron_ko": "요고레오 오토시타。",
-        "meaning_ko": "더러움을 떨어뜨렸다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "汚れを落とさなかった。",
-        "pron_ko": "요고레오 오토사나캇타。",
-        "meaning_ko": "더러움을 떨어뜨리지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "汚れを落とします。",
-        "pron_ko": "요고레오 오토시마스。",
-        "meaning_ko": "더러움을 떨어뜨립니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "汚れを落としません。",
-        "pron_ko": "요고레오 오토시마센。",
-        "meaning_ko": "더러움을 떨어뜨리지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "汚れを落としました。",
-        "pron_ko": "요고레오 오토시마시타。",
-        "meaning_ko": "더러움을 떨어뜨렸습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "汚れを落としませんでした。",
-        "pron_ko": "요고레오 오토시마센데시타。",
-        "meaning_ko": "더러움을 떨어뜨리지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -5422,7 +5422,7 @@
       "plain_present_negative": {
         "jp": "シミが取れない。",
         "pron_ko": "시미가 토레나이。",
-        "meaning_ko": "얼룩이 지워지지 떼어지지 않다."
+        "meaning_ko": "얼룩이 지워지지 떼어지지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "シミが取れた。",
@@ -5473,7 +5473,7 @@
       "plain_present_negative": {
         "jp": "服が破れない。",
         "pron_ko": "후쿠가 야부레나이。",
-        "meaning_ko": "옷이 찢어지지 않다."
+        "meaning_ko": "옷이 찢어지지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "服が破れた。",
@@ -5519,12 +5519,12 @@
       "plain_present_affirmative": {
         "jp": "スープがぬるい。",
         "pron_ko": "스-푸가 누루이。",
-        "meaning_ko": "수프가 미지근하다."
+        "meaning_ko": "수프가 미지근한다."
       },
       "plain_present_negative": {
         "jp": "スープがぬるくない。",
         "pron_ko": "스-푸가 누루쿠나이。",
-        "meaning_ko": "수프가 미지근하지 않다."
+        "meaning_ko": "수프가 미지근하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "スープがぬるかった。",
@@ -5575,7 +5575,7 @@
       "plain_present_negative": {
         "jp": "待ち時間が長くない。",
         "pron_ko": "마치지칸가 나가쿠나이。",
-        "meaning_ko": "대기 시간이 기지 않다."
+        "meaning_ko": "대기 시간이 기지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "待ち時間が長かった。",
@@ -5672,42 +5672,42 @@
       "plain_present_affirmative": {
         "jp": "お詫びする。",
         "pron_ko": "오와비 스루。",
-        "meaning_ko": "사죄한다."
+        "meaning_ko": "사과드린다."
       },
       "plain_present_negative": {
         "jp": "お詫びしない。",
         "pron_ko": "오와비 시나이。",
-        "meaning_ko": "사죄하지 않는다."
+        "meaning_ko": "사과드리지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "お詫びした。",
         "pron_ko": "오와비 시타。",
-        "meaning_ko": "사죄했다."
+        "meaning_ko": "사과드렸다."
       },
       "plain_past_negative": {
         "jp": "お詫びしなかった。",
         "pron_ko": "오와비 시나캇타。",
-        "meaning_ko": "사죄하지 않았다."
+        "meaning_ko": "사과드리지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "お詫びします。",
         "pron_ko": "오와비 시마스。",
-        "meaning_ko": "사죄합니다."
+        "meaning_ko": "사과드립니다."
       },
       "polite_present_negative": {
         "jp": "お詫びしません。",
         "pron_ko": "오와비 시마센。",
-        "meaning_ko": "사죄하지 않습니다."
+        "meaning_ko": "사과드리지 않습니다."
       },
       "polite_past_affirmative": {
         "jp": "お詫びしました。",
         "pron_ko": "오와비 시마시타。",
-        "meaning_ko": "사죄했습니다."
+        "meaning_ko": "사과드렸습니다."
       },
       "polite_past_negative": {
         "jp": "お詫びしませんでした。",
         "pron_ko": "오와비 시마센데시타。",
-        "meaning_ko": "사죄하지 않았습니다."
+        "meaning_ko": "사과드리지 않았습니다."
       }
     }
   },
@@ -5723,22 +5723,22 @@
       "plain_present_affirmative": {
         "jp": "説明不足だ。",
         "pron_ko": "세츠메이부소쿠 다。",
-        "meaning_ko": "설명이 부족했습니다이다."
+        "meaning_ko": "설명이 부족했습니다다."
       },
       "plain_present_negative": {
         "jp": "説明不足じゃない。",
         "pron_ko": "세츠메이부소쿠자나이。",
-        "meaning_ko": "설명이 부족했습니다이 아니다."
+        "meaning_ko": "설명이 부족했습니다가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "説明不足だった。",
         "pron_ko": "세츠메이부소쿠 닷타。",
-        "meaning_ko": "설명이 부족했습니다이었다."
+        "meaning_ko": "설명이 부족했습니다였다."
       },
       "plain_past_negative": {
         "jp": "説明不足じゃなかった。",
         "pron_ko": "세츠메이부소쿠자나캇타。",
-        "meaning_ko": "설명이 부족했습니다이 아니었다."
+        "meaning_ko": "설명이 부족했습니다가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "説明不足です。",
@@ -5748,17 +5748,17 @@
       "polite_present_negative": {
         "jp": "説明不足ではありません。",
         "pron_ko": "세츠메이부소쿠데하아리마센。",
-        "meaning_ko": "설명이 부족했습니다이 아닙니다."
+        "meaning_ko": "설명이 부족했습니다가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "説明不足でした。",
         "pron_ko": "세츠메이부소쿠 데시타。",
-        "meaning_ko": "설명이 부족했습니다이었습니다."
+        "meaning_ko": "설명이 부족했습니다였습니다."
       },
       "polite_past_negative": {
         "jp": "説明不足ではありませんでした。",
         "pron_ko": "세츠메이부소쿠데하아리마센데시타。",
-        "meaning_ko": "설명이 부족했습니다이 아니었습니다."
+        "meaning_ko": "설명이 부족했습니다가 아니었습니다."
       }
     }
   },
@@ -5772,44 +5772,44 @@
     "s_pron": "타이오우사쿠오 오시에테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "対応策を教える。",
-        "pron_ko": "타이오우사쿠오 오시에루。",
-        "meaning_ko": "대응책을 가르친다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "対応策を教えない。",
-        "pron_ko": "타이오우사쿠오 오시에나이。",
-        "meaning_ko": "대응책을 가르치지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "対応策を教えた。",
-        "pron_ko": "타이오우사쿠오 오시에타。",
-        "meaning_ko": "대응책을 가르쳤다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "対応策を教えなかった。",
-        "pron_ko": "타이오우사쿠오 오시에나캇타。",
-        "meaning_ko": "대응책을 가르치지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "対応策を教えます。",
-        "pron_ko": "타이오우사쿠오 오시에마스。",
-        "meaning_ko": "대응책을 가르칩니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "対応策を教えません。",
-        "pron_ko": "타이오우사쿠오 오시에마센。",
-        "meaning_ko": "대응책을 가르치지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "対応策を教えました。",
-        "pron_ko": "타이오우사쿠오 오시에마시타。",
-        "meaning_ko": "대응책을 가르쳤습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "対応策を教えませんでした。",
-        "pron_ko": "타이오우사쿠오 오시에마센데시타。",
-        "meaning_ko": "대응책을 가르치지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -5823,44 +5823,44 @@
     "s_pron": "카이젠텐오 하나시마쇼우。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "改善点を話す。",
-        "pron_ko": "카이젠텐오 하나스。",
-        "meaning_ko": "개선점을 말한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "改善点を話さない。",
-        "pron_ko": "카이젠텐오 하나사나이。",
-        "meaning_ko": "개선점을 말하지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "改善点を話した。",
-        "pron_ko": "카이젠텐오 하나시타。",
-        "meaning_ko": "개선점을 말했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "改善点を話さなかった。",
-        "pron_ko": "카이젠텐오 하나사나캇타。",
-        "meaning_ko": "개선점을 말하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "改善点を話します。",
-        "pron_ko": "카이젠텐오 하나시마스。",
-        "meaning_ko": "개선점을 말합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "改善点を話しません。",
-        "pron_ko": "카이젠텐오 하나시마센。",
-        "meaning_ko": "개선점을 말하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "改善点を話しました。",
-        "pron_ko": "카이젠텐오 하나시마시타。",
-        "meaning_ko": "개선점을 말했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "改善点を話しませんでした。",
-        "pron_ko": "카이젠텐오 하나시마센데시타。",
-        "meaning_ko": "개선점을 말하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -5876,22 +5876,22 @@
       "plain_present_affirmative": {
         "jp": "隣の部屋が大声だ。",
         "pron_ko": "토나리노 헤야가 오오고에 다。",
-        "meaning_ko": "옆방이 큰 소리이다."
+        "meaning_ko": "옆방이 큰 소리다."
       },
       "plain_present_negative": {
         "jp": "隣の部屋が大声じゃない。",
         "pron_ko": "토나리노 헤야가 오오고에자나이。",
-        "meaning_ko": "옆방이 큰 소리이 아니다."
+        "meaning_ko": "옆방이 큰 소리가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "隣の部屋が大声だった。",
         "pron_ko": "토나리노 헤야가 오오고에 닷타。",
-        "meaning_ko": "옆방이 큰 소리이었다."
+        "meaning_ko": "옆방이 큰 소리였다."
       },
       "plain_past_negative": {
         "jp": "隣の部屋が大声じゃなかった。",
         "pron_ko": "토나리노 헤야가 오오고에자나캇타。",
-        "meaning_ko": "옆방이 큰 소리이 아니었다."
+        "meaning_ko": "옆방이 큰 소리가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "隣の部屋が大声です。",
@@ -5901,17 +5901,17 @@
       "polite_present_negative": {
         "jp": "隣の部屋が大声ではありません。",
         "pron_ko": "토나리노 헤야가 오오고에데하아리마센。",
-        "meaning_ko": "옆방이 큰 소리이 아닙니다."
+        "meaning_ko": "옆방이 큰 소리가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "隣の部屋が大声でした。",
         "pron_ko": "토나리노 헤야가 오오고에 데시타。",
-        "meaning_ko": "옆방이 큰 소리이었습니다."
+        "meaning_ko": "옆방이 큰 소리였습니다."
       },
       "polite_past_negative": {
         "jp": "隣の部屋が大声ではありませんでした。",
         "pron_ko": "토나리노 헤야가 오오고에데하아리마센데시타。",
-        "meaning_ko": "옆방이 큰 소리이 아니었습니다."
+        "meaning_ko": "옆방이 큰 소리가 아니었습니다."
       }
     }
   },
@@ -5983,17 +5983,17 @@
       "plain_present_negative": {
         "jp": "請求ミスかもしれない。",
         "pron_ko": "세이큐우미스 카모시레나이。",
-        "meaning_ko": "청구 오류일지도 아닐지도 모른다."
+        "meaning_ko": "청구 오류일지도 일지도 모르지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "請求ミスかもしれなかった。",
         "pron_ko": "세이큐우미스 카모시레나캇타。",
-        "meaning_ko": "청구 오류일지도 이었을지도 몰랐다."
+        "meaning_ko": "청구 오류일지도 일지도 몰랐다."
       },
       "plain_past_negative": {
         "jp": "請求ミスかもしれなかった。",
         "pron_ko": "세이큐우미스 카모시레나캇타。",
-        "meaning_ko": "청구 오류일지도 아니었을지도 몰랐다."
+        "meaning_ko": "청구 오류일지도 일지도 모르지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "請求ミスかもしれません。",
@@ -6003,17 +6003,17 @@
       "polite_present_negative": {
         "jp": "請求ミスかもしれません。",
         "pron_ko": "세이큐우미스 카모시레마센。",
-        "meaning_ko": "청구 오류일지도 아닐지도 모릅니다."
+        "meaning_ko": "청구 오류일지도 일지도 모르지 않습니다."
       },
       "polite_past_affirmative": {
         "jp": "請求ミスかもしれませんでした。",
         "pron_ko": "세이큐우미스 카모시레마센데시타。",
-        "meaning_ko": "청구 오류일지도 이었을지도 몰랐습니다."
+        "meaning_ko": "청구 오류일지도 일지도 몰랐습니다."
       },
       "polite_past_negative": {
         "jp": "請求ミスかもしれませんでした。",
         "pron_ko": "세이큐우미스 카모시레마센데시타。",
-        "meaning_ko": "청구 오류일지도 아니었을지도 몰랐습니다."
+        "meaning_ko": "청구 오류일지도 일지도 모르지 않았습니다."
       }
     }
   },
@@ -6078,44 +6078,44 @@
     "s_pron": "유우코우키겐오 카쿠닌시테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "有効期限を確認する。",
-        "pron_ko": "유우코우키겐오 카쿠닌스루。",
-        "meaning_ko": "유효기간을 확인한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "有効期限を確認しない。",
-        "pron_ko": "유우코우키겐오 카쿠닌시나이。",
-        "meaning_ko": "유효기간을 확인하지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "有効期限を確認した。",
-        "pron_ko": "유우코우키겐오 카쿠닌시타。",
-        "meaning_ko": "유효기간을 확인했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "有効期限を確認しなかった。",
-        "pron_ko": "유우코우키겐오 카쿠닌시나캇타。",
-        "meaning_ko": "유효기간을 확인하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "有効期限を確認します。",
-        "pron_ko": "유우코우키겐오 카쿠닌시마스。",
-        "meaning_ko": "유효기간을 확인합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "有効期限を確認しません。",
-        "pron_ko": "유우코우키겐오 카쿠닌시마센。",
-        "meaning_ko": "유효기간을 확인하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "有効期限を確認しました。",
-        "pron_ko": "유우코우키겐오 카쿠닌시마시타。",
-        "meaning_ko": "유효기간을 확인했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "有効期限を確認しませんでした。",
-        "pron_ko": "유우코우키겐오 카쿠닌시마센데시타。",
-        "meaning_ko": "유효기간을 확인하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -6129,44 +6129,44 @@
     "s_pron": "킨큐우렌라쿠사키오 토우로쿠시테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "緊急連絡先を登録する。",
-        "pron_ko": "킨큐우렌라쿠사키오 토우로쿠 스루。",
-        "meaning_ko": "긴급 연락처를 등록한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "緊急連絡先を登録しない。",
-        "pron_ko": "킨큐우렌라쿠사키오 토우로쿠 시나이。",
-        "meaning_ko": "긴급 연락처를 등록하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "緊急連絡先を登録した。",
-        "pron_ko": "킨큐우렌라쿠사키오 토우로쿠 시타。",
-        "meaning_ko": "긴급 연락처를 등록했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "緊急連絡先を登録しなかった。",
-        "pron_ko": "킨큐우렌라쿠사키오 토우로쿠 시나캇타。",
-        "meaning_ko": "긴급 연락처를 등록하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "緊急連絡先を登録します。",
-        "pron_ko": "킨큐우렌라쿠사키오 토우로쿠 시마스。",
-        "meaning_ko": "긴급 연락처를 등록합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "緊急連絡先を登録しません。",
-        "pron_ko": "킨큐우렌라쿠사키오 토우로쿠 시마센。",
-        "meaning_ko": "긴급 연락처를 등록하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "緊急連絡先を登録しました。",
-        "pron_ko": "킨큐우렌라쿠사키오 토우로쿠 시마시타。",
-        "meaning_ko": "긴급 연락처를 등록했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "緊急連絡先を登録しませんでした。",
-        "pron_ko": "킨큐우렌라쿠사키오 토우로쿠 시마센데시타。",
-        "meaning_ko": "긴급 연락처를 등록하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -6187,7 +6187,7 @@
       "plain_present_negative": {
         "jp": "緊急時はここに電話さない。",
         "pron_ko": "킨큐우지와 코코니 덴와 사나이。",
-        "meaning_ko": "긴급 시에는 여기에 말하지 않다."
+        "meaning_ko": "긴급 시에는 여기에 말하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "緊急時はここに電話した。",
@@ -6231,44 +6231,44 @@
     "s_pron": "소우단마도구치니 렌라쿠시테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "相談窓口に連絡する。",
-        "pron_ko": "소우단마도구치니 렌라쿠 스루。",
-        "meaning_ko": "상담 창구에 연락한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "相談窓口に連絡しない。",
-        "pron_ko": "소우단마도구치니 렌라쿠 시나이。",
-        "meaning_ko": "상담 창구에 연락하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "相談窓口に連絡した。",
-        "pron_ko": "소우단마도구치니 렌라쿠 시타。",
-        "meaning_ko": "상담 창구에 연락했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "相談窓口に連絡しなかった。",
-        "pron_ko": "소우단마도구치니 렌라쿠 시나캇타。",
-        "meaning_ko": "상담 창구에 연락하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "相談窓口に連絡します。",
-        "pron_ko": "소우단마도구치니 렌라쿠 시마스。",
-        "meaning_ko": "상담 창구에 연락합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "相談窓口に連絡しません。",
-        "pron_ko": "소우단마도구치니 렌라쿠 시마센。",
-        "meaning_ko": "상담 창구에 연락하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "相談窓口に連絡しました。",
-        "pron_ko": "소우단마도구치니 렌라쿠 시마시타。",
-        "meaning_ko": "상담 창구에 연락했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "相談窓口に連絡しませんでした。",
-        "pron_ko": "소우단마도구치니 렌라쿠 시마센데시타。",
-        "meaning_ko": "상담 창구에 연락하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -6289,7 +6289,7 @@
       "plain_present_negative": {
         "jp": "通訳をお願いしない。",
         "pron_ko": "츠우야쿠오 오네가이 시나이。",
-        "meaning_ko": "통역을 하지 않다."
+        "meaning_ko": "통역을 하지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "通訳をお願いした。",
@@ -6435,44 +6435,44 @@
     "s_pron": "야칸신료우와 아리마스카。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "夜間診療はある。",
-        "pron_ko": "야칸신료우와 아루。",
-        "meaning_ko": "야간진료가 있다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "夜間診療はない。",
-        "pron_ko": "야칸신료우와 나이。",
-        "meaning_ko": "야간진료가 없다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "夜間診療はあった。",
-        "pron_ko": "야칸신료우와 앗타。",
-        "meaning_ko": "야간진료가 있었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "夜間診療はなかった。",
-        "pron_ko": "야칸신료우와 나캇타。",
-        "meaning_ko": "야간진료가 없었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "夜間診療はあります。",
-        "pron_ko": "야칸신료우와 아리마스。",
-        "meaning_ko": "야간진료가 있습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "夜間診療はありません。",
-        "pron_ko": "야칸신료우와아리마센。",
-        "meaning_ko": "야간진료가 없습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "夜間診療はありました。",
-        "pron_ko": "야칸신료우와아리마시타。",
-        "meaning_ko": "야간진료가 있었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "夜間診療はありませんでした。",
-        "pron_ko": "야칸신료우와아리마센데시타。",
-        "meaning_ko": "야간진료가 없었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -6493,7 +6493,7 @@
       "plain_present_negative": {
         "jp": "救急外来に行かない。",
         "pron_ko": "큐우큐우가이라이니 이카나이。",
-        "meaning_ko": "응급 외래로 가지 않다."
+        "meaning_ko": "응급 외래로 가지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "救急外来に行った。",
@@ -6595,7 +6595,7 @@
       "plain_present_negative": {
         "jp": "救急隊が来ない。",
         "pron_ko": "큐우큐우타이가 코나이。",
-        "meaning_ko": "구급대가 오지 않다."
+        "meaning_ko": "구급대가 오지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "救急隊が来た。",
@@ -6646,17 +6646,17 @@
       "plain_present_negative": {
         "jp": "救急搬送にならない。",
         "pron_ko": "큐우큐우한소우니 나라나이。",
-        "meaning_ko": "응급 이송이 되지 않다."
+        "meaning_ko": "응급 이송이 안 된다."
       },
       "plain_past_affirmative": {
         "jp": "救急搬送になった。",
         "pron_ko": "큐우큐우한소우니 낫타。",
-        "meaning_ko": "응급 이송이 됬다."
+        "meaning_ko": "응급 이송이 됐다."
       },
       "plain_past_negative": {
         "jp": "救急搬送にならなかった。",
         "pron_ko": "큐우큐우한소우니 나라나캇타。",
-        "meaning_ko": "응급 이송이 되지 않았다."
+        "meaning_ko": "응급 이송이 안 됐다."
       },
       "polite_present_affirmative": {
         "jp": "救急搬送になります。",
@@ -6666,17 +6666,17 @@
       "polite_present_negative": {
         "jp": "救急搬送になりません。",
         "pron_ko": "큐우큐우한소우니 나리마센。",
-        "meaning_ko": "응급 이송이 되지 않습니다."
+        "meaning_ko": "응급 이송이 안 됩니다."
       },
       "polite_past_affirmative": {
         "jp": "救急搬送になりました。",
         "pron_ko": "큐우큐우한소우니 나리마시타。",
-        "meaning_ko": "응급 이송이 됬습니다."
+        "meaning_ko": "응급 이송이 됐습니다."
       },
       "polite_past_negative": {
         "jp": "救急搬送になりませんでした。",
         "pron_ko": "큐우큐우한소우니 나리마센데시타。",
-        "meaning_ko": "응급 이송이 되지 않았습니다."
+        "meaning_ko": "응급 이송이 안 됐습니다."
       }
     }
   },
@@ -6690,44 +6690,44 @@
     "s_pron": "오우큐우쇼치오 시테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "応急処置をする。",
-        "pron_ko": "오우큐우쇼치오 스루。",
-        "meaning_ko": "응급처치를 한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "応急処置をしない。",
-        "pron_ko": "오우큐우쇼치오 시나이。",
-        "meaning_ko": "응급처치를 하지 않다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "応急処置をした。",
-        "pron_ko": "오우큐우쇼치오 시타。",
-        "meaning_ko": "응급처치를 했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "応急処置をしなかった。",
-        "pron_ko": "오우큐우쇼치오 시나캇타。",
-        "meaning_ko": "응급처치를 하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "応急処置をします。",
-        "pron_ko": "오우큐우쇼치오 시마스。",
-        "meaning_ko": "응급처치를 합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "応急処置をしません。",
-        "pron_ko": "오우큐우쇼치오 시마센。",
-        "meaning_ko": "응급처치를 하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "応急処置をしました。",
-        "pron_ko": "오우큐우쇼치오 시마시타。",
-        "meaning_ko": "응급처치를 했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "応急処置をしませんでした。",
-        "pron_ko": "오우큐우쇼치오 시마센데시타。",
-        "meaning_ko": "응급처치를 하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -6792,44 +6792,44 @@
     "s_pron": "시케츠시테쿠다사이。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "止血する。",
-        "pron_ko": "시케츠 스루。",
-        "meaning_ko": "지혈한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "止血しない。",
-        "pron_ko": "시케츠 시나이。",
-        "meaning_ko": "지혈하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "止血した。",
-        "pron_ko": "시케츠 시타。",
-        "meaning_ko": "지혈했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "止血しなかった。",
-        "pron_ko": "시케츠 시나캇타。",
-        "meaning_ko": "지혈하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "止血します。",
-        "pron_ko": "시케츠 시마스。",
-        "meaning_ko": "지혈합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "止血しません。",
-        "pron_ko": "시케츠 시마센。",
-        "meaning_ko": "지혈하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "止血しました。",
-        "pron_ko": "시케츠 시마시타。",
-        "meaning_ko": "지혈했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "止血しませんでした。",
-        "pron_ko": "시케츠 시마센데시타。",
-        "meaning_ko": "지혈하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -6850,7 +6850,7 @@
       "plain_present_negative": {
         "jp": "包帯を巻かない。",
         "pron_ko": "호우타이오 마카나이。",
-        "meaning_ko": "붕대를 감지 않다."
+        "meaning_ko": "붕대를 감지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "包帯を巻いた。",
@@ -6947,22 +6947,22 @@
       "plain_present_affirmative": {
         "jp": "入院が必要だ。",
         "pron_ko": "뉴우인가 히츠요우 다。",
-        "meaning_ko": "입원이 필요합니다이다."
+        "meaning_ko": "입원이 필요합니다다."
       },
       "plain_present_negative": {
         "jp": "入院が必要じゃない。",
         "pron_ko": "뉴우인가 히츠요우자나이。",
-        "meaning_ko": "입원이 필요합니다이 아니다."
+        "meaning_ko": "입원이 필요합니다가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "入院が必要だった。",
         "pron_ko": "뉴우인가 히츠요우 닷타。",
-        "meaning_ko": "입원이 필요합니다이었다."
+        "meaning_ko": "입원이 필요합니다였다."
       },
       "plain_past_negative": {
         "jp": "入院が必要じゃなかった。",
         "pron_ko": "뉴우인가 히츠요우자나캇타。",
-        "meaning_ko": "입원이 필요합니다이 아니었다."
+        "meaning_ko": "입원이 필요합니다가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "入院が必要です。",
@@ -6972,17 +6972,17 @@
       "polite_present_negative": {
         "jp": "入院が必要ではありません。",
         "pron_ko": "뉴우인가 히츠요우데하아리마센。",
-        "meaning_ko": "입원이 필요합니다이 아닙니다."
+        "meaning_ko": "입원이 필요합니다가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "入院が必要でした。",
         "pron_ko": "뉴우인가 히츠요우 데시타。",
-        "meaning_ko": "입원이 필요합니다이었습니다."
+        "meaning_ko": "입원이 필요합니다였습니다."
       },
       "polite_past_negative": {
         "jp": "入院が必要ではありませんでした。",
         "pron_ko": "뉴우인가 히츠요우데하아리마센데시타。",
-        "meaning_ko": "입원이 필요합니다이 아니었습니다."
+        "meaning_ko": "입원이 필요합니다가 아니었습니다."
       }
     }
   },
@@ -6998,42 +6998,42 @@
       "plain_present_affirmative": {
         "jp": "退院する。",
         "pron_ko": "타이인 스루。",
-        "meaning_ko": "퇴원한다."
+        "meaning_ko": "퇴원했는다."
       },
       "plain_present_negative": {
         "jp": "退院しない。",
         "pron_ko": "타이인 시나이。",
-        "meaning_ko": "퇴원하지 않는다."
+        "meaning_ko": "퇴원했지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "退院した。",
         "pron_ko": "타이인 시타。",
-        "meaning_ko": "퇴원했다."
+        "meaning_ko": "퇴원했었다."
       },
       "plain_past_negative": {
         "jp": "退院しなかった。",
         "pron_ko": "타이인 시나캇타。",
-        "meaning_ko": "퇴원하지 않았다."
+        "meaning_ko": "퇴원했지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "退院します。",
         "pron_ko": "타이인 시마스。",
-        "meaning_ko": "퇴원합니다."
+        "meaning_ko": "퇴원했습니다."
       },
       "polite_present_negative": {
         "jp": "退院しません。",
         "pron_ko": "타이인 시마센。",
-        "meaning_ko": "퇴원하지 않습니다."
+        "meaning_ko": "퇴원했지 않습니다."
       },
       "polite_past_affirmative": {
         "jp": "退院しました。",
         "pron_ko": "타이인 시마시타。",
-        "meaning_ko": "퇴원했습니다."
+        "meaning_ko": "퇴원했었습니다."
       },
       "polite_past_negative": {
         "jp": "退院しませんでした。",
         "pron_ko": "타이인 시마센데시타。",
-        "meaning_ko": "퇴원하지 않았습니다."
+        "meaning_ko": "퇴원했지 않았습니다."
       }
     }
   },
@@ -7098,44 +7098,44 @@
     "s_pron": "시하라이호우호우와 난데스카。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "支払い方法は何だ。",
-        "pron_ko": "시하라이호우호우와 나니 다。",
-        "meaning_ko": "지불 방법은 무엇이다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "支払い方法は何じゃない。",
-        "pron_ko": "시하라이호우호우와 나니자나이。",
-        "meaning_ko": "지불 방법은 무엇이 아니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "支払い方法は何だった。",
-        "pron_ko": "시하라이호우호우와 나니 닷타。",
-        "meaning_ko": "지불 방법은 무엇이었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "支払い方法は何じゃなかった。",
-        "pron_ko": "시하라이호우호우와 나니자나캇타。",
-        "meaning_ko": "지불 방법은 무엇이 아니었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "支払い方法は何です。",
-        "pron_ko": "시하라이호우호우와 나니 데스。",
-        "meaning_ko": "지불 방법은 무엇입니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "支払い方法は何ではありません。",
-        "pron_ko": "시하라이호우호우와 나니데하아리마센。",
-        "meaning_ko": "지불 방법은 무엇이 아닙니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "支払い方法は何でした。",
-        "pron_ko": "시하라이호우호우와 나니 데시타。",
-        "meaning_ko": "지불 방법은 무엇이었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "支払い方法は何ではありませんでした。",
-        "pron_ko": "시하라이호우호우와 나니데하아리마센데시타。",
-        "meaning_ko": "지불 방법은 무엇이 아니었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   }

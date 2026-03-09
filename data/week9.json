@@ -215,22 +215,22 @@
       "plain_present_affirmative": {
         "jp": "目標は日本語だ。",
         "pron_ko": "모쿠효우와 니혼고 다。",
-        "meaning_ko": "목표는 일본어이다."
+        "meaning_ko": "목표는 일본어다."
       },
       "plain_present_negative": {
         "jp": "目標は日本語じゃない。",
         "pron_ko": "모쿠효우와 니혼고 쟈나이。",
-        "meaning_ko": "목표는 일본어이 아니다."
+        "meaning_ko": "목표는 일본어가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "目標は日本語だった。",
         "pron_ko": "모쿠효우와 니혼고 닷타。",
-        "meaning_ko": "목표는 일본어이었다."
+        "meaning_ko": "목표는 일본어였다."
       },
       "plain_past_negative": {
         "jp": "目標は日本語じゃなかった。",
         "pron_ko": "모쿠효우와 니혼고 쟈나캇타。",
-        "meaning_ko": "목표는 일본어이 아니었다."
+        "meaning_ko": "목표는 일본어가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "目標は日本語です。",
@@ -240,17 +240,17 @@
       "polite_present_negative": {
         "jp": "目標は日本語ではありません。",
         "pron_ko": "모쿠효우와 니혼고 데와아리마센。",
-        "meaning_ko": "목표는 일본어이 아닙니다."
+        "meaning_ko": "목표는 일본어가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "目標は日本語でした。",
         "pron_ko": "모쿠효우와 니혼고 데시타。",
-        "meaning_ko": "목표는 일본어이었습니다."
+        "meaning_ko": "목표는 일본어였습니다."
       },
       "polite_past_negative": {
         "jp": "目標は日本語ではありませんでした。",
         "pron_ko": "모쿠효우와 니혼고 데와아리마센데시타。",
-        "meaning_ko": "목표는 일본어이 아니었습니다."
+        "meaning_ko": "목표는 일본어가 아니었습니다."
       }
     }
   },
@@ -2000,22 +2000,22 @@
       "plain_present_affirmative": {
         "jp": "友達は迷子だ。",
         "pron_ko": "토모다치와 마이고 다。",
-        "meaning_ko": "친구는 미아이다."
+        "meaning_ko": "친구는 미아다."
       },
       "plain_present_negative": {
         "jp": "友達は迷子じゃない。",
         "pron_ko": "토모다치와 마이고 쟈나이。",
-        "meaning_ko": "친구는 미아이 아니다."
+        "meaning_ko": "친구는 미아가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "友達は迷子だった。",
         "pron_ko": "토모다치와 마이고 닷타。",
-        "meaning_ko": "친구는 미아이었다."
+        "meaning_ko": "친구는 미아였다."
       },
       "plain_past_negative": {
         "jp": "友達は迷子じゃなかった。",
         "pron_ko": "토모다치와 마이고 쟈나캇타。",
-        "meaning_ko": "친구는 미아이 아니었다."
+        "meaning_ko": "친구는 미아가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "友達は迷子です。",
@@ -2025,17 +2025,17 @@
       "polite_present_negative": {
         "jp": "友達は迷子ではありません。",
         "pron_ko": "토모다치와 마이고 데와아리마센。",
-        "meaning_ko": "친구는 미아이 아닙니다."
+        "meaning_ko": "친구는 미아가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "友達は迷子でした。",
         "pron_ko": "토모다치와 마이고 데시타。",
-        "meaning_ko": "친구는 미아이었습니다."
+        "meaning_ko": "친구는 미아였습니다."
       },
       "polite_past_negative": {
         "jp": "友達は迷子ではありませんでした。",
         "pron_ko": "토모다치와 마이고 데와아리마센데시타。",
-        "meaning_ko": "친구는 미아이 아니었습니다."
+        "meaning_ko": "친구는 미아가 아니었습니다."
       }
     }
   },
@@ -2918,22 +2918,22 @@
       "plain_present_affirmative": {
         "jp": "今日は在宅勤務だ。",
         "pron_ko": "쿄우와 자이타쿠킨무 다。",
-        "meaning_ko": "오늘은 재택근무이다."
+        "meaning_ko": "오늘은 재택근무다."
       },
       "plain_present_negative": {
         "jp": "今日は在宅勤務じゃない。",
         "pron_ko": "쿄우와 자이타쿠킨무 쟈나이。",
-        "meaning_ko": "오늘은 재택근무이 아니다."
+        "meaning_ko": "오늘은 재택근무가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "今日は在宅勤務だった。",
         "pron_ko": "쿄우와 자이타쿠킨무 닷타。",
-        "meaning_ko": "오늘은 재택근무이었다."
+        "meaning_ko": "오늘은 재택근무였다."
       },
       "plain_past_negative": {
         "jp": "今日は在宅勤務じゃなかった。",
         "pron_ko": "쿄우와 자이타쿠킨무 쟈나캇타。",
-        "meaning_ko": "오늘은 재택근무이 아니었다."
+        "meaning_ko": "오늘은 재택근무가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "今日は在宅勤務です。",
@@ -2943,17 +2943,17 @@
       "polite_present_negative": {
         "jp": "今日は在宅勤務ではありません。",
         "pron_ko": "쿄우와 자이타쿠킨무 데와아리마센。",
-        "meaning_ko": "오늘은 재택근무이 아닙니다."
+        "meaning_ko": "오늘은 재택근무가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "今日は在宅勤務でした。",
         "pron_ko": "쿄우와 자이타쿠킨무 데시타。",
-        "meaning_ko": "오늘은 재택근무이었습니다."
+        "meaning_ko": "오늘은 재택근무였습니다."
       },
       "polite_past_negative": {
         "jp": "今日は在宅勤務ではありませんでした。",
         "pron_ko": "쿄우와 자이타쿠킨무 데와아리마센데시타。",
-        "meaning_ko": "오늘은 재택근무이 아니었습니다."
+        "meaning_ko": "오늘은 재택근무가 아니었습니다."
       }
     }
   },
