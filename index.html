@@ -511,10 +511,10 @@
                 <div class="header-actions flex items-center gap-4">
                     <nav class="header-nav flex gap-2">
                         <span class="px-4 py-2 border-2 border-black bg-black text-white text-sm font-bold uppercase tracking-widest">단어</span>
+                        <a href="forms.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">기본변형</a>
                         <a href="grammar.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">문법</a>
                         <a href="kana.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">가나</a>
                         <a href="numbers.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">수체계</a>
-                        <a href="forms.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">기본변형</a>
                     </nav>
                     <div class="header-user text-right">
                         <p class="text-sm font-bold text-gray-600 mb-1">안녕하세요, <span id="currentUser"></span>님</p>
@@ -1194,6 +1194,7 @@
         let currentPage = 1;
         let totalPages = 1;
         const PAGE_COUNT = 7;
+        const VOCAB_VIEW_STATE_VERSION = 1;
 
         async function loadVocabData(week = 'week1') {
             try {
@@ -2572,8 +2573,37 @@
             });
         }
 
-        // Filter functions
         const filterMode = document.getElementById('filterMode');
+        const weekSelect = document.getElementById('weekSelect');
+
+        function getVocabViewStateKey() {
+            return `vocab_view_state_${getLoggedInUser() || 'guest'}`;
+        }
+
+        function loadVocabViewState() {
+            try {
+                const raw = localStorage.getItem(getVocabViewStateKey());
+                if (!raw) return null;
+                const parsed = JSON.parse(raw);
+                if (!parsed || parsed.v !== VOCAB_VIEW_STATE_VERSION) return null;
+                return parsed;
+            } catch (_) {
+                return null;
+            }
+        }
+
+        function saveVocabViewState() {
+            const payload = {
+                v: VOCAB_VIEW_STATE_VERSION,
+                week: currentWeek,
+                filterMode: filterMode.value,
+                search: searchInput.value || '',
+                page: currentPage
+            };
+            localStorage.setItem(getVocabViewStateKey(), JSON.stringify(payload));
+        }
+        
+        // Filter functions
         
         async function renderFiltered() {
             if (mistakePlayRunning) stopMistakePlayback();
@@ -2632,12 +2662,12 @@
                 currentPage = 1;
             }
             render(filtered);
+            saveVocabViewState();
         }
 
         filterMode.addEventListener('change', renderFiltered);
 
         // Week selector
-        const weekSelect = document.getElementById('weekSelect');
         weekSelect.addEventListener('change', async () => {
             await loadVocabData(weekSelect.value);
             renderFiltered();
@@ -2693,8 +2723,20 @@
             if (e.target === micGuideModal) closeMicGuideModal();
         });
 
-        // Initial Load
-        loadVocabData('week1').then(() => {
+        // Initial Load with user-scoped view restore
+        const savedVocabViewState = loadVocabViewState();
+        if (savedVocabViewState?.filterMode && Array.from(filterMode.options).some(opt => opt.value === savedVocabViewState.filterMode)) {
+            filterMode.value = savedVocabViewState.filterMode;
+        }
+        if (typeof savedVocabViewState?.search === 'string') {
+            searchInput.value = savedVocabViewState.search;
+        }
+        const initialWeek = (savedVocabViewState?.week && Array.from(weekSelect.options).some(opt => opt.value === savedVocabViewState.week))
+            ? savedVocabViewState.week
+            : 'week1';
+        loadVocabData(initialWeek).then(() => {
+            weekSelect.value = initialWeek;
+            currentPage = Math.max(1, Number(savedVocabViewState?.page) || 1);
             renderFiltered();
         });
 

@@ -157,10 +157,10 @@
             </div>
             <nav class="top-nav flex gap-2 flex-wrap">
                 <a href="index.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">단어</a>
+                <span class="px-4 py-2 border-2 border-black bg-black text-white text-sm font-bold uppercase tracking-widest">기본변형</span>
                 <a href="grammar.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">문법</a>
                 <a href="kana.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">가나</a>
                 <a href="numbers.html" class="px-4 py-2 border-2 border-black text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors">수체계</a>
-                <span class="px-4 py-2 border-2 border-black bg-black text-white text-sm font-bold uppercase tracking-widest">기본변형</span>
             </nav>
         </div>
         <div class="mt-4 pt-4 border-t border-gray-200 flex flex-wrap items-center gap-3 md:gap-4">
@@ -214,6 +214,7 @@
 
         <div id="formList" class="space-y-4"></div>
         <div id="emptyState" class="hidden border-2 border-dashed border-gray-300 p-6 text-center text-gray-500 font-bold">표시할 변형 데이터가 없습니다.</div>
+        <div id="pagination" class="mt-6 flex flex-wrap items-center justify-center gap-1"></div>
     </main>
     <button id="focusModeBtn" class="focus-toggle-btn" type="button" aria-pressed="false">뜻만 보기</button>
 
@@ -246,14 +247,18 @@
             const statStudied = document.getElementById("statStudied");
             const statTotal = document.getElementById("statTotal");
             const statToday = document.getElementById("statToday");
+            const pagination = document.getElementById("pagination");
             const focusModeBtn = document.getElementById("focusModeBtn");
             const FOCUS_MODE_KEY = "forms_focus_mode";
+            const FORMS_VIEW_STATE_VERSION = 1;
+            const PAGE_SIZE = 10;
 
             const SpeechRecognitionCtor = window.SpeechRecognition || window.webkitSpeechRecognition;
 
             let availableWeeks = [];
             let currentWeek = "";
             let currentWordList = [];
+            let currentPage = 1;
             let renderedRows = [];
             let activeSpeechTest = null;
             let studyDataCache = {};
@@ -269,6 +274,33 @@
 
             function getTestDataKey() {
                 return `form_test_${getLoggedInUser()}`;
+            }
+
+            function getFormsViewStateKey() {
+                return `forms_view_state_${getLoggedInUser()}`;
+            }
+
+            function loadFormsViewState() {
+                try {
+                    const raw = localStorage.getItem(getFormsViewStateKey());
+                    if (!raw) return null;
+                    const parsed = JSON.parse(raw);
+                    if (!parsed || parsed.v !== FORMS_VIEW_STATE_VERSION) return null;
+                    return parsed;
+                } catch (_) {
+                    return null;
+                }
+            }
+
+            function saveFormsViewState() {
+                const payload = {
+                    v: FORMS_VIEW_STATE_VERSION,
+                    week: currentWeek,
+                    filterMode: filterMode.value,
+                    search: searchInput.value || "",
+                    page: currentPage
+                };
+                localStorage.setItem(getFormsViewStateKey(), JSON.stringify(payload));
             }
 
             function makeFormScopedKey(week, yomi, formKey) {
@@ -823,21 +855,50 @@
                 updateStatsUI();
             }
 
-            function runFilterAndRender() {
+            function renderPagination(totalItems, totalPages) {
+                if (!totalItems || totalPages <= 1) {
+                    pagination.innerHTML = "";
+                    return;
+                }
+                let html = "";
+                html += `<button class="px-2 py-1 border rounded text-xs ${currentPage === 1 ? "bg-gray-200 text-gray-400" : "hover:bg-gray-100"}" ${currentPage === 1 ? "disabled" : ""} data-page="prev">이전</button>`;
+                for (let i = 1; i <= totalPages; i++) {
+                    html += `<button class="px-2 py-1 border rounded text-xs ${currentPage === i ? "bg-black text-white" : "hover:bg-gray-100"}" data-page="${i}">${i}</button>`;
+                }
+                html += `<button class="px-2 py-1 border rounded text-xs ${currentPage === totalPages ? "bg-gray-200 text-gray-400" : "hover:bg-gray-100"}" ${currentPage === totalPages ? "disabled" : ""} data-page="next">다음</button>`;
+                pagination.innerHTML = html;
+            }
+
+            function runFilterAndRender(options = {}) {
+                const { resetPage = false } = options;
+                if (resetPage) currentPage = 1;
                 const term = normalizeText(searchInput.value);
                 const filtered = currentWordList
                     .filter(matchesFilter)
                     .filter((word) => matchesSearch(word, term));
-                render(filtered);
+                if (!filtered.length) {
+                    pagination.innerHTML = "";
+                    render(filtered);
+                    saveFormsViewState();
+                    return;
+                }
+                const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+                if (currentPage > totalPages) currentPage = totalPages;
+                const startIdx = (currentPage - 1) * PAGE_SIZE;
+                const paged = filtered.slice(startIdx, startIdx + PAGE_SIZE);
+                render(paged);
+                renderPagination(filtered.length, totalPages);
+                saveFormsViewState();
             }
 
-            async function loadWeek(week) {
+            async function loadWeek(week, options = {}) {
+                const { resetPage = true } = options;
                 currentWeek = week;
                 statusMessage.textContent = "로딩 중...";
                 const rows = await fetchWeekData(week);
                 currentWordList = buildWordRows(rows, week);
                 statusMessage.textContent = "Ready";
-                runFilterAndRender();
+                runFilterAndRender({ resetPage });
             }
 
             async function init() {
@@ -855,10 +916,36 @@
                     return;
                 }
 
-                await loadWeek(currentWeek);
+                const savedViewState = loadFormsViewState();
+                if (savedViewState?.filterMode && Array.from(filterMode.options).some((opt) => opt.value === savedViewState.filterMode)) {
+                    filterMode.value = savedViewState.filterMode;
+                }
+                if (typeof savedViewState?.search === "string") {
+                    searchInput.value = savedViewState.search;
+                }
+                const initialWeek = (savedViewState?.week && availableWeeks.includes(savedViewState.week))
+                    ? savedViewState.week
+                    : currentWeek;
+                weekSelect.value = initialWeek;
+                currentPage = Math.max(1, Number(savedViewState?.page) || 1);
+                await loadWeek(initialWeek, { resetPage: false });
                 weekSelect.addEventListener("change", () => loadWeek(weekSelect.value));
-                filterMode.addEventListener("change", runFilterAndRender);
-                searchInput.addEventListener("input", runFilterAndRender);
+                filterMode.addEventListener("change", () => runFilterAndRender({ resetPage: true }));
+                searchInput.addEventListener("input", () => runFilterAndRender({ resetPage: true }));
+                pagination.addEventListener("click", (event) => {
+                    const btn = event.target.closest("button[data-page]");
+                    if (!btn) return;
+                    const val = btn.getAttribute("data-page");
+                    const term = normalizeText(searchInput.value);
+                    const filteredLen = currentWordList
+                        .filter(matchesFilter)
+                        .filter((word) => matchesSearch(word, term)).length;
+                    const maxPage = Math.max(1, Math.ceil(filteredLen / PAGE_SIZE));
+                    if (val === "prev" && currentPage > 1) currentPage -= 1;
+                    else if (val === "next" && currentPage < maxPage) currentPage += 1;
+                    else if (!Number.isNaN(Number(val))) currentPage = Number(val);
+                    runFilterAndRender();
+                });
 
                 const setFocusMode = (enabled) => {
                     document.body.classList.toggle("focus-mode", enabled);
