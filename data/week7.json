@@ -1131,44 +1131,44 @@
     "s_pron": "헨토우오 오네가이시마스。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "返答をお願いする。",
-        "pron_ko": "헨토우오 오네가이 스루。",
-        "meaning_ko": "답변 한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "返答をお願いしない。",
-        "pron_ko": "헨토우오 오네가이 시나이。",
-        "meaning_ko": "답변 하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "返答をお願いした。",
-        "pron_ko": "헨토우오 오네가이 시타。",
-        "meaning_ko": "답변 했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "返答をお願いしなかった。",
-        "pron_ko": "헨토우오 오네가이 시나캇타。",
-        "meaning_ko": "답변 하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "返答をお願いします。",
-        "pron_ko": "헨토우오 오네가이시마스。",
-        "meaning_ko": "답변 합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "返答をお願いしません。",
-        "pron_ko": "헨토우오 오네가이 시마센。",
-        "meaning_ko": "답변 하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "返答をお願いしました。",
-        "pron_ko": "헨토우오 오네가이시마시타。",
-        "meaning_ko": "답변 했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "返答をお願いしませんでした。",
-        "pron_ko": "헨토우오 오네가이 시마센데시타。",
-        "meaning_ko": "답변 하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -2457,44 +2457,44 @@
     "s_pron": "시큐우 오네가이시마스。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "至急お願いする。",
-        "pron_ko": "시큐우 오네가이 스루。",
-        "meaning_ko": "긴급히 한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "至急お願いしない。",
-        "pron_ko": "시큐우 오네가이 시나이。",
-        "meaning_ko": "긴급히 하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "至急お願いした。",
-        "pron_ko": "시큐우 오네가이 시타。",
-        "meaning_ko": "긴급히 했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "至急お願いしなかった。",
-        "pron_ko": "시큐우 오네가이 시나캇타。",
-        "meaning_ko": "긴급히 하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "至急お願いします。",
-        "pron_ko": "시큐우 오네가이시마스。",
-        "meaning_ko": "긴급히 합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "至急お願いしません。",
-        "pron_ko": "시큐우 오네가이 시마센。",
-        "meaning_ko": "긴급히 하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "至急お願いしました。",
-        "pron_ko": "시큐우 오네가이시마시타。",
-        "meaning_ko": "긴급히 했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "至急お願いしませんでした。",
-        "pron_ko": "시큐우 오네가이 시마센데시타。",
-        "meaning_ko": "긴급히 하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -6129,44 +6129,44 @@
     "s_pron": "오츠카레사마데스。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "お疲れ様だ。",
-        "pron_ko": "오츠카레사마 다。",
-        "meaning_ko": "수고하셨다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "お疲れ様じゃない。",
-        "pron_ko": "오츠카레사마자나이。",
-        "meaning_ko": "수고하셨지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "お疲れ様だった。",
-        "pron_ko": "오츠카레사마 닷타。",
-        "meaning_ko": "수고하셨었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "お疲れ様じゃなかった。",
-        "pron_ko": "오츠카레사마자나캇타。",
-        "meaning_ko": "수고하셨지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "お疲れ様です。",
-        "pron_ko": "오츠카레사마 데스。",
-        "meaning_ko": "수고하셨습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "お疲れ様ではありません。",
-        "pron_ko": "오츠카레사마데하아리마센。",
-        "meaning_ko": "수고하셨지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "お疲れ様でした。",
-        "pron_ko": "오츠카레사마 데시타。",
-        "meaning_ko": "수고하셨었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "お疲れ様ではありませんでした。",
-        "pron_ko": "오츠카레사마데하아리마센데시타。",
-        "meaning_ko": "수고하셨지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -6180,44 +6180,44 @@
     "s_pron": "료우카이데스。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "了解だ。",
-        "pron_ko": "료우카이 다。",
-        "meaning_ko": "알겠다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "了解じゃない。",
-        "pron_ko": "료우카이자나이。",
-        "meaning_ko": "알지 않겠다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "了解だった。",
-        "pron_ko": "료우카이 닷타。",
-        "meaning_ko": "알았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "了解じゃなかった。",
-        "pron_ko": "료우카이자나캇타。",
-        "meaning_ko": "알지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "了解です。",
-        "pron_ko": "료우카이 데스。",
-        "meaning_ko": "알겠습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "了解ではありません。",
-        "pron_ko": "료우카이데하아리마센。",
-        "meaning_ko": "알지 않겠습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "了解でした。",
-        "pron_ko": "료우카이 데시타。",
-        "meaning_ko": "알았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "了解ではありませんでした。",
-        "pron_ko": "료우카이데하아리마센데시타。",
-        "meaning_ko": "알지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -6231,44 +6231,44 @@
     "s_pron": "쇼우치시마시타。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "承知する。",
-        "pron_ko": "쇼우치 스루。",
-        "meaning_ko": "알겠습니다(정중는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "承知しない。",
-        "pron_ko": "쇼우치 시나이。",
-        "meaning_ko": "알겠습니다(정중지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "承知した。",
-        "pron_ko": "쇼우치 시타。",
-        "meaning_ko": "알겠습니다(정중었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "承知しなかった。",
-        "pron_ko": "쇼우치 시나캇타。",
-        "meaning_ko": "알겠습니다(정중지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "承知します。",
-        "pron_ko": "쇼우치 시마스。",
-        "meaning_ko": "알겠습니다(정중습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "承知しません。",
-        "pron_ko": "쇼우치 시마센。",
-        "meaning_ko": "알겠습니다(정중지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "承知しました。",
-        "pron_ko": "쇼우치 시마시타。",
-        "meaning_ko": "알겠습니다(정중었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "承知しませんでした。",
-        "pron_ko": "쇼우치 시마센데시타。",
-        "meaning_ko": "알겠습니다(정중지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -6945,44 +6945,44 @@
     "s_pron": "키겐겐슈데 오네가이시마스。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "期限厳守でお願いする。",
-        "pron_ko": "키겐겐슈데 오네가이 스루。",
-        "meaning_ko": "기한 엄수로 한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "期限厳守でお願いしない。",
-        "pron_ko": "키겐겐슈데 오네가이 시나이。",
-        "meaning_ko": "기한 엄수로 하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "期限厳守でお願いした。",
-        "pron_ko": "키겐겐슈데 오네가이 시타。",
-        "meaning_ko": "기한 엄수로 했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "期限厳守でお願いしなかった。",
-        "pron_ko": "키겐겐슈데 오네가이 시나캇타。",
-        "meaning_ko": "기한 엄수로 하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "期限厳守でお願いします。",
-        "pron_ko": "키겐겐슈데 오네가이시마스。",
-        "meaning_ko": "기한 엄수로 합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "期限厳守でお願いしません。",
-        "pron_ko": "키겐겐슈데 오네가이 시마센。",
-        "meaning_ko": "기한 엄수로 하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "期限厳守でお願いしました。",
-        "pron_ko": "키겐겐슈데 오네가이시마시타。",
-        "meaning_ko": "기한 엄수로 했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "期限厳守でお願いしませんでした。",
-        "pron_ko": "키겐겐슈데 오네가이 시마센데시타。",
-        "meaning_ko": "기한 엄수로 하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },

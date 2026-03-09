@@ -3069,44 +3069,44 @@
     "s_pron": "요로시쿠 오네가이시마스。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "よろしくお願いする。",
-        "pron_ko": "요로시쿠 오네가이 스루。",
-        "meaning_ko": "잘 부탁드린다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "よろしくお願いしない。",
-        "pron_ko": "요로시쿠 오네가이 시나이。",
-        "meaning_ko": "잘 부탁드리지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "よろしくお願いした。",
-        "pron_ko": "요로시쿠 오네가이 시타。",
-        "meaning_ko": "잘 부탁드렸다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "よろしくお願いしなかった。",
-        "pron_ko": "요로시쿠 오네가이 시나캇타。",
-        "meaning_ko": "잘 부탁드리지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "よろしくお願いします。",
-        "pron_ko": "요로시쿠 오네가이시마스。",
-        "meaning_ko": "잘 부탁드립니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "よろしくお願いしません。",
-        "pron_ko": "요로시쿠 오네가이 시마센。",
-        "meaning_ko": "잘 부탁드리지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "よろしくお願いしました。",
-        "pron_ko": "요로시쿠 오네가이시마시타。",
-        "meaning_ko": "잘 부탁드렸습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "よろしくお願いしませんでした。",
-        "pron_ko": "요로시쿠 오네가이 시마센데시타。",
-        "meaning_ko": "잘 부탁드리지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -3120,44 +3120,44 @@
     "s_pron": "혼토우니 아리가토우고자이마스。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "本当にありがとうございます。",
-        "pron_ko": "혼토우니 아리가토우고자이마스。",
-        "meaning_ko": "정말 감사한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "本当にありがとうございます。",
-        "pron_ko": "혼토우니 아리가토우고자이마스。",
-        "meaning_ko": "정말 감사하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "本当にありがとうございます。",
-        "pron_ko": "혼토우니 아리가토우고자이마스。",
-        "meaning_ko": "정말 감사했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "本当にありがとうございます。",
-        "pron_ko": "혼토우니 아리가토우고자이마스。",
-        "meaning_ko": "정말 감사하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "本当にありがとうございます。",
-        "pron_ko": "혼토우니 아리가토우고자이마스。",
-        "meaning_ko": "정말 감사합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "本当にありがとうございます。",
-        "pron_ko": "혼토우니 아리가토우고자이마스。",
-        "meaning_ko": "정말 감사하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "本当にありがとうございます。",
-        "pron_ko": "혼토우니 아리가토우고자이마스。",
-        "meaning_ko": "정말 감사했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "本当にありがとうございます。",
-        "pron_ko": "혼토우니 아리가토우고자이마스。",
-        "meaning_ko": "정말 감사하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -3171,44 +3171,44 @@
     "s_pron": "스미마센、 오쿠레마시타。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "すみません、遅れる。",
-        "pron_ko": "스미마센、 오쿠레루。",
-        "meaning_ko": "죄송합니다, 늦는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "すみません、遅れない。",
-        "pron_ko": "스미마센、 오쿠레나이。",
-        "meaning_ko": "죄송합니다, 늦지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "すみません、遅れた。",
-        "pron_ko": "스미마센、 오쿠레타。",
-        "meaning_ko": "죄송합니다, 늦었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "すみません、遅れなかった。",
-        "pron_ko": "스미마센、 오쿠레나캇타。",
-        "meaning_ko": "죄송합니다, 늦지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "すみません、遅れます。",
-        "pron_ko": "스미마센、 오쿠레마스。",
-        "meaning_ko": "죄송합니다, 늦습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "すみません、遅れません。",
-        "pron_ko": "스미마센、 오쿠레마센。",
-        "meaning_ko": "죄송합니다, 늦지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "すみません、遅れました。",
-        "pron_ko": "스미마센、 오쿠레마시타。",
-        "meaning_ko": "죄송합니다, 늦었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "すみません、遅れませんでした。",
-        "pron_ko": "스미마센、 오쿠레마센데시타。",
-        "meaning_ko": "죄송합니다, 늦지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -3324,44 +3324,44 @@
     "s_pron": "오하요우고자이마스。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "おはようございますだ。",
-        "pron_ko": "오하요우고자이마스 다。",
-        "meaning_ko": "좋은 아침이다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "おはようございますじゃない。",
-        "pron_ko": "오하요우고자이마스자나이。",
-        "meaning_ko": "좋은 아침이 아니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "おはようございますだった。",
-        "pron_ko": "오하요우고자이마스 닷타。",
-        "meaning_ko": "좋은 아침이었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "おはようございますじゃなかった。",
-        "pron_ko": "오하요우고자이마스자나캇타。",
-        "meaning_ko": "좋은 아침이 아니었다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "おはようございますです。",
-        "pron_ko": "오하요우고자이마스 데스。",
-        "meaning_ko": "좋은 아침입니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "おはようございますではありません。",
-        "pron_ko": "오하요우고자이마스데하아리마센。",
-        "meaning_ko": "좋은 아침이 아닙니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "おはようございますでした。",
-        "pron_ko": "오하요우고자이마스 데시타。",
-        "meaning_ko": "좋은 아침이었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "おはようございますではありませんでした。",
-        "pron_ko": "오하요우고자이마스데하아리마센데시타。",
-        "meaning_ko": "좋은 아침이 아니었습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -3375,44 +3375,44 @@
     "s_pron": "와 이、 훈 카리마시타。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "はい、分かる。",
-        "pron_ko": "하이、 와카루。",
-        "meaning_ko": "네, 이해한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "はい、分からない。",
-        "pron_ko": "하이、 와카라나이。",
-        "meaning_ko": "네, 이해하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "はい、分かった。",
-        "pron_ko": "하이、 와캇타。",
-        "meaning_ko": "네, 이해했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "はい、分からなかった。",
-        "pron_ko": "하이、 와카라나캇타。",
-        "meaning_ko": "네, 이해하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "はい、分かります。",
-        "pron_ko": "하이、 와카리마스。",
-        "meaning_ko": "네, 이해합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "はい、分かりません。",
-        "pron_ko": "하이、 와카리마센。",
-        "meaning_ko": "네, 이해하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "はい、分かりました。",
-        "pron_ko": "하이、 와카리마시타。",
-        "meaning_ko": "네, 이해했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "はい、分かりませんでした。",
-        "pron_ko": "하이、 와카리마센데시타。",
-        "meaning_ko": "네, 이해하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -3426,44 +3426,44 @@
     "s_pron": "이이에、 치가이마스。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "いいえ、違う。",
-        "pron_ko": "이이에、 치가우。",
-        "meaning_ko": "아니요, 다른다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "いいえ、違わない。",
-        "pron_ko": "이이에、 치가와나이。",
-        "meaning_ko": "아니요, 다르지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "いいえ、違った。",
-        "pron_ko": "이이에、 치갓타。",
-        "meaning_ko": "아니요, 달랐다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "いいえ、違わなかった。",
-        "pron_ko": "이이에、 치가와나캇타。",
-        "meaning_ko": "아니요, 다르지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "いいえ、違います。",
-        "pron_ko": "이이에、 치가이마스。",
-        "meaning_ko": "아니요, 다릅니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "いいえ、違いません。",
-        "pron_ko": "이이에、 치가이마센。",
-        "meaning_ko": "아니요, 다르지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "いいえ、違いました。",
-        "pron_ko": "이이에、 치가이마시타。",
-        "meaning_ko": "아니요, 달랐습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "いいえ、違いませんでした。",
-        "pron_ko": "이이에、 치가이마센데시타。",
-        "meaning_ko": "아니요, 다르지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -5721,44 +5721,44 @@
     "s_pron": "이츠모아리가토우고자이마스。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "いつもありがとうございます。",
-        "pron_ko": "이츠모 아리가토우고자이마스。",
-        "meaning_ko": "항상 감사한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "いつもありがとうございます。",
-        "pron_ko": "이츠모 아리가토우고자이마스。",
-        "meaning_ko": "항상 감사하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "いつもありがとうございます。",
-        "pron_ko": "이츠모 아리가토우고자이마스。",
-        "meaning_ko": "항상 감사했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "いつもありがとうございます。",
-        "pron_ko": "이츠모 아리가토우고자이마스。",
-        "meaning_ko": "항상 감사하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "いつもありがとうございます。",
-        "pron_ko": "이츠모 아리가토우고자이마스。",
-        "meaning_ko": "항상 감사합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "いつもありがとうございます。",
-        "pron_ko": "이츠모 아리가토우고자이마스。",
-        "meaning_ko": "항상 감사하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "いつもありがとうございます。",
-        "pron_ko": "이츠모 아리가토우고자이마스。",
-        "meaning_ko": "항상 감사했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "いつもありがとうございます。",
-        "pron_ko": "이츠모 아리가토우고자이마스。",
-        "meaning_ko": "항상 감사하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },

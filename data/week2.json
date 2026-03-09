@@ -1233,44 +1233,44 @@
     "s_pron": "오카이케이 오네가이시마스。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "お会計お願いする。",
-        "pron_ko": "오카이케이 오네가이 스루。",
-        "meaning_ko": "계산 한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "お会計お願いしない。",
-        "pron_ko": "오카이케이 오네가이 시나이。",
-        "meaning_ko": "계산 하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "お会計お願いした。",
-        "pron_ko": "오카이케이 오네가이 시타。",
-        "meaning_ko": "계산 했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "お会計お願いしなかった。",
-        "pron_ko": "오카이케이 오네가이 시나캇타。",
-        "meaning_ko": "계산 하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "お会計お願いします。",
-        "pron_ko": "오카이케이 오네가이시마스。",
-        "meaning_ko": "계산 합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "お会計お願いしません。",
-        "pron_ko": "오카이케이 오네가이 시마센。",
-        "meaning_ko": "계산 하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "お会計お願いしました。",
-        "pron_ko": "오카이케이 오네가이시마시타。",
-        "meaning_ko": "계산 했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "お会計お願いしませんでした。",
-        "pron_ko": "오카이케이 오네가이 시마센데시타。",
-        "meaning_ko": "계산 하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -1998,44 +1998,44 @@
     "s_pron": "스쿠나메데 오네가이시마스。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "少なめでお願いする。",
-        "pron_ko": "스쿠나메데 오네가이 스루。",
-        "meaning_ko": "적게 한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "少なめでお願いしない。",
-        "pron_ko": "스쿠나메데 오네가이 시나이。",
-        "meaning_ko": "적게 하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "少なめでお願いした。",
-        "pron_ko": "스쿠나메데 오네가이 시타。",
-        "meaning_ko": "적게 했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "少なめでお願いしなかった。",
-        "pron_ko": "스쿠나메데 오네가이 시나캇타。",
-        "meaning_ko": "적게 하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "少なめでお願いします。",
-        "pron_ko": "스쿠나메데 오네가이시마스。",
-        "meaning_ko": "적게 합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "少なめでお願いしません。",
-        "pron_ko": "스쿠나메데 오네가이 시마센。",
-        "meaning_ko": "적게 하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "少なめでお願いしました。",
-        "pron_ko": "스쿠나메데 오네가이시마시타。",
-        "meaning_ko": "적게 했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "少なめでお願いしませんでした。",
-        "pron_ko": "스쿠나메데 오네가이 시마센데시타。",
-        "meaning_ko": "적게 하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -5109,44 +5109,44 @@
     "s_pron": "모우이치도 오네가이시마스。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "もう一度お願いする。",
-        "pron_ko": "모우이치도 오네가이 스루。",
-        "meaning_ko": "다시 한 번한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "もう一度お願いしない。",
-        "pron_ko": "모우이치도 오네가이 시나이。",
-        "meaning_ko": "다시 한 번하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "もう一度お願いした。",
-        "pron_ko": "모우이치도 오네가이 시타。",
-        "meaning_ko": "다시 한 번했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "もう一度お願いしなかった。",
-        "pron_ko": "모우이치도 오네가이 시나캇타。",
-        "meaning_ko": "다시 한 번하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "もう一度お願いします。",
-        "pron_ko": "모우이치도 오네가이시마스。",
-        "meaning_ko": "다시 한 번합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "もう一度お願いしません。",
-        "pron_ko": "모우이치도 오네가이 시마센。",
-        "meaning_ko": "다시 한 번하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "もう一度お願いしました。",
-        "pron_ko": "모우이치도 오네가이시마시타。",
-        "meaning_ko": "다시 한 번했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "もう一度お願いしませんでした。",
-        "pron_ko": "모우이치도 오네가이 시마센데시타。",
-        "meaning_ko": "다시 한 번하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },

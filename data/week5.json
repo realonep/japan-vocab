@@ -876,44 +876,44 @@
     "s_pron": "오우후쿠데 오네가이시마스。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "往復でお願いする。",
-        "pron_ko": "오우후쿠데 오네가이 스루。",
-        "meaning_ko": "왕복으로 한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "往復でお願いしない。",
-        "pron_ko": "오우후쿠데 오네가이 시나이。",
-        "meaning_ko": "왕복으로 하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "往復でお願いした。",
-        "pron_ko": "오우후쿠데 오네가이 시타。",
-        "meaning_ko": "왕복으로 했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "往復でお願いしなかった。",
-        "pron_ko": "오우후쿠데 오네가이 시나캇타。",
-        "meaning_ko": "왕복으로 하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "往復でお願いします。",
-        "pron_ko": "오우후쿠데 오네가이시마스。",
-        "meaning_ko": "왕복으로 합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "往復でお願いしません。",
-        "pron_ko": "오우후쿠데 오네가이 시마센。",
-        "meaning_ko": "왕복으로 하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "往復でお願いしました。",
-        "pron_ko": "오우후쿠데 오네가이시마시타。",
-        "meaning_ko": "왕복으로 했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "往復でお願いしませんでした。",
-        "pron_ko": "오우후쿠데 오네가이 시마센데시타。",
-        "meaning_ko": "왕복으로 하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
@@ -2253,44 +2253,44 @@
     "s_pron": "요야쿠카쿠닌오 오네가이시마스。",
     "sentence_forms": {
       "plain_present_affirmative": {
-        "jp": "予約確認をお願いする。",
-        "pron_ko": "요야쿠카쿠닌오 오네가이 스루。",
-        "meaning_ko": "예약 확인 한다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_present_negative": {
-        "jp": "予約確認をお願いしない。",
-        "pron_ko": "요야쿠카쿠닌오 오네가이 시나이。",
-        "meaning_ko": "예약 확인 하지 않는다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_affirmative": {
-        "jp": "予約確認をお願いした。",
-        "pron_ko": "요야쿠카쿠닌오 오네가이 시타。",
-        "meaning_ko": "예약 확인 했다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "plain_past_negative": {
-        "jp": "予約確認をお願いしなかった。",
-        "pron_ko": "요야쿠카쿠닌오 오네가이 시나캇타。",
-        "meaning_ko": "예약 확인 하지 않았다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_affirmative": {
-        "jp": "予約確認をお願いします。",
-        "pron_ko": "요야쿠카쿠닌오 오네가이시마스。",
-        "meaning_ko": "예약 확인 합니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_present_negative": {
-        "jp": "予約確認をお願いしません。",
-        "pron_ko": "요야쿠카쿠닌오 오네가이 시마센。",
-        "meaning_ko": "예약 확인 하지 않습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_affirmative": {
-        "jp": "予約確認をお願いしました。",
-        "pron_ko": "요야쿠카쿠닌오 오네가이시마시타。",
-        "meaning_ko": "예약 확인 했습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       },
       "polite_past_negative": {
-        "jp": "予約確認をお願いしませんでした。",
-        "pron_ko": "요야쿠카쿠닌오 오네가이 시마센데시타。",
-        "meaning_ko": "예약 확인 하지 않았습니다."
+        "jp": "",
+        "pron_ko": "",
+        "meaning_ko": ""
       }
     }
   },
