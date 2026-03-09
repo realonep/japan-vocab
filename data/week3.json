@@ -3377,42 +3377,42 @@
       "plain_present_affirmative": {
         "jp": "厚いコートだ。",
         "pron_ko": "아츠이 코-토다。",
-        "meaning_ko": "두꺼운 두껍다."
+        "meaning_ko": "두꺼운 코트다."
       },
       "plain_present_negative": {
         "jp": "厚いコートじゃない。",
         "pron_ko": "아츠이 코-토자나이。",
-        "meaning_ko": "두꺼운 두껍지 않다."
+        "meaning_ko": "두꺼운 코트가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "厚いコートだった。",
         "pron_ko": "아츠이 코-토닷타。",
-        "meaning_ko": "두꺼운 두껍었다."
+        "meaning_ko": "두꺼운 코트였다."
       },
       "plain_past_negative": {
         "jp": "厚いコートじゃなかった。",
         "pron_ko": "아츠이 코-토자나캇타。",
-        "meaning_ko": "두꺼운 두껍지 않았다."
+        "meaning_ko": "두꺼운 코트가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "厚いコートです。",
         "pron_ko": "아츠이 코-토 데스。",
-        "meaning_ko": "두꺼운 두껍습니다."
+        "meaning_ko": "두꺼운 코트입니다."
       },
       "polite_present_negative": {
         "jp": "厚いコートではありません。",
         "pron_ko": "아츠이 코-토데하아리마센。",
-        "meaning_ko": "두꺼운 두껍지 않습니다."
+        "meaning_ko": "두꺼운 코트가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "厚いコートでした。",
         "pron_ko": "아츠이 코-토 데시타。",
-        "meaning_ko": "두꺼운 두껍었습니다."
+        "meaning_ko": "두꺼운 코트였습니다."
       },
       "polite_past_negative": {
         "jp": "厚いコートではありませんでした。",
         "pron_ko": "아츠이 코-토데하아리마센데시타。",
-        "meaning_ko": "두꺼운 두껍지 않았습니다."
+        "meaning_ko": "두꺼운 코트가 아니었습니다."
       }
     }
   },
@@ -3428,42 +3428,42 @@
       "plain_present_affirmative": {
         "jp": "薄いシャツだ。",
         "pron_ko": "우스이 샤츠다。",
-        "meaning_ko": "얇은 얇다."
+        "meaning_ko": "얇은 셔츠다."
       },
       "plain_present_negative": {
         "jp": "薄いシャツじゃない。",
         "pron_ko": "우스이 샤츠자나이。",
-        "meaning_ko": "얇은 얇지 않다."
+        "meaning_ko": "얇은 셔츠가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "薄いシャツだった。",
         "pron_ko": "우스이 샤츠닷타。",
-        "meaning_ko": "얇은 얇었다."
+        "meaning_ko": "얇은 셔츠였다."
       },
       "plain_past_negative": {
         "jp": "薄いシャツじゃなかった。",
         "pron_ko": "우스이 샤츠자나캇타。",
-        "meaning_ko": "얇은 얇지 않았다."
+        "meaning_ko": "얇은 셔츠가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "薄いシャツです。",
         "pron_ko": "우스이 샤츠 데스。",
-        "meaning_ko": "얇은 얇습니다."
+        "meaning_ko": "얇은 셔츠입니다."
       },
       "polite_present_negative": {
         "jp": "薄いシャツではありません。",
         "pron_ko": "우스이 샤츠데하아리마센。",
-        "meaning_ko": "얇은 얇지 않습니다."
+        "meaning_ko": "얇은 셔츠가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "薄いシャツでした。",
         "pron_ko": "우스이 샤츠 데시타。",
-        "meaning_ko": "얇은 얇었습니다."
+        "meaning_ko": "얇은 셔츠였습니다."
       },
       "polite_past_negative": {
         "jp": "薄いシャツではありませんでした。",
         "pron_ko": "우스이 샤츠데하아리마센데시타。",
-        "meaning_ko": "얇은 얇지 않았습니다."
+        "meaning_ko": "얇은 셔츠가 아니었습니다."
       }
     }
   },

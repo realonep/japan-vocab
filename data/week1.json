@@ -2051,42 +2051,42 @@
       "plain_present_affirmative": {
         "jp": "大きい家だ。",
         "pron_ko": "오오키이 이에 다。",
-        "meaning_ko": "큰 크다."
+        "meaning_ko": "큰 집이다."
       },
       "plain_present_negative": {
         "jp": "大きい家じゃない。",
         "pron_ko": "오오키이 이에자나이。",
-        "meaning_ko": "큰 크지 않다."
+        "meaning_ko": "큰 집이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "大きい家だった。",
         "pron_ko": "오오키이 이에 닷타。",
-        "meaning_ko": "큰 컸다."
+        "meaning_ko": "큰 집이었다."
       },
       "plain_past_negative": {
         "jp": "大きい家じゃなかった。",
         "pron_ko": "오오키이 이에자나캇타。",
-        "meaning_ko": "큰 크지 않았다."
+        "meaning_ko": "큰 집이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "大きい家です。",
         "pron_ko": "오오키이 이에 데스。",
-        "meaning_ko": "큰 큽니다."
+        "meaning_ko": "큰 집입니다."
       },
       "polite_present_negative": {
         "jp": "大きい家ではありません。",
         "pron_ko": "오오키이 이에데하아리마센。",
-        "meaning_ko": "큰 크지 않습니다."
+        "meaning_ko": "큰 집이 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "大きい家でした。",
         "pron_ko": "오오키이 이에 데시타。",
-        "meaning_ko": "큰 컸습니다."
+        "meaning_ko": "큰 집이었습니다."
       },
       "polite_past_negative": {
         "jp": "大きい家ではありませんでした。",
         "pron_ko": "오오키이 이에데하아리마센데시타。",
-        "meaning_ko": "큰 크지 않았습니다."
+        "meaning_ko": "큰 집이 아니었습니다."
       }
     }
   },
@@ -2102,42 +2102,42 @@
       "plain_present_affirmative": {
         "jp": "小さい猫だ。",
         "pron_ko": "치이사이 네코 다。",
-        "meaning_ko": "작은 작다."
+        "meaning_ko": "작은 고양이다."
       },
       "plain_present_negative": {
         "jp": "小さい猫じゃない。",
         "pron_ko": "치이사이 네코자나이。",
-        "meaning_ko": "작은 작지 않다."
+        "meaning_ko": "작은 고양이가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "小さい猫だった。",
         "pron_ko": "치이사이 네코 닷타。",
-        "meaning_ko": "작은 작았다."
+        "meaning_ko": "작은 고양이였다."
       },
       "plain_past_negative": {
         "jp": "小さい猫じゃなかった。",
         "pron_ko": "치이사이 네코자나캇타。",
-        "meaning_ko": "작은 작지 않았다."
+        "meaning_ko": "작은 고양이가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "小さい猫です。",
         "pron_ko": "치이사이 네코 데스。",
-        "meaning_ko": "작은 작습니다."
+        "meaning_ko": "작은 고양이입니다."
       },
       "polite_present_negative": {
         "jp": "小さい猫ではありません。",
         "pron_ko": "치이사이 네코데하아리마센。",
-        "meaning_ko": "작은 작지 않습니다."
+        "meaning_ko": "작은 고양이가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "小さい猫でした。",
         "pron_ko": "치이사이 네코 데시타。",
-        "meaning_ko": "작은 작았습니다."
+        "meaning_ko": "작은 고양이였습니다."
       },
       "polite_past_negative": {
         "jp": "小さい猫ではありませんでした。",
         "pron_ko": "치이사이 네코데하아리마센데시타。",
-        "meaning_ko": "작은 작지 않았습니다."
+        "meaning_ko": "작은 고양이가 아니었습니다."
       }
     }
   },
@@ -2357,42 +2357,42 @@
       "plain_present_affirmative": {
         "jp": "新しい車だ。",
         "pron_ko": "아타라시이 쿠루마 다。",
-        "meaning_ko": "새 새롭다."
+        "meaning_ko": "새 자동차다."
       },
       "plain_present_negative": {
         "jp": "新しい車じゃない。",
         "pron_ko": "아타라시이 쿠루마자나이。",
-        "meaning_ko": "새 새롭지 않다."
+        "meaning_ko": "새 자동차가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "新しい車だった。",
         "pron_ko": "아타라시이 쿠루마 닷타。",
-        "meaning_ko": "새 새롭았다."
+        "meaning_ko": "새 자동차였다."
       },
       "plain_past_negative": {
         "jp": "新しい車じゃなかった。",
         "pron_ko": "아타라시이 쿠루마자나캇타。",
-        "meaning_ko": "새 새롭지 않았다."
+        "meaning_ko": "새 자동차가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "新しい車です。",
         "pron_ko": "아타라시이 쿠루마 데스。",
-        "meaning_ko": "새 새롭습니다."
+        "meaning_ko": "새 자동차입니다."
       },
       "polite_present_negative": {
         "jp": "新しい車ではありません。",
         "pron_ko": "아타라시이 쿠루마데하아리마센。",
-        "meaning_ko": "새 새롭지 않습니다."
+        "meaning_ko": "새 자동차가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "新しい車でした。",
         "pron_ko": "아타라시이 쿠루마 데시타。",
-        "meaning_ko": "새 새롭았습니다."
+        "meaning_ko": "새 자동차였습니다."
       },
       "polite_past_negative": {
         "jp": "新しい車ではありませんでした。",
         "pron_ko": "아타라시이 쿠루마데하아리마센데시타。",
-        "meaning_ko": "새 새롭지 않았습니다."
+        "meaning_ko": "새 자동차가 아니었습니다."
       }
     }
   },
@@ -2408,42 +2408,42 @@
       "plain_present_affirmative": {
         "jp": "古い家だ。",
         "pron_ko": "후루이 이에 다。",
-        "meaning_ko": "오래된 오래되다."
+        "meaning_ko": "오래된 집이다."
       },
       "plain_present_negative": {
         "jp": "古い家じゃない。",
         "pron_ko": "후루이 이에자나이。",
-        "meaning_ko": "오래된 오래되지 않다."
+        "meaning_ko": "오래된 집이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "古い家だった。",
         "pron_ko": "후루이 이에 닷타。",
-        "meaning_ko": "오래된 오래됬다."
+        "meaning_ko": "오래된 집이었다."
       },
       "plain_past_negative": {
         "jp": "古い家じゃなかった。",
         "pron_ko": "후루이 이에자나캇타。",
-        "meaning_ko": "오래된 오래되지 않았다."
+        "meaning_ko": "오래된 집이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "古い家です。",
         "pron_ko": "후루이 이에 데스。",
-        "meaning_ko": "오래된 오래됩니다."
+        "meaning_ko": "오래된 집입니다."
       },
       "polite_present_negative": {
         "jp": "古い家ではありません。",
         "pron_ko": "후루이 이에데하아리마센。",
-        "meaning_ko": "오래된 오래되지 않습니다."
+        "meaning_ko": "오래된 집이 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "古い家でした。",
         "pron_ko": "후루이 이에 데시타。",
-        "meaning_ko": "오래된 오래됬습니다."
+        "meaning_ko": "오래된 집이었습니다."
       },
       "polite_past_negative": {
         "jp": "古い家ではありませんでした。",
         "pron_ko": "후루이 이에데하아리마센데시타。",
-        "meaning_ko": "오래된 오래되지 않았습니다."
+        "meaning_ko": "오래된 집이 아니었습니다."
       }
     }
   },
@@ -3224,42 +3224,42 @@
       "plain_present_affirmative": {
         "jp": "こんにちは、元気だ。",
         "pron_ko": "콘니치와、 겐키 다。",
-        "meaning_ko": "안녕하세요, 잘 지내십니까이다."
+        "meaning_ko": "안녕하세요, 잘 지낸다."
       },
       "plain_present_negative": {
         "jp": "こんにちは、元気じゃない。",
         "pron_ko": "콘니치와、 겐키자나이。",
-        "meaning_ko": "안녕하세요, 잘 지내십니까이 아니다."
+        "meaning_ko": "안녕하세요, 잘 지내지 않는다."
       },
       "plain_past_affirmative": {
         "jp": "こんにちは、元気だった。",
         "pron_ko": "콘니치와、 겐키 닷타。",
-        "meaning_ko": "안녕하세요, 잘 지내십니까이었다."
+        "meaning_ko": "안녕하세요, 잘 지냈다."
       },
       "plain_past_negative": {
         "jp": "こんにちは、元気じゃなかった。",
         "pron_ko": "콘니치와、 겐키자나캇타。",
-        "meaning_ko": "안녕하세요, 잘 지내십니까이 아니었다."
+        "meaning_ko": "안녕하세요, 잘 지내지 않았다."
       },
       "polite_present_affirmative": {
         "jp": "こんにちは、元気です。",
         "pron_ko": "콘니치와、 겐키 데스。",
-        "meaning_ko": "안녕하세요, 잘 지내십니까입니다."
+        "meaning_ko": "안녕하세요, 잘 지냅니다."
       },
       "polite_present_negative": {
         "jp": "こんにちは、元気ではありません。",
         "pron_ko": "콘니치와、 겐키데하아리마센。",
-        "meaning_ko": "안녕하세요, 잘 지내십니까이 아닙니다."
+        "meaning_ko": "안녕하세요, 잘 지내지 않습니다."
       },
       "polite_past_affirmative": {
         "jp": "こんにちは、元気でした。",
         "pron_ko": "콘니치와、 겐키 데시타。",
-        "meaning_ko": "안녕하세요, 잘 지내십니까이었습니다."
+        "meaning_ko": "안녕하세요, 잘 지냈습니다."
       },
       "polite_past_negative": {
         "jp": "こんにちは、元気ではありませんでした。",
         "pron_ko": "콘니치와、 겐키데하아리마센데시타。",
-        "meaning_ko": "안녕하세요, 잘 지내십니까이 아니었습니다."
+        "meaning_ko": "안녕하세요, 잘 지내지 않았습니다."
       }
     }
   },

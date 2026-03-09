@@ -1286,42 +1286,42 @@
       "plain_present_affirmative": {
         "jp": "私のせい。",
         "pron_ko": "와타시노 세이。",
-        "meaning_ko": "제 이다."
+        "meaning_ko": "제 탓이다."
       },
       "plain_present_negative": {
         "jp": "私のせくない。",
         "pron_ko": "와타시노 세쿠나이。",
-        "meaning_ko": "제 이 아니다."
+        "meaning_ko": "제 탓이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "私のせかった。",
         "pron_ko": "와타시노 세카 타。",
-        "meaning_ko": "제 이었다."
+        "meaning_ko": "제 탓이었다."
       },
       "plain_past_negative": {
         "jp": "私のせくなかった。",
         "pron_ko": "와타시노 세쿠나카 타。",
-        "meaning_ko": "제 이 아니었다."
+        "meaning_ko": "제 탓이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "私のせいです。",
         "pron_ko": "와타시노 세이 데스。",
-        "meaning_ko": "제 입니다."
+        "meaning_ko": "제 탓입니다."
       },
       "polite_present_negative": {
         "jp": "私のせくないです。",
         "pron_ko": "와타시노 세쿠나이 데스。",
-        "meaning_ko": "제 이 아닙니다."
+        "meaning_ko": "제 탓이 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "私のせかったです。",
         "pron_ko": "와타시노 세카 타 데스。",
-        "meaning_ko": "제 이었습니다."
+        "meaning_ko": "제 탓이었습니다."
       },
       "polite_past_negative": {
         "jp": "私のせくなかったです。",
         "pron_ko": "와타시노 세쿠나카 타 데스。",
-        "meaning_ko": "제 이 아니었습니다."
+        "meaning_ko": "제 탓이 아니었습니다."
       }
     }
   },
@@ -2000,42 +2000,42 @@
       "plain_present_affirmative": {
         "jp": "出費を減らする。",
         "pron_ko": "슙피오에 라스루。",
-        "meaning_ko": "지출을 한다."
+        "meaning_ko": "지출을 줄이다."
       },
       "plain_present_negative": {
         "jp": "出費を減らしない。",
         "pron_ko": "슙피오에 라시나이。",
-        "meaning_ko": "지출을 하지 않다."
+        "meaning_ko": "지출을 줄이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "出費を減らした。",
         "pron_ko": "슙피오에 라시타。",
-        "meaning_ko": "지출을 했다."
+        "meaning_ko": "지출을 줄이었다."
       },
       "plain_past_negative": {
         "jp": "出費を減らしなかった。",
         "pron_ko": "슙피오에 라시나카 타。",
-        "meaning_ko": "지출을 하지 않았다."
+        "meaning_ko": "지출을 줄이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "出費を減らします。",
         "pron_ko": "슙피오에 라시마스。",
-        "meaning_ko": "지출을 합니다."
+        "meaning_ko": "지출을 줄입니다."
       },
       "polite_present_negative": {
         "jp": "出費を減らしません。",
         "pron_ko": "슙피오에 라시마센。",
-        "meaning_ko": "지출을 하지 않습니다."
+        "meaning_ko": "지출을 줄이 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "出費を減らしました。",
         "pron_ko": "슙피오에 라시마시타。",
-        "meaning_ko": "지출을 했습니다."
+        "meaning_ko": "지출을 줄이었습니다."
       },
       "polite_past_negative": {
         "jp": "出費を減らしませんでした。",
         "pron_ko": "슙피오에 라시마센 데시타。",
-        "meaning_ko": "지출을 하지 않았습니다."
+        "meaning_ko": "지출을 줄이 아니었습니다."
       }
     }
   },

@@ -5315,42 +5315,42 @@
       "plain_present_affirmative": {
         "jp": "タバコ臭が気になる。",
         "pron_ko": "타바코슈우가 키니 나루。",
-        "meaning_ko": "담배 냄새가 신경 된다."
+        "meaning_ko": "담배 냄새가 신경 쓰다."
       },
       "plain_present_negative": {
         "jp": "タバコ臭が気にならない。",
         "pron_ko": "타바코슈우가 키니 나라나이。",
-        "meaning_ko": "담배 냄새가 신경 되지 않다."
+        "meaning_ko": "담배 냄새가 신경 쓰가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "タバコ臭が気になった。",
         "pron_ko": "타바코슈우가 키니 낫타。",
-        "meaning_ko": "담배 냄새가 신경 됬다."
+        "meaning_ko": "담배 냄새가 신경 쓰였다."
       },
       "plain_past_negative": {
         "jp": "タバコ臭が気にならなかった。",
         "pron_ko": "타바코슈우가 키니 나라나캇타。",
-        "meaning_ko": "담배 냄새가 신경 되지 않았다."
+        "meaning_ko": "담배 냄새가 신경 쓰가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "タバコ臭が気になります。",
         "pron_ko": "타바코슈우가 키니 나리마스。",
-        "meaning_ko": "담배 냄새가 신경 됩니다."
+        "meaning_ko": "담배 냄새가 신경 쓰입니다."
       },
       "polite_present_negative": {
         "jp": "タバコ臭が気になりません。",
         "pron_ko": "타바코슈우가 키니 나리마센。",
-        "meaning_ko": "담배 냄새가 신경 되지 않습니다."
+        "meaning_ko": "담배 냄새가 신경 쓰가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "タバコ臭が気になりました。",
         "pron_ko": "타바코슈우가 키니 나리마시타。",
-        "meaning_ko": "담배 냄새가 신경 됬습니다."
+        "meaning_ko": "담배 냄새가 신경 쓰였습니다."
       },
       "polite_past_negative": {
         "jp": "タバコ臭が気になりませんでした。",
         "pron_ko": "타바코슈우가 키니 나리마센데시타。",
-        "meaning_ko": "담배 냄새가 신경 되지 않았습니다."
+        "meaning_ko": "담배 냄새가 신경 쓰가 아니었습니다."
       }
     }
   },

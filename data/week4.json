@@ -4499,42 +4499,42 @@
       "plain_present_affirmative": {
         "jp": "駅に集合する。",
         "pron_ko": "에키니 슈우고우 스루。",
-        "meaning_ko": "역에 한다."
+        "meaning_ko": "역에 모다."
       },
       "plain_present_negative": {
         "jp": "駅に集合しない。",
         "pron_ko": "에키니 슈우고우 시나이。",
-        "meaning_ko": "역에 하지 않다."
+        "meaning_ko": "역에 모가 아니다."
       },
       "plain_past_affirmative": {
         "jp": "駅に集合した。",
         "pron_ko": "에키니 슈우고우 시타。",
-        "meaning_ko": "역에 했다."
+        "meaning_ko": "역에 모였다."
       },
       "plain_past_negative": {
         "jp": "駅に集合しなかった。",
         "pron_ko": "에키니 슈우고우 시나캇타。",
-        "meaning_ko": "역에 하지 않았다."
+        "meaning_ko": "역에 모가 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "駅に集合します。",
         "pron_ko": "에키니 슈우고우 시마스。",
-        "meaning_ko": "역에 합니다."
+        "meaning_ko": "역에 모입니다."
       },
       "polite_present_negative": {
         "jp": "駅に集合しません。",
         "pron_ko": "에키니 슈우고우 시마센。",
-        "meaning_ko": "역에 하지 않습니다."
+        "meaning_ko": "역에 모가 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "駅に集合しました。",
         "pron_ko": "에키니 슈우고우 시마시타。",
-        "meaning_ko": "역에 했습니다."
+        "meaning_ko": "역에 모였습니다."
       },
       "polite_past_negative": {
         "jp": "駅に集合しませんでした。",
         "pron_ko": "에키니 슈우고우 시마센데시타。",
-        "meaning_ko": "역에 하지 않았습니다."
+        "meaning_ko": "역에 모가 아니었습니다."
       }
     }
   },

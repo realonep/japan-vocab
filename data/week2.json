@@ -4550,42 +4550,42 @@
       "plain_present_affirmative": {
         "jp": "それは大変だ。",
         "pron_ko": "소레와 타이헨 다。",
-        "meaning_ko": "그건 힘들다."
+        "meaning_ko": "그건 큰일이다."
       },
       "plain_present_negative": {
         "jp": "それは大変じゃない。",
         "pron_ko": "소레와 타이헨자나이。",
-        "meaning_ko": "그건 힘들지 않다."
+        "meaning_ko": "그건 큰일이 아니다."
       },
       "plain_past_affirmative": {
         "jp": "それは大変だった。",
         "pron_ko": "소레와 타이헨 닷타。",
-        "meaning_ko": "그건 힘들었다."
+        "meaning_ko": "그건 큰일이었다."
       },
       "plain_past_negative": {
         "jp": "それは大変じゃなかった。",
         "pron_ko": "소레와 타이헨자나캇타。",
-        "meaning_ko": "그건 힘들지 않았다."
+        "meaning_ko": "그건 큰일이 아니었다."
       },
       "polite_present_affirmative": {
         "jp": "それは大変です。",
         "pron_ko": "소레와 타이헨 데스。",
-        "meaning_ko": "그건 힘듭니다."
+        "meaning_ko": "그건 큰일입니다."
       },
       "polite_present_negative": {
         "jp": "それは大変ではありません。",
         "pron_ko": "소레와 타이헨데하아리마센。",
-        "meaning_ko": "그건 힘들지 않습니다."
+        "meaning_ko": "그건 큰일이 아닙니다."
       },
       "polite_past_affirmative": {
         "jp": "それは大変でした。",
         "pron_ko": "소레와 타이헨 데시타。",
-        "meaning_ko": "그건 힘들었습니다."
+        "meaning_ko": "그건 큰일이었습니다."
       },
       "polite_past_negative": {
         "jp": "それは大変ではありませんでした。",
         "pron_ko": "소레와 타이헨데하아리마센데시타。",
-        "meaning_ko": "그건 힘들지 않았습니다."
+        "meaning_ko": "그건 큰일이 아니었습니다."
       }
     }
   },
@@ -7085,6 +7085,57 @@
         "jp": "ぜんぜん大丈夫ではありませんでした。",
         "pron_ko": "젠젠 다이죠우부데하아리마센데시타。",
         "meaning_ko": "전혀 괜찮습니다이 아니었습니다."
+      }
+    }
+  },
+  {
+    "word": "いっしょに",
+    "yomi": "いっしょに",
+    "meaning": "함께",
+    "word_pron": "잇쇼니",
+    "sentence": "いっしょに行きましょう。",
+    "s_meaning": "함께 갑시다.",
+    "s_pron": "잇쇼니 이키마쇼우。",
+    "sentence_forms": {
+      "plain_present_affirmative": {
+        "jp": "いっしょに行く。",
+        "pron_ko": "잇쇼니 이쿠。",
+        "meaning_ko": "함께 간다."
+      },
+      "plain_present_negative": {
+        "jp": "いっしょに行かない。",
+        "pron_ko": "잇쇼니 이카나이。",
+        "meaning_ko": "함께 가지 않다."
+      },
+      "plain_past_affirmative": {
+        "jp": "いっしょに行った。",
+        "pron_ko": "잇쇼니 잇타。",
+        "meaning_ko": "함께 갔다."
+      },
+      "plain_past_negative": {
+        "jp": "いっしょに行かなかった。",
+        "pron_ko": "잇쇼니 이카나캇타。",
+        "meaning_ko": "함께 가지 않았다."
+      },
+      "polite_present_affirmative": {
+        "jp": "いっしょに行きます。",
+        "pron_ko": "잇쇼니 이키마스。",
+        "meaning_ko": "함께 갑니다."
+      },
+      "polite_present_negative": {
+        "jp": "いっしょに行きません。",
+        "pron_ko": "잇쇼니 이키마센。",
+        "meaning_ko": "함께 가지 않습니다."
+      },
+      "polite_past_affirmative": {
+        "jp": "いっしょに行きました。",
+        "pron_ko": "잇쇼니 이키마시타。",
+        "meaning_ko": "함께 갔습니다."
+      },
+      "polite_past_negative": {
+        "jp": "いっしょに行きませんでした。",
+        "pron_ko": "잇쇼니 이키마센데시타。",
+        "meaning_ko": "함께 가지 않았습니다."
       }
     }
   }
