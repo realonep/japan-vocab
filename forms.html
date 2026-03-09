@@ -575,14 +575,23 @@
                 return Number(value || 0) >= 10 ? "count-badge-tight" : "";
             }
 
-            function incrementFormStudy(week, yomi, formKey) {
+            function incrementFormStudy(week, yomi, formKey, options = {}) {
+                const { directCount = false } = options;
                 const scopedKey = makeFormScopedKey(week, yomi, formKey);
                 const today = new Date().toISOString().split("T")[0];
                 const current = getFormStudy(scopedKey);
-                // 기본변형은 1클릭 즉시 1카운트로 집계
-                current.count = Number(current.count || 0) + 1;
-                current.clicks = 0;
-                current.lastStudied = today;
+                if (directCount) {
+                    current.count = Number(current.count || 0) + 1;
+                    current.clicks = 0;
+                    current.lastStudied = today;
+                } else {
+                    current.clicks = Number(current.clicks || 0) + 1;
+                    if (current.clicks >= 2) {
+                        current.count = Number(current.count || 0) + 1;
+                        current.clicks = 0;
+                        current.lastStudied = today;
+                    }
+                }
                 studyDataCache[scopedKey] = current;
                 saveStudyLocal();
                 saveStudyItem(makeFormStudyKey(week, yomi, formKey), current);
@@ -759,7 +768,7 @@
                         recordFormTest(rowMeta.week, rowMeta.yomi, rowMeta.formKey, false);
                     } else if (passed) {
                         statusEl.textContent = `통과 ${(score * 100).toFixed(0)}%`;
-                        incrementFormStudy(rowMeta.week, rowMeta.yomi, rowMeta.formKey);
+                        incrementFormStudy(rowMeta.week, rowMeta.yomi, rowMeta.formKey, { directCount: true });
                         recordFormTest(rowMeta.week, rowMeta.yomi, rowMeta.formKey, true);
                     } else {
                         statusEl.textContent = `실패 ${(score * 100).toFixed(0)}%`;
