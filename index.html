@@ -621,7 +621,7 @@
                         <th class="p-1 md:p-4 text-xs font-black uppercase hidden md:table-cell focus-col-reading">Reading</th>
                         <th class="p-1 md:p-4 text-xs font-black uppercase col-meaning">Meaning</th>
                         <th class="p-1 md:p-4 text-xs font-black uppercase col-example">Example</th>
-                        <th id="countHeader" class="p-1 md:p-4 text-xs font-black uppercase text-center col-count focus-col-count">Cnt</th>
+                        <th id="countHeader" class="p-1 md:p-4 text-xs font-black uppercase text-center col-count focus-col-count">S/F</th>
                         <th class="p-1 md:p-4 text-xs font-black uppercase text-right col-listen focus-col-listen">🔊</th>
                     </tr>
                 </thead>
@@ -945,8 +945,9 @@
             }
         }
 
-        function incrementStudyCount(yomi, week = currentWeek) {
-            if (filterMode.value === 'frequent_mistakes') {
+        function incrementStudyCount(yomi, week = currentWeek, options = {}) {
+            const { directCount = false, allowFrequentMistakes = false } = options;
+            if (filterMode.value === 'frequent_mistakes' && !allowFrequentMistakes) {
                 return;
             }
             const data = getStudyData();
@@ -955,13 +956,19 @@
             if (!data[studyKey]) {
                 data[studyKey] = { count: 0, clicks: 0, lastStudied: null };
             }
-            // 2클릭당 1카운트
-            data[studyKey].clicks = (data[studyKey].clicks || 0) + 1;
-            if (data[studyKey].clicks >= 2) {
+            if (directCount) {
                 data[studyKey].count++;
                 data[studyKey].clicks = 0;
-                // "오늘 학습"은 학습 완료(2회) 기준과 동일하게 집계
                 data[studyKey].lastStudied = today;
+            } else {
+                // 2클릭당 1카운트
+                data[studyKey].clicks = (data[studyKey].clicks || 0) + 1;
+                if (data[studyKey].clicks >= 2) {
+                    data[studyKey].count++;
+                    data[studyKey].clicks = 0;
+                    // "오늘 학습"은 학습 완료(2회) 기준과 동일하게 집계
+                    data[studyKey].lastStudied = today;
+                }
             }
             saveStudyData(data);
             saveStudyItem(studyKey, data[studyKey]);
@@ -983,10 +990,10 @@
             const studyKey = makeStudyKeyForWeek(week, yomi);
             const row = Array.from(document.querySelectorAll('tr[data-study-key]'))
                 .find(el => el.getAttribute('data-study-key') === studyKey);
-            const badge = row ? row.querySelector('.count-badge') : null;
+            const badge = row ? row.querySelector('.count-study-badge') : null;
             if (badge) {
-                badge.textContent = count;
-                badge.className = `count-badge px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(count)}`;
+                badge.textContent = `S ${count}`;
+                badge.className = `count-study-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(count)}`;
             }
         }
 
@@ -994,11 +1001,11 @@
             const studyKey = makeStudyKeyForWeek(week, yomi);
             const row = Array.from(document.querySelectorAll('tr[data-study-key]'))
                 .find(el => el.getAttribute('data-study-key') === studyKey);
-            const badge = row ? row.querySelector('.count-badge') : null;
+            const badge = row ? row.querySelector('.count-fail-badge') : null;
             if (badge) {
                 const failCount = getSpeechTestFailCount(week, yomi);
-                badge.textContent = failCount;
-                badge.className = `count-badge px-2 py-1 rounded-full text-xs font-bold ${getFailBadgeClass(failCount)}`;
+                badge.textContent = `F ${failCount}`;
+                badge.className = `count-fail-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getFailBadgeClass(failCount)}`;
             }
         }
 
@@ -1775,6 +1782,7 @@
                     showSpeechDiffOverlay(rowKey, itemWeek, item, spoken);
                 } else if (passed) {
                     statusEl.textContent = `통과 ${(score * 100).toFixed(0)}%`;
+                    incrementStudyCount(item.yomi, itemWeek, { directCount: true, allowFrequentMistakes: true });
                     recordSpeechTestResult(itemWeek, item.yomi, true);
                     playResultTone(true);
                     if (hasDiff) {
@@ -2446,8 +2454,6 @@
                 const itemWeek = item._week || currentWeek;
                 const studyCount = getStudyCount(item.yomi, itemWeek);
                 const failCount = getSpeechTestFailCount(itemWeek, item.yomi);
-                const count = isMistakeMode ? failCount : studyCount;
-                const badgeClass = isMistakeMode ? getFailBadgeClass(count) : getCountBadgeClass(count);
                 const weekBadge = item._week
                     ? `<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-gray-100 text-gray-600 text-[10px] md:text-xs font-semibold">${item._week.replace('week', 'W')}</span>`
                     : '';
@@ -2494,7 +2500,10 @@
                         </div>
                     </td>
                     <td class="p-1 md:p-4 text-center focus-col-count">
-                        <span class="count-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${badgeClass}">${count}</span>
+                        <div class="inline-flex items-center gap-1">
+                            <span class="count-study-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getCountBadgeClass(studyCount)}">S ${studyCount}</span>
+                            <span class="count-fail-badge px-1 md:px-2 py-1 rounded-full text-xs font-bold ${getFailBadgeClass(failCount)}">F ${failCount}</span>
+                        </div>
                         ${resetBtnHtml}
                     </td>
                     <td class="p-1 md:p-4 text-right focus-col-listen">
@@ -2610,7 +2619,7 @@
             const mode = filterMode.value;
             updateMistakePlayControls();
             const countHeader = document.getElementById('countHeader');
-            if (countHeader) countHeader.textContent = mode === 'frequent_mistakes' ? 'Fail' : 'Cnt';
+            if (countHeader) countHeader.textContent = 'S/F';
             const today = new Date().toISOString().split('T')[0];
             const studyData = getStudyData();
             const term = normalizeText(searchInput.value);
