@@ -1207,7 +1207,6 @@
 
                         const playAction = (btnForTts) => {
                             closeActiveSpeechTest();
-                            micPermissionNeedsRecheck = true;
                             incrementFormStudy(word._week, word.yomi, form.key);
                             if (btnForTts) {
                                 speak(form.jp, btnForTts);
