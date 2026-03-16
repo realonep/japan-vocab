@@ -237,7 +237,6 @@
     </main>
     <button id="focusModeBtn" class="focus-toggle-btn" type="button" aria-pressed="false">뜻만 보기</button>
 
-    <script src="tts.js"></script>
     <script>
         (function () {
             const API_URL = "https://japan-api.garagehousekr.workers.dev";
@@ -286,6 +285,205 @@
             let studyDataCache = {};
             let testDataCache = {};
             let dataRefreshToken = 0;
+            const CACHE_NAME = "japanese-tts-cache";
+            const CACHE_VERSION = 1;
+            const CACHE_EXPIRY_DAYS = 7;
+            let ttsDb = null;
+            let activeSpeakAudio = null;
+
+            function setTtsStatus(message) {
+                ttsStatus.textContent = message;
+            }
+
+            function stopSpeakPlayback() {
+                if (activeSpeakAudio) {
+                    try { activeSpeakAudio.pause(); } catch (_) {}
+                    activeSpeakAudio = null;
+                }
+                if ("speechSynthesis" in window) {
+                    window.speechSynthesis.cancel();
+                }
+            }
+
+            async function initTtsDb() {
+                return new Promise((resolve, reject) => {
+                    const request = indexedDB.open(CACHE_NAME, CACHE_VERSION);
+                    request.onerror = () => reject(request.error);
+                    request.onsuccess = () => {
+                        ttsDb = request.result;
+                        resolve(ttsDb);
+                    };
+                    request.onupgradeneeded = (event) => {
+                        const db = event.target.result;
+                        if (!db.objectStoreNames.contains("audio")) {
+                            const store = db.createObjectStore("audio", { keyPath: "text" });
+                            store.createIndex("timestamp", "timestamp", { unique: false });
+                        }
+                    };
+                });
+            }
+
+            async function getCachedAudio(text) {
+                if (!ttsDb) return null;
+                return new Promise((resolve, reject) => {
+                    const transaction = ttsDb.transaction(["audio"], "readonly");
+                    const store = transaction.objectStore("audio");
+                    const request = store.get(text);
+                    request.onsuccess = () => {
+                        const result = request.result;
+                        if (!result) {
+                            resolve(null);
+                            return;
+                        }
+                        const maxAge = CACHE_EXPIRY_DAYS * 24 * 60 * 60 * 1000;
+                        if (Date.now() - result.timestamp < maxAge) {
+                            resolve(result.audioBlob);
+                        } else {
+                            store.delete(text);
+                            resolve(null);
+                        }
+                    };
+                    request.onerror = () => reject(request.error);
+                });
+            }
+
+            async function saveCachedAudio(text, audioBlob) {
+                if (!ttsDb) return;
+                return new Promise((resolve, reject) => {
+                    const transaction = ttsDb.transaction(["audio"], "readwrite");
+                    const store = transaction.objectStore("audio");
+                    const request = store.put({ text, audioBlob, timestamp: Date.now() });
+                    request.onsuccess = () => resolve();
+                    request.onerror = () => reject(request.error);
+                });
+            }
+
+            async function cleanOldTtsCache() {
+                if (!ttsDb) return;
+                const transaction = ttsDb.transaction(["audio"], "readwrite");
+                const store = transaction.objectStore("audio");
+                const index = store.index("timestamp");
+                const now = Date.now();
+                const maxAge = CACHE_EXPIRY_DAYS * 24 * 60 * 60 * 1000;
+                index.openCursor().onsuccess = (event) => {
+                    const cursor = event.target.result;
+                    if (!cursor) return;
+                    if (now - cursor.value.timestamp > maxAge) {
+                        cursor.delete();
+                    }
+                    cursor.continue();
+                };
+            }
+
+            function speakBrowser(text, btnElement) {
+                if (!("speechSynthesis" in window)) {
+                    setTtsStatus("❌ Browser TTS not supported");
+                    return;
+                }
+                stopSpeakPlayback();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = "ja-JP";
+                utterance.rate = 0.9;
+                utterance.pitch = 1;
+                const voices = window.speechSynthesis.getVoices();
+                const japaneseVoice = voices.find((v) => v.lang.startsWith("ja"));
+                if (japaneseVoice) utterance.voice = japaneseVoice;
+
+                const original = btnElement.innerHTML;
+                btnElement.disabled = true;
+                btnElement.innerHTML = `<svg class="loading-spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>`;
+                setTtsStatus("🔊 Speaking...");
+
+                utterance.onend = () => {
+                    btnElement.disabled = false;
+                    btnElement.innerHTML = original;
+                    setTtsStatus("TTS Ready");
+                };
+                utterance.onerror = () => {
+                    btnElement.disabled = false;
+                    btnElement.innerHTML = original;
+                    setTtsStatus("❌ Speech Error");
+                };
+                window.speechSynthesis.speak(utterance);
+            }
+
+            async function speakAI(text, btnElement) {
+                const original = btnElement.innerHTML;
+                btnElement.disabled = true;
+                btnElement.innerHTML = `<svg class="loading-spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>`;
+                setTtsStatus("🤖 AI Generating Audio...");
+
+                const playBlob = async (blob) => {
+                    stopSpeakPlayback();
+                    const url = URL.createObjectURL(blob);
+                    const audio = new Audio(url);
+                    activeSpeakAudio = audio;
+                    audio.onended = () => {
+                        URL.revokeObjectURL(url);
+                        if (activeSpeakAudio === audio) activeSpeakAudio = null;
+                    };
+                    audio.onerror = () => {
+                        URL.revokeObjectURL(url);
+                        if (activeSpeakAudio === audio) activeSpeakAudio = null;
+                    };
+                    await audio.play();
+                };
+
+                try {
+                    const cachedBlob = await getCachedAudio(text);
+                    if (cachedBlob) {
+                        setTtsStatus("Playing from Cache 🚀");
+                        await playBlob(cachedBlob);
+                        setTimeout(() => setTtsStatus("TTS Ready"), 1500);
+                        return;
+                    }
+
+                    const response = await fetch(`${API_URL}/tts`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            input: { text },
+                            voice: {
+                                languageCode: "ja-JP",
+                                name: voiceSelect.value
+                            },
+                            audioConfig: { audioEncoding: "MP3" }
+                        })
+                    });
+                    if (!response.ok) {
+                        const errorData = await response.json().catch(() => ({}));
+                        throw new Error(`API ${response.status}: ${errorData.error?.message || "Unknown error"}`);
+                    }
+                    const data = await response.json();
+                    if (!data.audioContent) throw new Error("No audio data in response");
+
+                    const binary = atob(data.audioContent);
+                    const bytes = new Uint8Array(binary.length);
+                    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+                    const audioBlob = new Blob([bytes], { type: "audio/mp3" });
+
+                    await saveCachedAudio(text, audioBlob).catch(() => {});
+                    setTtsStatus("Cached & Playing ✓");
+                    await playBlob(audioBlob);
+                    setTimeout(() => setTtsStatus("TTS Ready"), 2000);
+                } catch (error) {
+                    setTtsStatus(`❌ ${error.message}`);
+                    setTimeout(() => setTtsStatus("TTS Ready"), 3000);
+                } finally {
+                    btnElement.disabled = false;
+                    btnElement.innerHTML = original;
+                }
+            }
+
+            function speak(text, btnElement) {
+                speakAI(text, btnElement);
+            }
+
+            if ("speechSynthesis" in window) {
+                window.speechSynthesis.onvoiceschanged = () => {
+                    window.speechSynthesis.getVoices();
+                };
+            }
 
             function getLoggedInUser() {
                 return localStorage.getItem("loggedInUser") || "guest";
@@ -912,7 +1110,7 @@
             }
 
             function render(words) {
-                TTS.stop();                 // 페이지 이동 시 재생 중 TTS 강제 종료
+                stopSpeakPlayback();
                 closeActiveSpeechTest();
                 formList.innerHTML = "";
                 renderedRows = [];
@@ -990,12 +1188,10 @@
 
                         const playAction = (btnForTts) => {
                             closeActiveSpeechTest();
-                            // forms 페이지는 TTS.speak() 사용 후 iOS AudioSession이 playback에 남을 수 있어
-                            // 다음 TEST에서 getUserMedia 재확인을 강제한다.
                             micPermissionNeedsRecheck = true;
                             incrementFormStudy(word._week, word.yomi, form.key);
                             if (btnForTts) {
-                                TTS.speak(form.jp, btnForTts);
+                                speak(form.jp, btnForTts);
                             }
                         };
                         if (sentenceBtn) sentenceBtn.onclick = () => playAction(currentPlayBtn);
@@ -1063,12 +1259,13 @@
             }
 
             async function init() {
-                const ok = await TTS.init((msg) => {
-                    ttsStatus.textContent = msg;
-                });
-                if (!ok) ttsStatus.textContent = "❌ TTS 초기화 실패";
-                voiceSelect.addEventListener("change", () => TTS.setVoice(voiceSelect.value));
-                TTS.setVoice(voiceSelect.value);
+                try {
+                    await initTtsDb();
+                    await cleanOldTtsCache();
+                    setTtsStatus("TTS Ready");
+                } catch (_) {
+                    setTtsStatus("❌ TTS 초기화 실패");
+                }
 
                 await loadProgressFromServer();
                 await initWeekOptions();
