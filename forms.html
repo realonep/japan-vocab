@@ -709,7 +709,6 @@
                     statusEl.textContent = "크롬 음성인식 미지원";
                     return;
                 }
-                if (typeof TTS?.stop === "function") TTS.stop();
                 if (activeSpeechTest && activeSpeechTest.rowKey === rowMeta.scopedKey) {
                     activeSpeechTest.finish("manual");
                     return;
