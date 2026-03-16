@@ -1284,6 +1284,16 @@
         let pendingMicRetryHandler = null;
         let micPermissionGranted = false;
         let micPermissionNeedsRecheck = true;
+        let lastTtsStartedAt = 0;
+        const DEBUG_STT = true;
+
+        function logStt(eventName, payload = {}) {
+            if (!DEBUG_STT) return;
+            console.log(`[index-stt] ${eventName}`, {
+                ts: new Date().toISOString(),
+                ...payload
+            });
+        }
 
         // Clear cache button event
         clearCacheBtn.addEventListener('click', async () => {
@@ -1652,6 +1662,10 @@
         }
 
         async function ensureMicPermission(statusEl, retryHandler = null) {
+            logStt('ensureMicPermission:enter', {
+                micPermissionNeedsRecheck,
+                micPermissionGranted
+            });
             if (!micPermissionNeedsRecheck) return true;
             if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
                 micPermissionGranted = false;
@@ -1662,10 +1676,14 @@
                 return false;
             }
             try {
+                const startedAt = Date.now();
                 const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
                 stream.getTracks().forEach(track => track.stop());
                 micPermissionGranted = true;
                 micPermissionNeedsRecheck = false;
+                logStt('ensureMicPermission:ok', {
+                    elapsedMs: Date.now() - startedAt
+                });
                 return true;
             } catch (err) {
                 micPermissionGranted = false;
@@ -1673,6 +1691,9 @@
                 const msg = getMediaPermissionErrorMessage(err?.name);
                 statusEl.textContent = msg;
                 openMicGuideModal(msg, retryHandler, true);
+                logStt('ensureMicPermission:error', {
+                    errorName: err?.name || 'unknown'
+                });
                 return false;
             }
         }
@@ -1698,6 +1719,13 @@
         }
 
         async function startSentenceSpeechTest(item, itemWeek, rowKey, testBtn, statusEl) {
+            const startClickedAt = Date.now();
+            logStt('startSentenceSpeechTest:click', {
+                rowKey,
+                msSinceTts: lastTtsStartedAt ? (Date.now() - lastTtsStartedAt) : null,
+                micPermissionNeedsRecheck,
+                micPermissionGranted
+            });
             if (mistakePlayRunning) stopMistakePlayback();
             closeSpeechDiffOverlay();
             if (!mainApp.classList.contains('focus-mode')) {
@@ -1710,6 +1738,12 @@
             }
 
             const permissionOk = await ensureMicPermission(statusEl, () => startSentenceSpeechTest(item, itemWeek, rowKey, testBtn, statusEl));
+            logStt('startSentenceSpeechTest:afterEnsure', {
+                permissionOk,
+                elapsedMs: Date.now() - startClickedAt,
+                micPermissionNeedsRecheck,
+                micPermissionGranted
+            });
             if (!permissionOk) return;
 
             if (activeSpeechTest && activeSpeechTest.rowKey !== rowKey) {
@@ -1847,6 +1881,10 @@
 
             recognition.onerror = (event) => {
                 recognitionErrorCode = event?.error || 'error';
+                logStt('recognition:onerror', {
+                    error: recognitionErrorCode,
+                    msSinceTts: lastTtsStartedAt ? (Date.now() - lastTtsStartedAt) : null
+                });
                 finish('error');
             };
             recognition.onend = () => {
@@ -1856,9 +1894,16 @@
             activeSpeechTest = { rowKey, finish };
             try {
                 recognition.start();
+                logStt('recognition:start:ok', {
+                    msSinceTts: lastTtsStartedAt ? (Date.now() - lastTtsStartedAt) : null
+                });
             } catch (_) {
                 finish('error');
                 statusEl.textContent = '마이크 권한 확인 필요';
+                logStt('recognition:start:catch', {
+                    error: 'not-allowed',
+                    msSinceTts: lastTtsStartedAt ? (Date.now() - lastTtsStartedAt) : null
+                });
             }
         }
 
@@ -2318,6 +2363,7 @@
                 console.error('Speech error:', e);
             };
 
+            lastTtsStartedAt = Date.now();
             window.speechSynthesis.speak(utterance);
         }
 
@@ -2354,6 +2400,7 @@
                 if (cachedBlob) {
                     statusMsg.innerText = "Playing from Cache 🚀";
                     const audio = new Audio(URL.createObjectURL(cachedBlob));
+                    lastTtsStartedAt = Date.now();
                     audio.play();
                     btnElement.disabled = false;
                     btnElement.innerHTML = originalContent;
@@ -2418,6 +2465,7 @@
                     }
                     
                     const audio = new Audio(URL.createObjectURL(audioBlob));
+                    lastTtsStartedAt = Date.now();
                     audio.play();
                     
                     setTimeout(() => {

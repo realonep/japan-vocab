@@ -285,10 +285,21 @@
             let studyDataCache = {};
             let testDataCache = {};
             let dataRefreshToken = 0;
+            let lastTtsStartedAt = 0;
+            let activeTtsAudio = null;
+            const DEBUG_STT = true;
             const CACHE_NAME = "japanese-tts-cache";
             const CACHE_VERSION = 1;
             const CACHE_EXPIRY_DAYS = 7;
             let ttsDb = null;
+
+            function logStt(eventName, payload = {}) {
+                if (!DEBUG_STT) return;
+                console.log(`[forms-stt] ${eventName}`, {
+                    ts: new Date().toISOString(),
+                    ...payload
+                });
+            }
 
             function setTtsStatus(message) {
                 ttsStatus.textContent = message;
@@ -393,6 +404,7 @@
                     btnElement.innerHTML = original;
                     setTtsStatus("❌ Speech Error");
                 };
+                lastTtsStartedAt = Date.now();
                 window.speechSynthesis.speak(utterance);
             }
 
@@ -407,6 +419,8 @@
                     if (cachedBlob) {
                         setTtsStatus("Playing from Cache 🚀");
                         const audio = new Audio(URL.createObjectURL(cachedBlob));
+                        activeTtsAudio = audio;
+                        lastTtsStartedAt = Date.now();
                         audio.play();
                         btnElement.disabled = false;
                         btnElement.innerHTML = original;
@@ -467,6 +481,8 @@
                         }
 
                         const audio = new Audio(URL.createObjectURL(audioBlob));
+                        activeTtsAudio = audio;
+                        lastTtsStartedAt = Date.now();
                         audio.play();
 
                         setTimeout(() => {
@@ -937,7 +953,26 @@
                 }
             }
 
-            async function ensureMicPermission(statusEl, retryHandler = null) {
+            function stopSpeakPlayback() {
+                // speechSynthesis 정지
+                if ('speechSynthesis' in window) {
+                    window.speechSynthesis.cancel();
+                }
+                // Audio 객체 정지
+                if (activeTtsAudio) {
+                    try {
+                        activeTtsAudio.pause();
+                        activeTtsAudio.src = '';
+                    } catch (_) {}
+                    activeTtsAudio = null;
+                }
+            }
+
+            async function ensureMicPermission(statusEl) {
+                logStt("ensureMicPermission:enter", {
+                    micPermissionNeedsRecheck,
+                    micPermissionGranted
+                });
                 if (!micPermissionNeedsRecheck) return true;
                 if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
                     micPermissionGranted = false;
@@ -946,15 +981,22 @@
                     return false;
                 }
                 try {
+                    const startedAt = Date.now();
                     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
                     stream.getTracks().forEach((track) => track.stop());
                     micPermissionGranted = true;
                     micPermissionNeedsRecheck = false;
+                    logStt("ensureMicPermission:ok", {
+                        elapsedMs: Date.now() - startedAt
+                    });
                     return true;
                 } catch (err) {
                     micPermissionGranted = false;
                     micPermissionNeedsRecheck = true;
                     statusEl.textContent = getMediaPermissionErrorMessage(err?.name);
+                    logStt("ensureMicPermission:error", {
+                        errorName: err?.name || "unknown"
+                    });
                     return false;
                 }
             }
@@ -980,17 +1022,38 @@
             }
 
             async function startSpeechTest(rowMeta, testBtn, statusEl, diffEl) {
+                const startClickedAt = Date.now();
+                logStt("startSpeechTest:click", {
+                    scopedKey: rowMeta?.scopedKey || "",
+                    msSinceTts: lastTtsStartedAt ? (Date.now() - lastTtsStartedAt) : null,
+                    micPermissionNeedsRecheck,
+                    micPermissionGranted
+                });
                 if (!SpeechRecognitionCtor) {
                     statusEl.textContent = "크롬 음성인식 미지원";
                     return;
                 }
 
-                const permissionOk = await ensureMicPermission(
-                    statusEl,
-                    () => startSpeechTest(rowMeta, testBtn, statusEl, diffEl)
-                );
+                const needsRecheck = micPermissionNeedsRecheck;  // 호출 전 스냅샷
+                const permissionOk = await ensureMicPermission(statusEl);
+                logStt("startSpeechTest:afterEnsure", {
+                    permissionOk,
+                    needsRecheck,
+                    elapsedMs: Date.now() - startClickedAt,
+                    micPermissionNeedsRecheck,
+                    micPermissionGranted
+                });
                 if (!permissionOk) return;
 
+                if (needsRecheck) {
+                    // getUserMedia(async)가 실행됨 → gesture context 파괴됨
+                    // AudioSession은 이미 record 모드로 전환됨
+                    // 다음 탭은 needsRecheck=false → getUserMedia 없이 recognition.start() 직접 호출
+                    statusEl.textContent = "준비됨, 다시 TEST 탭";
+                    return;
+                }
+
+                // 여기부터 gesture context 보존 — no await was called
                 if (activeSpeechTest && activeSpeechTest.rowKey === rowMeta.scopedKey) {
                     activeSpeechTest.finish("manual");
                     return;
@@ -1100,6 +1163,10 @@
 
                 const onError = (event) => {
                     recognitionErrorCode = event?.error || "error";
+                    logStt("recognition:onerror", {
+                        error: recognitionErrorCode,
+                        msSinceTts: lastTtsStartedAt ? (Date.now() - lastTtsStartedAt) : null
+                    });
                     finish("error");
                 };
 
@@ -1117,13 +1184,23 @@
 
                 activeSpeechTest = { rowKey: rowMeta.scopedKey, finish };
 
+                // TTS 오디오가 재생 중이면 정지 — AudioSession을 playback에서 해제
+                stopSpeakPlayback();
+
                 // recognition.start()는 반드시 gesture context 안에서 동기 호출해야 함
                 // (await/setTimeout 이후 호출 시 iOS가 NotAllowedError → STT 영구 잠금)
                 try {
                     recognition.start();
+                    logStt("recognition:start:ok", {
+                        msSinceTts: lastTtsStartedAt ? (Date.now() - lastTtsStartedAt) : null
+                    });
                 } catch (_) {
                     recognitionErrorCode = "not-allowed";
                     micPermissionNeedsRecheck = true;
+                    logStt("recognition:start:catch", {
+                        error: recognitionErrorCode,
+                        msSinceTts: lastTtsStartedAt ? (Date.now() - lastTtsStartedAt) : null
+                    });
                     finish("error");
                     statusEl.textContent = "마이크 권한 확인 필요";
                 }
