@@ -1431,6 +1431,14 @@
             return data[key]?.success || 0;
         }
 
+        // 변형별 테스트 데이터 배열 반환
+        function getFormStats(week, yomi) {
+            const prefix = `${week}::${yomi}::form::`;
+            return Object.entries(testResultCache)
+                .filter(([k]) => k.startsWith(prefix))
+                .map(([, v]) => v);
+        }
+
         function resetSpeechTestFailCount(week, yomi) {
             const data = getTestResultData();
             const key = makeStudyKeyForWeek(week, yomi);
@@ -3061,23 +3069,23 @@
             if (mode === 'unstudied') {
                 filtered = baseList.filter(item => {
                     const week = item._week || currentWeek;
-                    const stat = studyData[makeStudyKeyForWeek(week, item.yomi)];
-                    return !stat || stat.count === 0;
+                    const stats = getFormStats(week, item.yomi);
+                    return stats.length === 0 || stats.every(v => (v.success || 0) === 0);
                 });
             } else if (mode === 'today') {
                 filtered = baseList.filter(item => {
                     const week = item._week || currentWeek;
-                    return studyData[makeStudyKeyForWeek(week, item.yomi)]?.lastStudied === today;
+                    return getFormStats(week, item.yomi).some(v => v.lastStudied === today);
                 });
             } else if (mode === 'studied') {
                 filtered = baseList.filter(item => {
                     const week = item._week || currentWeek;
-                    return studyData[makeStudyKeyForWeek(week, item.yomi)]?.count > 0;
+                    return getFormStats(week, item.yomi).some(v => (v.success || 0) > 0);
                 });
             } else if (mode === 'frequent_mistakes') {
                 filtered = baseList.filter(item => {
                     const week = item._week || currentWeek;
-                    return getSpeechTestFailCount(week, item.yomi) >= TEST_MISTAKE_THRESHOLD;
+                    return getFormStats(week, item.yomi).some(v => (v.fail || 0) >= TEST_MISTAKE_THRESHOLD);
                 });
             }
             // Apply search filter too
