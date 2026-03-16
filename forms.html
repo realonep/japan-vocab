@@ -457,7 +457,7 @@
                             URL.revokeObjectURL(blobUrl);
                             currentTtsBlobUrl = null;
                             audio.removeAttribute('src');
-                            audio.load(); // iOS AudioSession 완전 해제
+                            // load() 금지 — iOS AudioSession 로드 사이클 트리거로 STT Record 모드 전환 차단됨 (tts.js 동일 패턴)
                         };
                         btnElement.disabled = false;
                         btnElement.innerHTML = original;
@@ -534,7 +534,7 @@
                             URL.revokeObjectURL(blobUrl2);
                             currentTtsBlobUrl = null;
                             audio.removeAttribute('src');
-                            audio.load(); // iOS AudioSession 완전 해제
+                            // load() 금지 — iOS AudioSession 로드 사이클 트리거로 STT Record 모드 전환 차단됨 (tts.js 동일 패턴)
                         };
 
                         setTimeout(() => {
@@ -1010,15 +1010,14 @@
                 if ('speechSynthesis' in window) {
                     window.speechSynthesis.cancel();
                 }
-                // Audio 엘리먼트 정지 + src 초기화 + load() → iOS AudioSession 완전 해제
+                // pause() + removeAttribute('src') 만 수행 — load() 금지
+                // load()는 iOS에서 새 미디어 로드 사이클을 트리거해 AudioSession을
+                // 불확정 전환 상태로 만들고, 직후 recognition.start()의 Record 모드 전환을 차단함
+                // (tts.js의 releaseActiveAudio() 동일 패턴: src 조작 없이 참조만 해제)
                 if (sharedTtsAudioEl) {
                     try {
-                        const hadSrc = !!sharedTtsAudioEl.getAttribute('src');
                         sharedTtsAudioEl.pause();
-                        sharedTtsAudioEl.removeAttribute('src'); // src=''는 페이지 URL로 resolve됨
-                        if (hadSrc) {
-                            sharedTtsAudioEl.load(); // src가 실제로 있었을 때만 호출 — onended가 이미 처리한 경우 중복 load() 방지
-                        }
+                        sharedTtsAudioEl.removeAttribute('src');
                     } catch (_) {}
                 }
                 activeTtsAudio = null;
