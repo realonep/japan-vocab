@@ -450,7 +450,7 @@
                         audio.onended = () => {
                             logStt("tts:play:ended", { src: "cache" });
                             URL.revokeObjectURL(blobUrl);
-                            audio.src = '';
+                            audio.removeAttribute('src'); // src=''는 페이지 URL로 resolve됨 → removeAttribute가 올바름
                             audio.load(); // iOS AudioSession 완전 해제
                         };
                         btnElement.disabled = false;
@@ -522,7 +522,7 @@
                         audio.onended = () => {
                             logStt("tts:play:ended", { src: "api" });
                             URL.revokeObjectURL(blobUrl2);
-                            audio.src = '';
+                            audio.removeAttribute('src'); // src=''는 페이지 URL로 resolve됨 → removeAttribute가 올바름
                             audio.load(); // iOS AudioSession 완전 해제
                         };
 
@@ -1002,9 +1002,12 @@
                 // Audio 엘리먼트 정지 + src 초기화 + load() → iOS AudioSession 완전 해제
                 if (sharedTtsAudioEl) {
                     try {
+                        const hadSrc = !!sharedTtsAudioEl.getAttribute('src');
                         sharedTtsAudioEl.pause();
-                        sharedTtsAudioEl.src = '';
-                        sharedTtsAudioEl.load(); // iOS decoder 및 AudioSession 강제 해제
+                        sharedTtsAudioEl.removeAttribute('src'); // src=''는 페이지 URL로 resolve됨
+                        if (hadSrc) {
+                            sharedTtsAudioEl.load(); // src가 실제로 있었을 때만 호출 — onended가 이미 처리한 경우 중복 load() 방지
+                        }
                     } catch (_) {}
                 }
                 activeTtsAudio = null;
