@@ -291,6 +291,7 @@
             let lastTtsStartedAt = 0;
             let activeTtsAudio = null;
             let sharedTtsAudioEl = null;
+            let currentTtsBlobUrl = null; // 현재 재생 중인 blob URL 추적 — onended 덮어쓰기 시 이전 URL revoke 처리용
 
             function getSharedTtsAudioEl() {
                 if (!sharedTtsAudioEl) {
@@ -299,7 +300,7 @@
                 }
                 return sharedTtsAudioEl;
             }
-            const DEBUG_STT = true;
+            const DEBUG_STT = false; // 오버레이가 z-index:9999로 하단 버튼을 영구 차단하므로 비활성화
             const CACHE_NAME = "japanese-tts-cache";
             const CACHE_VERSION = 1;
             const CACHE_EXPIRY_DAYS = 7;
@@ -439,8 +440,12 @@
                     const cachedBlob = await getCachedAudio(text);
                     if (cachedBlob) {
                         setTtsStatus("Playing from Cache 🚀");
+                        // 이전 blob URL 미회수 방지 — onended 덮어쓰기 전에 정리
+                        if (currentTtsBlobUrl) { URL.revokeObjectURL(currentTtsBlobUrl); currentTtsBlobUrl = null; }
                         const blobUrl = URL.createObjectURL(cachedBlob);
+                        currentTtsBlobUrl = blobUrl;
                         const audio = getSharedTtsAudioEl();
+                        audio.onended = null; // 이전 핸들러 명시적 제거
                         activeTtsAudio = audio;
                         audio.src = blobUrl;
                         audio.currentTime = 0;
@@ -450,7 +455,8 @@
                         audio.onended = () => {
                             logStt("tts:play:ended", { src: "cache" });
                             URL.revokeObjectURL(blobUrl);
-                            audio.removeAttribute('src'); // src=''는 페이지 URL로 resolve됨 → removeAttribute가 올바름
+                            currentTtsBlobUrl = null;
+                            audio.removeAttribute('src');
                             audio.load(); // iOS AudioSession 완전 해제
                         };
                         btnElement.disabled = false;
@@ -511,8 +517,12 @@
                             setTtsStatus("Playing (Cache Failed)");
                         }
 
+                        // 이전 blob URL 미회수 방지 — onended 덮어쓰기 전에 정리
+                        if (currentTtsBlobUrl) { URL.revokeObjectURL(currentTtsBlobUrl); currentTtsBlobUrl = null; }
                         const blobUrl2 = URL.createObjectURL(audioBlob);
+                        currentTtsBlobUrl = blobUrl2;
                         const audio = getSharedTtsAudioEl();
+                        audio.onended = null; // 이전 핸들러 명시적 제거
                         activeTtsAudio = audio;
                         audio.src = blobUrl2;
                         audio.currentTime = 0;
@@ -522,7 +532,8 @@
                         audio.onended = () => {
                             logStt("tts:play:ended", { src: "api" });
                             URL.revokeObjectURL(blobUrl2);
-                            audio.removeAttribute('src'); // src=''는 페이지 URL로 resolve됨 → removeAttribute가 올바름
+                            currentTtsBlobUrl = null;
+                            audio.removeAttribute('src');
                             audio.load(); // iOS AudioSession 완전 해제
                         };
 
@@ -1101,7 +1112,9 @@
                     return;
                 }
                 if (activeSpeechTest && activeSpeechTest.rowKey !== rowMeta.scopedKey) {
-                    activeSpeechTest.finish("replaced");
+                    const prev = activeSpeechTest;
+                    activeSpeechTest = null; // finish() 내부에서 잘못된 null 타이밍 방지 — 먼저 null 처리
+                    prev.finish("replaced");
                 }
 
                 let finished = false;
@@ -1174,7 +1187,10 @@
                     `;
                     diffEl.classList.add("show");
 
-                    testBtn.textContent = "TEST";
+                    // render() 후 detached DOM이면 UI 업데이트 생략
+                    if (document.body.contains(testBtn)) {
+                        testBtn.textContent = "TEST";
+                    }
                     if (activeSpeechTest && activeSpeechTest.rowKey === rowMeta.scopedKey) {
                         activeSpeechTest = null;
                     }
