@@ -1425,6 +1425,12 @@
             return data[key]?.fail || 0;
         }
 
+        function getSpeechTestSuccessCount(week, yomi) {
+            const data = getTestResultData();
+            const key = makeStudyKeyForWeek(week, yomi);
+            return data[key]?.success || 0;
+        }
+
         function resetSpeechTestFailCount(week, yomi) {
             const data = getTestResultData();
             const key = makeStudyKeyForWeek(week, yomi);
@@ -1978,6 +1984,9 @@
         }
 
         async function startFormSpeechTest(formJp, formRowKey, testBtn, statusEl, formRowEl, item, itemWeek) {
+            // formRowKey = ${itemWeek}::${item.yomi}::${idx}::form::${f.key}
+            const _formKeyPart = formRowKey.split('::form::')[1] || '';
+            const formYomi = `${item.yomi}::form::${_formKeyPart}`;
             logStt('startFormSpeechTest:click', {
                 formRowKey,
                 msSinceTts: lastTtsStartedAt ? (Date.now() - lastTtsStartedAt) : null,
@@ -2061,7 +2070,7 @@
                     }
                     const countAsFail = ['no-speech', 'aborted'].includes(recognitionErrorCode);
                     if (countAsFail) {
-                        recordSpeechTestResult(itemWeek, item.yomi, false);
+                        recordSpeechTestResult(itemWeek, formYomi, false);
                         playResultTone(false);
                     }
                     if (['not-allowed', 'service-not-allowed', 'audio-capture'].includes(recognitionErrorCode)) {
@@ -2069,12 +2078,12 @@
                     }
                 } else if (!spokenNorm) {
                     statusEl.textContent = '인식 실패, 다시 시도';
-                    recordSpeechTestResult(itemWeek, item.yomi, false);
+                    recordSpeechTestResult(itemWeek, formYomi, false);
                     playResultTone(false);
                     showFormDiffOverlay(formRowKey, formRowEl, item, itemWeek, spoken, expected);
                 } else if (passed) {
                     statusEl.textContent = `통과 ${(score * 100).toFixed(0)}%`;
-                    recordSpeechTestResult(itemWeek, item.yomi, true);
+                    recordSpeechTestResult(itemWeek, formYomi, true);
                     playResultTone(true);
                     if (hasDiff) {
                         showFormDiffOverlay(formRowKey, formRowEl, item, itemWeek, spoken, expected);
@@ -2083,10 +2092,16 @@
                     }
                 } else {
                     statusEl.textContent = `실패 ${(score * 100).toFixed(0)}%`;
-                    recordSpeechTestResult(itemWeek, item.yomi, false);
+                    recordSpeechTestResult(itemWeek, formYomi, false);
                     playResultTone(false);
                     showFormDiffOverlay(formRowKey, formRowEl, item, itemWeek, spoken, expected);
                 }
+
+                // form별 S/F 카운트 뱃지 실시간 업데이트
+                const _studyBadge = formRowEl.querySelector('.form-count-study');
+                const _failBadge = formRowEl.querySelector('.form-count-fail');
+                if (_studyBadge) _studyBadge.textContent = `S ${getSpeechTestSuccessCount(itemWeek, formYomi)}`;
+                if (_failBadge) _failBadge.textContent = `F ${getSpeechTestFailCount(itemWeek, formYomi)}`;
 
                 testBtn.disabled = false;
                 testBtn.textContent = 'TEST';
@@ -2870,10 +2885,11 @@
                     subTr.className = 'forms-sub-row';
                     subTr.setAttribute('data-forms-for', item.yomi);
 
-                    const formStudyCount = getStudyCount(item.yomi, itemWeek);
-                    const formFailCount = getSpeechTestFailCount(itemWeek, item.yomi);
-
-                    const formsHtml = forms.map(f => `
+                    const formsHtml = forms.map(f => {
+                    const formYomi = `${item.yomi}::form::${f.key}`;
+                    const formStudyCount = getSpeechTestSuccessCount(itemWeek, formYomi);
+                    const formFailCount = getSpeechTestFailCount(itemWeek, formYomi);
+                    return `
                         <div class="form-row">
                             <div class="flex items-start justify-between gap-2">
                                 <div class="min-w-0 flex-1">
@@ -2907,7 +2923,7 @@
                                 </div>
                             </div>
                         </div>
-                    `).join('');
+                    `; }).join('');
 
                     subTr.innerHTML = `
                         <td colspan="6" class="px-2 pb-2">
