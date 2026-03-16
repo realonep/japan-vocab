@@ -2497,7 +2497,19 @@
             if (filterMode.value !== 'frequent_mistakes') return;
             pendingRestartOnVisible = false;
             wasHiddenDuringMistakePlay = false;
-            const queue = (currentRenderedPageList || []).filter(item => (item?.sentence || '').trim());
+            // 틀린 변형 단위로 큐 구성
+            const queue = [];
+            for (const item of (currentRenderedPageList || [])) {
+                const week = item._week || currentWeek;
+                const prefix = `${week}::${item.yomi}::form::`;
+                Object.entries(testResultCache)
+                    .filter(([k, v]) => k.startsWith(prefix) && (v.fail || 0) >= TEST_MISTAKE_THRESHOLD)
+                    .forEach(([k]) => {
+                        const fKey = k.slice(prefix.length);
+                        const jp = item.sentence_forms?.[fKey]?.jp?.trim();
+                        if (jp) queue.push({ jp, fKey, item, week });
+                    });
+            }
             if (!queue.length) {
                 statusMsg.innerText = '재생할 항목이 없습니다';
                 setTimeout(() => { statusMsg.innerText = 'TTS Ready'; }, 1200);
@@ -2511,16 +2523,16 @@
                 do {
                     for (let i = 0; i < queue.length; i++) {
                         if (!mistakePlayRunning || token !== mistakePlayToken) return;
-                        setMistakeRowHighlight(queue[i]);
+                        setMistakeRowHighlight(queue[i].item);
                         const perSentenceCount = (mistakeDoubleChk && mistakeDoubleChk.checked) ? 2 : 1;
-                        const text = queue[i].sentence;
+                        const text = queue[i].jp;
                         for (let turn = 0; turn < perSentenceCount; turn++) {
                             if (!mistakePlayRunning || token !== mistakePlayToken) return;
                             const canPlayNow = await waitUntilPageVisible(token);
                             if (!canPlayNow || !mistakePlayRunning || token !== mistakePlayToken) return;
                             statusMsg.innerText = perSentenceCount === 2
-                                ? `오답 전체 재생 ${i + 1}/${queue.length} (${turn + 1}/2)`
-                                : `오답 전체 재생 ${i + 1}/${queue.length}`;
+                                ? `오답 변형 재생 ${i + 1}/${queue.length} (${turn + 1}/2)`
+                                : `오답 변형 재생 ${i + 1}/${queue.length}`;
                             let played = false;
                             if (ttsMode.value === 'browser') {
                                 played = await playBrowserForSequence(text, token);
