@@ -769,6 +769,7 @@
                     statusEl.textContent = "크롬 음성인식 미지원";
                     return;
                 }
+
                 const permissionOk = await ensureMicPermission(statusEl);
                 if (!permissionOk) return;
 
