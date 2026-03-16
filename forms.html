@@ -990,6 +990,9 @@
 
                         const playAction = (btnForTts) => {
                             closeActiveSpeechTest();
+                            // forms 페이지는 TTS.speak() 사용 후 iOS AudioSession이 playback에 남을 수 있어
+                            // 다음 TEST에서 getUserMedia 재확인을 강제한다.
+                            micPermissionNeedsRecheck = true;
                             incrementFormStudy(word._week, word.yomi, form.key);
                             if (btnForTts) {
                                 TTS.speak(form.jp, btnForTts);
