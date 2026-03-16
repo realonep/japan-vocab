@@ -125,10 +125,13 @@ const TTS = (function() {
 
     function releaseActiveAudio() {
         if (activeAudio) {
-            activeAudio.pause();
+            // 재생 중일 때만 pause() — 이미 ended면 건드리지 않음
+            if (!activeAudio.ended && !activeAudio.paused) {
+                try { activeAudio.pause(); } catch (_) {}
+            }
             activeAudio.onended = null;
             activeAudio.onerror = null;
-            activeAudio.src = '';
+            // src='' 제거: iOS에서 새 미디어 로드 사이클 트리거 → AudioSession 전환 상태 → STT 마이크 차단
             activeAudio = null;
         }
         if (activeAudioUrl) {
