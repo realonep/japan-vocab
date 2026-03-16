@@ -1034,26 +1034,23 @@
                     return;
                 }
 
-                const needsRecheck = micPermissionNeedsRecheck;  // 호출 전 스냅샷
-                const permissionOk = await ensureMicPermission(statusEl);
-                logStt("startSpeechTest:afterEnsure", {
-                    permissionOk,
-                    needsRecheck,
-                    elapsedMs: Date.now() - startClickedAt,
-                    micPermissionNeedsRecheck,
-                    micPermissionGranted
-                });
-                if (!permissionOk) return;
-
-                if (needsRecheck) {
-                    // getUserMedia(async)가 실행됨 → gesture context 파괴됨
-                    // AudioSession은 이미 record 모드로 전환됨
-                    // 다음 탭은 needsRecheck=false → getUserMedia 없이 recognition.start() 직접 호출
+                if (micPermissionNeedsRecheck) {
+                    // getUserMedia(async) 필요 — gesture context 파괴 불가피
+                    const permissionOk = await ensureMicPermission(statusEl);
+                    logStt("startSpeechTest:afterEnsure", {
+                        permissionOk,
+                        elapsedMs: Date.now() - startClickedAt,
+                        micPermissionNeedsRecheck,
+                        micPermissionGranted
+                    });
+                    if (!permissionOk) return;
+                    // getUserMedia 완료 → AudioSession record 모드 전환됨
+                    // 다음 탭은 needsRecheck=false → await 없이 recognition.start() 직접 호출
                     statusEl.textContent = "준비됨, 다시 TEST 탭";
                     return;
                 }
 
-                // 여기부터 gesture context 보존 — no await was called
+                // 여기서는 await 없음 — gesture context 완전 보존
                 if (activeSpeechTest && activeSpeechTest.rowKey === rowMeta.scopedKey) {
                     activeSpeechTest.finish("manual");
                     return;
