@@ -445,10 +445,12 @@
                         audio.src = blobUrl;
                         audio.currentTime = 0;
                         lastTtsStartedAt = Date.now();
-                        audio.play().catch(() => {});
+                        audio.play().catch((e) => { logStt("tts:play:error", { err: e?.message }); });
+                        logStt("tts:play:start", { src: "cache" });
                         audio.onended = () => {
+                            logStt("tts:play:ended", { src: "cache" });
                             URL.revokeObjectURL(blobUrl);
-                            audio.src = '';  // iOS AudioSession 해제
+                            audio.src = '';
                         };
                         btnElement.disabled = false;
                         btnElement.innerHTML = original;
@@ -514,10 +516,12 @@
                         audio.src = blobUrl2;
                         audio.currentTime = 0;
                         lastTtsStartedAt = Date.now();
-                        audio.play().catch(() => {});
+                        audio.play().catch((e) => { logStt("tts:play:error", { err: e?.message }); });
+                        logStt("tts:play:start", { src: "api" });
                         audio.onended = () => {
+                            logStt("tts:play:ended", { src: "api" });
                             URL.revokeObjectURL(blobUrl2);
-                            audio.src = '';  // iOS AudioSession 해제
+                            audio.src = '';
                         };
 
                         setTimeout(() => {
@@ -1217,6 +1221,7 @@
                 activeSpeechTest = { rowKey: rowMeta.scopedKey, finish };
 
                 // TTS 오디오가 재생 중이면 정지 — AudioSession을 playback에서 해제
+                logStt("tts:stopBeforeSTT", { hasSrc: !!(sharedTtsAudioEl && sharedTtsAudioEl.src), paused: !!(sharedTtsAudioEl && sharedTtsAudioEl.paused) });
                 stopSpeakPlayback();
 
                 // recognition.start()는 반드시 gesture context 안에서 동기 호출해야 함
