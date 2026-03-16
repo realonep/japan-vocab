@@ -805,7 +805,9 @@
                 };
 
                 const onError = (event) => {
-                    console.warn('[STT] onerror:', event?.error, event);
+                    const errCode = event?.error || 'unknown';
+                    console.warn('[STT] onerror:', errCode, event);
+                    statusEl.textContent = `오류: ${errCode}`;
                     finish("error");
                 };
 
@@ -824,21 +826,30 @@
                 activeSpeechTest = { rowKey: rowMeta.scopedKey, finish };
 
                 // AudioSession 안정화 대기 — TTS 종료 후 iOS가 AudioSession을 전환하는 데
-                // 최대 500ms 소요. 이 기간 중 recognition.start()는 audio-capture 오류 발생.
+                // 최대 500ms 소요. await 방식은 iOS gesture context를 끊으므로 setTimeout 사용.
                 const AUDIO_SESSION_SETTLE_MS = 500;
-                const msSince = TTS.msSinceStop();
-                if (msSince < AUDIO_SESSION_SETTLE_MS) {
-                    statusEl.textContent = '준비 중...';
-                    await new Promise(r => setTimeout(r, AUDIO_SESSION_SETTLE_MS - msSince));
-                    if (finished) return;   // 대기 중 취소(cancel/replaced)된 경우
-                    statusEl.textContent = '말하기 시작...';
-                }
+                const msSince = (typeof TTS?.msSinceStop === 'function') ? TTS.msSinceStop() : Infinity;
+                const settleDelay = msSince < AUDIO_SESSION_SETTLE_MS ? AUDIO_SESSION_SETTLE_MS - msSince : 0;
 
-                try {
-                    recognition.start();
-                } catch (_) {
-                    finish("error");
-                    statusEl.textContent = "마이크 권한 확인 필요";
+                const doStart = () => {
+                    if (finished) return;
+                    try {
+                        recognition.start();
+                    } catch (_) {
+                        finish("error");
+                        statusEl.textContent = "마이크 권한 확인 필요";
+                    }
+                };
+
+                if (settleDelay > 0) {
+                    statusEl.textContent = '준비 중...';
+                    setTimeout(() => {
+                        if (finished) return;
+                        statusEl.textContent = '말하기 시작...';
+                        doStart();
+                    }, settleDelay);
+                } else {
+                    doStart();
                 }
             }
 
