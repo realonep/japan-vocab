@@ -14,6 +14,7 @@ const TTS = (function() {
     let activeAudioUrl = null;
     let activeRequestController = null;
     let speakSessionId = 0;
+    let lastStopTime = 0;   // TTS가 마지막으로 종료된 타임스탬프
 
     // Initialize IndexedDB
     async function initDB() {
@@ -133,6 +134,7 @@ const TTS = (function() {
             activeAudio.onerror = null;
             // src='' 제거: iOS에서 새 미디어 로드 사이클 트리거 → AudioSession 전환 상태 → STT 마이크 차단
             activeAudio = null;
+            lastStopTime = Date.now();   // 실제 Audio가 있었을 때만 기록
         }
         if (activeAudioUrl) {
             URL.revokeObjectURL(activeAudioUrl);
@@ -365,7 +367,8 @@ const TTS = (function() {
         getVoice,
         clearCache: clearAllCache,
         speakBrowser,
-        speakAI
+        speakAI,
+        msSinceStop: () => Date.now() - lastStopTime,   // TTS 종료 후 경과 ms
     };
 })();
 

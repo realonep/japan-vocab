@@ -804,7 +804,8 @@
                     }
                 };
 
-                const onError = () => {
+                const onError = (event) => {
+                    console.warn('[STT] onerror:', event?.error, event);
                     finish("error");
                 };
 
@@ -822,6 +823,17 @@
 
                 activeSpeechTest = { rowKey: rowMeta.scopedKey, finish };
 
+                // AudioSession 안정화 대기 — TTS 종료 후 iOS가 AudioSession을 전환하는 데
+                // 최대 500ms 소요. 이 기간 중 recognition.start()는 audio-capture 오류 발생.
+                const AUDIO_SESSION_SETTLE_MS = 500;
+                const msSince = TTS.msSinceStop();
+                if (msSince < AUDIO_SESSION_SETTLE_MS) {
+                    statusEl.textContent = '준비 중...';
+                    await new Promise(r => setTimeout(r, AUDIO_SESSION_SETTLE_MS - msSince));
+                    if (finished) return;   // 대기 중 취소(cancel/replaced)된 경우
+                    statusEl.textContent = '말하기 시작...';
+                }
+
                 try {
                     recognition.start();
                 } catch (_) {
@@ -831,6 +843,7 @@
             }
 
             function render(words) {
+                TTS.stop();                 // 페이지 이동 시 재생 중 TTS 강제 종료
                 closeActiveSpeechTest();
                 formList.innerHTML = "";
                 renderedRows = [];
