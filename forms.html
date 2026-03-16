@@ -281,7 +281,6 @@
             let currentPage = 1;
             let renderedRows = [];
             let activeSpeechTest = null;
-            let sttCooldownUntil = 0;
             let studyDataCache = {};
             let testDataCache = {};
             let dataRefreshToken = 0;
@@ -710,16 +709,7 @@
                     statusEl.textContent = "크롬 음성인식 미지원";
                     return;
                 }
-                // iOS AVAudioSession이 Playback→Record로 전환하는 데 200~600ms 필요.
-                // 기존 160ms는 부족하여 audio-capture 오류가 발생하므로 400ms로 늘린다.
-                if (typeof TTS?.stop === "function") {
-                    TTS.stop();
-                    await new Promise((resolve) => setTimeout(resolve, 400));
-                }
-                const now = Date.now();
-                if (sttCooldownUntil > now) {
-                    await new Promise((resolve) => setTimeout(resolve, sttCooldownUntil - now));
-                }
+                if (typeof TTS?.stop === "function") TTS.stop();
                 if (activeSpeechTest && activeSpeechTest.rowKey === rowMeta.scopedKey) {
                     activeSpeechTest.finish("manual");
                     return;
@@ -733,8 +723,7 @@
                 let transcriptFinal = "";
                 let transcriptInterim = "";
                 let silenceTimer = null;
-                // retry 시 재할당을 위해 let 사용 (const였을 때 동일 인스턴스 재시도는 spec 위반)
-                let recognition = null;
+                const recognition = new SpeechRecognitionCtor();
 
                 testBtn.textContent = `STOP ${secondsLeft}`;
                 statusEl.textContent = "말하기 시작...";
@@ -751,12 +740,10 @@
                     clearTimeout(timeoutTimer);
                     clearTimeout(silenceTimer);
                     try {
-                        if (recognition) {
-                            recognition.onresult = null;
-                            recognition.onerror = null;
-                            recognition.onend = null;
-                            recognition.stop();
-                        }
+                        recognition.onresult = null;
+                        recognition.onerror = null;
+                        recognition.onend = null;
+                        recognition.stop();
                     } catch (_) {}
 
                     const spoken = `${transcriptFinal} ${transcriptInterim}`.trim();
@@ -818,11 +805,7 @@
                     }
                 };
 
-                const onError = (e) => {
-                    // audio-capture: iOS 오디오 세션 충돌. 연속 실패로 세션이 잠기는 것을 방지하기 위해 쿨다운 부여
-                    if (e?.error === "audio-capture") {
-                        sttCooldownUntil = Date.now() + 1500;
-                    }
+                const onError = () => {
                     finish("error");
                 };
 
@@ -830,43 +813,21 @@
                     if (!finished) finish("end");
                 };
 
+                recognition.lang = "ja-JP";
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                recognition.maxAlternatives = 1;
+                recognition.onresult = onResult;
+                recognition.onerror = onError;
+                recognition.onend = onEnd;
+
                 activeSpeechTest = { rowKey: rowMeta.scopedKey, finish };
 
-                // retry마다 새 SpeechRecognition 인스턴스 생성.
-                // 동일 인스턴스 재사용은 spec 위반이며 iOS에서 onend 이중 발사 등 undefined behavior를 유발함.
-                const startDelays = [0, 350, 700];
-                let started = false;
-                for (let i = 0; i < startDelays.length; i++) {
-                    if (finished) break;
-                    if (startDelays[i] > 0) {
-                        await new Promise((resolve) => setTimeout(resolve, startDelays[i]));
-                    }
-                    if (finished) break;
-                    try {
-                        // 이전 인스턴스 핸들러 해제 후 새 인스턴스 생성
-                        if (recognition) {
-                            try { recognition.onresult = null; recognition.onerror = null; recognition.onend = null; recognition.stop(); } catch (_) {}
-                        }
-                        recognition = new SpeechRecognitionCtor();
-                        recognition.lang = "ja-JP";
-                        recognition.continuous = true;
-                        recognition.interimResults = true;
-                        recognition.maxAlternatives = 1;
-                        recognition.onresult = onResult;
-                        recognition.onerror = onError;
-                        recognition.onend = onEnd;
-                        recognition.start();
-                        started = true;
-                        sttCooldownUntil = 0;
-                        break;
-                    } catch (_) {
-                        // 다음 delay 후 새 인스턴스로 재시도
-                    }
-                }
-                if (!started) {
-                    sttCooldownUntil = Date.now() + 1800;
+                try {
+                    recognition.start();
+                } catch (_) {
                     finish("error");
-                    statusEl.textContent = "마이크 준비 중... 잠시 후 다시 시도";
+                    statusEl.textContent = "마이크 권한 확인 필요";
                 }
             }
 
