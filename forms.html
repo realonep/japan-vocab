@@ -709,6 +709,8 @@
                     statusEl.textContent = "크롬 음성인식 미지원";
                     return;
                 }
+                // TTS 재생 중이면 즉시 정지 — AudioSession을 playback→inactive로 전환 시작
+                TTS.stop();
                 if (activeSpeechTest && activeSpeechTest.rowKey === rowMeta.scopedKey) {
                     activeSpeechTest.finish("manual");
                     return;
@@ -807,7 +809,12 @@
                 const onError = (event) => {
                     const errCode = event?.error || 'unknown';
                     console.warn('[STT] onerror:', errCode, event);
-                    statusEl.textContent = `오류: ${errCode}`;
+                    // audio-capture: TTS 직후 AudioSession 전환 중. 1초 후 재시도 안내.
+                    if (errCode === 'audio-capture') {
+                        statusEl.textContent = '음성 준비 중, 1초 후 다시 탭하세요';
+                    } else {
+                        statusEl.textContent = `오류: ${errCode}`;
+                    }
                     finish("error");
                 };
 
@@ -825,31 +832,13 @@
 
                 activeSpeechTest = { rowKey: rowMeta.scopedKey, finish };
 
-                // AudioSession 안정화 대기 — TTS 종료 후 iOS가 AudioSession을 전환하는 데
-                // 최대 500ms 소요. await 방식은 iOS gesture context를 끊으므로 setTimeout 사용.
-                const AUDIO_SESSION_SETTLE_MS = 500;
-                const msSince = (typeof TTS?.msSinceStop === 'function') ? TTS.msSinceStop() : Infinity;
-                const settleDelay = msSince < AUDIO_SESSION_SETTLE_MS ? AUDIO_SESSION_SETTLE_MS - msSince : 0;
-
-                const doStart = () => {
-                    if (finished) return;
-                    try {
-                        recognition.start();
-                    } catch (_) {
-                        finish("error");
-                        statusEl.textContent = "마이크 권한 확인 필요";
-                    }
-                };
-
-                if (settleDelay > 0) {
-                    statusEl.textContent = '준비 중...';
-                    setTimeout(() => {
-                        if (finished) return;
-                        statusEl.textContent = '말하기 시작...';
-                        doStart();
-                    }, settleDelay);
-                } else {
-                    doStart();
+                // recognition.start()는 반드시 gesture context 안에서 동기 호출해야 함
+                // (await/setTimeout 이후 호출 시 iOS가 NotAllowedError → STT 영구 잠금)
+                try {
+                    recognition.start();
+                } catch (_) {
+                    finish("error");
+                    statusEl.textContent = "마이크 권한 확인 필요";
                 }
             }
 
