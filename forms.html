@@ -446,7 +446,10 @@
                         audio.currentTime = 0;
                         lastTtsStartedAt = Date.now();
                         audio.play().catch(() => {});
-                        audio.onended = () => { URL.revokeObjectURL(blobUrl); };
+                        audio.onended = () => {
+                            URL.revokeObjectURL(blobUrl);
+                            audio.src = '';  // iOS AudioSession 해제
+                        };
                         btnElement.disabled = false;
                         btnElement.innerHTML = original;
                         setTimeout(() => {
@@ -512,7 +515,10 @@
                         audio.currentTime = 0;
                         lastTtsStartedAt = Date.now();
                         audio.play().catch(() => {});
-                        audio.onended = () => { URL.revokeObjectURL(blobUrl2); };
+                        audio.onended = () => {
+                            URL.revokeObjectURL(blobUrl2);
+                            audio.src = '';  // iOS AudioSession 해제
+                        };
 
                         setTimeout(() => {
                             setTtsStatus("TTS Ready");
@@ -987,10 +993,11 @@
                 if ('speechSynthesis' in window) {
                     window.speechSynthesis.cancel();
                 }
-                // 공유 Audio 엘리먼트 정지 (src는 유지 — 재사용)
+                // Audio 엘리먼트 정지 + src 초기화 → iOS AudioSession playback 모드 해제
                 if (sharedTtsAudioEl) {
                     try {
                         sharedTtsAudioEl.pause();
+                        sharedTtsAudioEl.src = '';
                     } catch (_) {}
                 }
                 activeTtsAudio = null;
