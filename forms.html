@@ -281,6 +281,7 @@
             let currentPage = 1;
             let renderedRows = [];
             let activeSpeechTest = null;
+            let micPermissionNeedsRecheck = true;  // STT 시작 전 getUserMedia 재확인 여부
             let studyDataCache = {};
             let testDataCache = {};
             let dataRefreshToken = 0;
@@ -704,6 +705,21 @@
                 }
             }
 
+            // getUserMedia를 잠깐 열었다 닫아 iOS AudioSession을 record 모드로 전환
+            // 성공 시 recognition.start()가 gesture context 없이도 허용됨
+            async function ensureMicForSTT() {
+                if (!micPermissionNeedsRecheck) return true;
+                if (!navigator.mediaDevices?.getUserMedia) return true;
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    stream.getTracks().forEach(t => t.stop());
+                    micPermissionNeedsRecheck = false;
+                    return true;
+                } catch (_) {
+                    return false; // 권한 거부
+                }
+            }
+
             async function startSpeechTest(rowMeta, testBtn, statusEl, diffEl) {
                 if (!SpeechRecognitionCtor) {
                     statusEl.textContent = "크롬 음성인식 미지원";
@@ -711,6 +727,11 @@
                 }
                 // TTS 재생 중이면 즉시 정지 — AudioSession을 playback→inactive로 전환 시작
                 TTS.stop();
+
+                // TTS가 최근(1500ms 이내)에 재생됐으면 AudioSession recheck 필요
+                const msSinceTts = (typeof TTS?.msSinceStop === 'function') ? TTS.msSinceStop() : Infinity;
+                if (msSinceTts < 1500) micPermissionNeedsRecheck = true;
+
                 if (activeSpeechTest && activeSpeechTest.rowKey === rowMeta.scopedKey) {
                     activeSpeechTest.finish("manual");
                     return;
@@ -719,7 +740,16 @@
                     activeSpeechTest.finish("replaced");
                 }
 
+                // getUserMedia로 AudioSession을 record 모드로 전환
+                // (TTS 직후 or 첫 사용 시에만 실행, 이후엔 micPermissionNeedsRecheck=false로 스킵)
+                const micOk = await ensureMicForSTT();
+                if (!micOk) {
+                    statusEl.textContent = "마이크 권한 확인 필요";
+                    return;
+                }
+
                 let finished = false;
+                let sttErrorCode = null;
                 let secondsLeft = 10;
                 let transcriptFinal = "";
                 let transcriptInterim = "";
@@ -758,6 +788,16 @@
 
                     if (reason === "cancel" || reason === "replaced") {
                         statusEl.textContent = "테스트 취소";
+                    } else if (reason === "error") {
+                        if (sttErrorCode === 'audio-capture' || sttErrorCode === 'not-allowed' || sttErrorCode === 'service-not-allowed') {
+                            statusEl.textContent = '음성 준비 중, 다시 탭하세요';
+                        } else {
+                            statusEl.textContent = `오류: ${sttErrorCode ?? 'unknown'}`;
+                        }
+                        const countAsFail = sttErrorCode === 'no-speech' || sttErrorCode === 'aborted';
+                        if (countAsFail) {
+                            recordFormTest(rowMeta.week, rowMeta.yomi, rowMeta.formKey, false);
+                        }
                     } else if (!spokenNorm) {
                         statusEl.textContent = "인식 실패, 다시 시도";
                         recordFormTest(rowMeta.week, rowMeta.yomi, rowMeta.formKey, false);
@@ -809,11 +849,9 @@
                 const onError = (event) => {
                     const errCode = event?.error || 'unknown';
                     console.warn('[STT] onerror:', errCode, event);
-                    // audio-capture: TTS 직후 AudioSession 전환 중. 1초 후 재시도 안내.
-                    if (errCode === 'audio-capture') {
-                        statusEl.textContent = '음성 준비 중, 1초 후 다시 탭하세요';
-                    } else {
-                        statusEl.textContent = `오류: ${errCode}`;
+                    sttErrorCode = errCode;
+                    if (errCode === 'audio-capture' || errCode === 'not-allowed' || errCode === 'service-not-allowed') {
+                        micPermissionNeedsRecheck = true;  // 다음 시도에서 getUserMedia 재확인
                     }
                     finish("error");
                 };
@@ -837,8 +875,9 @@
                 try {
                     recognition.start();
                 } catch (_) {
+                    sttErrorCode = 'not-allowed';  // recognition.start() 실패 = 권한 문제로 간주
+                    micPermissionNeedsRecheck = true;
                     finish("error");
-                    statusEl.textContent = "마이크 권한 확인 필요";
                 }
             }
 
