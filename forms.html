@@ -287,6 +287,15 @@
             let dataRefreshToken = 0;
             let lastTtsStartedAt = 0;
             let activeTtsAudio = null;
+            let sharedTtsAudioEl = null;
+
+            function getSharedTtsAudioEl() {
+                if (!sharedTtsAudioEl) {
+                    sharedTtsAudioEl = new Audio();
+                    sharedTtsAudioEl.preload = 'auto';
+                }
+                return sharedTtsAudioEl;
+            }
             const DEBUG_STT = true;
             const CACHE_NAME = "japanese-tts-cache";
             const CACHE_VERSION = 1;
@@ -418,10 +427,14 @@
                     const cachedBlob = await getCachedAudio(text);
                     if (cachedBlob) {
                         setTtsStatus("Playing from Cache 🚀");
-                        const audio = new Audio(URL.createObjectURL(cachedBlob));
+                        const blobUrl = URL.createObjectURL(cachedBlob);
+                        const audio = getSharedTtsAudioEl();
                         activeTtsAudio = audio;
+                        audio.src = blobUrl;
+                        audio.currentTime = 0;
                         lastTtsStartedAt = Date.now();
-                        audio.play();
+                        audio.play().catch(() => {});
+                        audio.onended = () => { URL.revokeObjectURL(blobUrl); };
                         btnElement.disabled = false;
                         btnElement.innerHTML = original;
                         setTimeout(() => {
@@ -480,10 +493,14 @@
                             setTtsStatus("Playing (Cache Failed)");
                         }
 
-                        const audio = new Audio(URL.createObjectURL(audioBlob));
+                        const blobUrl2 = URL.createObjectURL(audioBlob);
+                        const audio = getSharedTtsAudioEl();
                         activeTtsAudio = audio;
+                        audio.src = blobUrl2;
+                        audio.currentTime = 0;
                         lastTtsStartedAt = Date.now();
-                        audio.play();
+                        audio.play().catch(() => {});
+                        audio.onended = () => { URL.revokeObjectURL(blobUrl2); };
 
                         setTimeout(() => {
                             setTtsStatus("TTS Ready");
@@ -958,14 +975,13 @@
                 if ('speechSynthesis' in window) {
                     window.speechSynthesis.cancel();
                 }
-                // Audio 객체 정지
-                if (activeTtsAudio) {
+                // 공유 Audio 엘리먼트 정지 (src는 유지 — 재사용)
+                if (sharedTtsAudioEl) {
                     try {
-                        activeTtsAudio.pause();
-                        activeTtsAudio.src = '';
+                        sharedTtsAudioEl.pause();
                     } catch (_) {}
-                    activeTtsAudio = null;
                 }
+                activeTtsAudio = null;
             }
 
             async function ensureMicPermission(statusEl) {
