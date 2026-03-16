@@ -706,17 +706,24 @@
             }
 
             // getUserMedia를 잠깐 열었다 닫아 iOS AudioSession을 record 모드로 전환
-            // 성공 시 recognition.start()가 gesture context 없이도 허용됨
-            async function ensureMicForSTT() {
-                if (!micPermissionNeedsRecheck) return true;
-                if (!navigator.mediaDevices?.getUserMedia) return true;
+            // 주의: 이 준비 단계는 await가 필요하므로 STT 시작과 같은 탭 제스처에서 분리해야 함
+            async function prepareMicForNextSpeechTest(statusEl) {
+                if (!micPermissionNeedsRecheck) return false;
+                if (!navigator.mediaDevices?.getUserMedia) {
+                    micPermissionNeedsRecheck = false;
+                    statusEl.textContent = "음성 준비 완료, 다시 TEST 탭";
+                    return true;
+                }
                 try {
+                    statusEl.textContent = "마이크 준비 중...";
                     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
                     stream.getTracks().forEach(t => t.stop());
                     micPermissionNeedsRecheck = false;
+                    statusEl.textContent = "음성 준비 완료, 다시 TEST 탭";
                     return true;
                 } catch (_) {
-                    return false; // 권한 거부
+                    statusEl.textContent = "마이크 권한 확인 필요";
+                    return true;
                 }
             }
 
@@ -740,11 +747,9 @@
                     activeSpeechTest.finish("replaced");
                 }
 
-                // getUserMedia로 AudioSession을 record 모드로 전환
-                // (TTS 직후 or 첫 사용 시에만 실행, 이후엔 micPermissionNeedsRecheck=false로 스킵)
-                const micOk = await ensureMicForSTT();
-                if (!micOk) {
-                    statusEl.textContent = "마이크 권한 확인 필요";
+                // 제스처 컨텍스트 유지를 위해: 준비 단계(await)는 이번 탭에서 끝내고, STT는 다음 탭에서 시작
+                if (micPermissionNeedsRecheck) {
+                    await prepareMicForNextSpeechTest(statusEl);
                     return;
                 }
 
