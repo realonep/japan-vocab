@@ -61,29 +61,6 @@
             transform: translateY(-1px);
         }
 
-        #mainApp.focus-mode tbody .focus-col-reading {
-            visibility: hidden !important;
-        }
-        #mainApp.focus-mode .focus-col-word .word-content {
-            visibility: hidden !important;
-        }
-        #mainApp.focus-mode .sentence-jp,
-        #mainApp.focus-mode .sentence-pron {
-            visibility: hidden !important;
-            pointer-events: none !important;
-        }
-        #mainApp.focus-mode .sentence-meaning {
-            color: #4b5563;
-            font-weight: 500;
-        }
-        #mainApp.focus-mode .sentence-meaning .sentence-meaning-text {
-            display: inline-block;
-            transform-origin: left top;
-            transform: scale(1.2);
-        }
-        #mainApp.focus-mode .sentence-meaning {
-            cursor: pointer;
-        }
         .sentence-wrap {
             position: relative;
         }
@@ -311,10 +288,6 @@
             pointer-events: none;
             z-index: 2;
         }
-        #mainApp.focus-mode .test-controls {
-            visibility: visible;
-            pointer-events: auto;
-        }
         .test-btn {
             border: 1px solid #000;
             background: #fff;
@@ -479,6 +452,33 @@
         /* ── sentence_forms 하부행 스타일 ── */
         .forms-sub-row td {
             background: #fafafa;
+        }
+
+        /* 뜻만 보기: form-row 일본어·발음 숨김 */
+        #mainApp.focus-mode .form-jp-text {
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+        #mainApp.focus-mode .form-pron-text {
+            visibility: hidden !important;
+        }
+        /* 변형 행 스피커: 뜻만 보기에서 숨김 */
+        #mainApp.focus-mode .form-play-btn {
+            display: none;
+        }
+        /* 변형 행 TEST: 기본 숨김 → 뜻만 보기에서만 표시 */
+        .form-test-btn {
+            display: none;
+            font-size: 0.75rem;
+            padding: 0.18rem 0.55rem;
+        }
+        #mainApp.focus-mode .form-test-btn {
+            display: inline-block;
+        }
+        /* 뜻만 보기에서 한글 뜻 클릭 커서 */
+        #mainApp.focus-mode .form-meaning-text {
+            cursor: pointer;
+            user-select: none;
         }
         .forms-sub-panel {
             border-top: 2px solid #111827;
@@ -2870,14 +2870,21 @@
                     subTr.className = 'forms-sub-row';
                     subTr.setAttribute('data-forms-for', item.yomi);
 
+                    const formStudyCount = getStudyCount(item.yomi, itemWeek);
+                    const formFailCount = getSpeechTestFailCount(itemWeek, item.yomi);
+
                     const formsHtml = forms.map(f => `
                         <div class="form-row">
                             <div class="flex items-start justify-between gap-2">
                                 <div class="min-w-0 flex-1">
-                                    <div><span class="form-label-chip">${f.label}</span></div>
+                                    <div class="flex items-center gap-1 flex-wrap">
+                                        <span class="form-label-chip">${f.label}</span>
+                                        <span class="text-xs font-bold text-blue-700 form-count-study">S ${formStudyCount}</span>
+                                        <span class="text-xs font-bold text-red-600 form-count-fail">F ${formFailCount}</span>
+                                    </div>
                                     <div class="font-bold text-black text-sm md:text-base form-jp-text" data-form-key="${f.key}">${escapeHtml(f.jp)}</div>
-                                    <div class="text-xs text-gray-500 mt-0.5">${escapeHtml(f.meaning_ko)}</div>
-                                    <div class="text-xs text-blue-500">${escapeHtml(f.pron_ko)}</div>
+                                    <div class="text-xs text-gray-500 mt-0.5 form-meaning-text">${escapeHtml(f.meaning_ko)}</div>
+                                    <div class="text-xs text-blue-500 form-pron-text">${escapeHtml(f.pron_ko)}</div>
                                 </div>
                                 <div class="flex flex-col items-end gap-0.5">
                                     <button
@@ -2915,6 +2922,15 @@
                         btn.onclick = () => {
                             const jp = btn.getAttribute('data-form-jp');
                             speak(jp, btn);
+                        };
+                    });
+
+                    // 뜻만 보기에서 한글 뜻 클릭 → TTS
+                    subTr.querySelectorAll('.form-meaning-text').forEach((el, i) => {
+                        const f = forms[i];
+                        el.onclick = () => {
+                            if (!mainApp.classList.contains('focus-mode')) return;
+                            speak(f.jp, el);
                         };
                     });
 
