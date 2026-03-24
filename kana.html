@@ -126,6 +126,132 @@
 
         @keyframes spin { to { transform: rotate(360deg); } }
         .loading-spinner { animation: spin 1s linear infinite; }
+
+        /* 퀴즈 패널 */
+        .quiz-panel { border: 2px solid #000; padding: 1rem 1.25rem; background: #fafafa; }
+        .quiz-panel-title { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 0.75rem; }
+        .quiz-options { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-bottom: 0.75rem; }
+        .quiz-options label { display: flex; align-items: center; gap: 0.35rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
+        .quiz-options input[type="radio"],
+        .quiz-options input[type="checkbox"] { accent-color: #000; width: 16px; height: 16px; cursor: pointer; }
+        .quiz-start-btn {
+            padding: 0.65rem 1.5rem; border: 2px solid #000; background: #000; color: #fff;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer;
+            font-size: 0.9rem; transition: background 0.15s;
+        }
+        .quiz-start-btn:hover { background: #333; }
+        .quiz-start-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        /* 퀴즈 뷰 */
+        .quiz-view { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+        .quiz-progress-wrap { width: 100%; max-width: 400px; text-align: center; }
+        .quiz-progress-text { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.35rem; }
+        .quiz-progress-bar { width: 100%; height: 6px; background: #e5e5e5; border-radius: 3px; overflow: hidden; }
+        .quiz-progress-fill { height: 100%; background: #000; transition: width 0.3s; }
+
+        /* 퀴즈 카드 */
+        .quiz-card {
+            width: 280px; height: 280px; border: 3px solid #000; display: flex;
+            flex-direction: column; align-items: center; justify-content: center;
+            gap: 0.5rem; background: #fff; position: relative; user-select: none;
+        }
+        .quiz-card-char { font-family: 'Noto Sans JP', sans-serif; font-weight: 700; font-size: 5rem; line-height: 1; }
+        .quiz-card-sub { font-size: 1.1rem; color: #666; font-weight: 600; }
+        .quiz-card .audio-btn-kana { position: absolute; bottom: 12px; right: 12px; }
+
+        /* 4지선다 */
+        .quiz-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; width: 280px; }
+        .quiz-choice-btn {
+            padding: 0.75rem 0.5rem; border: 2px solid #000; background: #fff;
+            font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.15s;
+            font-family: 'Noto Sans JP', 'Inter', sans-serif; text-align: center;
+        }
+        .quiz-choice-btn:hover { background: #f5f5f5; }
+        .quiz-choice-btn.correct { background: #22c55e; color: #fff; border-color: #22c55e; }
+        .quiz-choice-btn.wrong { background: #ef4444; color: #fff; border-color: #ef4444; }
+        .quiz-choice-btn:disabled { cursor: default; }
+
+        /* 피드백 */
+        .quiz-feedback { font-size: 1rem; font-weight: 700; min-height: 1.5em; text-align: center; }
+        .quiz-feedback.correct { color: #22c55e; }
+        .quiz-feedback.wrong { color: #ef4444; }
+
+        /* 결과 화면 */
+        .quiz-result { width: 100%; max-width: 400px; border: 2px solid #000; padding: 1.25rem; text-align: center; }
+        .quiz-result-title { font-size: 1.1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.75rem; }
+        .quiz-result-stats { font-size: 1rem; margin-bottom: 0.75rem; line-height: 1.8; }
+        .quiz-result-wrong { text-align: left; margin-bottom: 1rem; }
+        .quiz-result-wrong-title { font-size: 0.8rem; font-weight: 700; color: #666; text-transform: uppercase; margin-bottom: 0.35rem; }
+        .quiz-result-wrong-list { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+        .quiz-result-wrong-item { padding: 0.25rem 0.5rem; border: 1px solid #ef4444; color: #ef4444; font-weight: 600; font-size: 0.9rem; }
+        .quiz-result-btns { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+        .quiz-result-btn {
+            padding: 0.5rem 1rem; border: 2px solid #000; background: #fff;
+            font-weight: 700; cursor: pointer; font-size: 0.85rem; transition: all 0.15s;
+        }
+        .quiz-result-btn:hover { background: #000; color: #fff; }
+        .quiz-result-btn.primary { background: #000; color: #fff; }
+        .quiz-result-btn.primary:hover { background: #333; }
+
+        .top-wrong-area {
+            margin-top: 1rem; padding: 0.75rem 1rem;
+            border: 2px solid #e5e5e5; background: #fff;
+        }
+        .top-wrong-title {
+            font-size: 0.7rem; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 0.1em; color: #666; margin-bottom: 0.5rem;
+        }
+        .top-wrong-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.6rem; }
+        .top-wrong-item {
+            display: inline-flex; align-items: center; gap: 0.25rem;
+            padding: 0.3rem 0.6rem; border: 1.5px solid #000; background: #fafafa;
+            font-family: 'Noto Sans JP', sans-serif; font-weight: 700; font-size: 0.95rem;
+        }
+        .top-wrong-item .wrong-count {
+            font-size: 0.65rem; font-weight: 800; color: #ef4444;
+            background: #fef2f2; border-radius: 9999px; padding: 0.1rem 0.35rem;
+        }
+        .top-wrong-btn {
+            padding: 0.4rem 0.8rem; border: 2px solid #000; background: #fff;
+            font-weight: 700; cursor: pointer; font-size: 0.8rem; transition: all 0.15s;
+        }
+        .top-wrong-btn:hover { background: #000; color: #fff; }
+
+        .quiz-skip-btn {
+            width: 60%; padding: 0.5rem; margin-top: 0.35rem;
+            border: 2px solid #ff6b6b; background: #fff5f5; color: #e03131;
+            font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: all 0.15s;
+            border-radius: 6px;
+        }
+        .quiz-skip-btn:hover { background: #ffe3e3; border-color: #e03131; }
+        .quiz-skip-btn:disabled { cursor: default; opacity: 0.5; }
+
+        .wrong-overlay {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 0.25rem; background: rgba(255,255,255,0.92); z-index: 10;
+            animation: wrongPulse 0.5s ease-out;
+        }
+        .wrong-char {
+            font-family: 'Noto Sans JP', sans-serif; font-size: 3.5rem;
+            font-weight: 700; color: #ef4444; line-height: 1;
+        }
+        .wrong-info {
+            font-size: 1rem; color: #ef4444;
+        }
+        @keyframes wrongPulse {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 640px) {
+            .quiz-card { width: 240px; height: 240px; }
+            .quiz-card-char { font-size: 4rem; }
+            .quiz-choices { width: 240px; }
+            .quiz-choice-btn { font-size: 0.9rem; padding: 0.6rem 0.4rem; }
+            .quiz-panel { padding: 0.75rem 1rem; }
+        }
     </style>
 </head>
 <body class="p-4 md:p-10">
@@ -168,6 +294,45 @@
                 <strong>가타카나(カタカナ)</strong>는 외래어·의성어 등에 쓰이고, 각진 글자입니다.
                 둘 다 같은 50음도 체계를 공유하며, 청음(清音) → 탁음(濁音) → 반탁음(半濁音) 순으로 익히면 좋습니다.
             </p>
+        </section>
+
+        <!-- 퀴즈 컨트롤 패널 -->
+        <section id="quizPanel" class="quiz-panel">
+            <div class="quiz-panel-title">가나 퀴즈</div>
+            <div style="margin-bottom: 0.5rem;">
+                <div class="quiz-panel-title" style="font-size: 0.7rem; margin-bottom: 0.35rem;">퀴즈 유형</div>
+                <div class="quiz-options">
+                    <label><input type="radio" name="quizMode" value="h2rk" checked> ひ→읽기</label>
+                    <label><input type="radio" name="quizMode" value="k2rk"> カ→읽기</label>
+                    <label><input type="radio" name="quizMode" value="r2hk"> 로마자→문자</label>
+                    <label><input type="radio" name="quizMode" value="kr2hk"> 한글→문자</label>
+                </div>
+            </div>
+            <div style="margin-bottom: 0.75rem;">
+                <div class="quiz-panel-title" style="font-size: 0.7rem; margin-bottom: 0.35rem;">범위</div>
+                <div class="quiz-options">
+                    <label><input type="checkbox" name="quizSection" value="0" checked> 청음</label>
+                    <label><input type="checkbox" name="quizSection" value="1" checked> 탁음</label>
+                    <label><input type="checkbox" name="quizSection" value="2" checked> 반탁음</label>
+                </div>
+            </div>
+            <button id="quizStartBtn" class="quiz-start-btn">퀴즈 시작</button>
+            <div id="topWrongArea"></div>
+        </section>
+
+        <!-- 퀴즈 뷰 (기본 숨김) -->
+        <section id="quizView" class="quiz-view" style="display:none;">
+            <div class="quiz-progress-wrap">
+                <div id="quizProgressText" class="quiz-progress-text">1 / 46</div>
+                <div class="quiz-progress-bar"><div id="quizProgressFill" class="quiz-progress-fill" style="width:0%"></div></div>
+            </div>
+            <div id="quizCard" class="quiz-card">
+                <div id="quizCardChar" class="quiz-card-char"></div>
+                <div id="quizCardSub" class="quiz-card-sub"></div>
+            </div>
+            <div id="quizChoices" class="quiz-choices" style="display:none;"></div>
+            <div id="quizFeedback" class="quiz-feedback"></div>
+            <div id="quizResult" class="quiz-result" style="display:none;"></div>
         </section>
 
         <div id="kanaSections"></div>
@@ -361,6 +526,550 @@
                     TTS.setVoice(voiceSelect.value);
                 }
             }
+
+            // === 효과음 ===
+            var QuizSFX = (function() {
+                var ctx;
+                function getCtx() {
+                    if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+                    return ctx;
+                }
+                return {
+                    correct: function() {
+                        var c = getCtx(), t = c.currentTime;
+                        var osc = c.createOscillator();
+                        var gain = c.createGain();
+                        osc.connect(gain); gain.connect(c.destination);
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(523, t);
+                        osc.frequency.setValueAtTime(659, t + 0.1);
+                        gain.gain.setValueAtTime(0.18, t);
+                        gain.gain.exponentialRampToValueAtTime(0.01, t + 0.25);
+                        osc.start(t); osc.stop(t + 0.25);
+                    },
+                    wrong: function() {
+                        var c = getCtx(), t = c.currentTime;
+                        var osc = c.createOscillator();
+                        var gain = c.createGain();
+                        osc.connect(gain); gain.connect(c.destination);
+                        osc.type = 'square';
+                        osc.frequency.setValueAtTime(330, t);
+                        osc.frequency.setValueAtTime(220, t + 0.15);
+                        gain.gain.setValueAtTime(0.12, t);
+                        gain.gain.exponentialRampToValueAtTime(0.01, t + 0.3);
+                        osc.start(t); osc.stop(t + 0.3);
+                    }
+                };
+            })();
+
+            // === 퀴즈 기능 ===
+
+            // 퀴즈 상태
+            var quizState = {
+                active: false,
+                pool: [],        // 출제 문제만
+                choicePool: [],  // 보기 생성용 (pool 포함 + 추가 아이템)
+                currentIndex: 0,
+                mode: 'h2rk',
+                sections: [0, 1, 2],
+                stats: { correct: 0, wrong: 0 },
+                wrongItems: [],
+                answered: false
+            };
+
+            // 데이터 준비
+            function buildQuizPool(sections) {
+                var pool = [];
+                sections.forEach(function(si) {
+                    if (!KANA_DATA[si]) return;
+                    KANA_DATA[si].rows.forEach(function(row) {
+                        row.cells.forEach(function(cell) {
+                            if (cell) pool.push(cell);
+                        });
+                    });
+                });
+                return pool;
+            }
+
+            function shuffleArray(arr) {
+                for (var i = arr.length - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+                }
+                return arr;
+            }
+
+            function generateChoices(correctItem, pool, mode) {
+                var correctLabel = getChoiceLabel(correctItem, mode);
+                var choices = [correctItem];
+                var available = pool.filter(function(p) {
+                    return p !== correctItem && getChoiceLabel(p, mode) !== correctLabel;
+                });
+                shuffleArray(available);
+                for (var i = 0; i < Math.min(3, available.length); i++) {
+                    choices.push(available[i]);
+                }
+                return shuffleArray(choices);
+            }
+
+            function getQuestionDisplay(item, mode) {
+                switch (mode) {
+                    case 'h2rk': return { char: item.h, sub: '' };
+                    case 'k2rk': return { char: item.k, sub: '' };
+                    case 'r2hk': return { char: item.r, sub: '' };
+                    case 'kr2hk': return { char: item.kr, sub: '' };
+                }
+            }
+
+            function getChoiceLabel(item, mode) {
+                switch (mode) {
+                    case 'h2rk':
+                    case 'k2rk':
+                        return item.r + ' (' + item.kr + ')';
+                    case 'r2hk':
+                    case 'kr2hk':
+                        return item.h + ' / ' + item.k;
+                }
+            }
+
+            // localStorage
+            var STATS_KEY = 'kana-quiz-stats';
+            function loadStats() {
+                try { return JSON.parse(localStorage.getItem(STATS_KEY)) || {}; } catch(e) { return {}; }
+            }
+            function saveStats() {
+                var saved = loadStats();
+                if (!saved.history) saved.history = {};
+                quizState.pool.forEach(function(item, i) {
+                    var key = item.h;
+                    if (!saved.history[key]) saved.history[key] = { correct: 0, wrong: 0 };
+                });
+                // 이번 퀴즈 결과 반영
+                quizState.pool.forEach(function(item) {
+                    var key = item.h;
+                    if (!saved.history[key]) saved.history[key] = { correct: 0, wrong: 0 };
+                });
+                quizState.wrongItems.forEach(function(item) {
+                    saved.history[item.h].wrong++;
+                });
+                // 정답 아이템 카운트
+                var wrongSet = new Set(quizState.wrongItems.map(function(it) { return it.h; }));
+                quizState.pool.forEach(function(item) {
+                    if (!wrongSet.has(item.h)) {
+                        if (!saved.history[item.h]) saved.history[item.h] = { correct: 0, wrong: 0 };
+                        saved.history[item.h].correct++;
+                    }
+                });
+                saved.lastMode = quizState.mode;
+                saved.lastSections = quizState.sections;
+                localStorage.setItem(STATS_KEY, JSON.stringify(saved));
+            }
+
+            // 히라가나 키로 KANA_DATA에서 아이템 검색
+            function findKanaByH(h) {
+                for (var si = 0; si < KANA_DATA.length; si++) {
+                    var rows = KANA_DATA[si].rows;
+                    for (var ri = 0; ri < rows.length; ri++) {
+                        var cells = rows[ri].cells;
+                        for (var ci = 0; ci < cells.length; ci++) {
+                            if (cells[ci] && cells[ci].h === h) return cells[ci];
+                        }
+                    }
+                }
+                return null;
+            }
+
+            // 오답 횟수 상위 n개 반환
+            function getTopWrong(n) {
+                var saved = loadStats();
+                if (!saved.history) return [];
+                var items = [];
+                Object.keys(saved.history).forEach(function(key) {
+                    var entry = saved.history[key];
+                    if (entry.wrong > 0) {
+                        var kana = findKanaByH(key);
+                        if (kana) items.push({ item: kana, wrong: entry.wrong });
+                    }
+                });
+                items.sort(function(a, b) { return b.wrong - a.wrong; });
+                return items.slice(0, n);
+            }
+
+            // Top5 오답 UI 렌더링
+            function renderTopWrong() {
+                var area = document.getElementById('topWrongArea');
+                if (!area) return;
+                var topItems = getTopWrong(5);
+                if (topItems.length === 0) {
+                    area.innerHTML = '';
+                    return;
+                }
+                var html = '<div class="top-wrong-area">';
+                html += '<div class="top-wrong-title">자주 틀리는 문자</div>';
+                html += '<div class="top-wrong-list">';
+                topItems.forEach(function(entry) {
+                    html += '<span class="top-wrong-item">' + entry.item.h;
+                    html += ' <span class="wrong-count">' + entry.wrong + '회</span></span>';
+                });
+                html += '</div>';
+                html += '<button class="top-wrong-btn" id="topWrongReviewBtn">이것만 복습</button>';
+                html += '</div>';
+                area.innerHTML = html;
+
+                document.getElementById('topWrongReviewBtn').addEventListener('click', function() {
+                    var mode = document.querySelector('input[name="quizMode"]:checked').value;
+                    var sections = [];
+                    document.querySelectorAll('input[name="quizSection"]:checked').forEach(function(cb) {
+                        sections.push(parseInt(cb.value));
+                    });
+                    var pool = topItems.map(function(entry) { return entry.item; });
+                    if (pool.length < 4) {
+                        // 보기 생성용 최소 아이템이 필요하므로 전체 범위 확인
+                        var fullPool = buildQuizPool(sections.length > 0 ? sections : [0, 1, 2]);
+                        if (fullPool.length < 4) {
+                            alert('문제가 부족합니다.');
+                            return;
+                        }
+                        quizState.choicePool = fullPool;
+                    } else {
+                        quizState.choicePool = buildQuizPool(sections.length > 0 ? sections : [0, 1, 2]);
+                    }
+
+                    quizState.active = true;
+                    quizState.pool = shuffleArray(pool);
+                    quizState.currentIndex = 0;
+                    quizState.mode = mode;
+                    quizState.sections = sections.length > 0 ? sections : [0, 1, 2];
+                    quizState.stats = { correct: 0, wrong: 0 };
+                    quizState.wrongItems = [];
+                    quizState.answered = false;
+
+                    var quizPanel = document.getElementById('quizPanel');
+                    var kanaSections = document.getElementById('kanaSections');
+                    var specialSection = kanaSections.nextElementSibling;
+                    var quizView = document.getElementById('quizView');
+                    var quizResult = document.getElementById('quizResult');
+                    var quizCard = document.getElementById('quizCard');
+
+                    quizPanel.style.display = 'none';
+                    kanaSections.style.display = 'none';
+                    if (specialSection) specialSection.style.display = 'none';
+                    quizView.style.display = 'flex';
+                    quizResult.style.display = 'none';
+                    quizCard.style.display = 'flex';
+
+                    renderQuestion();
+                });
+            }
+
+            // 마지막 설정 복원
+            function restoreLastSettings() {
+                var saved = loadStats();
+                if (saved.lastMode) {
+                    var radio = document.querySelector('input[name="quizMode"][value="' + saved.lastMode + '"]');
+                    if (radio) radio.checked = true;
+                }
+                if (saved.lastSections) {
+                    document.querySelectorAll('input[name="quizSection"]').forEach(function(cb) {
+                        cb.checked = saved.lastSections.indexOf(parseInt(cb.value)) >= 0;
+                    });
+                }
+            }
+            restoreLastSettings();
+            renderTopWrong();
+
+            // DOM 요소
+            var quizPanel = document.getElementById('quizPanel');
+            var quizView = document.getElementById('quizView');
+            var quizStartBtn = document.getElementById('quizStartBtn');
+            var quizCard = document.getElementById('quizCard');
+            var quizCardChar = document.getElementById('quizCardChar');
+            var quizCardSub = document.getElementById('quizCardSub');
+            var quizChoicesEl = document.getElementById('quizChoices');
+            var quizFeedback = document.getElementById('quizFeedback');
+            var quizResult = document.getElementById('quizResult');
+            var quizProgressText = document.getElementById('quizProgressText');
+            var quizProgressFill = document.getElementById('quizProgressFill');
+            var kanaSections = document.getElementById('kanaSections');
+            var specialSection = kanaSections.nextElementSibling; // 특수음 섹션
+
+            // 퀴즈 시작
+            function startQuiz() {
+                var mode = document.querySelector('input[name="quizMode"]:checked').value;
+                var sections = [];
+                document.querySelectorAll('input[name="quizSection"]:checked').forEach(function(cb) {
+                    sections.push(parseInt(cb.value));
+                });
+                if (sections.length === 0) {
+                    alert('범위를 최소 1개 선택하세요.');
+                    return;
+                }
+                var pool = buildQuizPool(sections);
+                if (pool.length < 4) {
+                    alert('문제가 부족합니다.');
+                    return;
+                }
+
+                quizState.active = true;
+                quizState.pool = shuffleArray(pool);
+                quizState.choicePool = pool.slice();
+                quizState.currentIndex = 0;
+                quizState.mode = mode;
+                quizState.sections = sections;
+                quizState.stats = { correct: 0, wrong: 0 };
+                quizState.wrongItems = [];
+                quizState.answered = false;
+
+                // 뷰 전환
+                quizPanel.style.display = 'none';
+                kanaSections.style.display = 'none';
+                if (specialSection) specialSection.style.display = 'none';
+                quizView.style.display = 'flex';
+                quizResult.style.display = 'none';
+                quizCard.style.display = 'flex';
+
+                renderQuestion();
+            }
+
+            // 퀴즈 종료
+            function endQuiz() {
+                quizState.active = false;
+                quizView.style.display = 'none';
+                quizPanel.style.display = '';
+                kanaSections.style.display = '';
+                if (specialSection) specialSection.style.display = '';
+                renderTopWrong();
+            }
+
+            // 문제 렌더링
+            function renderQuestion() {
+                if (quizState.currentIndex >= quizState.pool.length) {
+                    showResult();
+                    return;
+                }
+                quizState.answered = false;
+                var item = quizState.pool[quizState.currentIndex];
+                var display = getQuestionDisplay(item, quizState.mode);
+
+                // 진행바
+                quizProgressText.textContent = (quizState.currentIndex + 1) + ' / ' + quizState.pool.length;
+                quizProgressFill.style.width = ((quizState.currentIndex / quizState.pool.length) * 100) + '%';
+
+                // 이전 오답 오버레이 제거
+                var oldOverlay = quizCard.querySelector('.wrong-overlay');
+                if (oldOverlay) oldOverlay.remove();
+
+                // 카드
+                quizCardChar.textContent = display.char;
+                quizCardSub.textContent = display.sub;
+
+                // TTS 버튼 — 카드 내 기존 버튼 제거 후 재생성
+                var oldTts = quizCard.querySelector('.audio-btn-kana');
+                if (oldTts) oldTts.remove();
+                var ttsBtn = createTTSButton(item.h);
+                quizCard.appendChild(ttsBtn);
+
+                // 피드백 초기화
+                quizFeedback.textContent = '';
+                quizFeedback.innerHTML = '';
+                quizFeedback.className = 'quiz-feedback';
+
+                // 이전 "모름" 버튼 제거
+                var oldSkip = quizChoicesEl.parentNode.querySelector('.quiz-skip-btn');
+                if (oldSkip) oldSkip.remove();
+
+                showChoices();
+            }
+
+            // 4지선다 표시
+            function showChoices() {
+                quizChoicesEl.style.display = 'grid';
+                var item = quizState.pool[quizState.currentIndex];
+                var choices = generateChoices(item, quizState.choicePool, quizState.mode);
+
+                quizChoicesEl.innerHTML = '';
+                choices.forEach(function(choice, idx) {
+                    var btn = document.createElement('button');
+                    btn.className = 'quiz-choice-btn';
+                    btn.textContent = getChoiceLabel(choice, quizState.mode);
+                    btn.dataset.index = idx;
+                    btn.dataset.correct = (choice === item) ? '1' : '0';
+                    btn.addEventListener('click', function() {
+                        if (quizState.answered) return;
+                        selectAnswer(btn, choice === item, item);
+                    });
+                    quizChoicesEl.appendChild(btn);
+                });
+
+                // "모름" 버튼
+                var skipBtn = document.createElement('button');
+                skipBtn.className = 'quiz-skip-btn';
+                skipBtn.textContent = '모름';
+                skipBtn.addEventListener('click', function() {
+                    if (quizState.answered) return;
+                    selectAnswer(skipBtn, false, item);
+                });
+                quizChoicesEl.parentNode.insertBefore(skipBtn, quizChoicesEl.nextSibling);
+            }
+
+            // 4지선다 정답 처리
+            function selectAnswer(btn, isCorrect, correctItem) {
+                quizState.answered = true;
+                var allBtns = quizChoicesEl.querySelectorAll('.quiz-choice-btn');
+                allBtns.forEach(function(b) { b.disabled = true; });
+
+                // "모름" 버튼도 비활성화
+                var skipBtn = quizChoicesEl.parentNode.querySelector('.quiz-skip-btn');
+                if (skipBtn) skipBtn.disabled = true;
+
+                if (isCorrect) {
+                    btn.classList.add('correct');
+                    quizState.stats.correct++;
+                    quizFeedback.textContent = '정답!';
+                    quizFeedback.className = 'quiz-feedback correct';
+                    QuizSFX.correct();
+                    // TTS 1회 재생 후 다음 문제
+                    var ttsBtn = quizCard.querySelector('.audio-btn-kana') || document.createElement('button');
+                    if (typeof TTS !== 'undefined' && TTS.speak) {
+                        TTS.speak(correctItem.h, ttsBtn, 'ai');
+                    }
+                    advanceToNext(1500);
+                } else {
+                    btn.classList.add('wrong');
+                    quizState.stats.wrong++;
+                    quizState.wrongItems.push(correctItem);
+                    // 정답 버튼 표시
+                    allBtns.forEach(function(b) {
+                        if (b.dataset.correct === '1') b.classList.add('correct');
+                    });
+                    QuizSFX.wrong();
+                    // 카드 위에 오답 오버레이 표시
+                    var overlay = document.createElement('div');
+                    overlay.className = 'wrong-overlay';
+                    overlay.innerHTML = '<span class="wrong-char">' + correctItem.h + '</span>'
+                        + '<span class="wrong-info">' + correctItem.r + ' (' + correctItem.kr + ')</span>';
+                    quizCard.appendChild(overlay);
+                    // 피드백은 간단한 텍스트만
+                    quizFeedback.textContent = '오답';
+                    quizFeedback.className = 'quiz-feedback wrong';
+                    // TTS 2회 재생 (즉시 1회 + 1.5초 후 1회)
+                    var ttsBtn = quizCard.querySelector('.audio-btn-kana') || document.createElement('button');
+                    if (typeof TTS !== 'undefined' && TTS.speak) {
+                        TTS.speak(correctItem.h, ttsBtn, 'ai');
+                        setTimeout(function() { TTS.speak(correctItem.h, ttsBtn, 'ai'); }, 1500);
+                    }
+                    advanceToNext(4000);
+                }
+            }
+
+            // 다음 문제
+            function advanceToNext(delay) {
+                setTimeout(function() {
+                    if (!quizState.active) return;
+                    quizState.currentIndex++;
+                    renderQuestion();
+                }, delay);
+            }
+
+            // 결과 화면
+            function showResult() {
+                saveStats();
+                var oldOverlay = quizCard.querySelector('.wrong-overlay');
+                if (oldOverlay) oldOverlay.remove();
+                quizCard.style.display = 'none';
+                quizChoicesEl.style.display = 'none';
+                quizFeedback.textContent = '';
+                quizFeedback.innerHTML = '';
+                var oldSkip = quizChoicesEl.parentNode.querySelector('.quiz-skip-btn');
+                if (oldSkip) oldSkip.remove();
+                quizProgressFill.style.width = '100%';
+                quizProgressText.textContent = quizState.pool.length + ' / ' + quizState.pool.length;
+
+                var total = quizState.stats.correct + quizState.stats.wrong;
+                var pct = total > 0 ? Math.round((quizState.stats.correct / total) * 100) : 0;
+
+                var html = '<div class="quiz-result-title">퀴즈 결과</div>';
+                html += '<div class="quiz-result-stats">';
+                html += '총 <strong>' + total + '</strong>문제 &nbsp;|&nbsp; ';
+                html += '정답 <strong style="color:#22c55e">' + quizState.stats.correct + '</strong> &nbsp;|&nbsp; ';
+                html += '오답 <strong style="color:#ef4444">' + quizState.stats.wrong + '</strong><br>';
+                html += '정답률 <strong>' + pct + '%</strong>';
+                html += '</div>';
+
+                if (quizState.wrongItems.length > 0) {
+                    html += '<div class="quiz-result-wrong">';
+                    html += '<div class="quiz-result-wrong-title">틀린 문자</div>';
+                    html += '<div class="quiz-result-wrong-list">';
+                    quizState.wrongItems.forEach(function(item) {
+                        var display;
+                        switch (quizState.mode) {
+                            case 'h2rk': display = item.h + ' (' + item.r + ')'; break;
+                            case 'k2rk': display = item.k + ' (' + item.r + ')'; break;
+                            default:     display = item.h + ' / ' + item.k + ' (' + item.r + ')';
+                        }
+                        html += '<span class="quiz-result-wrong-item">' + display + '</span>';
+                    });
+                    html += '</div></div>';
+                }
+
+                html += '<div class="quiz-result-btns">';
+                html += '<button class="quiz-result-btn primary" onclick="document.getElementById(\'quizRetryAll\').click()">다시 풀기</button>';
+                if (quizState.wrongItems.length > 0) {
+                    html += '<button class="quiz-result-btn" onclick="document.getElementById(\'quizRetryWrong\').click()">틀린 것만 다시</button>';
+                }
+                html += '<button class="quiz-result-btn" onclick="document.getElementById(\'quizEnd\').click()">퀴즈 종료</button>';
+                html += '</div>';
+                // 숨겨진 버튼 (이벤트 바인딩용)
+                html += '<button id="quizRetryAll" style="display:none"></button>';
+                html += '<button id="quizRetryWrong" style="display:none"></button>';
+                html += '<button id="quizEnd" style="display:none"></button>';
+
+                quizResult.innerHTML = html;
+                quizResult.style.display = '';
+
+                document.getElementById('quizRetryAll').addEventListener('click', function() {
+                    quizResult.style.display = 'none';
+                    quizCard.style.display = 'flex';
+                    quizState.pool = shuffleArray(quizState.pool);
+                    quizState.choicePool = quizState.pool.slice();
+                    quizState.currentIndex = 0;
+                    quizState.stats = { correct: 0, wrong: 0 };
+                    quizState.wrongItems = [];
+                    quizState.answered = false;
+                    renderQuestion();
+                });
+
+                document.getElementById('quizRetryWrong').addEventListener('click', function() {
+                    quizState.pool = shuffleArray(quizState.wrongItems.slice()); // 출제는 틀린 것만
+                    quizState.choicePool = buildQuizPool(quizState.sections);    // 보기 풀은 전체 범위
+                    quizResult.style.display = 'none';
+                    quizCard.style.display = 'flex';
+                    quizState.currentIndex = 0;
+                    quizState.stats = { correct: 0, wrong: 0 };
+                    quizState.wrongItems = [];
+                    quizState.answered = false;
+                    renderQuestion();
+                });
+
+                document.getElementById('quizEnd').addEventListener('click', function() {
+                    endQuiz();
+                });
+            }
+
+            // 이벤트 바인딩
+            quizStartBtn.addEventListener('click', startQuiz);
+
+            // 키보드 단축키
+            document.addEventListener('keydown', function(e) {
+                if (!quizState.active || quizState.answered) return;
+                if (quizChoicesEl.style.display !== 'none') {
+                    var num = parseInt(e.key);
+                    if (num >= 1 && num <= 4) {
+                        var btns = quizChoicesEl.querySelectorAll('.quiz-choice-btn');
+                        if (btns[num - 1]) btns[num - 1].click();
+                    }
+                }
+            });
         })();
     </script>
 </body>
